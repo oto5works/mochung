@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "eco-emissary-392608",
+  "private_key_id": "7d2f19b067c40c3dcc46eb50599135a08c62ab79",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDGBaJ/uGlk6VaT\nTdhWdYkmEWZOkjMa7WnWdfD+RmzIJoj9Jwv4aPB82tUGUCLVb5ALIH5GqkuXyXCl\n7aNTLUnBaHP36mJ8fMzECjyHWrqKgLVuXngcxiT+/my+StIZFHS/xhEOSdEirpZ7\nyOdR+tz8Iyb9oVN9kq04UcFyHmVbg/cNEWQq7k6SQpTIxkZbJP8pKMCh1q/6huC3\n0V3wtslO1fg3aZwukCJmaYiLs9PmK5UTJV20FGrOFNZBWoBooHoiEOoEFzEhyB8+\n2BSIyE/7ULaaG5TI/qCWY28Yb3R+8J1ok9kRlPHpRi52J7VkzyhHdghe5Puy8KiK\nh90iLs4FAgMBAAECggEAA5xIMMnLutA0qNBnSfea0Hkfk1NVP7UwSWhSmcxDwP16\nNhq/ZuArnFcqwaf14/baBT3qgil/jIJa0werbew6N0l12IFrRMegvc/4TQ58LrjM\ni2PeZEXqQu+gIMhr9BLxqFUj6/hav2YNWS9EpR5svOMmMO3Uqso2bXuzdNF1jyQn\nXTZ58ab8lnrBGCGPCta69GGhACrRs+oTJfGA74G+Mi7er+Mm67BrF7Dob1Bfrdp2\nJRf8fgWfyg6MjN3oG2fE+zMelgboY5fdIn77Nw+6ZfRyyd4me9ivRC9pXb1KbcXx\ndKMbCzomEF+nCOgdno80k9QjoPOmy1ZkD6d/zhqRMQKBgQDhOaRoicZmDTTnYuHN\nYfiWFG+u+Sp2UA1ncPAdcpC1UNxKMUvYyWVNklz89Ru+zVdQpEcIM87F296gZaZ7\nl6eXOUKJOj/zN7p6Jn0TyjcGagxDYvKlx3ZD7yha02YaBXoom2DfInCP6bOopEM2\nK1E4464usCn/YFVcwJkV/LRe1QKBgQDhFG2ua/MivzfLqo9BvS5iBdVI58Bx/zf9\n7H3DUf6mZ+c/RxVlPBFLUNgeWWpux5DoIxIOA6Xutp2zlQNPt0Wb4JcBy3d+gfei\n6U4Dku2ZHmVNPrUGgHPAtrmhh3idklwlFjTZDFzTk7EAET1rUPQBjqdiVLUBbl1d\nz6IEV/oqcQKBgDzpFemfuSRIVhJtz5t3737HMB0mDbHJnJZpGMceALzIjYsTIewT\nK257MuLGdyZ26jJI+1zghf9Eo0TFuOyb6xsexTvPoRPp8miumA0OFyuI6qAe1ni3\nJOjieQt3OJm4+XyZ6Ozvp3mEPq5RHkw8Es9L5AOEaRdDulJHVB96JF2xAoGBALK4\n7OrODu7tVVmkYkJ5/MWbCiPs2fPrC0PWsHoStpjd8lJdmFCdZMIgPKvEpm22i4q4\nplJ4dR7a5Ng/H7UBuwUuTdn//S939fHnPao61e16pEe03jt+bet9bGMl1hGQsRhF\nzMr4NRFPugFqrxFy434FD0ZWKrArOXoPMAAw95URAoGBALekHDmfbMUy2vncZCX1\njRLQDhzsm/bcEFUInfl9a7Avo+gNj6rcWMFlibTpSr55S/61/h+G3g9MoW5XAYOL\nxQzdPUnYn4Rb0BQBFyaZ0eQKzQ5s3yz3U7XyHIWCggWtgKheblR69niPdeIxJJca\nT4L9OEa8lq5S+setVZ9LG6/3\n-----END PRIVATE KEY-----\n",
+  "client_email": "nodebird@eco-emissary-392608.iam.gserviceaccount.com",
+  "client_id": "116237563913731071736",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/nodebird%40eco-emissary-392608.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

@@ -1,0 +1,148 @@
+.v-btn {
+  letter-spacing: normal;
+}
+button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+button span,
+.button-defaulted span,
+.button-card span,
+.button-modify span { font-size: 14px }
+.button-defaulted svg,
+.button-card svg,
+.button-modify svg { width: 24px; height: 24px; }
+.button-icon {
+    width: 20px;
+    height: 20px;
+}
+.button-icon svg {
+    width: 100%;
+    height: 100%;
+}
+.button-unselected { 
+  opacity: .4;
+  &:hover {
+    opacity: 1;
+  }
+}
+.button-unselected.selected { opacity: 1 }
+/*
+.button-reverse {
+  background-color: var(--po-po-tr);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  border-style: var(--border-style);
+  border-width: 1px;
+  -webkit-box-shadow: var(--box-shadow-2) var(--po-po-pc); 
+  box-shadow: var(--box-shadow-2) var(--po-po-pc); 
+}
+*/
+.button-defaulted {
+  position: relative;
+  background: var(--pc-pc-tr);
+  border-color: var(--po-po-pc);
+  color: var(--po-po-pc);
+  border-style: var(--border-style);
+  border-width: 1px;
+  -webkit-box-shadow: var(--box-shadow-2) var(--primary-color); 
+  box-shadow: var(--box-shadow-2) var(--primary-color); 
+}
+/*
+.card .button-defaulted {
+  position: relative;
+  background: var(--po-pc-tr);
+  border-color: var(--pc-po-pc);
+  color: var(--pc-po-pc);
+  border-style: var(--border-style);
+  border-width: 1px;
+  -webkit-box-shadow: var(--box-shadow-2) var(--po-pc-pc); 
+  box-shadow: var(--box-shadow-2) var(--po-pc-pc); 
+}
+.card .button-icon {
+  color: var(--po-pc-pc);
+}
+*/
+  .button-modify {
+    color: var(--primary-color);
+  }
+  .button-modify span {
+    color: inherit;
+    padding-bottom: 3px;
+    border-bottom-width: 1px;
+    border-bottom-style:  solid;
+    border-bottom-color: var(--primary-color);
+  }
+
+  
+
+  // 네이버맵
+.navermap {
+  background-color: rgb(0,209,14);
+  color: white;
+}
+// 카카오
+.kakao {
+  background-color: rgb(255,223,0);
+  color: #017afd;
+}
+.tmap {
+  background-image: url('https://jwpggit.github.io/storage/image/card/tmap.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+button.selected span::before,
+button.selected span::after {
+  position: absolute;
+  display: block;
+  content:'';
+  top: 2px;
+  left: 24px;
+  width: 14px;
+  height: 14px;
+}
+
+button.selected span::before {
+  background-color: var(--primary-on);
+  border-radius: 14px;
+  border: 1px solid var(--primary-color);
+}
+button.selected span::after {
+  background-color: var(--primary-color);
+  -webkit-mask-image: url('https://jwpggit.github.io/storage/image/card/check.svg');
+  mask-image: url('https://jwpggit.github.io/storage/image/card/check.svg');
+  background-size:cover;
+}
+
+.button-color {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.button-tapdelete {
+  position: absolute;
+  display: none;
+  top: 0px;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  background-color: var(--primary-on);
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius-16);
+  z-index: 1;
+}
+.button-tapdelete svg{
+  width: 12px;
+  height: 12px;
+}
+.button-editor svg {
+  width: 20px;
+  height: 20px;
+}

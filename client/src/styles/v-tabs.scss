@@ -1,0 +1,42 @@
+.v-slide-group__container {
+}
+.v-tab.v-tab {
+    --v-btn-height: 40px;
+    border-radius: var(--border-radius-32)!important;
+    color: var(--primary-color);
+}
+.v-slide-group__content .v-btn .v-btn__content span {
+    opacity: 0.4;
+    color: var(--font-color);
+}
+.v-slide-group__content .v-slide-group-item--active .v-btn__content span {
+    opacity: 1;
+    color: var(--po-po-pc);
+}
+.v-tab__slider {
+    height: var(--40px-40px-1px);
+    display: block;
+    background: var(--primary-color);
+    border-radius: var(--border-radius-32)!important;
+    border-width: var(--1px-1px-0px);
+    border-style: var(--border-style);
+    border-color: var(--primary-on);
+}
+.v-btn__content span {
+    z-index: 1;
+}
+.v-slide-group-item--active .v-btn__content span {
+    color: var(--po-po-pc);
+}
+.v-slide-group__content {
+    justify-content: var(--justify-content);
+}
+.v-slide-group__next, .v-slide-group__prev,
+.v-slide-group__next--disabled, .v-slide-group__prev--disabled {
+    display: none;
+}
+
+.v-slide-group-item--active .button-tapdelete {
+    display: flex;
+}
+

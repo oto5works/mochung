@@ -1,0 +1,243 @@
+// url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/TTTtangsbudaejjigaeB.woff2') format('woff2');
+
+h1,h2,h3,h4,h5,h6 {
+  color: inherit;
+}
+// 대타이틀
+h1 { font-size: 28px; line-height: 130%; }
+// 중타이틀
+h2 { font-size: 24px; line-height: 150%; }
+// 소타이틀
+h3 { font-size: 18px; line-height: 167%; }
+// 뭔가 하나만 있을경우
+h4 { font-size: 16px; line-height: 167%; }
+// 본문
+p { font-size: 15px; line-height: 170%; }
+h5 { font-size: 14px; line-height: 170%; }
+// 작은요소
+h6 { font-size: 12px; line-height: 170%; letter-spacing: 0; }
+
+
+.mobile h5 { line-height: 143%;}
+
+
+
+
+.normal {
+  font-weight: 400;
+}
+.bold {
+  font-weight: 700!important;
+}
+.underline {
+  text-decoration: underline;
+}
+.text-right {
+  text-align: right;
+}
+mark {
+  box-decoration-break: clone;
+  background-color: var(--primary-color);
+  color: var(--primary-on);
+}
+u {
+  text-decoration: underline;
+}
+strong {
+  font-weight: 700;
+}
+  // 스포카 한 산스 Light
+  @font-face {
+    font-family: 'SpoqaHanSansLight';
+    src: url('https://jwpggit.github.io/storage/font/SpoqaHanSans-L.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'SpoqaHanSansLight';
+    src: url('https://jwpggit.github.io/storage/font/SpoqaHanSans-R.woff2') format('woff2');
+    font-style: bold;
+    font-weight: 700;
+  }
+  // 스포카 한 산스
+  @font-face {
+    font-family: 'SpoqaHanSans';
+    src: url('https://jwpggit.github.io/storage/font/SpoqaHanSans-R.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'SpoqaHanSans';
+    src: url('https://jwpggit.github.io/storage/font/SpoqaHanSans-B.woff2') format('woff2');
+    font-style: bold;
+    font-weight: 700;
+  }
+  // 순바탕체 Light
+  @font-face {
+    font-family: 'SunBatangLight';
+    src: url('https://jwpggit.github.io/storage/font/SunBatang-L.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'SunBatangLight';
+    src: url('https://jwpggit.github.io/storage/font/SunBatang-R.woff2') format('woff2');
+    font-style: bold;
+    font-weight: 700;
+  }
+  // 순바탕체
+  @font-face {
+    font-family: 'SunBatang';
+    src: url('https://jwpggit.github.io/storage/font/SunBatang-R.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'SunBatang';
+    src: url('https://jwpggit.github.io/storage/font/SunBatang-B.woff2') format('woff2');
+    font-style: bold;
+    font-weight: 700;
+  }
+  // 둘기마요체
+  @font-face {
+    font-family: 'DoveMayo';
+    src: url('https://jwpggit.github.io/storage/font/DoveMayo-R.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'DoveMayo';
+    src: url('https://jwpggit.github.io/storage/font/DoveMayo-B.woff2') format('woff2');
+    font-style: bold;
+    font-weight: 700;
+  }
+  // 마포꽃섬체
+  @font-face {
+    font-family: 'MapoFlower';
+    src: url('https://jwpggit.github.io/storage/font/MapoFlower-R.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'MapoFlower';
+    src: url('https://jwpggit.github.io/storage/font/MapoFlower-B.woff2') format('woff2');
+    font-style: bold;
+    font-weight: 700;
+  }
+  // 비씨카드체
+  @font-face {
+    font-family: 'BCCard';
+    src: url('https://jwpggit.github.io/storage/font/BCCard-R.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'BCCard';
+    src: url('https://jwpggit.github.io/storage/font/BCCard-B.woff2') format('woff2');
+    font-style: bold;
+    font-weight: 700;
+  }
+  // 강원교육모두체
+  @font-face {
+    font-family: 'GangwonEdu';
+    src: url('https://jwpggit.github.io/storage/font/GangwonEdu-R.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'GangwonEdu';
+    src: url('https://jwpggit.github.io/storage/font/GangwonEdu-B.woff2') format('woff2');
+    font-style: bold;
+    font-weight: 700;
+  }
+  // 김정철 손글씨
+  @font-face {
+    font-family: 'KimjungchulScript';
+    src: url('https://jwpggit.github.io/storage/font/KimjungchulScript-R.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'KimjungchulScript';
+    src: url('https://jwpggit.github.io/storage/font/KimjungchulScript-B.woff2') format('woff2');
+    font-style: bold;
+    font-weight: 700;
+  }
+  // 미미월드체
+  @font-face {
+    font-family: 'MiMiWorld';
+    src: url('https://jwpggit.github.io/storage/font/MiMiWorld-R.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: '1973MiMiWorld';
+    src: url('https://jwpggit.github.io/storage/font/MiMiWorld-B.woff2') format('woff2');
+    font-style: bold;
+    font-weight: 700;
+  }
+  // 평창 평화체
+  @font-face {
+    font-family: 'PyeongchangPeace';
+    src: url('https://jwpggit.github.io/storage/font/PyeongchangPeace-R.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'PyeongchangPeace';
+    src: url('https://jwpggit.github.io/storage/font/PyeongchangPeace-B.woff2') format('woff2');
+    font-style: bold;
+    font-weight: 700;
+  }
+  // 고운바탕체
+  @font-face {
+    font-family: 'GowunBatang';
+    src: url('https://jwpggit.github.io/storage/font/GowunBatang-R.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'GowunBatang';
+    src: url('https://jwpggit.github.io/storage/font/GowunBatang-B.woff2') format('woff2');
+    font-style: bold;
+    font-weight: 700;
+  }
+  // 하남다움체
+  @font-face {
+    font-family: 'HanamDaum';
+    src: url('https://jwpggit.github.io/storage/font/HanamDaum-R.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'HanamDaum';
+    src: url('https://jwpggit.github.io/storage/font/HanamDaum-B.woff2') format('woff2');
+    font-style: bold;
+    font-weight: 700;
+  }
+  // 빙그레체
+  @font-face {
+    font-family: 'Binggrae';
+    src: url('https://jwpggit.github.io/storage/font/Binggrae-R.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Binggrae';
+    src: url('https://jwpggit.github.io/storage/font/Binggrae-B.woff2') format('woff2');
+    font-style: bold;
+    font-weight: 700;
+  }
+  // Y유니버스체
+  @font-face {
+    font-family: 'YUniverse';
+    src: url('https://jwpggit.github.io/storage/font/YUniverse-R.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'YUniverse';
+    src: url('https://jwpggit.github.io/storage/font/YUniverse-B.woff2') format('woff2');
+    font-style: bold;
+    font-weight: 700;
+  }

@@ -1,0 +1,47 @@
+.v-checkbox {
+    color: var(--primary-color);
+}
+.v-checkbox .v-label {
+    color: var(--font-color);
+    font-size: 15px;
+    opacity: 1;
+}
+
+.mdi-checkbox-blank-outline {
+    position: relative;
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-width: var(--border-width);
+    border-color: var(--primary-color);
+    border-style: solid;
+    border-radius: var(--border-radius-4);
+}
+.mdi-checkbox-marked {
+    position: relative;
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-width: var(--border-width);
+    border-color: var(--primary-color);
+    border-style: solid;
+    border-radius: var(--border-radius-4);
+    background-color: var(--checkbox-color);
+}
+
+
+.mdi-checkbox-marked::before { 
+    position: absolute;
+    display: block;
+    content:'';
+    width: 100%;
+    height: 100%;
+    background-color: var(--checkbox-color-on);
+    -webkit-mask-image: url('https://jwpggit.github.io/storage/image/card/checkbox.svg');
+    mask-image: url('https://jwpggit.github.io/storage/image/card/checkbox.svg');
+    background-size:cover;
+}
+.v-checkbox__title {
+    font-size: 12px;
+    padding-left: 10px;
+}

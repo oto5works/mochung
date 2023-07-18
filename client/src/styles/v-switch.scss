@@ -1,0 +1,42 @@
+.v-switch {
+    flex: unset;
+}
+.v-switch .v-selection-control .v-switch__thumb {
+    
+    
+}
+.v-switch .v-selection-control.v-selection-control--dirty .v-switch__track {
+    opacity: 1;
+}
+.v-switch .v-selection-control .v-switch__thumb {
+    opacity: 0.5;
+}
+.v-switch .v-selection-control.v-selection-control--dirty .v-switch__thumb {
+    opacity: 1;
+}
+.v-switch .v-switch__track {
+    border-style: var(--border-style);
+    border-width: 1px;
+}
+
+.switch-defaulted {
+    color: var(--pc-pc-tr);
+}
+.switch-defaulted .v-switch__track {
+    border-color: var(--po-po-pc);
+}
+.switch-defaulted .v-switch__thumb {
+    color: var(--po-po-pc);
+}
+/*
+.switch-reverse {  
+    color: var(--po-po-tr);
+}
+.switch-reverse .v-switch__track {
+    border-color: var(--primary-color);
+}
+.switch-reverse .v-switch__thumb {
+    color: var(--primary-color)
+}
+*/
+

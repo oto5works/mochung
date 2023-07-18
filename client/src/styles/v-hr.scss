@@ -1,0 +1,12 @@
+.v-hr {
+    border-color: var(--primary-color);
+}
+.v-hr {
+    width: 100%;
+    height: 1px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+  }
+.v-hr.dashed {
+    border-bottom-style: dashed;
+}
