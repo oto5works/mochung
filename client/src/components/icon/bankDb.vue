@@ -1,0 +1,4 @@
+<template>
+<path d="M77.06,175.49l69.19-94.9h32.7l-69.19,94.9H77.06z M36.98,36.88h182.05v182.25H36.98V36.88z
+	 M62.45,62.39v131.19H193.4V62.39H62.45L62.45,62.39z" fill="currentColor" stroke="none" />
+</template>

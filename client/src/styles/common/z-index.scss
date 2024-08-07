@@ -1,0 +1,100 @@
+/*-- app.vue --*/
+.appbar, .headerView {
+    z-index: 2400;
+}
+#routerView {
+    z-index: 2;
+}
+/*--- form.vue ---*/
+.form-header { z-index: 1; }
+.form-content { z-index: 2;}
+// form-content
+.form-nav-mobile { z-index: 1000;}
+.form-space { z-index: 1; }
+.form-preview { z-index: 1001;}
+.form-editor { z-index: 3;}
+
+.form-nav-desktop { z-index: 1; }
+// form-content
+
+
+/*--- Preview ---*/
+  .preview article {
+    z-index: 3;
+}
+.preview section {
+    z-index: 2;
+}
+.preview .background {
+    z-index: 1;
+}
+
+/*--- Editor ---*/
+.editor { z-index: 1 }
+.editor .background { z-index: -1 } 
+.editor .editor-item { z-index: 1 }
+.editor section { z-index: 1 }
+.editor article { z-index: 1 }
+
+
+/*--- Edit Article ---*/
+.edit-article {
+ 
+}
+.edit-article {
+    
+  }
+  // background
+  .edit-article::before {
+    
+  }
+  // shadow
+  .edit-article::after {
+    
+  }
+  
+/*--- absolute_100 ---*/
+
+.absolute_100 {
+    z-index: -1;
+}
+.absolute_100::after {
+  z-index: -3;
+}
+.absolute_100::before {
+  z-index: -2;
+}
+
+/*--- Background ---*/
+.backgroundOverlay {
+    z-index: 3;
+  }
+.backgroundFilter {
+    z-index: 2;
+  }
+  .backgroundDefaulted {
+    z-index: 1;
+  }
+  .editorGradient,
+  .previewGradient {
+    z-index: 1;
+  }
+
+/*-- Dialog --*/
+.overlay {
+  z-index: 2400;
+}
+.dialog .dialog-header button::before {
+  z-index: -1;
+}
+.dialog .dialog-content {
+  z-index: 1;
+}
+.dialog .dialog-actions {
+  z-index: 3;
+}
+
+
+@media all and (max-width:1023px) {
+
+}

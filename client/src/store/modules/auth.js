@@ -1,68 +1,66 @@
+/* auth.js */
 import router from '@/router/index';
+  import { getAUser } from '@/services/users';
 
-
+// VueX 모듈
 const auth = {
-    state: {
-        accessToken: localStorage.getItem('token') || '',
-        //refresh_token: localStorage.getItem('refresh-token') || '',
-        //status: '',
-        //username: '',
-        //token_type: ''
-      },
-    
-      getters: {
-        isAuthenticated: state  => !!state.accessToken,
-        //authStatus: state => state.status,
-        //getUserName: state => state.username
-      },
-    
-      mutations: {
-        LOGIN (state, {data}) {
-          state.accessToken = data.token
-          state.username = data.name
-          localStorage.setItem('access-token', data.token)
-          localStorage.setItem('token-type', 'Bearer')
-        },
-        LOGOUT (state) {
-          state.accessToken = null
-          state.refresh_token = null
-          state.status = ''
-          //localStorage.removeItem('access-token')
-          //localStorage.removeItem('refresh-token')
-          //localStorage.removeItem('token-type')
-          localStorage.removeItem('token')
-          router.push('/')
-        },
-    
-        SOCIAL_LOGIN (state, { data }) {
-
-            //state.accessToken = data.access_token
-            //state.refresh_token = data.refresh_token
-            //state.token_type = data.token_type
-            //state.username = data.name
-            state.token = data.token
-
-            // Save data to cookies
-            //localStorage.setItem('access-token', state.accessToken)
-            //localStorage.setItem('refresh-token', state.refresh_token)
-            //localStorage.setItem('token-type', state.token_type)
-            localStorage.setItem('token', state.token)
-            router.push('/')
-          }
-      },
-    
-      actions: {
-        async LOGIN ({commit}, {email, password}) {
-          return await axios.post(`${resourceHost}/api/auth/login`,{email, password})
-            .then(({data}) => {
-              commit('LOGIN', {data})
-            })
-        },
-        LOGOUT ({commit}) {
-          commit('LOGOUT')
-        },
+  state: {
+    isAuthenticated: false,
+    userId: '',
+    status: '',
+    email: '',
+  },
+  getters: {
+    getUserData: state => state,
+  },
+  mutations: {
+    logout(state) {
+      state.isAuthenticated = false;
+      state.userId = null;
+      state.status = 'guest';
+      router.push('/');
+    },
+    SOCIAL_LOGIN(state, { data }) {   
+      state.isAuthenticated = true;   
+      state.userId = data.id;
+    },
+    setAuthFail(state) {
+      state.isAuthenticated = false;
+      state.userId = null;
+      state.status = 'guest';
+    },
+    setAuthSuccess(state, userData) {
+      state.userId = userData.userId
+      state.isAuthenticated = true;
+      console.log ('setAuthSuccess?', userData )
+    },
+  },
+  actions: {
+    logout({ commit }) {
+      commit('logout');
+    },
+    handleAuthFail({ commit }) {
+      commit('setAuthFail');
+    },
+    handleAuthSuccess({ commit, state }, userData) {
+      commit('setAuthSuccess', userData);
+      console.log ('handleAuthSuccess?', userData )
+    },
+    /*
+async handleAuthSuccess({ commit, state }, userData) {
+      state.isAuthenticated = true;
+      state.userId = userData.userId
+      try {
+        const data = await getAUser(state.userId);
+        // Commit 'setAuthSuccess' mutation with user data
+        commit('setAuthSuccess', data);
+      } catch (error) {
+        console.error('Failed to fetch user data after authentication', error);
+        // Handle error as needed
       }
-
-}
+    },
+    */
+  },
+};
 
 export default auth;

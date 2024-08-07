@@ -2,22 +2,27 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const postSchema = new Schema({
-      user: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-      },
-      main: {
-        title: String,
-        url: String,
-        main_type: String,
-      },
-      likes: [Schema.Types.ObjectId],
-      createdate: Date,
-      comments: [{
-        writer: String,
-        content: String,
-        password: String,
-      }],
+  user_id: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  writer: String,
+  formData: Object,
+  dateCreate: Date,
+  pay: Boolean,
+  like: Number,
+  comments: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Comment'
+    }
+  ],
+  surveys: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Survey'
+    }
+  ]
 })
 
 postSchema.set('toJSON', {

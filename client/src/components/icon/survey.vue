@@ -1,0 +1,3 @@
+<template>
+    <line x1="128" y1="128" x2="216" y2="128" /><line x1="128" y1="64" x2="216" y2="64" /><line x1="128" y1="192" x2="216" y2="192" /><polyline points="40 64 56 80 88 48" /><polyline points="40 128 56 144 88 112" /><polyline points="40 192 56 208 88 176" />
+</template>

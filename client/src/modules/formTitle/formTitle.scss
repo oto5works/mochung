@@ -1,0 +1,35 @@
+
+
+
+
+
+
+
+
+
+
+.formTitle3 {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  padding: 0 8px;
+  margin-top: 12px;
+  margin-bottom: 18px;
+  color: var(--mio-theme-color-on-background);
+
+}
+.config .formTitle3 {
+  color: var(--font-color);
+  justify-content: var(--justify-content);
+}
+.formTitle3 .title {
+  font-size: 18px;
+  line-height: 130%;
+  font-weight: 700;
+  color: currentColor;
+}
+.config .formTitle3 .title {
+  font-size: var(--font-size-18);
+  font-weight: var(--font-weight);
+  text-align: var(--text-align);
+}

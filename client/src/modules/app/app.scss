@@ -1,0 +1,65 @@
+/*--common --*/
+.kakaomap.selected .overlay,
+.kakaonavi.selected .overlay,
+.navermap.selected .overlay,
+.tmap.selected .overlay {
+  opacity: 1 !important;
+}
+
+.kakaomap.selected .outline,
+.kakaonavi.selected .outline,
+.navermap.selected .outline,
+.tmap.selected .outline {
+  opacity: 0 !important;
+}
+/*-- kakao --*/
+.kakaomap,
+.kakaonavi {
+  color: #0378f7 !important;
+}
+.kakaomap .overlay,
+.kakaonavi .overlay {
+  background-color: #f1d905 !important;
+}
+.kakaomap .outline,
+.kakaonavi .outline {
+  border-color: #0378f7 !important;
+}
+.kakaomap.selected .shadow,
+.kakaonavi.selected .shadow {
+  box-shadow: 0px 7px 29px 0px #f1d905 !important;
+}
+
+/*-- naver --*/
+.navermap {
+  color: #000000 !important;
+}
+.navermap .overlay {
+  background-color: #02df5a !important;
+}
+.navermap .outline {
+  border-color: #000 !important;
+}
+.navermap.selected .shadow {
+  box-shadow: 0px 7px 29px 0px #02df5a !important;
+}
+
+/*-- tmap --*/
+.tmap.buttonOption {
+  color: #000000 !important;
+}
+.tmap .overlay {
+  background-color: transparent;
+  background-image: url("https://jwpggit.github.io/storage/image/card/tmap.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.tmap .outline {
+  border-color: #000000 !important;
+}
+.tmap.selected {
+  color: #fff !important;
+}
+.tmap.selected .shadow {
+  box-shadow: 0px 7px 29px 0px #6e43f5 !important;
+}

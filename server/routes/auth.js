@@ -14,8 +14,6 @@ router.use('/check', authMiddleware)
 router.get('/check', authController.check)
 
 
-
-
 /* social login */
 
 // naver

@@ -1,0 +1,120 @@
+/*--- 규칙 ---*/
+/*
+1. absolute_100 은 자주사용된다. 확인.
+2. after는 아웃라인 before은 그림자
+3. 
+*/
+.absolute_100 {
+  @include absolute_100;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.absolute_100::before {
+  @include absolute_100;
+  border-radius: inherit;
+}
+.absolute_100::after {
+  @include absolute_100;
+  border-radius: inherit;
+}
+/*--- shadow ---*/
+// 아주 강한 그림자 대형
+.box-shadow_1-pc::before {
+  display: var(--box-shadow-display);
+  -webkit-box-shadow: 0 32px 96px var(--primary-color);
+  box-shadow: 0 32px 96px var(--primary-color);
+  opacity: .2;
+}
+.box-shadow_1-bo::before {
+  display: var(--box-shadow-display);
+  -webkit-box-shadow: 0 32px 96px var(--background-on);
+  box-shadow: 0 32px 96px var(--background-on);
+  opacity: .2;
+}
+// 강한 그림자 컨텐츠wrap
+.box-shadow_2-pc::before {
+  display: var(--box-shadow-display);
+  -webkit-box-shadow: 0 10px 35px -5px var(--primary-color);
+  box-shadow: 0 10px 35px -5px var(--primary-color);
+  opacity: .16;
+}
+// 보통 그림자 버튼같은
+.box-shadow_3-pc::before {
+  display: var(--box-shadow-display);
+  -webkit-box-shadow: 0 10px 20px -10px var(--primary-color);
+  box-shadow: 0 10px 20px -10px var(--primary-color);
+  opacity: 1;
+}
+// 약한 그림자
+.box-shadow_4-pc::before {
+  display: var(--box-shadow-display);
+  -webkit-box-shadow: 0 8px 20px 0 var(--primary-color);
+  box-shadow: 0 8px 20px 0 var(--primary-color);
+  opacity: .04;
+}
+/*--- outline ---*/
+.outline_pc::after {
+  outline-style: var(--border-style);
+  outline-width: 1px;
+  outline-color: var(--primary-color);
+}
+.outline_bo::after {
+  outline-style: var(--border-style);
+  outline-width: 1px;
+  outline-color: var(--background-on);
+}
+/*--- overlay ---*/
+.overlay_pc {
+  background-color: var(--primary-color);
+  opacity: 0.08;
+}
+.overlay_skeleton {
+  background: linear-gradient(90deg, #DDDDDD, #F0F0F0, #DDDDDD, #F0F0F0);
+	background-size: 400% 400%;
+	-webkit-animation: skeleton 2.25s ease infinite;
+	-moz-animation: skeleton 2.25s ease infinite;
+	animation: skeleton 2.25s ease infinite;
+  
+}
+.overlay_skeleton svg {
+  color: #000;
+  
+}
+@-webkit-keyframes skeleton {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes skeleton {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes skeleton {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+
+

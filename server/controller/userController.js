@@ -15,4 +15,18 @@ exports.me = async (req, res) => {
     res.status(200).json(user)
   }
   
-  
+  exports.detail = async (req, res) => {
+    console.log ('야레야레', req.params.id)
+    const id = req.params.id
+    const user = await User.findById(id).populate('archive', {
+      formData: 1,
+      dateCreate: 1,
+      pay: 1,
+      like: 1,
+      surveys: 1,
+      comments: 1,
+    })
+    console.log ('염병', user)
+
+    res.status(200).json(user)
+  }

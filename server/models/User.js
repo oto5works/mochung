@@ -2,35 +2,20 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const userSchema = new Schema({
-  email: {
-    type: String,
-    unique: true
-  },
   password: { type: String },
-  name: String,
-  nick: {
-    type: String,
-    require: true
-},
-snsId: {
-  type: String,
-  require: true
-},
-provider: {
-  type: String,
-  require: true
-},
-admin: {
-  type: Boolean,
-  default: false
-},
-access_token: {
-  type: String,
-  require: true
-},
-  description: String,
-  img: String,
-  posts: [{
+  snsId : { type: String },
+  nickname : { type: String },
+  age : { type: String },
+  gender : { type: String },
+  email : { type: String, unique: true },
+  mobile : { type: String, require: true },
+  name : { type: String },
+  birthday : { type: String },
+  birthYear : { type: String },
+  status : { type: String, require: true },
+  provider : { type: String },
+  access_token : { type: String },
+  archive: [{
     type: Schema.Types.ObjectId,
     ref: 'Post'
   }]
@@ -61,15 +46,10 @@ userSchema.statics.create = function(email, password, name) {
 }
 
 //find one user by using username
-userSchema.statics.findOneByEmail = function(email) {
+userSchema.statics.findOneByEmail = function(snsId) {
   return this.findOne({
-      email
+    snsId
   }).exec()
-}
-
-userSchema.methods.assignAdmin = function() {
-  this.admin = true
-  return this.save();
 }
 
 //vertify the password of the User document
@@ -83,24 +63,13 @@ userSchema.methods.verify = function(password) {
 * ******************************************************************/
 
 //find one user by using username
-userSchema.statics.findOneByEmailAndProvider = function(email, provider) {
-  return this.findOne({
-      email,
-      provider
-  }).exec()
+userSchema.statics.findOneByEmailAndProvider = function(snsId, provider) {
+  return this.findOne({ snsId, provider }).exec()
 }
 
 //create new User document
-userSchema.statics.social_create = function(email, password, name, nick, snsId, provider, access_token ) {
-  const user = new this({
-      email,
-      password,
-      name,
-      nick,
-      snsId,
-      provider,
-      access_token
-  })
+userSchema.statics.social_create = function(snsId, nickname, age, gender, email, mobile, name, birthday, birthYear, status, provider, access_token) {
+  const user = new this({ snsId, nickname, age, gender, email, mobile, name, birthday, birthYear, status, provider, access_token })
 
   //return the Promise
   return user.save()

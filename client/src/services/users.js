@@ -12,11 +12,10 @@ export const getAllUsers = async () => {
 }
 
 
-export const getAUser = async () => {
+export const getAUser = async (id) => {
+  console.log ('유저확인', id)
   try {
-    const res = await axios.get(baseUrl + 'me');
-    console.log ('확인', res.data)
-
+    const res = await axios.get(baseUrl + id );
     return res.data
   } catch (error) {
     console.log(error);
@@ -24,7 +23,15 @@ export const getAUser = async () => {
   }
 }
 
-
+export const getUserPosts = async (userId) => {
+  try {
+    const res = await axios.get(postBaseUrl + userId + '/posts');
+    return res.data;
+  } catch (error) {
+    console.error(error);
+    throw error; // re-throw the error to the caller
+  }
+};
 
 
 export const editUser = async (id, data) => {

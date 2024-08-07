@@ -1,0 +1,37 @@
+.table-root__wrap {
+    
+  }
+.table-root {
+    display: block;
+    max-width: 100%;
+    padding-right: 1px;
+    padding-left: 1px;
+    border: 1px solid var(--mio-theme-color-surface-variant);
+    border-radius: 24px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    font-size: 14px;
+}
+thead th {
+    background: var(--mio-theme-color-surface-1);
+    color: var(--mio-theme-color-on-surface-variant);
+    font-weight: 500;
+}
+th {
+    padding: 16px 24px;
+    border-right: 1px solid var(--mio-theme-color-surface-variant);
+    vertical-align: middle;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+    color: var(--mio-theme-color-on-background);
+}
+td {
+    padding: 16px 24px;
+    margin: auto;
+    border-top: 1px solid var(--mio-theme-color-surface-variant);
+    border-right: 1px solid var(--mio-theme-color-surface-variant);
+    vertical-align: middle;
+}

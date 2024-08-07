@@ -3,42 +3,89 @@
  *
  * Automatically included in `./src/main.js`
  */
+// component
+import icon from "@/components/icon/icon.vue";
+import arrowLeft from "@/components/icon/arrowLeft.vue";
+import x from "@/components/icon/x.vue";
+
+// dialog
+import "@/components/overlay/overlay.scss";
+import modalDialog from "@/components/overlay/modalDialog.vue";
+import bottomSheet from "@/components/overlay/bottomSheet.vue";
+
+// input
+import "@/components/input/input.scss";
+import textField from "@/components/input/textField.vue";
+import textArea from "@/components/input/textArea.vue";
+
+import formTitle1 from "@/modules/formTitle/formTitle1.vue";
+import formTitle2 from "@/modules/formTitle/formTitle2.vue";
+import formTitle3 from "@/modules/formTitle/formTitle3.vue";
+import formBox from "@/modules/formBox/formBox.vue";
+
+// button
+import "@/components/button/button.scss";
+import buttonOption from "@/components/button/buttonOption.vue";
+import buttonDefault from "@/components/button/buttonDefault.vue";
+import buttonSelect from "@/components/button/buttonSelect.vue";
+import buttonFlicking from "@/components/button/buttonFlicking.vue";
+import buttonCheck from "@/components/button/buttonCheck.vue";
+import buttonText from "@/components/button/buttonText.vue";
+
+// card
+import card from "@/components/card/card.vue";
 
 // Plugins
-import store from '../store/index'
-import router from '../router'
+import store from "../store/index";
+import router from "../router";
+
 // Sticky
-// Flicking
-import Flicking from "@egjs/vue3-flicking";
-import "@egjs/vue3-flicking/dist/flicking.css";
+// VueYouTubeEmbed
+
 // Vuetify
-import vuetify from './vuetify'
+import vuetify from "./vuetify";
 // tinycolor
-import tinycolor from 'tinycolor2'
+import tinycolor from "tinycolor2";
 // V-Calendar
-import { setupCalendar } from 'v-calendar';
+import { setupCalendar } from "v-calendar";
 // Particles
 import Particles from "vue3-particles";
 import "@/styles/common.scss";
-// Lottie
-import Vue3Lottie from 'vue3-lottie'
-import 'vue3-lottie/dist/style.css'
-// DaumPostcode
-import VueDaumPostcode from 'vue-daum-postcode'
 // Slicksort
-import { plugin as Slicksort } from 'vue-slicksort';
-import 'sal.js/dist/sal.css';
+import { plugin as Slicksort } from "vue-slicksort";
+import "sal.js/dist/sal.css";
 
-export function registerPlugins (app) {
+export function registerPlugins(app) {
   app
     .use(store)
     .use(router)
     .use(vuetify)
     .use(setupCalendar, {})
     .use(Particles)
-    .component("Flicking", Flicking)
-    .use(Vue3Lottie)
-    .use(VueDaumPostcode)
     .use(Slicksort)
     .use(tinycolor)
+
+    .component("icon", icon)
+    .component("arrowLeft", arrowLeft)
+    .component("x", x)
+    .component("modalDialog", modalDialog)
+    .component("bottomSheet", bottomSheet)
+
+    .component("textField", textField)
+    .component("textArea", textArea)
+
+    .component("formTitle1", formTitle1)
+    .component("formTitle2", formTitle2)
+    .component("formTitle3", formTitle3)
+
+    .component("formBox", formBox)
+    .component("buttonOption", buttonOption)
+    .component("buttonDefault", buttonDefault)
+    .component("buttonSelect", buttonSelect)
+    .component("buttonFlicking", buttonFlicking)
+    .component("buttonCheck", buttonCheck)
+    .component("buttonText", buttonText)
+
+    
+    .component("card", card);
 }

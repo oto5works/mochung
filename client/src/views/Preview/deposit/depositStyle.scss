@@ -1,0 +1,81 @@
+.v-expansion-panel .deposit_display {
+  display: none;
+}
+.v-expansion-panel--active .deposit_display {
+  display: var(--none-block-none);
+}
+.deposit_background {
+  background-color: var(--primary-color);
+}
+
+.animation {
+  transition: all 0.2s ease-in-out;
+}
+.v-expansion-panel--active > .v-expansion-panel-title {
+  border-bottom-left-radius: var(--border-radius-16);
+  border-bottom-right-radius: var(--border-radius-16);
+  min-height: unset;
+}
+
+.v-expansion-panel__shadow {
+  display: none;
+}
+
+.button-icon {
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.v-expansion-panel-title--active .button-icon {
+  transform: scaleY(-1);
+}
+
+.v-expansion-panel-title__overlay {
+  display: none;
+}
+
+/*--- deposit ---*/
+.deposit .v-expansion-panel {
+  background-color: unset;
+  color: unset;
+}
+
+// title
+.deposit
+  .v-expansion-panel
+  .v-expansion-panel-title
+  .v-expansion-panel-title__icon {
+  display: none;
+}
+.deposit .v-expansion-panel .v-expansion-panel-title {
+  padding: unset;
+  min-height: 40px;
+}
+
+.deposit .v-expansion-panel-text__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 6.15%;
+}
+
+.deposit .v-expansion-panel-title .deposit-bank {
+  position: relative;
+  background-color: var(--primary-color);
+  color: var(--primary-on);
+  border-radius: var(--border-radius-24);
+  height: 72px;
+}
+.deposit
+  .v-expansion-panel-title.v-expansion-panel-title--active
+  .deposit-bank {
+  background-color: transparent;
+  color: var(--font-color);
+  border-radius: unset;
+  height: 40px;
+}
+.deposit
+  .v-expansion-panel-title.v-expansion-panel-title--active
+  .deposit-bank
+  .absolute_100 {
+  display: none;
+}

@@ -9,6 +9,8 @@ Router.route('/me')
   .all(authMiddleware)
   .get(userController.me);
 
+  Router.route('/:id')
+  .get(userController.detail);
 
 module.exports = Router
 

@@ -1,68 +1,82 @@
+<!-- ParentComponent.vue -->
 <template>
-  <div id="post">
-    <!--<v_navigation :menu="menu" @tab-changed="changeActiveTab" @handleSubmit="handleSubmit"/>
-    <v_overlay :menu="menu"/>
-    <v_appbar :menu="menu" @handleSubmit="handleSubmit"/>
--->
-<v_menu :menu="menu"/>
-<div id="write">
-  <div id="write__wrap">
+    <div class="routerView__content">
+  <div class="archive__wrap">
+      <archiveComponent 
+        v-for="(archiveItem, index) in archives" :key="index"
+        :archive="archiveItem" 
+        @confirmDelete="confirmDelete(archiveItem.id)" 
+      />
+  </div>
+</div>
 
-{{ userData }}
-    <RouterLink to="/create">
-          <p>추가하기</p>
-    </RouterLink>
-    
-    <Archive_item
-      v-if="userData.posts"
-      v-for="post in posts"
-      :key="post.id"
-      :post="post"
-      :defaultUser="userData"
-    />
-    </div>
-  </div>
-  </div>
 </template>
 
 <script>
-import { RouterLink } from 'vue-router'
+import { deletePost } from "@/services/posts";
 import { getAUser } from '@/services/users'
-import Archive_item from '@/views/Archive/Archive_item.vue'
-import v_navigation from '@/components/v_navigation.vue'
-import v_overlay from '@/components/v_overlay.vue'
-import v_appbar from '@/components/v_appbar.vue'
-import v_menu from '@/components/v_menu.vue'
+import { mapGetters } from 'vuex';
+import archiveComponent from '@/views/archive/archiveComponent.vue';
+import archiveStyle from '@/views/archive/archiveStyle.scss';
 
 export default {
-  components: { Archive_item, RouterLink, v_navigation, v_overlay, v_appbar, v_menu },
-
-  data() {
-    return {
-      userData: [],
-      menu: {
-      login: true,
-      create: true,
-      save: false,
-      preview: false,
-      createMenu: false,
-    },
-    }
-  },
+  components: { archiveComponent, archiveStyle },
   computed: {
-    posts() {
-      const posts = [...this.userData?.posts]
-      return posts.reverse()
-    },
+    ...mapGetters({userData: 'getUserData'})
   },
   created() {
-    getAUser().then((res) => {
-      this.userData = res
-    })
+    this.fetchArchives();
+  },
+  data() {
+    return {
+      archives: [],
+      menu: {
+        login: true,
+        logout: false,
+        create: true,
+        save: false,
+        preview: false,
+        createMenu: false,
+      },
+    };
   },
   methods: {
-    changeActiveTab(tab) {},
-    handleSubmit(e) {},
+    async fetchArchives() {
+      const id = this.userData.userId;
+      const res = await getAUser(id);
+      this.archives = res.archive.map(item => ({ ...item, showActions: false }));
+    },
+    async confirmDelete(id) {
+      if (window.confirm("정말로 삭제하시겠습니까?")) {
+        this.deleteArchive(id);
+      }
+    },
+    async deleteArchive(id) {
+      try {
+        await deletePost(id);
+        this.archives = this.archives.filter(item => item.id !== id);
+      } catch (error) {
+        console.error("게시물 삭제 오류:", error);
+      }
+    },
   },
-}
+};
 </script>
+
+<style scoped>
+.archive__wrap {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  color: var(--mio-theme-color-on-background);
+  padding: 8px 140px;
+}
+@media all and (max-width: 1023px) {
+  .archive__wrap {
+    grid-template-columns: 1fr;
+    padding: 8px 16px;
+  }
+}
+</style>

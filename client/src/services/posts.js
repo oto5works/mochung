@@ -1,3 +1,4 @@
+/* posts.js */
 import axios from 'axios'
 const baseUrl = '/api/posts/'
 
@@ -8,31 +9,50 @@ export const getAllPosts = async (type) => {
   return data
 }
 
-export const getAPost = async (id) => {
+export const getPost = async (id) => {
   const res = await axios.get(baseUrl + id);
   return res.data
 }
 
 export const createPost = async (post) => {
-  const res = await axios.post(baseUrl, post)
-  const { data } = res
-  return data
+  try {
+    const res = await axios.post(baseUrl, post);
+    const { data } = res;
+    return data;
+  } catch (error) {
+    console.error("Error creating post:", error);
+    throw error;
+  }
 }
 
 export const editPost = async (id, data) => {
+  console.log ('idididid', id)
+  console.log ('datatatata', data)
+
   const res = await axios.put(baseUrl + id + '/edit', data);
   return res.data
 }
 
 export const deletePost = async (id) => {
-  const res = await axios.delete(baseUrl + id);
-  return res.data
+  console.log ('삭제', id)
+  try {
+    const res = await axios.delete(baseUrl + id);
+    return res.data
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
 }
+
+
+
 // url 중복 검사
 
 export const urlDuplicate = async (data) => {
+  console.log('urlDuplicate 실행')
   try {
   const res = await axios.post(baseUrl + 'urlduplicate', { params: { data } });
+  console.log('urlDuplicate 실행', res)
   return res.data
 } catch (error) {
   console.log(error)
@@ -40,21 +60,16 @@ export const urlDuplicate = async (data) => {
 }
 }
 
-// Comment // Comment // Comment // Comment // Comment 
-export const addComment = async (id, comment) => {
-  const res = await axios.put(baseUrl + id + '/comments', comment)
-  const { data } = res
-  return data
+// 코드 활성화
+export const activePost = async (id, couponCode) => {
+  const res = await axios.put(baseUrl + id + '/active', { code: couponCode });
+  return res.data;
 }
 
-export const deleteComment = async (id) => {
-  const res = await axios.delete(baseUrl + id);
-  return res.data
-}
 
 // Like // Like // Like // Like // Like 
-export const toggleLike = async (id, userId, type) => {
-  const res = await axios.put(baseUrl + id + '/likes', {userId, type})
-  const { data } = res
-  return data
+export const toggleLike = async (id) => {
+  console.log ('idididid', id)
+  const res = await axios.put(baseUrl + id + '/like')
+  return res.data;
 }

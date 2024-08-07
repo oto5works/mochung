@@ -1,0 +1,424 @@
+@mixin absolute_100 {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/*--- 공통사항 ---*/
+button .shadow {
+  z-index: -2;
+}
+button .underlay {
+  z-index: -1;
+}
+button .overlay {
+  z-index: 0;
+}
+button .fnOption-text {
+  z-index: 3;
+}
+button .outline {
+  z-index: 4;
+}
+button .more {
+  z-index: 5;
+}
+button span,
+button svg,
+button p {
+  z-index: 6;
+}
+button .outline,
+button .overlay,
+button .underlay,
+button .shadow {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+button .overlay {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: inherit;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+ 
+}
+button:hover .overlay {
+  opacity: 0.08;
+}
+
+
+button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 1;
+}
+button:hover svg {
+  stroke-width: 26;
+}
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+button span {
+  color: currentColor;
+}
+button .content {
+  display: flex;
+  align-items: center;
+  justify-content: inherit;
+  gap: inherit;
+  flex-direction: inherit;
+}
+
+
+
+
+
+
+.button-unselected {
+  opacity: 0.4;
+  &:hover {
+    opacity: 1;
+  }
+}
+.button-unselected.selected {
+  opacity: 1;
+}
+
+.button-color {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.button-input {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/*-- button-defaulted --*/
+.button-defaulted {
+  background: var(--mio-theme-color-primary);
+  color: var(--mio-theme-color-on-primary);
+  fill: var(--mio-theme-color-on-primary);
+}
+.button-defaulted::after,
+.button-defaulted::before {
+  @include absolute_100;
+  border-radius: inherit;
+}
+.button-defaulted::after {
+  background-color: var(--mio-theme-color-on-primary);
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  z-index: 1;
+}
+.button-defaulted::before {
+  z-index: -1;
+}
+// hover
+.button-defaulted:hover::after {
+  opacity: 0.08;
+}
+
+/*-- button-outline --*/
+.button-outline {
+  color: var(--mio-theme-color-primary);
+  fill: var(--mio-theme-color-primary);
+}
+.button-outline::after,
+.button-outline::before {
+  @include absolute_100;
+  border-radius: inherit;
+}
+.button-outline::after {
+  outline-width: 1px;
+  outline-color: var(--mio-theme-color-primary);
+  outline-style: solid;
+  z-index: 1;
+}
+.button-outline::before {
+  background-color: var(--mio-theme-color-primary);
+  z-index: -1;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+}
+// hover
+.button-outline:hover::before {
+  opacity: 0.08;
+}
+
+/*-- button-inverse --*/
+.button-inverse {
+  background: var(--mio-theme-color-on-primary);
+  color: var(--mio-theme-color-primary);
+  fill: var(--mio-theme-color-primary);
+}
+.button-inverse::after,
+.button-inverse::before {
+  @include absolute_100;
+  border-radius: inherit;
+}
+.button-inverse::after {
+  background-color: var(--mio-theme-color-primary);
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  z-index: 1;
+}
+.button-inverse::before {
+  z-index: -1;
+}
+// hover
+.button-inverse:hover::after {
+  opacity: 0.08;
+}
+.button-inverse:hover svg {
+  transition: all 0.2s ease-in-out;
+  stroke-width: 26;
+}
+
+/*-- button-icon --*/
+.button-icon {
+  color: inherit;
+}
+.button-icon::before {
+  @include absolute_100;
+  border-radius: inherit;
+  background-color: var(--mio-theme-color-primary);
+  opacity: 0;
+  z-index: -1;
+}
+.button-icon:hover::before {
+  opacity: 0.15;
+}
+
+/*--- button-text ---*/
+.button-text {
+  color: var(--font-color);
+}
+.button-text::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 32px);
+  height: 40px;
+  border-radius: var(--border-radius-32);
+  background-color: var(--primary-color);
+  opacity: 0;
+}
+.button-text span {
+  color: inherit;
+  padding-bottom: 3px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--font-color);
+}
+.button-text:hover {
+  color: var(--primary-color);
+}
+.button-text:hover span {
+  border-bottom-color: var(--primary-color);
+}
+.button-text:hover::before {
+  opacity: 0.15;
+}
+/*--- button-select ---*/
+
+.button-select {
+  color: var(--fc-fc-pc);
+}
+.button-select span {
+  font-weight: 400;
+}
+.button-select::after,
+.button-select::before {
+  @include absolute_100;
+  border-radius: inherit;
+  z-index: -1;
+}
+.button-select::before {
+  background-color: var(--pc-pc-tr);
+  opacity: 0.15;
+}
+.button-select::after {
+  outline-width: 1px;
+  outline-color: var(--po-po-pc);
+  outline-style: var(--border-style);
+  opacity: 0.15;
+}
+// hover
+.button-select:hover::before {
+  opacity: 0.3;
+}
+.button-select:hover::after {
+  opacity: 1;
+}
+// selected
+.button-select.selected {
+  color: var(--po-po-pc);
+}
+.button-select.selected::before {
+  background-color: var(--primary-color);
+  opacity: var(--1-1-015);
+}
+.button-select.selected::after {
+  opacity: 1;
+  -webkit-box-shadow: var(--box-shadow-2) var(--primary-color);
+  box-shadow: var(--box-shadow-2) var(--primary-color);
+}
+// selected + hover
+.button-select.selected:hover::after {
+  opacity: 1;
+}
+.button-select.selected:hover::before {
+  opacity: var(--1-1-03);
+}
+
+/*--- button-select + icon ---*/
+.button-select .select-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button-select.selected .select-icon::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--border-radius-16);
+  background-color: var(--po-po-pc);
+}
+.button-select.selected .select-icon::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: var(--pc-pc-po);
+  -webkit-mask-image: url("https://jwpggit.github.io/storage/image/card/check.svg");
+  mask-image: url("https://jwpggit.github.io/storage/image/card/check.svg");
+  background-size: cover;
+}
+
+/*-- config --*/
+
+// button-defaulted
+.config .button-defaulted {
+  background: var(--pc-pc-tr);
+  border-color: var(--po-po-pc);
+  color: var(--po-po-pc);
+  fill: var(--po-po-pc);
+  border-style: var(--border-style);
+  border-width: 1px;
+}
+.config .button-defaulted::after {
+  background-color: var(--primary-on);
+}
+.config .button-defaulted::before {
+  display: var(--box-shadow-display);
+  -webkit-box-shadow: 0 10px 20px -10px var(--primary-color);
+  box-shadow: 0 10px 20px -10px var(--primary-color);
+}
+// button-inverse
+.config .button-inverse {
+  background: var(--po-po-tr);
+  border-color: var(--pc-pc-po);
+  color: var(--pc-pc-po);
+  fill: var(--pc-pc-po);
+  border-style: var(--border-style);
+}
+.config .button-inverse::after {
+  background-color: var(--primary-color);
+}
+.config .button-inverse::before {
+  display: var(--box-shadow-display);
+  -webkit-box-shadow: 0 10px 20px -10px var(--primary-on);
+  box-shadow: 0 10px 20px -10px var(--primary-on);
+}
+
+/*-- button-outline --*/
+.config .button-outline {
+  color: var(--primary-color);
+  fill: var(--primary-color);
+}
+.config .button-outline::after {
+  outline-color: var(--primary-color);
+}
+.config .button-outline::before {
+  background-color: var(--primary-color);
+}
+
+// button-icon
+.config .button-icon::before {
+  background-color: var(--primary-color);
+}
+
+// button-option
+
+.button-option {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  min-height: 96px;
+  color: var(--font-color);
+  border-radius: var(--border-radius-16);
+}
+.button-option::after,
+.button-option::before {
+  @include absolute_100;
+  border-radius: var(--border-radius-16);
+}
+.button-option:hover::before {
+  opacity: 0.08;
+}
+.button-option::before {
+  background-color: var(--background-on);
+  opacity: 0.04;
+  z-index: -1;
+}
+.button-option::after {
+  border-width: 1px;
+  border-color: var(--background-on);
+  border-style: solid;
+  opacity: 0.1;
+  z-index: 2;
+}
+// selected
+.button-option.selected {
+  color: var(--primary-color);
+}
+.button-option.selected::before {
+  background-color: var(--primary-color);
+  opacity: 0.15;
+}
+.button-option.selected::after {
+  border-width: 2px;
+  opacity: 1;
+  border-color: var(--primary-color);
+}

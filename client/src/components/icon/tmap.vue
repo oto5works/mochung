@@ -1,0 +1,12 @@
+<template>
+  <path
+    d="M147.8,216h-39.5v-98.5c0-42.8,34.7-77.5,77.5-77.5H216v39.5h-30.2c-21,0-38,17-38,38V216z"
+    fill="currentColor"
+    stroke="none"
+  />
+  <path
+    d="M137.2,40H40v39.5h62.5C110,63.2,122.1,49.5,137.2,40z"
+    fill="currentColor"
+    stroke="none"
+  />
+</template>

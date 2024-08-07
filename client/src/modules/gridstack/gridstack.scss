@@ -1,0 +1,35 @@
+.grid-stack-item > .ui-resizable-se {
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-color);
+  color: var(--primary-on);
+  border-radius: var(--border-radius-24);
+}
+.grid-stack-item > .ui-resizable-se {
+  transform: unset;
+}
+
+.grid-stack-item > .ui-resizable-ne::before,
+.grid-stack-item > .ui-resizable-nw::before,
+.grid-stack-item > .ui-resizable-se::before,
+.grid-stack-item > .ui-resizable-sw::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-on);
+  -webkit-mask-image: url("https://jwpggit.github.io/storage/image/card/resize.svg");
+  mask-image: url("https://jwpggit.github.io/storage/image/card/resize.svg");
+  background-size: cover;
+}
+
+.grid-stack-item > .ui-resizable-ne,
+.grid-stack-item > .ui-resizable-nw,
+.grid-stack-item > .ui-resizable-se,
+.grid-stack-item > .ui-resizable-sw {
+  background-image: unset!important;
+  background-repeat: no-repeat;
+  background-position: center;
+}

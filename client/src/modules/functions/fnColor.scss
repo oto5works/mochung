@@ -1,0 +1,125 @@
+@mixin absolute_100 {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/*--- Flicking Color ---*/
+.flicking-color__wrap {
+  position: absolute;
+  top: 80%;
+  right: 0;
+  border-radius: var(--border-radius-16);
+  background-color: var(--background-color);
+  padding: 16px 0;
+}
+.flicking-color__wrap::after {
+  position: absolute;
+  content: "";
+  border-style: solid;
+  border-width: 0 8px 12px;
+  border-color: var(--background-color) transparent;
+  display: block;
+  top: -12px;
+  right: 36px;
+}
+.flicking-color__wrap::before {
+  @include absolute_100;
+  border-radius: var(--border-radius-16);
+  -webkit-box-shadow: 0 10px 20px -10px var(--background-on);
+  box-shadow: 0 10px 20px -10px var(--background-on);
+  opacity: 0.4;
+}
+.flicking-color__content {
+  position: relative;
+  display: flex;
+}
+
+.flicking-color .flicking-camera {
+  height: 30px;
+}
+
+// color item
+.flicking-color .item-color__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--border-radius-16);
+  margin-right: 6px;
+}
+.flicking-color .item-color__wrap.selected {
+  border-width: 1.5px;
+  border-style: solid;
+  border-color: inherit;
+}
+.flicking-color .item-color {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--border-radius-12);
+  overflow: hidden;
+}
+
+.flicking-color .item-color span {
+  flex: 1 1 50%;
+}
+.flicking-color .item-color::before {
+  @include absolute_100;
+  border-radius: var(--border-radius-12);
+  border-color: var(--background-on);
+  border-width: 0.4px;
+  border-style: solid;
+  opacity: 0.6;
+}
+// Pagination
+.flicking-color .flicking-pagination {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  height: 4px;
+  margin-top: 16px;
+}
+.flicking-color .flicking-pagination-bullet.flicking-pagination-bullet-active {
+  width: 10px;
+  background-color: var(--primary-color);
+  opacity: 1;
+}
+.flicking-color .flicking-pagination-bullet {
+  display: block;
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--primary-color);
+  opacity: 0.4;
+}
+// Arrow
+.flicking-color .arrow-prev {
+  z-index: 2;
+}
+.flicking-color .arrow-next {
+  z-index: 2;
+}
+
+// 무지개색
+.umbrella {
+  background: conic-gradient(
+    from 90deg,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red,
+    violet
+  );
+}

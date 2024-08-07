@@ -1,0 +1,3 @@
+<template>
+    <rect x="152" y="40" width="56" height="176" rx="8" /><rect x="48" y="40" width="56" height="176" rx="8" />
+</template>

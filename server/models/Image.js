@@ -2,11 +2,8 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const imageSchema = new Schema({
+  filename: { type: String },
   url: { type: String },
-  posts: {
-    type: Schema.Types.ObjectId,
-    ref: 'Post'
-  },
 }, 
 {
   timestamps: true

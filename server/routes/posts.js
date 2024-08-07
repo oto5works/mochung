@@ -1,33 +1,31 @@
-const express = require('express');
+const express = require("express");
 const Router = express.Router();
-const uploadImage = require('../utils/multer');
+const uploadImageFields = require("../utils/multer");
 
-const postController = require('../controller/postController');
-
+const postController = require("../controller/postController");
 
 //READ
-Router.get('/', postController.index);
-Router.get('/:id', postController.detail);
+Router.get("/", postController.index);
+Router.get("/:id", postController.detail);
 
 //CREATE
-Router.post('/', uploadImage.single('image'), postController.create);
+Router.post('/', uploadImageFields, postController.create);
 
-//EDIT
-Router.get('/:id/edit', postController.edit);
+// 보류겐 Router.post('/', uploadImage.single('image'), postController.create);
+
+//DELETE
+Router.delete("/:id", postController.delete);
 
 //UPDATE
-Router.put('/:id/edit', postController.update);
+Router.put("/:id/edit", postController.edit);
 
 // url 중복 검사
-Router.post('/urlduplicate', postController.urlDuplicate);
+Router.post("/urlduplicate", postController.urlDuplicate);
 
-//DELETE
-Router.delete('/:id', postController.delete);
+// Active
+Router.put("/:id/active", postController.active);
 
-//COMMENT
-Router.put('/:id/comments', postController.commentAdd);
-//DELETE
-Router.delete('/comments/:id', postController.commentDelete);
+// Like
+Router.put("/:id/like", postController.like);
 
-
-module.exports = Router
+module.exports = Router;

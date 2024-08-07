@@ -1,0 +1,92 @@
+/*--- 공통사항 ---*/
+.vc-container {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.vc-pane-container {
+    display: block;
+    width: 100%;
+}
+.vc-pane-layout {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.vc-pane-header-wrapper {
+    display: none;
+}
+.vc-header {
+    display: none;
+}
+
+
+
+// day
+.vc-day-box-center-center {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+// week
+.vc-weekday {
+  line-height: 100%;
+  cursor: default;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+/*--- Highlights ---*/
+.vc-highlights {
+  pointer-events: none;
+  z-index: -1;
+}
+.vc-highlight {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+.vc-day-content {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    cursor: pointer;
+  }
+ 
+.vc-day {
+  position: relative;
+  z-index: 1;
+}
+  .vc-monthly .is-not-in-month * {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .vc-day-layer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+

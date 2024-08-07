@@ -1,3 +1,4 @@
+/* imageController.js */
 const Image = require('../models/Image')
 const User = require('../models/User')
 const { Storage } = require('@google-cloud/storage');
@@ -53,6 +54,16 @@ exports.getMultiple = async (req, res) => {
     res.status(500).send('Internal server error');
   }
 }
+
+// CREATE
+exports.create = (req, userId) => {
+  console.log ('파일노리리리', req.files)
+  console.log ('userId::', userId)
+
+};
+
+
+
 /*
 // CREATE
 exports.create = (req, res) => {
@@ -79,11 +90,7 @@ exports.create = (req, res) => {
       });
     });
 };
-
 */
-
-
-
 
 
 
@@ -111,7 +118,7 @@ exports.update = (req, res, next) => {
 
 
 
-
+/*
 exports.create = async (req, res) => {
   // Validate request
   if (!req.file) {
@@ -122,9 +129,10 @@ exports.create = async (req, res) => {
 console.log ('cococococo', req.file)
   const image = new Image({
     url: req.file.linkUrl,
+    filename: req.file.filename
   });
 
-// If req.file.mimetype.startsWith('image/')
+// mimtype이 이미지 일경우
   if (req.file.mimetype.startsWith('image/')) {  
   try {
     const storage = new Storage({
@@ -151,6 +159,27 @@ console.log ('cococococo', req.file)
         contentType: 'image/webp',
       },
     });
+// 원본파일 구글 클라우드 삭제
+    try {
+      const originalFile = storage.bucket(bucketName).file(filename);
+      await originalFile.delete();
+    } catch (err) {
+      console.error('Error occurred while deleting the original file:', err);
+    }
+
+// 원본파일 임시폴더 삭제
+    try {
+      fs.unlink(tempLocalPath, (err) => {
+        if (err) {
+          console.error('Error occurred while deleting the temporary file:', err);
+        } else {
+          console.log('Temporary file deleted successfully.');
+        }
+      });
+    } catch (err) {
+      console.error('Error occurred while deleting the original file:', err);
+    }
+// url 값 생성
     image.url = `https://storage.googleapis.com/${bucketName}/${convertedFilename}`;
   } catch (err) {
     console.error('Error occurred:', err);
@@ -158,8 +187,113 @@ console.log ('cococococo', req.file)
       message: err.message || "Some error occurred while creating the Image."
     });
   }
-
 }
+// Save the image to the database
+image.save()
+  .then(data => {
+    res.send(data);
+  }).catch(err => {
+    res.status(500).send({
+      message: err.message || "Some error occurred while creating the Image."
+    });
+  });
 
-  res.send(image);
+
+
+};
+
+*/
+
+// ...
+exports.uploadMultiple = async (req, res) => {
+  console.log('Upload multiple function called');
+
+  if (!req.files || req.files.length === 0) {
+    console.log('No files uploaded');
+    return res.status(400).send({
+      message: "At least one image file is required."
+    });
+  }
+
+  console.log('Number of uploaded files:', req.files.length);
+
+  const uploadedImages = req.files;
+
+  const uploadedUrls = [];
+  const imagePromises = [];
+
+  try {
+    const storage = new Storage({
+      projectId: 'eco-emissary-392608',
+      keyFilename: process.env.GOOGLECLOUD_KEYFILE,
+    });
+
+    const bucketName = 'jwpg_bucket';
+
+    for (const uploadedImage of uploadedImages) {
+      console.log('Processing image:', uploadedImage.filename);
+
+      const filename = uploadedImage.filename;
+      const file = storage.bucket(bucketName).file(filename);
+
+      const tempLocalPath = `./download/${filename}`;
+      await file.download({ destination: tempLocalPath });
+
+      const convertedImageBuffer = await sharp(tempLocalPath).toFormat('webp').toBuffer();
+
+      const convertedFilename = `${filename}.webp`;
+      const convertedFile = storage.bucket(bucketName).file(convertedFilename);
+
+      await convertedFile.save(convertedImageBuffer, {
+        resumable: false,
+        metadata: {
+          contentType: 'image/webp',
+        },
+      });
+
+      try {
+        const originalFile = storage.bucket(bucketName).file(filename);
+        await originalFile.delete();
+      } catch (err) {
+        console.error('Error occurred while deleting the original file:', err);
+      }
+
+      try {
+        fs.unlink(tempLocalPath, (err) => {
+          if (err) {
+            console.error('Error occurred while deleting the temporary file:', err);
+          } else {
+            console.log('Temporary file has been deleted.');
+          }
+        });
+      } catch (err) {
+        console.error('Error occurred while deleting the original file:', err);
+      }
+
+      const imageUrl = `https://storage.googleapis.com/${bucketName}/${convertedFilename}`;
+      uploadedUrls.push(imageUrl);
+
+      const image = new Image({
+        url: imageUrl,
+        filename: filename,
+      });
+      imagePromises.push(image.save());
+      
+      console.log('Image processed:', uploadedImage.filename);
+    }
+
+    console.log('All images processed');
+
+    const savedImages = await Promise.all(imagePromises);
+
+    console.log('Uploaded image URLs:', uploadedUrls);
+    console.log('Saved images:', savedImages);
+
+    res.status(200).json(savedImages);
+  } catch (err) {
+    console.error('Error occurred:', err);
+    res.status(500).send({
+      message: err.message || "Some error occurred while processing the images."
+    });
+  }
 };

@@ -1,0 +1,37 @@
+/*-- file viewer --*/
+.fileViewer {
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+.fileViewer .dialog-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  margin: 0;
+}
+.fileViewer > .overlay__content {
+  max-width: 480px;
+}
+.fileViewer > .overlay__content {
+  max-height: calc(100% - 48px);
+  width: calc(100% - 48px);
+  margin: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.fileViewer > .overlay__content > .dialog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  --v-scrollbar-offset: 0px;
+  overflow-y: auto;
+}
+
+/*--- 태블렛 ---*/
+@media all and (max-width: 1023px) {
+  .fileViewer > .overlay__content {
+    max-width: 480px;
+  }
+}

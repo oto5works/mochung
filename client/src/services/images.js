@@ -6,10 +6,15 @@ export const createImage = async (Image) => {
   const { data } = res
   return data
 }
+
+export const createImages = async (Images) => {
+  console.log ('Images::', Images)
+  const res = await axios.post(baseUrl + 'multiple/', Images)
+  const { data } = res
+  return data
+}
+
 export const getAImage = async (id) => {
-  if (id === null || id === "null") {
-    throw new Error("Invalid id parameter");
-  }
   const res = await axios.get(baseUrl + 'single/' + id);
   const { data } = res;
   return data;

@@ -1,0 +1,9 @@
+<template>
+  <rect x="40" y="88" width="176" height="128" rx="8" /><circle
+    cx="128"
+    cy="152"
+    r="12"
+    fill="currentColor"
+    stroke="none"
+  /><path d="M88,88V56a40,40,0,0,1,80,0V88" />
+</template>

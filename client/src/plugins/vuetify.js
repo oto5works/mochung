@@ -10,6 +10,7 @@ import 'vuetify/styles'
 // Composables
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
+import { VBottomSheet } from 'vuetify/labs/VBottomSheet'
 
 
 
@@ -18,7 +19,9 @@ export function setColor(variablecolor) {
 }
 
 export default createVuetify({
-  components,
+  components: {
+    VBottomSheet,
+  },
   theme: {
     themes: {
       light: {

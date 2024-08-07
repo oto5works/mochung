@@ -1,87 +1,148 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import store from '@/store/index' // import the store instance
+import { createRouter, createWebHistory } from "vue-router";
+import store from "@/store/index"; // import the store instance
+import { checkToken } from "@/services/auth";
 
-import MainView from '@/views/MainView.vue'
-import Post_create from '@/views/Post/Post_create.vue'
-import LoginView from '@/views/User/LoginView.vue'
-import LogoutView from '@/views/User/LogoutView.vue'
-import LoginNaverCallback from '@/views/User/LoginNaverCallback.vue'
-import Archive from '@/views/Archive/Archive.vue'
+import home from "@/views/home/home.vue";
+import archive from "@/views/archive/archive.vue";
+import support from "@/views/support/support.vue";
+
+// 유저 (로그인, 로그아웃)
+import login from "@/views/log/login.vue";
+import logout from "@/views/log/logout.vue";
+import loginNaverCallback from "@/views/log/loginNaverCallback.vue";
+
+// 비동기적 로딩 컴포넌트
+const form = () => import("@/views/form/form.vue");
+const form1 = () => import("@/views/form/form1.vue");
+
+const view = () => import("@/views/form/formView.vue");
+// user
+const icon = () => import("@/views/admin/adminIcon.vue");
+const coupon = () => import("@/views/admin/adminCoupon.vue");
 
 const router = createRouter({
   //history: createWebHashHistory(import.meta.env.BASE_URL),
   history: createWebHistory(),
   routes: [
     {
-      path: '/',
-      name: 'Main',
-      component: MainView,
-      meta: {
-        guest: true // only allow guests (non-authenticated users) to access this page
-      },
+      path: "/",
+      name: "home",
+      component: home,
+      meta: { requiresAuth: false },
     },
     // 로그인
     {
-      path: '/login',
-      name: 'LoginView',
-      component: LoginView,
+      path: "/login",
+      name: "login",
+      component: login,
     },
     {
-      path: '/login/naver',
-      name: 'LoginNaverCallback',
-      component: LoginNaverCallback
+      path: "/login/naver",
+      name: "loginNaverCallback",
+      component: loginNaverCallback,
     },
     {
-      path: '/logout',
-      name: 'LogoutView',
-      component: LogoutView,
+      path: "/logout",
+      name: "logout",
+      component: logout,
     },
-    // 로그인
-      {
-      path: '/create',
-      name: 'Post_create',
-      component: Post_create,
-      //meta: {
-      //  requiresAuth: true // only allow authenticated users to access this page
-      //}
+    // 제작
+    {
+      path: "/form",
+      name: "form",
+      component: form,
+      meta: { requiresAuth: false },
+    },
+    {
+      path: "/form/easy",
+      name: "form1",
+      component: form1,
+      meta: { requiresAuth: false },
     },
     // 내 정보
     {
-      path: '/me',
-      name: 'Archive',
-      component: Archive,    
-      //meta: {
-        //requiresAuth: true // only allow authenticated users to access this page
-      //}  
+      path: "/archive",
+      name: "archive",
+      component: archive,
+      meta: { requiresAuth: false },
+    },
+    // 고객지원
+    {
+      path: "/support",
+      name: "support",
+      component: support,
+      meta: { requiresAuth: false },
+    },
+    // 보기
+    {
+      path: "/:id",
+      name: "view",
+      component: view,
+      meta: { requiresAuth: false },
+      props: { big: false },
+    },
+    // 수정
+    {
+      path: "/:id/edit",
+      name: "edit",
+      component: form,
+      meta: { requiresAuth: false },
+    },
+    {
+      path: "/:id/%ED%81%B0%EA%B8%80%EC%9E%90", // "큰글자"를 URL 인코딩한 값
+      name: "viewBig",
+      component: view,
+      meta: { requiresAuth: false },
+      props: { big: true },
+    },
+    {
+      path: "/admin/coupon",
+      name: "coupon",
+      component: coupon,
+      //meta: { requiresAuth: false },
+    },
+    {
+      path: "/admin/icon",
+      name: "icon",
+      component: icon,
+      //meta: { requiresAuth: false },
     },
     //{
-      //path: '/other/:id',
-      //name: 'other',
-      //component: () => import('../views/OtherProfileView.vue')
+    //path: '/other/:id',
+    //name: 'other',
+    //component: () => import('../views/OtherProfileView.vue')
     //},
     //{
-      //path: '/post/:id',
-      //name: 'post',
-      //component: () => import('@/views/PostView.vue')
+    //path: '/post/:id',
+    //name: 'post',
+    //component: () => import('@/views/PostView.vue')
     //},
     //{
-      //path: '/post/:id/edit',
-      //name: 'postedit',
-      //component: () => import('@/Test/TestEditView.vue')
+    //path: '/post/:id/edit',
+    //name: 'postedit',
+    //component: () => import('@/Test/TestEditView.vue')
     //},
+  ],
+});
+router.beforeResolve(async (to, from, next) => {
+  console.log("라우터 가드");
+  // 토큰 확인
+  try {
+    const response = await checkToken();
+    const userData = response.info;
+    console.log("userData", userData);
+    // 유저 정보 저장
+    store.dispatch("handleAuthSuccess", userData);
+    // 페이지 이동 허용
+    next();
+  } catch (error) {
+    // 토큰 검사 실패 또는 다른 오류 발생
+    console.error("Token check failed", error);
 
-  ]
-})
-router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth) && !store.getters.isAuthenticated) {
-    next('/login')
-    store.commit('setNotiMessage', '로그인이 필요한 기능입니다.')
-    store.commit('setNotiShow', true)
-    store.commit('setNotiType', 'error')
-     // redirect to login page if not authenticated
-  } else {
-    next() // allow access to the requested page
+    // 로그인 페이지로 리다이렉트 또는 다른 처리
+    store.dispatch("handleAuthFail"); // handleAuthFail 액션 디스패치
+    next();
   }
-})
+});
 
-export default router
+export default router;
