@@ -104,8 +104,11 @@ export default {
   transform: translate(-50%,-50%);
   width: calc(100% + 72px);
   height: 100%;
-  background-color: cornflowerblue;
+  opacity: 0.12;
   border-radius: 16px;
+  background-color: rgba(var(--mio-theme-color-on-background), 0.24);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 .headerView .login-container {
   grid-column: 12 / 13; /* 12번 컬럼 */
