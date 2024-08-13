@@ -53,12 +53,6 @@ const router = createRouter({
       component: form,
       meta: { requiresAuth: false },
     },
-    {
-      path: "/form/easy",
-      name: "form1",
-      component: form1,
-      meta: { requiresAuth: false },
-    },
     // 내 정보
     {
       path: "/archive",
@@ -124,6 +118,7 @@ const router = createRouter({
     //},
   ],
 });
+/*
 router.beforeResolve(async (to, from, next) => {
   console.log("라우터 가드");
   // 토큰 확인
@@ -144,5 +139,5 @@ router.beforeResolve(async (to, from, next) => {
     next();
   }
 });
-
+*/
 export default router;

@@ -19,14 +19,24 @@
   direction: ltr;
   padding-inline-end: 0;
   border-radius: inherit;
-  display: flex;
+  display: grid;
   left: 0;
   pointer-events: none;
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
+  grid-template-columns: repeat(12, 1fr);
+
+  gap: 24px;
+    padding: 0 48px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
+
+
+
+
 .overlay__scrim {
   pointer-events: auto;
   border-radius: inherit;
@@ -36,7 +46,7 @@
   position: fixed;
   right: 0;
   top: 0;
-  background: var(--mio-theme-color-on-background);
+  background: red;
   opacity: 0;
   transition: all .3s ease;
 
@@ -46,16 +56,29 @@
 }
 
 .overlay__content {
-  outline: none;
-  position: absolute;
   pointer-events: auto;
   contain: layout;
   transform: translate(0);
+  grid-column: 6 / 12;
+  background-color: rgb(var(--mio-theme-color-background));
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  gap: 24px;
 }
-/*-- config --*/
-.config .overlay__scrim {
-  background: var(--background-on);
+
+
+
+.overlay__content .content{
+  display: flex;
+  flex-direction: column;
+  grid-column: 2 / 6;
 }
+
+
+
+
+
 
 .overlay-fade-enter-active,
 .overlay-fade-leave-active {
@@ -65,4 +88,14 @@
 .overlay-fade-enter-from,
 .overlay-fade-leave-to {
   opacity: 0;
+}
+
+
+
+.dialogFull .header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
 }

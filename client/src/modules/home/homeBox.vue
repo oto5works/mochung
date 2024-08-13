@@ -1,12 +1,12 @@
 <template>
-  <formBox icon="home" title="메인화면 스타일" @click="handleClickEvent">
-    <p>{{ selectedOption }}</p>
+  <cardView icon="home" title="메인화면 스타일" @click="handleClickEvent">
+    <span>{{ selectedOption }}</span>
     <homeDialog
       v-if="dialog"
       :dialog="dialog"
       @update:dialog="dialog = $event"
     />
-  </formBox>
+  </cardView>
 </template>
 <script>
 import { defineAsyncComponent } from "vue";

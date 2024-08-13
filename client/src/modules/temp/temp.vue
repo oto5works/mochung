@@ -6,6 +6,11 @@
     <button class="flicking-next button-defaulted" @click="nextButtonClick">
       <icon><caretRight /></icon>
     </button>
+    <buttonGroup 
+    :items="tempCategorys"  
+    v-model="tab" 
+    />
+<!--
     <v-tabs class="tab-defaulted pa_16" v-model="tab">
       <v-tab value="all">
         <span>ALL</span>
@@ -18,7 +23,7 @@
         <span>{{ item.title }}</span>
       </v-tab>
     </v-tabs>
-
+-->
     <Flicking
       v-if="renderFlicking"
       ref="flicking"
@@ -27,32 +32,40 @@
       :plugins="plugins"
     >
 
-    <div
-    class="fnOption-item"
-    v-for="(item, index) in filteredTempOptions"
-        :key="index"
-    >
-      <buttonFlicking :class="{ selected: item.value === customData.temp }">
-        <div
-          class="fnOption-image"
-          :style="{
-            backgroundImage: `url('https://jwpggit.github.io/storage/image/moInv/${item.value}.webp')`,
-          }"
-        ></div>
-        <div @click="selectOption(item)" class="fnOption-select"></div>
-
-        
-      </buttonFlicking>
-      <div class="font-size_14">{{ item.title }}</div>
-      <buttonText
-          :class="{ selected: item.value === customData.temp }"
-          class="more"
-          @click="handleClickEvent"
-        >
-          <span>Preview</span><icon class="icon_16"><arrowUpRight /></icon>
-        </buttonText>
-    </div>
+ 
       
+
+
+
+    <div class="fnOption-item" v-for="(item, index) in filteredTempOptions"
+    :key="index">
+      <div
+        class="fnOption-image"
+        @click="selectOption(item)"
+        :class="{ selected: item.value === customData.temp }"
+        :style="{
+          backgroundImage: `url('https://www.moyo-studio.com/wp-content/uploads/2023/05/product4v8FINAL2WM.jpg')`,
+        }"
+      ></div>
+      <!-- https://jwpggit.github.io/storage/image/moInv/${item.value}.webp -->
+      
+      <div class="display_flex flex-direction_column gap_16">
+        <div class="display_flex align-items_center gap_4" @click="selectOption(item)">
+          <icon v-if="item.value === customData.temp" class="icon_12 color_--mio-theme-color-primary"><check/></icon>
+          <div class="font-size_14 font-weight_700">{{ item.title }}</div>
+        </div>
+        <buttonDefault variant="tonal" height="18" :class="{ selected: item.value === customData.temp }"
+        ><span>Preview</span><icon class="icon_12"><arrowUpRight/></icon></buttonDefault
+      >
+      </div>
+  </div>
+
+
+
+
+
+
+
 
       
 
@@ -71,12 +84,12 @@ import { Arrow, Pagination } from "@egjs/flicking-plugins";
 import caretLeft from "@/components/icon/caretLeft.vue";
 import caretRight from "@/components/icon/caretRight.vue";
 import arrowUpRight from "@/components/icon/arrowUpRight.vue";
-
-import "@/modules/functions/fnOption.scss";
+import check from "@/components/icon/check.vue";
+import buttonGroup from "@/components/button/buttonGroup.vue";
 
 
 export default {
-  components: { Flicking, caretLeft, caretRight, arrowUpRight },
+  components: { Flicking, caretLeft, caretRight, arrowUpRight, check, buttonGroup },
   computed: {
     ...mapGetters({
       customData: "getCustomData",
@@ -183,21 +196,24 @@ export default {
 </script>
 
 <style scoped>
+.fnOption-item {
+  position: relative;
+  width: 160px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-right: 8px;
+  cursor: pointer;
+}
 .fnOption-image {
   position: relative;
   width: 100%;
-  aspect-ratio: 5 / 8;
+  aspect-ratio: 1 / 1.6;
   background-position: center;
   background-size: cover;
-  z-index: 4;
 }
-
-.fnOption-item .more {
-  position: absolute;
-  z-index: 5;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: var(--border-radius-12);
+.fnOption-image.selected {
+  border: 1px solid rgb(var(--mio-theme-color-primary));
 }
 </style>

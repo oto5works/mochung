@@ -24,7 +24,7 @@
       v-if="renderFlicking"
       ref="flicking"
       class="flicking-item"
-      :options="{ moveType: 'snap', bound: true }"
+      :options="{ moveType: 'snap', bound: true, align: 'prev' }"
       :plugins="plugins"
     >
       <buttonFlicking

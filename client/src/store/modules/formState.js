@@ -1,14 +1,8 @@
 export default {
   state: {
     editorId: "", // 현재 섹션의 ID
-    appbar: {
-      color: '#000',
-      backgroundColor: '#fff'
-    },
     previewId: "", // 현재 섹션의 ID
     showPreview: false,
-    showNavigation: false,
-    showScrim: false,
     section: null,
     screenWidth: "",
     formOption: ''
@@ -16,10 +10,6 @@ export default {
   mutations: {
     togglePreview(state) {
       state.showPreview = !state.showPreview;
-    },
-    toggleNavigation(state) {
-      state.showNavigation = !state.showNavigation;
-      state.showScrim = !state.showScrim;
     },
     setSection(state, section) {
       state.section = section;
@@ -45,9 +35,6 @@ export default {
         }
       }
     },
-    setAppbar(state, option) {
-      state.appbar = option;
-    },
   },
   actions: {
     togglePreviewAction({ commit }) {
@@ -68,19 +55,10 @@ export default {
     updateFormOption({ commit }, option) {
       commit("setFormOption", option);
     },
-    updateAppbar({ commit }, option) {
-      commit("setAppbar", option);
-    },
   },
   getters: {
     getShowPreview(state) {
       return state.showPreview;
-    },
-    getNavigation(state) {
-      return state.showNavigation;
-    },
-    getScrim(state) {
-      return state.showScrim;
     },
     getSection(state) {
       return state.section;
@@ -90,9 +68,6 @@ export default {
     },
     getFormOption(state) {
       return state.formOption;
-    },
-    getAppbar(state) {
-      return state.appbar;
     },
   },
 };

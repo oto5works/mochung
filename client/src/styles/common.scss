@@ -9,7 +9,6 @@
   text-decoration-line: none;
 }
 .disabled {
-  opacity: 0.4;
   pointer-events: none;
 }
 .animation {
@@ -271,6 +270,9 @@ textarea:focus {
 }
 .gap_4 {
   gap: 4px;
+}
+.gap_6 {
+  gap: 6px;
 }
 .gap_8 {
   gap: 8px;
@@ -668,6 +670,9 @@ textarea:focus {
 }
 .color_kakaopay {
   color: #ffeb00;
+}
+.color_--mio-theme-color-primary {
+  color: rgb(var(--mio-theme-color-primary));
 }
 .text-decoration_underline {
   text-decoration: underline;

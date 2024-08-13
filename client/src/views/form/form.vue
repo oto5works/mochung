@@ -1,62 +1,47 @@
 <!-- formCreate.vue -->
 <template>
-  <div class="form config">
-    <backgroundView />
-    <fnStyle />
-    <!-- form-header 
-    <div class="form-header"></div>
--->
-    <!-- form-content -->
-    <div class="form-content">
-      <!-- form-nav-mobile -->
+  <div class="layout">
+    <!-- <fnStyle /> -->
+    <div class="layer-1">
+      <div class="preview-wrap">
+        <!--<div class="form-preview__wrap"></div>-->
+        <div class="preview-mobile"><!--<preview />--></div>
+      </div>
+    </div>
+    <div class="layer-2">
+      <formOption v-if="!formOption" />
+      <form1 v-if="formOption === 'form1'" />
+      <form2 v-if="formOption === 'form2'" />
+    </div>
 
-      <form1NavMobile
-        v-if="formOption === 'form1' && screenWidth === 'mobile'"
-      />
-      <form2NavMobile
-        v-if="formOption === 'form2' && screenWidth === 'mobile'"
-      />
+    <div class="layer-3">
+      <form1NavDesktop v-if="formOption === 'form1'" />
+      <form2NavDesktop v-if="formOption === 'form2'" />
+    </div>
 
-      <!-- form-space -->
-      <div class="common-space" />
-      <!-- form-preview -->
+    <!--
       <div
         v-if="formOption"
         class="form-preview"
         ref="previewComponent"
         :class="{ active: showPreview }"
       >
-        <div class="form-preview__wrap"><preview /></div>
+        
       </div>
-      <!-- form-editor -->
-      <div class="form-editor">
-        <formOption v-if="!formOption" />
-        <form1 v-if="formOption === 'form1'" />
-        <form2 v-if="formOption === 'form2'" />
-        <div class="sp_120" />
-      </div>
-      <!-- form-nav-desktop -->
-      <div class="common-space" v-if="screenWidth === 'desktop'">
-        <form1NavDesktop v-if="formOption === 'form1'" />
-        <form2NavDesktop v-if="formOption === 'form2'" />
-      </div>
-    </div>
+      -->
   </div>
 </template>
 
 <script>
-import "@/views/form/form.scss";
 import { defineAsyncComponent } from "vue";
 import { mapGetters, mapActions } from "vuex";
 
 /*-- form스타일을 고르는 중 미리 load 하기 --*/
-import backgroundView from "@/modules/background/backgroundView.vue";
 import fnStyle from "@/modules/functions/fnStyle.vue";
 
 export default {
   components: {
     fnStyle,
-    backgroundView,
     preview: defineAsyncComponent(() => import("@/views/preview/preview.vue")),
     formOption: defineAsyncComponent(() =>
       import("@/views/form/formOption.vue")
@@ -88,7 +73,6 @@ export default {
       console.log("데이터 리셋을 실행합니다. 여긴 created");
       this.$store.commit("resetFormData"); // Vue 컴포넌트 내에서 호출
     }
-
   },
   computed: {
     ...mapGetters({
@@ -107,7 +91,33 @@ export default {
     handleFetchFormData(id) {
       this.fetchFormData(id);
     },
-    
   },
 };
 </script>
+
+<style scoped>
+.preview-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #f6f6f0;
+}
+.preview-mobile {
+  position: relative;
+  height: 100%;
+  aspect-ratio: var(--mio-theme-aspect-ratio);
+  border-radius: 44px;
+  border: 4px solid black;
+  outline: 4px solid black;
+  transform: scale(0.8);
+  contain: layout;
+  overflow: hidden;
+  -webkit-filter: drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.1));
+  -webkit-box-shadow: 0 32px 96px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 32px 96px rgba(0, 0, 0, 0.1);
+}
+</style>

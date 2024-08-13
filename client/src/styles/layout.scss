@@ -1,49 +1,55 @@
-html::-webkit-scrollbar {
-  display: none;
-}
-
-.form {
-  position: relative;
-  display: block;
-  width: 100%;
-}
-
-.form-header {
-  position: relative;
-  display: flex;
-  justify-content: center;
+.layout {
   width: 100%;
   height: auto;
-  background-color: var(--primary-color);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  padding: 0 48px;
+  color: rgb(var(--mio-theme-color-on-background));
 }
-.form-content {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 0 64px;
-  font-family: var(--font-family);
-  letter-spacing: var(--letter-spacing);
-  color: var(--font-color);
-  margin-top: 56px;
+.layer-1 {
+  position: sticky;
+  grid-column: 1 / 6;
+  margin-left: -48px;
+  width: calc(100% + 48px);
+  height: 100vh;
+  top: 0;
+  background-color: bisque;
 }
-.form-editor {
+.layer-2 {
   position: relative;
+  grid-column: 7 / 11;
   display: block;
   width: 100%;
-  flex: 6;
+  height: 100%;
+}
+.layer-3 {
+  position: sticky;
+  grid-column: 12; /* 1~5열 차지 */
+  margin-right: -48px; /* 왼쪽 패딩을 상쇄하기 위한 마이너스 마진 */
+  width: calc(100% + 48px); /* 패딩을 상쇄하기 위한 너비 조정 */
+  height: 100vh;
+  top: 0;
+  background-color: bisque;
 }
 
+
 /*--- 프리뷰 영역 ---*/
-.form-preview {
-  position: sticky;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 3;
-  top: 56px;
-  height: calc(100vh - 56px);
+.mobile {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80%;
+  aspect-ratio: var(--mio-theme-aspect-ratio);
+  border-radius: var(--border-radius-26);
+  -webkit-box-shadow: 12px 12px 40px -5px var(--primary-color);
+  box-shadow: 12px 12px 40px -5px var(--primary-color);
+  opacity: 0.4;
+  background-color: aqua;
 }
+
 .form-preview::before {
   position: absolute;
   content: "";
@@ -111,59 +117,18 @@ html::-webkit-scrollbar {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 120px;
-  max-width: 640px;
   width: 100%;
-  margin-top: 56px;
+  gap: 72px;
+  margin-top: 96px;
 }
 .editor .editor-item {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin: var(--0px-12px-0px);
 }
-.editor section {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 12px 0 48px 0;
-  border-radius: var(--border-radius-28);
-  background-color: var(--tr-bc-tr);
+.spacing-editor {
+  height: 72px;
 }
-.editor section::before {
-  position: absolute;
-  content: "";
-  display: var(--none-block-block);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: var(--border-radius-28);
-  -webkit-box-shadow: var(--box-shadow-1) var(--background-color);
-  box-shadow: var(--box-shadow-1) var(--background-on);
-}
-
-.editor article {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 0 16px;
-}
-
-.editorSection {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: var(--justify-content);
-  gap: 16px;
-  padding: 0 8px;
-  margin-top: 12px;
-  margin-bottom: 18px;
-}
-
 /*--- tab-navigation ---*/
 .tab-navigation .v-tab.v-tab {
   padding: 0 16px;

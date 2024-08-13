@@ -279,6 +279,7 @@ export default {
       { value: "calendar3", title: "영문 달력" },
     ],
     tempCategorys: [
+      { value: "all", title: "전체" },
       { value: "basic", title: "기본" },
 
       { value: "flower", title: "꽃" },

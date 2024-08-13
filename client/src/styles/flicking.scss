@@ -7,8 +7,8 @@
 .flicking-viewport {
   position: relative;
   overflow: hidden;
+  
 }
-
 .flicking-viewport.vertical {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -50,25 +50,22 @@
 }
 
 .flicking-item .flicking-camera {
-  padding: 8px 16px;
+  padding: 0;
 }
 
 /*-- PAGINATION --*/
-.flicking-item .flicking-viewport.main.full .flicking-pagination {
-  margin-top: 32px;
-}
 .flicking-item .flicking-pagination {
-  margin-top: 32px;
+  margin-top: 48px;
 }
 .flicking-item .flicking-pagination-bullets {
   display: flex;
-  padding: 0 var(--12px-24px-12px);
+  padding: 0;
 }
 .flicking-item .flicking-pagination-bullet {
   flex: 1;
   height: 2px;
-  background-color: var(--primary-color);
-  opacity: 0.4;
+  background-color: rgb(var(--mio-theme-color-primary));
+  opacity: 0.2;
 }
 .flicking-item .flicking-pagination-bullet-active {
   opacity: 1;
@@ -86,15 +83,14 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-  width: 32px;
-  height: 32px;
-  border-radius: var(--border-radius-18);
+  width: 24px;
+  height: 24px;
 }
 .flicking .flicking-prev {
-  left: 8px;
+  left: 0;
 }
 .flicking .flicking-next {
-  right: 8px;
+  right: 0;
 }
 .flicking:hover .flicking-prev,
 .flicking:hover .flicking-next {

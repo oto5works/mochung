@@ -25,10 +25,16 @@ strong {
 .text-right {
   text-align: right;
 }
-
 u {
   text-decoration: underline;
 }
+.font-weight_500 {
+  font-weight: 500;
+}
+.font-weight_700 {
+  font-weight: 700;
+}
+
 // 프리텐다드
 @font-face {
   font-family: "pretendard";
@@ -375,3 +381,5 @@ u {
   font-style: normal;
   font-weight: 900;
 }
+
+

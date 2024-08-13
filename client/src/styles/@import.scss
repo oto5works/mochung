@@ -13,7 +13,6 @@
 // v-component
 @import "./v-tabs.scss";
 @import "./v-checkbox.scss";
-@import "./flicking.scss";
 @import "./v-switch.scss";
 @import "./v-hr.scss";
 @import "./v-table.scss";
@@ -28,6 +27,6 @@
 
 
 // common
-@import "./common/form.scss";
 @import "./common/z-index.scss";
 @import "./common/pagination.scss";
+@import "./layout.scss";

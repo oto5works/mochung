@@ -1,5 +1,5 @@
 <template>
-  <modalDialog
+  <dialogFull
     :dialog="dialog"
     @update:dialog="updateDialog"
     title="메인화면 스타일"
@@ -8,7 +8,7 @@
     <article>
       <homeOptions @update:dialog="updateDialog" />
     </article>
-  </modalDialog>
+  </dialogFull>
 </template>
 <script>
 import { defineAsyncComponent } from "vue";

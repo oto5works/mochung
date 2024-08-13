@@ -2,21 +2,21 @@
 <template>
   <header class="headerView">
     <div class="container">
-        <div class="logo-container">
-          <span class="logo">logo</span>
+      <div class="logo-container">
+        <span class="logo">logo</span>
+      </div>
+      <div class="menu-container">
+        <div class="menu-wrap">
+          <buttonHeader class="selected">Hom2e</buttonHeader>
+          <buttonHeader>About</buttonHeader>
+          <buttonHeader>Services</buttonHeader>
+          <buttonHeader>Contact</buttonHeader>
+          <div class="underlay" />
         </div>
-        <div class="menu-container">
-          <div class="menu-wrap">
-            <button>Home</button>
-            <button>About</button>
-            <button>Services</button>
-            <button>Contact</button>
-            <div class="underlay"/>
-          </div>
-        </div>
-        <div class="login-container">
-          <button class="login">Login</button>
-        </div>
+      </div>
+      <div class="login-container">
+        <buttonDefault variant="filled" height="46"><span>Login</span></buttonDefault>
+      </div>
     </div>
   </header>
 </template>
@@ -24,10 +24,12 @@
 <script>
 import { mapGetters } from "vuex";
 import logo from "@/components/logo.vue";
+import buttonHeader from "@/components/button/buttonHeader.vue";
 
 export default {
   components: {
     logo,
+    buttonHeader,
   },
   data() {
     return {
@@ -66,7 +68,6 @@ export default {
   display: grid;
   grid-template-columns: repeat(12, 1fr); /* 12컬럼 그리드 시스템 설정 */
   gap: 24px; /* 그리드 아이템 간의 간격 */
-  background-color: aqua;
 }
 .headerView .logo-container {
   position: relative;
@@ -74,19 +75,16 @@ export default {
   grid-column: 1 / 3; /* 1번 컬럼부터 2번 컬럼까지 */
   display: flex;
   align-items: center;
-  background-color: beige;
 }
 .headerView .logo-container .logo {
   height: 25%;
   width: 100%;
-  background-color: blueviolet;
 }
 /* 메뉴 컨테이너 */
 .headerView .menu-container {
   grid-column: 7 / 11; /* 7번 컬럼부터 10번 컬럼까지 */
   display: flex;
   align-items: center;
-  background-color: rgb(122, 122, 37);
 }
 .headerView .menu-wrap {
   position: relative;
@@ -98,28 +96,25 @@ export default {
 }
 .headerView .menu-wrap .underlay {
   position: absolute;
-  content: '';
+  content: "";
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
-  width: calc(100% + 72px);
+  transform: translate(-50%, -50%);
+  width: calc(100% + 48px);
   height: 100%;
-  opacity: 0.12;
   border-radius: 16px;
-  background-color: rgba(var(--mio-theme-color-on-background), 0.24);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(var(--mio-theme-color-background), 0.12);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 .headerView .login-container {
   grid-column: 12 / 13; /* 12번 컬럼 */
   display: flex;
   align-items: center;
   justify-content: flex-end; /* 오른쪽 정렬 */
-  background-color: rgb(122, 122, 37);
 }
 .headerView .login {
   width: 100%;
   height: 40px;
-  background-color: beige;
 }
 </style>

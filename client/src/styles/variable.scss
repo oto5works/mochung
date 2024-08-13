@@ -1,26 +1,40 @@
 // style 
 :root {
+
+  --mio-theme-color-primary: 0, 0, 0;
+  --mio-theme-color-on-primary: 255, 255, 255;
+  --mio-theme-color-primary-05: 247, 247, 243;
+  --mio-theme-color-primary-10: 233, 233, 230;
+  --mio-theme-color-primary-20: 217, 217, 217;
+  --mio-theme-color-primary-40: 184, 184, 184;
+  --mio-theme-color-primary-70: 138, 138, 138;
+  --mio-theme-color-primary-90: 49, 49, 49;
+
+  --mio-theme-color-background: 255, 255, 255;
+  --mio-theme-color-on-background: 0, 0, 0;
+  --mio-theme-color-on-background-20: 217, 217, 217;
+  --mio-theme-color-on-background-40: 153, 153, 153;
+  --mio-theme-color-on-background-70: 73, 69, 79;
+
+  
     --mio-theme-color-on-surface-variant-1: linear-gradient(0deg, rgba(68, 71, 70, .36), rgba(68, 71, 70, 0));
     --mio-theme-color-on-surface-variant-2: linear-gradient(0deg, rgba(68, 71, 70, .08), rgba(68, 71, 70, .08));
     --mio-theme-color-on-surface-variant-4: linear-gradient(0deg, rgba(68, 71, 70, .12), rgba(68, 71, 70, .12));
     --mio-theme-color-on-surface-2: linear-gradient(0deg, rgba(31, 31, 31, .08), rgba(31, 31, 31, .08)), var(--mio-theme-color-secondary-container);
     --mio-theme-color-on-surface-4: linear-gradient(0deg, rgba(31, 31, 31, .12), rgba(31, 31, 31, .12)), var(--mio-theme-color-secondary-container);
     --mio-theme-color-white: #fff;
-    --mio-theme-color-on-background: 0, 0, 0;
-    --mio-theme-color-background: #fff;
+    
     --mio-theme-color-on-surface: #1f1f1f;
     --mio-theme-color-on-surface-variant: #444746;
     --mio-theme-color-surface-0: #fff;
     --mio-theme-color-surface-variant: #e1e3e1;
     --mio-theme-color-inverse-surface: #303030;
     --mio-theme-color-inverse-on-surface: #f2f2f2;
-    --mio-theme-color-primary: #ff4d00; /* Updated primary color */
     --mio-theme-color-primary-80: #ffc6b8; /* Adjusted based on new primary color */
     --mio-theme-color-primary-30: #ff9e73; /* Adjusted based on new primary color */
-    --mio-theme-color-primary-20: #ff8355; /* Adjusted based on new primary color */
+    
     --mio-theme-color-primary-gray: #6e6e6e;
 
-    --mio-theme-color-on-primary: #fff;
     --mio-theme-color-neutral-10: #1f1f1f;
     --mio-theme-color-neutral-90: #e3e3e3;
     --mio-theme-color-primary-container: #ffc6b8; /* Adjusted based on new primary color */

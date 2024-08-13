@@ -1,89 +1,214 @@
 <template>
-  <button class="buttonDefault" :style="{ color: color }">
-    <div class="overlay" :style="{ color: onColor }" />
-    <div class="content" :style="{ color: onColor }">
-      <slot></slot>
-    </div>
-    <div class="outline" />
+  <button class="buttonDefault" :class="variant" :style="computedStyles">
+    <slot></slot>
     <div class="underlay" />
     <div class="shadow" />
   </button>
 </template>
 
 <script>
-import { setOnColor } from "@/services/function";
-
 export default {
   props: {
-    color: {
+    variant: {
       type: String,
-      default: null,
+      default: 'tonal', // tonal, filled, text
+    },
+    icon: {
+      type: Boolean,
+      default: false,
+    },
+    height: {
+      type: String,
+      default: '40', // 18, 24, 32, 36, 40, 46
     },
   },
   computed: {
-    onColor() {
-      if (this.color) {
-        // Call setOnColor function with the color prop
-        return setOnColor(this.color);
+    computedStyles() {
+      let styles = {};
+
+      // Determine the borderRadius based on height
+      const borderRadiusMap = {
+        '18': '6px',
+        '24': '8px',
+        '32': '12px',
+        '36': '12px',
+        '40': '14px',
+        '46': '16px',
+      };
+
+      const borderRadius = borderRadiusMap[this.height] || '14px';
+
+      if (this.icon) {
+        styles = {
+          width: `${this.height}px`,
+          height: `${this.height}px`,
+          padding: '0',
+          fontSize: 'inherit',
+          borderRadius: borderRadius, // Apply the borderRadius
+        };
       } else {
-        return null;
+        switch (this.height) {
+          case '18':
+            styles = {
+              fontSize: '11px',
+              padding: '6px',
+              gap: '2px',
+              borderRadius: '6px',
+              height: '18px',
+            };
+            break;
+          case '24':
+            styles = {
+              fontSize: '13px',
+              padding: '8px',
+              gap: '4px',
+              borderRadius: '8px',
+              height: '24px',
+            };
+            break;
+          case '32':
+            styles = {
+              fontSize: '13px',
+              padding: '10px',
+              gap: '4px',
+              borderRadius: '12px',
+              height: '32px',
+            };
+            break;
+          case '36':
+            styles = {
+              fontSize: '13px',
+              padding: '12px',
+              gap: '6px',
+              borderRadius: '12px',
+              height: '36px',
+            };
+            break;
+          case '40':
+            styles = {
+              fontSize: '14px',
+              padding: '18px',
+              gap: '8px',
+              borderRadius: '14px',
+              height: '40px',
+            };
+            break;
+          case '46':
+            styles = {
+              fontSize: '14px',
+              padding: '20px',
+              gap: '8px',
+              borderRadius: '16px',
+              height: '46px',
+            };
+            break;
+          default:
+            styles = {
+              fontSize: '14px',
+              padding: '18px',
+              gap: '8px',
+              borderRadius: '14px',
+              height: '40px',
+            };
+        }
       }
+      return styles;
+    },
+    computedClass() {
+      let baseClass = '';
+      switch (this.variant) {
+        case 'tonal':
+          baseClass = 'tonal';
+          break;
+        case 'filled':
+          baseClass = 'filled';
+          break;
+        case 'text':
+          baseClass = 'text';
+          break;
+        default:
+          baseClass = 'tonal';
+      }
+      return baseClass;
     },
   },
 };
 </script>
 
 <style scoped>
+/* common */
 .buttonDefault {
-  color: var(--mio-theme-color-primary);
-  font-size: 14px;
-  font-weight: 700;
-}
-.buttonDefault .content {
-  color: var(--mio-theme-color-on-primary);
-}
-.buttonDefault .overlay {
-  color: var(--mio-theme-color-on-primary);
-  background-color: currentColor;
-}
-.buttonDefault .underlay {
-  color: var(--mio-theme-color-primary);
-  background-color: currentColor;
-}
-.buttonDefault .outline {
-  display: none;
-  border-style: solid;
-  border-width: 1px;
+  color: rgb(var(--mio-theme-color-primary));
+  width: fit-content;
 }
 .buttonDefault .shadow {
   display: none;
+  box-shadow: 0 10px 20px -10px rgba(var(--mio-theme-color-primary),.3);
 }
-
-/*-- config --*/
-.config .buttonDefault {
-  color: var(--po-po-pc);
-  font-size: var(--font-size-14);
-  font-weight: var(--font-weight);
+/* tonal */
+.buttonDefault.tonal .underlay {
+  background-color: rgb(var(--mio-theme-color-primary-10));
 }
-.config .buttonDefault .content {
-  color: var(--po-po-pc);
+.buttonDefault.tonal:hover .underlay {
+  background-color: rgb(var(--mio-theme-color-primary-20));
 }
-.config .buttonDefault .overlay {
-  color: var(--pc-pc-tr);
+.buttonDefault.tonal.selected {
+  font-weight: 500;
 }
-.buttonDefault .overlay {
-  color: var(--po-po-pc);
+.buttonDefault.tonal.selected .underlay {
+  background-color: rgb(var(--mio-theme-color-primary-40));
 }
-.buttonDefault .underlay {
-  color: var(--pc-pc-tr);
+.buttonDefault.tonal.selected .shadow {
+  display: block;
 }
-.config .buttonDefault .outline {
-  display: var(--border-display);
-  border-color: var(--po-po-pc);
+.buttonDefault.tonal.disabled {
+  color: rgb(var(--mio-theme-color-primary-40));
 }
-.config .buttonDefault .shadow {
-  display: var(--box-shadow-display);
-  -webkit-box-shadow: 0 10px 20px -10px var(--primary-color);
-  box-shadow: 0 10px 20px -10px var(--primary-color);
+.buttonDefault.tonal.disabled .underlay {
+  background-color: rgb(var(--mio-theme-color-primary-10));
+}
+/* filled */
+.buttonDefault.filled {
+  color: rgb(var(--mio-theme-color-on-primary));
+}
+.buttonDefault.filled .underlay {
+  background-color: rgb(var(--mio-theme-color-primary));
+}
+.buttonDefault.filled:hover .underlay {
+  background-color: rgb(var(--mio-theme-color-primary-90));
+}
+.buttonDefault.filled.selected {
+  font-weight: 500;
+}
+.buttonDefault.filled.selected .underlay {
+  background-color: rgb(var(--mio-theme-color-primary));
+}
+.buttonDefault.filled.selected .shadow {
+  display: block;
+}
+.buttonDefault.filled.disabled .underlay {
+  background-color: rgb(var(--mio-theme-color-primary-40));
+}
+/* text */
+.buttonDefault.text .underlay {
+  background-color: transparent;
+}
+.buttonDefault.text:hover .underlay {
+  background-color: rgb(var(--mio-theme-color-primary-10));
+}
+.buttonDefault.text.selected {
+  font-weight: 500;
+}
+.buttonDefault.text.selected .underlay {
+  background-color: rgb(var(--mio-theme-color-primary-20));
+}
+.buttonDefault.text.selected .shadow {
+  display: block;
+}
+.buttonDefault.text.disabled {
+  color: rgb(var(--mio-theme-color-primary-40));
+}
+.buttonDefault.text.disabled .underlay {
+  background-color: transparent;
 }
 </style>
