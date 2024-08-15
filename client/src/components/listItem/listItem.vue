@@ -22,15 +22,35 @@
 </template>
 
 <script>
-import checkBox from "@/components/icon/checkBox.vue";
-import checkedBox from "@/components/icon/checkedBox.vue";
-import audios from "@/components/icon/audios.vue";
+import { defineAsyncComponent } from "vue";
 
 export default {
   components: {
-    checkBox,
-    checkedBox,
-    audios
+    checkBox: defineAsyncComponent(() =>
+      import("@/components/icon/checkBox.vue")
+    ),
+    checkedBox: defineAsyncComponent(() =>
+      import("@/components/icon/checkedBox.vue")
+    ),
+    upload: defineAsyncComponent(() =>
+      import("@/components/icon/upload.vue")
+    ),
+    search: defineAsyncComponent(() =>
+      import("@/components/icon/search.vue")
+    ),
+    magicwand: defineAsyncComponent(() =>
+      import("@/components/icon/magicwand.vue")
+    ),
+    trash: defineAsyncComponent(() =>
+      import("@/components/icon/trash.vue")
+    ),
+    youtube: defineAsyncComponent(() =>
+      import("@/components/icon/youtube.vue")
+    ),
+    crop: defineAsyncComponent(() =>
+      import("@/components/icon/crop.vue")
+    ),
+    
   },
   props: {
     icon: {

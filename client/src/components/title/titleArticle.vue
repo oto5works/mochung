@@ -6,7 +6,7 @@
       <div class="title" v-html="title"></div>
       <slot></slot>
     </div>
-    <div v-if="content" class="spacing-1" />
+    <div v-if="content" class="spacing-3" />
     <div class="content" v-if="content">{{ content }}</div>
     <div class="spacing-1" />
     <div v-if="!content" class="spacing-2" />
@@ -44,10 +44,13 @@ export default {
   color: rgb(var(--mio-theme-color-on-background-70));
 }
 .spacing-1 {
-  height: 12px;
+  height: 24px;
 }
 .spacing-2 {
-  height: 4px;
+  height: 8px;
+}
+.spacing-3 {
+  height: 12px;
 }
 </style>
 

@@ -36,11 +36,9 @@ export default {
 <style scoped>
 .grid-stack-item {
   position: absolute;
-  color: var(--primary-on);
   background-size: cover;
   background-position: center;
   cursor: move;
   z-index: 1;
-  border: 2px solid var(--primary-color);
 }
 </style>

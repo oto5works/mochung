@@ -1,5 +1,18 @@
 <template>
   <div class="position_relative">
+
+
+  <cardViewColor 
+
+  title="메인 폰트 색상"
+  :options="homeColorOptions"
+      :color="homeData.color"
+      @update:color="homeData.color = $event"
+      :dialog="dialog"
+      @update:dialog="dialog = $event"
+  />
+
+
     <formBox icon="color" title="메인 폰트 색상" @click="dialog = true">
       <div class="flex align-items_center gap_8">
         <div class="item-color" :style="{ background: homeData.color }" />

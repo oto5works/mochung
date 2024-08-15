@@ -30,7 +30,6 @@
   width: calc(100% + 48px); /* 패딩을 상쇄하기 위한 너비 조정 */
   height: 100vh;
   top: 0;
-  background-color: bisque;
 }
 
 
@@ -119,92 +118,11 @@
   flex-direction: column;
   width: 100%;
   gap: 72px;
-  margin-top: 96px;
+  margin-top: 14vh;
 }
 .editor .editor-item {
   position: relative;
   display: flex;
   flex-direction: column;
 }
-.spacing-editor {
-  height: 72px;
-}
-/*--- tab-navigation ---*/
-.tab-navigation .v-tab.v-tab {
-  padding: 0 16px;
-}
-.tab-navigation.v-slide-group--vertical .v-tab.v-tab {
-  padding: 0 16px;
-}
-.tab-navigation .v-btn__content {
-  color: var(--pc-pc-tr);
-  gap: 4px;
-}
-.tab-navigation .v-btn__content span {
-  color: var(--font-color);
-  font-size: 14px;
-  font-weight: 400;
-}
-// selected
-.tab-navigation .v-tab--selected .v-btn__content span {
-  color: var(--po-po-pc);
-  font-weight: 700;
-}
-.tab-navigation .v-tab--selected {
-  color: var(--po-po-pc);
-}
 
-.tab-navigation .v-tab__slider {
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  border-radius: var(--border-radius-32);
-  background-color: var(--pc-pc-tr);
-  border-width: 1px;
-  border-style: var(--border-style);
-  border-color: var(--po-po-pc);
-}
-.tab-navigation.v-slide-group--vertical .v-tab__slider {
-  width: 100%;
-  z-index: -1;
-  border-radius: var(--border-radius-32);
-  background-color: var(--pc-pc-tr);
-  border-width: 1px;
-  border-style: var(--border-style);
-  border-color: var(--po-po-pc);
-}
-
-/*-- navigation__mobile --*/
-.form .form-nav-mobile {
-  position: sticky;
-  top: 56px;
-  background-color: var(--background-color);
-}
-.navigation__mobile .v-slide-group__container svg {
-  color: var(--po-po-pc);
-}
-.navigation__mobile .v-slide-group__content {
-  gap: 4px;
-}
-.navigation__mobile.tab-navigation .v-tab.v-tab {
-  //padding: unset;
-  //flex: 1;
-}
-.navigation__mobile.tab-navigation .v-btn__content span {
-  font-size: 12px;
-  letter-spacing: 0.05em;
-  font-weight: 400;
-  text-align: left;
-}
-.tab-navigation .v-tab--selected .v-btn__content .step {
-  font-size: 8px;
-}
-.navigation__mobile.tab-navigation .v-tab--selected .v-btn__content span {
-  line-height: 100%;
-  font-weight: 700;
-}
-.navigation__mobile.v-tabs--density-default {
-  --v-tabs-height: 48px;
-  align-items: center;
-  padding: 0 8px;
-}

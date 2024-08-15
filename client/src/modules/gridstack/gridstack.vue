@@ -131,24 +131,12 @@ import gridstackItem from "@/modules/gridstack/gridstackItem";
 export default {
   components: {
     gridstackItem,
-    home1: defineAsyncComponent(() =>
-      import("@/components/home/home1")
-    ),
-    home2: defineAsyncComponent(() =>
-      import("@/components/home/home2")
-    ),
-    home3: defineAsyncComponent(() =>
-      import("@/components/home/home3")
-    ),
-    home4: defineAsyncComponent(() =>
-      import("@/components/home/home4")
-    ),
-    home5: defineAsyncComponent(() =>
-      import("@/components/home/home5")
-    ),
-    home6: defineAsyncComponent(() =>
-      import("@/components/home/home6")
-    ),
+    home1: defineAsyncComponent(() => import("@/components/home/home1")),
+    home2: defineAsyncComponent(() => import("@/components/home/home2")),
+    home3: defineAsyncComponent(() => import("@/components/home/home3")),
+    home4: defineAsyncComponent(() => import("@/components/home/home4")),
+    home5: defineAsyncComponent(() => import("@/components/home/home5")),
+    home6: defineAsyncComponent(() => import("@/components/home/home6")),
   },
   data() {
     return {
@@ -161,7 +149,6 @@ export default {
       homeDefaultedOptions: "getHomeDefaultedOptions",
       homeData: "getHomeData",
       homeColor: "getHomeColor",
-
     }),
   },
   mounted() {
@@ -221,8 +208,8 @@ export default {
   position: relative;
   display: flex;
   justify-content: center;
- align-items: center;
- width: 100%;
+  align-items: center;
+  width: 100%;
   height: auto;
 }
 #gridstack {
@@ -230,8 +217,7 @@ export default {
   height: 288px;
   aspect-ratio: 3 / 5;
   overflow: hidden;
-  outline: 2px solid var(--font-color);
-  border-radius: var(--border-radius-12);
+  background-color: rgb(var(--mio-theme-color-primary-05));
 }
 .grid__wrap {
   position: absolute;
@@ -248,7 +234,7 @@ export default {
   z-index: 3;
 }
 .grid__wrap > div {
-  outline: 1px solid var(--font-color);
+  outline: 1px solid rgb(var(--mio-theme-color-primary));
   opacity: 0.08;
 }
 #grid-container {
@@ -259,7 +245,7 @@ export default {
   height: 800px;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%) scale(0.36) ;
+  transform: translate(-50%, -50%) scale(0.36);
   z-index: 2;
   pointer-events: none;
 }

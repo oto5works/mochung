@@ -11,6 +11,9 @@
     <titleArticle title="Article Title" />
 
     <homeBox />
+    <homeColor />
+    <homeFile />
+
     <!--
     <section>
       <article>
@@ -24,10 +27,15 @@
 <script>
 import temp from "@/modules/temp/temp";
 import homeBox from "@/modules/home/homeBox";
+import homeColor from "@/modules/home/homeColor";
+import homeFile from "@/modules/home/homeFile";
+
 export default {
   components: {
     temp,
     homeBox,
+    homeColor,
+    homeFile,
   },
 };
 </script>

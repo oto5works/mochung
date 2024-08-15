@@ -7,11 +7,19 @@
 import icon from "@/components/icon/icon.vue";
 import arrowLeft from "@/components/icon/arrowLeft.vue";
 import x from "@/components/icon/x.vue";
+import caretLeft from "@/components/icon/caretLeft.vue"; // new
+import caretRight from "@/components/icon/caretRight.vue"; // new
+import arrowUpRight from "@/components/icon/arrowUpRight.vue"; // new
+import check from "@/components/icon/check.vue"; // new
 
 // dialog
 // import modalDialog from "@/components/overlay/modalDialog.vue";
 // import bottomSheet from "@/components/overlay/bottomSheet.vue";
 import dialogFull from "@/components/dialog/dialogFull.vue"; // new
+import dialogBottom from "@/components/dialog/dialogBottom.vue"; // new
+import dialogModal from "@/components/dialog/dialogModal.vue"; // new
+
+
 
 // input
 import textField from "@/components/input/textField.vue";
@@ -89,10 +97,22 @@ export function registerPlugins(app) {
     .component("icon", icon)
     .component("arrowLeft", arrowLeft)
     .component("x", x)
+    .component("caretLeft", caretLeft) // new
+    .component("caretRight", caretRight) // new
+    .component("arrowUpRight", arrowUpRight) // new
+    .component("check", check) // new
+
+
+
+
     // .component("modalDialog", modalDialog)
     // .component("bottomSheet", bottomSheet)
     .component("dialogFull", dialogFull) // new
+    .component("dialogBottom", dialogBottom) // new
+    .component("dialogModal", dialogModal) // new
 
+    
+    
     .component("textField", textField)
     .component("textArea", textArea)
 

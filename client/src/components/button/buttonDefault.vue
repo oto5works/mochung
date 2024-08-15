@@ -139,7 +139,6 @@ export default {
 /* common */
 .buttonDefault {
   color: rgb(var(--mio-theme-color-primary));
-  width: fit-content;
 }
 .buttonDefault .shadow {
   display: none;

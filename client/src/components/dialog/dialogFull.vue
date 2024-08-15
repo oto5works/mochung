@@ -7,14 +7,16 @@
         <div class="overlay__content">
           <div class="content">
             <div class="header">
-              <span class="font-size_16 font-weight_700">{{ title }}</span>
               <buttonDefault
                 variant="tonal"
                 height="32"
                 :icon="true"
                 @click="closeDialog"
-                ><icon class="icon_16"><x /></icon
+                ><icon class="icon_16"><caretLeft /></icon
               ></buttonDefault>
+
+              <span class="font-size_16 font-weight_700">{{ title }}</span>
+              
             </div>
 
             <slot></slot>
@@ -25,8 +27,8 @@
   </teleport>
 </template>
 <script>
-import "@/components/dialog/overlay.scss";
-import "@/components/dialog/dialog.scss";
+//import "@/components/dialog/overlay.scss";
+//import "@/components/dialog/dialog.scss";
 
 export default {
   props: {

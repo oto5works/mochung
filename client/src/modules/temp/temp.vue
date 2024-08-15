@@ -28,7 +28,7 @@
       v-if="renderFlicking"
       ref="flicking"
       class="flicking-item"
-      :options="{ moveType: 'snap', bound: true }"
+      :options="{ moveType: 'snap', bound: true, align: 'prev' }"
       :plugins="plugins"
     >
 
@@ -81,15 +81,12 @@
 import { mapGetters, mapActions } from "vuex";
 import Flicking from "@egjs/vue3-flicking";
 import { Arrow, Pagination } from "@egjs/flicking-plugins";
-import caretLeft from "@/components/icon/caretLeft.vue";
-import caretRight from "@/components/icon/caretRight.vue";
-import arrowUpRight from "@/components/icon/arrowUpRight.vue";
-import check from "@/components/icon/check.vue";
+
 import buttonGroup from "@/components/button/buttonGroup.vue";
 
 
 export default {
-  components: { Flicking, caretLeft, caretRight, arrowUpRight, check, buttonGroup },
+  components: { Flicking, buttonGroup },
   computed: {
     ...mapGetters({
       customData: "getCustomData",

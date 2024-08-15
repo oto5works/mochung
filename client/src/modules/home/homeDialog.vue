@@ -5,9 +5,7 @@
     title="메인화면 스타일"
     :config="true"
   >
-    <article>
       <homeOptions @update:dialog="updateDialog" />
-    </article>
   </dialogFull>
 </template>
 <script>
