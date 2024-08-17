@@ -7,13 +7,13 @@
     />
     <titleArticle title="디자인 템플릿 선택" />
     <temp />
-    <div class="spacing-editor" />
+    <div class="form-spacing" />
     <titleArticle title="Article Title" />
-
-    <homeBox />
-    <homeColor />
-    <homeFile />
-
+    <div class="editor-content">
+      <homeBox />
+      <homeColor />
+      <homeFile />
+    </div>
     <!--
     <section>
       <article>

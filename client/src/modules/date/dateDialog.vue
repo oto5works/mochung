@@ -1,24 +1,18 @@
 <template>
-  <modalDialog :dialog="dialog" @update:dialog="updateDialog" :config="true">
-    <!-- 예식일 시간 -->
-    <article>
-      <formTitle2
-        title="배경 음악 설정"
-        content="다양한 배경음악 중에서 선택하거나, 직접 원하는 음악을 업로드하여 홈 화면에 나만의 분위기를 조성하세요. 배경음악을 통해 홈 화면을 더욱 특별하게 만들어보세요."
-      />
-      <dateForm />
-    </article>
-  
+  <dialogModal :dialog="dialog" @update:dialog="updateDialog">
+    <titleArticle
+      class="pa_24"
+      title="Wedding Date"
+    />
+    <dateForm class="pa_24" />
 
     <div class="dialog-actions">
-      <buttonText @click="updateDialog(false)">
-        <span>취소</span>
-      </buttonText>
-      <buttonDefault @click="updateDialog(false)">
-        <span>확인</span>
-      </buttonDefault>
+      <buttonDefault class="width_100" variant="filled" height="46" @click="updateDialog(false)"
+        ><span>Confirm</span></buttonDefault
+      >
     </div>
-  </modalDialog>
+  </dialogModal>
+
 </template>
 <script>
 import dateForm from "@/modules/date/dateForm.vue";

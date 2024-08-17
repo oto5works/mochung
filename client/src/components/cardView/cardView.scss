@@ -1,0 +1,57 @@
+.cardView {
+  justify-content: space-between;
+  min-height: 72px;
+  padding: 24px;
+  border-radius: 16px;
+}
+.cardView .underlay {
+  background-color: rgb(var(--mio-theme-color-primary-05));
+}
+.cardView:hover .underlay {
+  background-color: rgb(var(--mio-theme-color-primary-10));
+}
+.cardView .cardView-header {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+.cardView .title-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.cardView .title {
+  display: flex;
+  align-items: center;
+  min-height: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+}
+.cardView .content {
+  font-size: 13px;
+  line-height: 140%;
+  color: rgb(var(--mio-theme-color-on-background-70));
+}
+.cardView .cardView-content {
+  font-size: 13px;
+  text-align: right;
+}
+
+/*-- alt --*/
+.cardView.alt .cardView-header {
+  align-items: center;
+}
+.cardView.alt .title {
+  min-height: unset;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgb(var(--mio-theme-color-on-background-70));
+}
+.cardView.alt .content {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: auto;
+  color: rgb(var(--mio-theme-color-on-background));
+}

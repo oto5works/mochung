@@ -1,0 +1,162 @@
+.tiptap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  resize: none;
+  padding: 16px 24px 24px 24px;
+  background-color: rgb(var(--mio-theme-color-primary-05));
+  border-radius: 18px;
+}
+.tiptap-functions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tiptap-line-1,
+.tiptap-line-2 {
+  content: '';
+  background-color: rgb(var(--mio-theme-color-primary-10));
+}
+.tiptap-line-1 {
+  width: 1px;
+  height: 14px;
+}
+.tiptap-line-2 {
+  width: 100%;
+  height: 1px;
+}
+.tiptap .dropdown svg {
+  transition: all 0.2s ease-in-out;
+}
+.tiptap .dropdown.selected svg {
+  transform: rotate(180deg);
+}
+
+.ProseMirror {
+  position: relative;
+  outline: none;
+  min-height: 120px;
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 8px;
+  text-align: left;
+  background-color: transparent;
+}
+
+
+
+
+
+
+.ProseMirror strong,
+.tiptap__content strong {
+  font-weight: 700;
+}
+
+mark {
+  position: relative;
+  color: inherit;
+  box-decoration-break: clone;
+  background-color: transparent;
+  padding: 4px 6px;
+}
+mark::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius-32);
+  opacity: 0.15;
+  z-index: -1;
+}
+
+// ProseMirror, tiptap-1
+
+// tiptap-2
+.tiptap h3 {
+  font-size: 18px;
+  line-height: 130%;
+  height: fit-content;
+}
+.tiptap h4 {
+  font-size: 16px;
+  line-height: 130%;
+  height: fit-content;
+}
+.tiptap p {
+  font-size: 14px;
+  line-height: 180%;
+  height: fit-content;
+}
+.tiptap h5 {
+  font-size: 12px;
+  line-height: 180%;
+  height: fit-content;
+}
+.tiptap h6 {
+  font-size: 10px;
+  line-height: 130%;
+  height: fit-content;
+}
+/*
+h1: 약 32px
+h2: 약 24px
+h3: 약 18.72px
+h4: 약 16px
+h5: 약 13.28px
+h6: 약 10.72px
+*/
+
+
+
+
+
+/* dropdown */
+.dropdown {
+  min-width: 96px;
+  justify-content: space-between;
+}
+.tooltipTiptap {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  min-width: 100%;
+  color: rgb(var(--mio-theme-color-primary));
+  background-color: rgb(var(--mio-theme-color-primary-10));
+  padding: 4px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px -10px rgba(var(--mio-theme-color-primary),.3);
+
+}
+.tooltipTiptap button {
+  width: 100%;
+  justify-content: flex-start;
+  color: rgb(var(--mio-theme-color-primary));
+  height: 28px;
+  border-radius: 8px;
+  padding: 0 6px;
+}
+.tooltipTiptap button:hover {
+  background-color: rgb(var(--mio-theme-color-primary-20));
+}
+.tooltipTiptap button.selected {
+  background-color: rgb(var(--mio-theme-color-primary-40));
+}
+
+
+
+
+/* tiptap-bottom */
+.tiptap-bottom {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  width: 100%;
+}

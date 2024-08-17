@@ -1,0 +1,202 @@
+.formField {
+  position: relative;
+  width: 100%;
+  flex: 1;
+}
+
+/*-- input --*/
+.formField .formField-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  height: 36px;
+}
+// input
+.formField .formField-content .formField-input {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: rgb(var(--mio-theme-color-on-background));
+}
+.formField .formField-content .formField-input input[type="tel"] {
+  letter-spacing: 0.5em;
+}
+.formField .formField-content .formField-input input[type="password"] {
+  letter-spacing: 0.2em;
+}
+.formField .formField-content .formField-input input:focus {
+  outline: none;
+}
+.formField .formField-content .formField-input input {
+  width: 100%;
+  height: 100%;
+  border-width: 0;
+  font-size: 16px;
+}
+// label
+.formField label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  color: rgb(var(--mio-theme-color-on-background-20));
+  line-height: 100%;
+  pointer-events: none;
+  transition: all 0.2s ease-in-out;
+}
+.formField.active label,
+.formField.focus label,
+.formField.date label {
+  font-size: 11px;
+  transform: translateY(-200%);
+  color: rgb(var(--mio-theme-color-on-background-40));
+}
+// date
+.formField .formField-button {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+.formField input[type="date"]::-webkit-calendar-picker-indicator,
+.formField input[type="time"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+}
+.formField input[type="date"]::-moz-calendar-picker-indicator,
+.formField input[type="time"]::-moz-calendar-picker-indicator {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+}
+// password
+.formField .formField-button.password {  
+  z-index: 1;
+}
+
+
+// underline
+.formField .formField-underline {
+  position: absolute;
+  contain: layout;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  background-color: rgb(var(--mio-theme-color-primary-20));
+  transition: all 0.2s ease-in-out;
+}
+.formField.active .formField-underline {
+  height: 1px;
+  background-color: rgb(var(--mio-theme-color-primary-40));
+}
+.formField.focus .formField-underline {
+  height: 2px;
+  background-color: rgb(var(--mio-theme-color-primary)) !important;
+}
+.formField.hover .formField-underline,
+.formField:hover .formField-underline {
+  height: 2px;
+  background-color: rgb(var(--mio-theme-color-primary-40));
+}
+
+// 인풋
+.formField .textField-space {
+  flex: 0 0 20px;
+}
+
+.formField textarea {
+  padding: 8px 0;
+  width: 100%;
+  height: 100%;
+  resize: none;
+  border-width: 0;
+  font-size: 14px;
+  color: var(--formField-font-color);
+}
+.formField button svg {
+  color: var(--formField-primary-color);
+}
+.formField.focus button svg {
+  stroke-width: 26;
+}
+
+// 힌트, 디테일
+.formField .formField-details {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 24px;
+  overflow: visible;
+  grid-area: messages;
+}
+.formField .formField-details.spacing {
+  height: 32px;
+}
+.formField .formField-details .messages {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  top: -4px;
+  font-size: 12px;
+  line-height: 14px;
+  color: rgb(var(--mio-theme-color-on-background-70));
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.formField.focus .formField-details .messages,
+.formField.invalid .formField-details .messages {
+  top: 4px;
+  opacity: 1;
+}
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+
+.formField.invalid .formField-details .messages {
+  color: rgb(var(--mio-theme-color-error));
+}
+.formField.invalid .formField-details .messages button .underlay {
+  background-color: rgb(var(--mio-theme-color-error));
+}
+.formField.invalid .formField-details .messages button svg {
+  color: rgb(var(--mio-theme-color-background));
+}
+.formField.invalid label {
+  color: rgb(var(--mio-theme-color-error));
+}
+.formField.invalid .formField-underline {
+  background-color: rgb(var(--mio-theme-color-error)) !important;
+}

@@ -1,0 +1,60 @@
+.components {
+  width: 100%;
+  margin-top: 14vh;
+  padding: 0 24px;
+}
+.components h1 {
+  font-size: 56px;
+  font-weight: 700;
+  margin-bottom: 64px;
+  text-transform: capitalize;
+}
+.component {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+.item {
+  grid-column: auto / span 1;
+}
+.component .title {
+  font-size: 16px;
+  font-weight: 700;
+  border-bottom: 1px solid currentColor;
+  margin-bottom: 8px;
+}
+.item-title {
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.Icons {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px 0;
+  width: 100%;
+}
+.icon-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.icon-item span {
+  font-size: 11px;
+  text-align: center;
+}
+.icon-item button {
+  width: 24px;
+  height: 24px;
+  background-color: rgb(var(--mio-theme-color-primary-10));
+}

@@ -38,6 +38,7 @@ import { mapGetters, mapActions } from "vuex";
 
 /*-- form스타일을 고르는 중 미리 load 하기 --*/
 import fnStyle from "@/modules/functions/fnStyle.vue";
+import "@/views/form/form.scss";
 
 export default {
   components: {

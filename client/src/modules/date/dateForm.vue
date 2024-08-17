@@ -1,7 +1,7 @@
 <template>
-    <div class="flex gap_12">
-      <textField type="date" label="날짜" v-model="dateData.date" />
-      <textField type="time" label="시간" v-model="dateData.time" />
+    <div class="flex gap_24">
+      <formField type="date" label="date" v-model="dateData.date" />
+      <formField type="time" label="time" v-model="dateData.time" />
     </div>
 </template>
 <script>

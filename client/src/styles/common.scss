@@ -1,7 +1,9 @@
 /*--- common.scss ---*/
 @import "./@mixin.scss";
 @import "./@import.scss";
-
+body {
+  font-family: var(--mio-theme-font-family);
+}
 * {
   white-space: normal;
   word-break: keep-all;
@@ -55,9 +57,13 @@ textarea:focus {
 .width_100 {
   width: 100%;
 }
+.width_fit-content {
+  width: fit-content;
+}
 .width_50--100 {
   width: 50%;
 }
+
 .max-width_360 {
   max-width: 360px;
 }
@@ -121,6 +127,10 @@ textarea:focus {
 }
 .min-width_100 {
   min-width: 100%;
+}
+.icon_10 {
+  width: 10px;
+  height: 10px;
 }
 .icon_12 {
   width: 12px;

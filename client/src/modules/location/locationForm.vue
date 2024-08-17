@@ -1,20 +1,24 @@
 <template>
   <div>
-    <div class="flex gap_12">
-      <textField
-        class="width_50"
-        ref="addressInput"
-        label="주소"
-        v-model="locationData.address"
-      />
-      <buttonDefault
-        class="pa_12 height_40 border-radius_24"
-        @click="postcode = true"
+    <formField
+      ref="addressInput"
+      label="Address"
+      v-model="locationData.address"
+    >
+      <buttonDefault variant="tonal" height="24" @click="postcode = true"
+        ><icon class="icon_14"><search /></icon
+        ><span>Address Search</span></buttonDefault
       >
-        <span>주소 검색</span>
-      </buttonDefault>
+    </formField>
+
+    <formField label="Detail Address" v-model="locationData.detail" />
+
+    <div class="flex gap_24">
+      <formField label="웨딩홀 명" v-model="locationData.name" />
+      <formField label="웨딩홀 정보(층 또는 홀)" v-model="locationData.info" />
     </div>
-    <textField label="상세 주소" v-model="locationData.detail" />
+    <formField label="웨딩홀 전화번호" v-model="locationData.tell" />
+
     <postcode
       v-if="postcode"
       :dialog="postcode"
@@ -22,11 +26,6 @@
       :address="locationData.address"
       @update:address="locationData.address = $event"
     />
-    <div class="flex gap_12">
-      <textField label="웨딩홀 명" v-model="locationData.name" />
-      <textField label="웨딩홀 정보(층 또는 홀)" v-model="locationData.info" />
-    </div>
-    <textField label="웨딩홀 전화번호" v-model="locationData.tell" />
   </div>
 </template>
 

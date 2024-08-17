@@ -1,15 +1,16 @@
 <template>
-  <modalDialog
+  <dialogModal
     :dialog="dialog"
     @update:dialog="updateDialog"
-    title="주소 검색"
-    :config="true"
   >
-    <div class="position_relative width_100 pa_16">
+  <titleArticle
+      class="pa_24"
+      title="Address Search"
+    />
+    <div class="position_relative width_100 pa_24">
       <VueDaumPostcode @complete="oncomplete" />
     </div>
-    <div class="sp_16" />
-  </modalDialog>
+  </dialogModal>
 </template>
 <script>
 import { VueDaumPostcode } from "vue-daum-postcode";

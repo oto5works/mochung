@@ -1,13 +1,13 @@
 <template>
-  <fnTaps :options="transportData" />
+  <tiptapTabs :options="transportData" />
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import fnTaps from "@/modules/functions/fnTaps.vue";
+import tiptapTabs from "@/components/tiptap/tiptapTabs.vue";
 
 export default {
-  components: { fnTaps },
+  components: { tiptapTabs },
   computed: {
     ...mapGetters({
       transportData: "getTransportData",

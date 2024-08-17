@@ -1,12 +1,14 @@
 <template>
-  <button class="cardView">
+  <button :class="['cardView', { alt: alt }]">
     <div class="cardView-header">
-    <icon class="icon_24"><component :is="icon" /></icon>
-    <div class="title-wrap">
-      <div class="title"><span>{{ title }}</span></div>
-      <div v-if="content" class="content">{{ content }}</div>
+      <icon class="icon_24"><component :is="icon" /></icon>
+      <div class="title-wrap">
+        <div class="title">
+          <span>{{ title }}</span>
+        </div>
+        <div v-if="content" class="content">{{ content }}</div>
+      </div>
     </div>
-  </div>
 
     <div class="cardView-content">
       <slot></slot>
@@ -17,6 +19,7 @@
 
 <script>
 import { defineAsyncComponent } from "vue";
+import "@/components/cardView/cardView.scss";
 
 export default {
   components: {
@@ -66,6 +69,8 @@ export default {
       import("@/components/icon/kakaotalk")
     ),
     calendar: defineAsyncComponent(() => import("@/components/icon/calendar")),
+    date: defineAsyncComponent(() => import("@/components/icon/date")),
+
     textT: defineAsyncComponent(() => import("@/components/icon/textT")),
     phone: defineAsyncComponent(() => import("@/components/icon/phone")),
     users: defineAsyncComponent(() => import("@/components/icon/users")),
@@ -114,47 +119,10 @@ export default {
       type: String,
       default: "",
     },
+    alt: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
-
-<style scoped>
-.cardView {
-  justify-content: space-between;
-  min-height: 72px;
-  padding: 24px;
-  border-radius: 16px;
-}
-.cardView .underlay {
-  background-color: rgb(var(--mio-theme-color-primary-05));
-}
-.cardView:hover .underlay {
-  background-color: rgb(var(--mio-theme-color-primary-10));
-}
-.cardView-header {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
-}
-.title-wrap {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-.title {
-  display: flex;
-  align-items: center;
-  min-height: 24px;
-  font-size: 16px;
-  font-weight: 500;
-}
-.content {
-  font-size: 13px;
-  line-height: 140%;
-  color: rgb(var(--mio-theme-color-on-background-70));
-}
-.cardView-content {
-  font-size: 13px;
-}
-</style>

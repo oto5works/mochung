@@ -1,5 +1,5 @@
 <template>
-  <button class="cardView" @click="toggleTooltip">
+  <button class="cardView" @click="toggleDialog">
     <div class="cardView-header">
       <icon class="icon_24"><color /></icon>
       <div class="title">
@@ -11,7 +11,7 @@
       <span>{{ selectedColor }}</span>
     </div>
     <div class="underlay" />
-    <tooltipColor v-if="tooltip" :options="options" :selected="selected" @update:selected="updateColor" />
+    <tooltipColor v-if="dialog" :options="options" :selected="selected" @update:selected="updateColor" />
   </button>
 </template>
 
@@ -36,7 +36,7 @@ export default {
   },
   data() {
     return {
-      tooltip: false,
+      dialog: false,
     };
   },
   computed: {
@@ -51,21 +51,21 @@ export default {
     updateColor(newColor) {
       this.$emit('update:selected', newColor); // 부모의 부모에게 이벤트 전송
     },
-    toggleTooltip(event) {
+    toggleDialog(event) {
       event.stopPropagation();
-      this.tooltip = !this.tooltip;
+      this.dialog = !this.dialog;
     },
-    hideTooltip() {
-      if (this.tooltip) {
-        this.tooltip = false;
+    hideDialog() {
+      if (this.dialog) {
+        this.dialog = false;
       }
     },
   },
   mounted() {
-    document.addEventListener('click', this.hideTooltip);
+    document.addEventListener('click', this.hideDialog);
   },
   beforeUnmount() {
-    document.removeEventListener('click', this.hideTooltip);
+    document.removeEventListener('click', this.hideDialog);
   },
 };
 </script>

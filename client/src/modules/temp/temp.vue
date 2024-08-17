@@ -6,24 +6,7 @@
     <button class="flicking-next button-defaulted" @click="nextButtonClick">
       <icon><caretRight /></icon>
     </button>
-    <buttonGroup 
-    :items="tempCategorys"  
-    v-model="tab" 
-    />
-<!--
-    <v-tabs class="tab-defaulted pa_16" v-model="tab">
-      <v-tab value="all">
-        <span>ALL</span>
-      </v-tab>
-      <v-tab
-        v-for="item in tempCategorys"
-        :key="item.value"
-        :value="item.value"
-      >
-        <span>{{ item.title }}</span>
-      </v-tab>
-    </v-tabs>
--->
+    <buttonGroup :options="tempCategorys" v-model="tab" />
     <Flicking
       v-if="renderFlicking"
       ref="flicking"
@@ -31,43 +14,42 @@
       :options="{ moveType: 'snap', bound: true, align: 'prev' }"
       :plugins="plugins"
     >
-
- 
-      
-
-
-
-    <div class="fnOption-item" v-for="(item, index) in filteredTempOptions"
-    :key="index">
       <div
-        class="fnOption-image"
-        @click="selectOption(item)"
-        :class="{ selected: item.value === customData.temp }"
-        :style="{
-          backgroundImage: `url('https://www.moyo-studio.com/wp-content/uploads/2023/05/product4v8FINAL2WM.jpg')`,
-        }"
-      ></div>
-      <!-- https://jwpggit.github.io/storage/image/moInv/${item.value}.webp -->
-      
-      <div class="display_flex flex-direction_column gap_16">
-        <div class="display_flex align-items_center gap_4" @click="selectOption(item)">
-          <icon v-if="item.value === customData.temp" class="icon_12 color_--mio-theme-color-primary"><check/></icon>
-          <div class="font-size_14 font-weight_700">{{ item.title }}</div>
-        </div>
-        <buttonDefault variant="tonal" height="18" :class="{ selected: item.value === customData.temp }"
-        ><span>Preview</span><icon class="icon_12"><arrowUpRight/></icon></buttonDefault
+        class="fnOption-item"
+        v-for="(item, index) in filteredTempOptions"
+        :key="index"
       >
+        <div
+          class="fnOption-image"
+          @click="selectOption(item)"
+          :class="{ selected: item.value === customData.temp }"
+          :style="{
+            backgroundImage: `url('https://www.moyo-studio.com/wp-content/uploads/2023/05/product4v8FINAL2WM.jpg')`,
+          }"
+        ></div>
+        <!-- https://jwpggit.github.io/storage/image/moInv/${item.value}.webp -->
+
+        <div class="display_flex flex-direction_column gap_16">
+          <div
+            class="display_flex align-items_center gap_4"
+            @click="selectOption(item)"
+          >
+            <icon
+              v-if="item.value === customData.temp"
+              class="icon_12 color_--mio-theme-color-primary"
+              ><check
+            /></icon>
+            <div class="font-size_14 font-weight_700">{{ item.title }}</div>
+          </div>
+          <buttonDefault
+            variant="tonal"
+            height="18"
+            class="width_fit-content"
+            :class="{ selected: item.value === customData.temp }"
+            ><span>Preview</span><icon class="icon_12"><arrowUpRight /></icon
+          ></buttonDefault>
+        </div>
       </div>
-  </div>
-
-
-
-
-
-
-
-
-      
 
       <template #viewport>
         <span class="flicking-arrow-prev"></span>
@@ -84,7 +66,6 @@ import { Arrow, Pagination } from "@egjs/flicking-plugins";
 
 import buttonGroup from "@/components/button/buttonGroup.vue";
 
-
 export default {
   components: { Flicking, buttonGroup },
   computed: {
@@ -94,24 +75,30 @@ export default {
       tempOptions: "getTempOptions",
     }),
     filteredTempOptions() {
-      const selectedCategory = this.tab;
+  const selectedCategory = this.tab;
 
-      if (selectedCategory === "all") {
-        // 'all'이 선택된 경우 모든 옵션을 반환합니다.
-        return this.tempOptions;
-      } else {
-        return this.tempOptions.filter(
-          (option) =>
-            Array.isArray(option.category) &&
-            option.category.includes(selectedCategory)
-        );
-      }
-    },
+  if (selectedCategory === 0) {
+    // 'all'이 선택된 경우 모든 옵션을 반환합니다.
+    return this.tempOptions;
+  } else {
+    const categoryValue = this.tempCategorys[selectedCategory]?.value;
+
+    if (!categoryValue) {
+      return []; // 잘못된 선택일 경우 빈 배열을 반환
+    }
+
+    return this.tempOptions.filter(option =>
+      Array.isArray(option.category) &&
+      option.category.includes(categoryValue)
+    );
+  }
+}
+
   },
   data() {
     return {
       plugins: [new Arrow(), new Pagination({ type: "bullet" })],
-      tab: "all",
+      tab: 0,
       renderFlicking: false,
     };
   },

@@ -11,6 +11,7 @@ import caretLeft from "@/components/icon/caretLeft.vue"; // new
 import caretRight from "@/components/icon/caretRight.vue"; // new
 import arrowUpRight from "@/components/icon/arrowUpRight.vue"; // new
 import check from "@/components/icon/check.vue"; // new
+import search from "@/components/icon/search.vue"; // new
 
 // dialog
 // import modalDialog from "@/components/overlay/modalDialog.vue";
@@ -18,17 +19,17 @@ import check from "@/components/icon/check.vue"; // new
 import dialogFull from "@/components/dialog/dialogFull.vue"; // new
 import dialogBottom from "@/components/dialog/dialogBottom.vue"; // new
 import dialogModal from "@/components/dialog/dialogModal.vue"; // new
+import "@/components/dialog/overlay.scss";
 
 
 
 // input
+import formField from "@/components/formField/formField.vue"; // new
+
+
 import textField from "@/components/input/textField.vue";
 import textArea from "@/components/input/textArea.vue";
 
-import formTitle1 from "@/modules/formTitle/formTitle1.vue";
-import formTitle2 from "@/modules/formTitle/formTitle2.vue";
-import formTitle3 from "@/modules/formTitle/formTitle3.vue";
-import formBox from "@/modules/formBox/formBox.vue";
 
 // button
 import buttonOption from "@/components/button/buttonOption.vue";
@@ -52,10 +53,14 @@ import toggleSwitch from "@/components/toggleSwitch/toggleSwitch.vue"; // new
 // title
 import titleMain from "@/components/title/titleMain.vue"; // new
 import titleArticle from "@/components/title/titleArticle.vue"; // new
+import titleSection from "@/components/title/titleSection.vue"; // new
 
 // card
 import card from "@/components/card/card.vue";
 import cardView from "@/components/cardView/cardView.vue"; // new
+
+// sidebar
+import sidebar from "@/components/sidebar/sidebar.vue"; // new
 
 // Plugins
 import store from "../store/index";
@@ -101,9 +106,10 @@ export function registerPlugins(app) {
     .component("caretRight", caretRight) // new
     .component("arrowUpRight", arrowUpRight) // new
     .component("check", check) // new
+    .component("search", search) // new
 
 
-
+    
 
     // .component("modalDialog", modalDialog)
     // .component("bottomSheet", bottomSheet)
@@ -111,16 +117,15 @@ export function registerPlugins(app) {
     .component("dialogBottom", dialogBottom) // new
     .component("dialogModal", dialogModal) // new
 
+
+    .component("formField", formField)
+
     
     
     .component("textField", textField)
     .component("textArea", textArea)
 
-    .component("formTitle1", formTitle1)
-    .component("formTitle2", formTitle2)
-    .component("formTitle3", formTitle3)
 
-    .component("formBox", formBox)
     .component("buttonOption", buttonOption)
     .component("buttonDefault", buttonDefault) // new
     .component("buttonTab", buttonTab) // new
@@ -135,7 +140,11 @@ export function registerPlugins(app) {
     .component("toggleSwitch", toggleSwitch) // new
     .component("titleMain", titleMain) // new
     .component("titleArticle", titleArticle) // new
+    .component("titleSection", titleSection) // new
+
+    
     .component("cardView", cardView) // new
+    .component("sidebar", sidebar) // new
 
     
     

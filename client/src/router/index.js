@@ -17,7 +17,7 @@ const form1 = () => import("@/views/form/form1.vue");
 
 const view = () => import("@/views/form/formView.vue");
 // user
-const icon = () => import("@/views/admin/adminIcon.vue");
+const components = () => import("@/views/components/components.vue");
 const coupon = () => import("@/views/admin/adminCoupon.vue");
 
 const router = createRouter({
@@ -96,9 +96,9 @@ const router = createRouter({
       //meta: { requiresAuth: false },
     },
     {
-      path: "/admin/icon",
-      name: "icon",
-      component: icon,
+      path: "/components",
+      name: "components",
+      component: components,
       //meta: { requiresAuth: false },
     },
     //{

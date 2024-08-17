@@ -1,16 +1,16 @@
-<!-- headerView.vue -->
 <template>
   <header class="headerView">
     <div class="container">
-      <div class="logo-container">
+      <div class="logo-container" @click="goToHome()">
         <span class="logo">logo</span>
       </div>
       <div class="menu-container">
         <div class="menu-wrap">
-          <buttonHeader class="selected">Hom2e</buttonHeader>
-          <buttonHeader>About</buttonHeader>
-          <buttonHeader>Services</buttonHeader>
-          <buttonHeader>Contact</buttonHeader>
+          <buttonHeader :class="{ selected: isSelected('home') }" @click="goToHome()">Home</buttonHeader>
+          <buttonHeader :class="{ selected: isSelected('about') }" @click="goToAbout()">About</buttonHeader>
+          <buttonHeader :class="{ selected: isSelected('form') }" @click="goToForm()">Edit</buttonHeader>
+          <buttonHeader :class="{ selected: isSelected('services') }" @click="goToServices()">Services</buttonHeader>
+          <buttonHeader :class="{ selected: isSelected('components') }" @click="goToComponents()">Components</buttonHeader>
           <div class="underlay" />
         </div>
       </div>
@@ -23,6 +23,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { useRoute } from 'vue-router';
 import logo from "@/components/logo.vue";
 import buttonHeader from "@/components/button/buttonHeader.vue";
 
@@ -38,14 +39,33 @@ export default {
   },
   computed: {
     ...mapGetters({}),
+    currentRouteName() {
+      return this.$route.name;
+    },
   },
   methods: {
+    isSelected(routeName) {
+      return this.currentRouteName === routeName;
+    },
     goToHome() {
       this.$router.push({ name: "home" });
+    },
+    goToAbout() {
+      this.$router.push({ name: "about" });
+    },
+    goToForm() {
+      this.$router.push({ name: "form" });
+    },
+    goToServices() {
+      this.$router.push({ name: "services" });
+    },
+    goToComponents() {
+      this.$router.push({ name: "components" });
     },
   },
 };
 </script>
+
 <style scoped>
 .headerView {
   position: fixed;

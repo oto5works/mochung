@@ -172,17 +172,17 @@ const resetValue = {
       {
         title: "지하철 이용 시",
         content:
-          "<h2 class='opacity_60'>* 하기 내용은 샘플입니다.</h2><h1><strong>[2호선] 을지로 입구역</strong></h1><p></p><p><mark><strong>3번 출구</strong></mark>&nbsp;지하 무빙 워크를 통해 약 500m 걸어오시면 예식장 입구와 연결됩니다.</p><p></p><p><mark><strong>4번 출구</strong></mark>&nbsp;출구 밖으로 나오신 뒤 약 400m 직진하시면 예식장 정문과 연결됩니다.</p><p>&nbsp;</p><h1><strong>[5호선] 여의나루역</strong></h1><p>1번 출구로 나오신 뒤 서울아파트 방면으로 직진하신 후 여의아파트에서 우회전 하여 직진하시면 예식장 후문과 연결됩니다.</p>",
+          "<p>지하철 이용 시</p>",
       },
       {
         title: "버스 이용 시",
         content:
-          "<h2 class='opacity_60'>* 하기 내용은 샘플입니다.</h2><h1><strong>[홍대입구역 방면] 서교동(14013)</strong></h1><h2>﹡하차 시 정문과 연결됩니다.</h2><p><strong>일반&nbsp; &nbsp;</strong>88번</p><p><strong>간선&nbsp; &nbsp;</strong>360번, 662번</p><p><strong>지선&nbsp; &nbsp;</strong>6623번, 6628번</p><p>&nbsp;</p><h1><strong>[레드로드입구 방면] 서교동교회 (14876)</strong></h1><h2>﹡하차 후 좌측 방향의 지하도보 이용하시거나 횡단보도를 건너시면 정문과 연결됩니다.</h2><p><strong>일반&nbsp; &nbsp;</strong>11-1번, 11-2번, 83번, 530번</p><p><strong>간선&nbsp; &nbsp;</strong>162번, 261번</p><p><strong>지선&nbsp; &nbsp;</strong>5012번, 5618번, 5623번</p><p><strong>좌석&nbsp; &nbsp;</strong>301번, 320번, 871번</p><p></p><p>&nbsp;</p><h1><strong>[마포역 방면] 우리은행서교동지점 (19-284)</strong></h1><h2>﹡하차 시 정/후문과 연결됩니다.</h2><p><strong>간선&nbsp; &nbsp;</strong>160번, 260번, 262번</p>",
+          "<p>버스 이용 시</p>",
       },
       {
         title: "자가용 이용 시",
         content:
-          "<h2 class='opacity_60'>* 하기 내용은 샘플입니다.</h2><p>올림픽 잠실 방향 / 영동대교 지나 3차선으로 차선 변경</p><p>잠실운동장 조금 못가서 빠져나와 GS칼텍스 주유소 / 강남병원(한국감정원)</p><p>강남경찰서 / 강남운전면허시험장 30M 직진</p>",
+          "<p>자가용 이용 시</p>",
       },
     ],
 

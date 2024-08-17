@@ -28,11 +28,12 @@ export default {
   position: relative;
   gap: 4px;
   cursor: pointer;
-  padding: 10px;
+  padding: 6px 10px;
   border-radius: 12px;
   transition: all 0.4s ease-in-out;
   color: rgb(var(--mio-theme-color-primary));
   font-size: 11px;
+  min-height: 32px;
 }
 .chip .shadow {
   display: none;
