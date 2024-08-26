@@ -1,22 +1,30 @@
 <!-- formCreate.vue -->
 <template>
   <div class="layout">
-    <!-- <fnStyle /> -->
     <div class="layer-1">
       <div class="preview-wrap">
         <!--<div class="form-preview__wrap"></div>-->
-        <div class="preview-mobile"><!--<preview />--></div>
+        <div class="preview-mobile"><preview /></div>
       </div>
     </div>
     <div class="layer-2">
       <formOption v-if="!formOption" />
-      <form1 v-if="formOption === 'form1'" />
-      <form2 v-if="formOption === 'form2'" />
+      <component :is="formOption" />
     </div>
 
     <div class="layer-3">
+
       <form1NavDesktop v-if="formOption === 'form1'" />
       <form2NavDesktop v-if="formOption === 'form2'" />
+      <!--
+      <sidebar
+        title="Components"
+        :selected="currentComponent"
+        :options="components"
+        @update:selected="handleUpdateSelected"
+      />
+
+   -->
     </div>
 
     <!--
@@ -37,13 +45,11 @@ import { defineAsyncComponent } from "vue";
 import { mapGetters, mapActions } from "vuex";
 
 /*-- form스타일을 고르는 중 미리 load 하기 --*/
-import fnStyle from "@/modules/functions/fnStyle.vue";
 import "@/views/form/form.scss";
 
 export default {
   components: {
-    fnStyle,
-    preview: defineAsyncComponent(() => import("@/views/preview/preview.vue")),
+    preview: defineAsyncComponent(() => import("@/preview/preview.vue")),
     formOption: defineAsyncComponent(() =>
       import("@/views/form/formOption.vue")
     ),

@@ -2,7 +2,7 @@
   <button 
   class="switch" 
   :class="['listItem', { selected: modelValue }]"
-  @click="updateValue($event)"
+  @click="handleClick"
   >
     <span class="switch-slider"/>
     <div class="underlay"/>
@@ -17,9 +17,18 @@ export default {
       type: Boolean,
       default: false,
     },
+    clickEvent: {
+      type: Boolean,
+      default: true,
+    },
   },
   emits: ["update:modelValue"],
   methods: {
+    handleClick(event) {
+      if (this.clickEvent) {
+        this.updateValue(event);
+      }
+    },
     updateValue() {
       this.$emit("update:modelValue", !this.modelValue);
     },
@@ -36,13 +45,16 @@ export default {
   border-radius: 14px;
 }
 .switch .underlay {
-  background-color: rgb(var(--mio-theme-color-primary-10));
-}
-.switch:hover .underlay {
   background-color: rgb(var(--mio-theme-color-primary-20));
 }
-.switch.selected .underlay {
-  background-color: rgb(var(--mio-theme-color-primary-40));
+.cardView:hover .switch .underlay,
+.switch.hover .underlay,
+.switch:hover .underlay {
+  background-color: rgb(var(--mio-theme-color-primary-30));
+}
+.cardView:hover .switch.selected .underlay,
+.switch.selected > .underlay {
+  background-color: rgb(var(--mio-theme-color-primary));
 }
 .switch-input {
   opacity: 0;
@@ -60,11 +72,11 @@ export default {
   height: 16px;
   transition: 0.4s;
   border-radius: 50%;
-  background-color: rgb(var(--mio-theme-color-primary-40));
+  background-color: rgb(var(--mio-theme-color-primary-05));
 }
 .switch.selected .switch-slider {
   transform: translateX(20px);
-  background-color: rgb(var(--mio-theme-color-primary));
+  background-color: rgb(var(--mio-theme-color-on-primary));
   box-shadow: 0 2px 6px 0px rgba(var(--mio-theme-color-primary),.6);
 }
 </style>

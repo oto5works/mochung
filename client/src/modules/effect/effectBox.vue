@@ -1,17 +1,15 @@
 <template>
-  <formBox icon="side" title="효과 설정" @click="handleClickEvent">
-    <v-switch
-      style="pointer-events: none"
+    <cardView icon="side" title="효과 설정" content="Use this to set the title for the section where guests can send" @click="handleClickEvent">
+    <toggleSwitch
+      :clickEvent="false"
       v-model="effectData.fnEffect"
-      hide-details
-      inset
-    ></v-switch>
+    ></toggleSwitch>
     <effectDialog
       v-if="dialog"
       :dialog="dialog"
       @update:dialog="dialog = $event"
     />
-  </formBox>
+  </cardView>
 </template>
 <script>
 import { defineAsyncComponent } from "vue";

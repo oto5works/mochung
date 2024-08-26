@@ -1,6 +1,7 @@
 <template>
-  <button class="chip">
-      <icon class="check icon_16"><check /></icon>
+  <button class="chip" :class="{ selected: isSelected }" @click="selectTab">
+    <icon class="check icon_16"><check /></icon>
+    <span>{{ title }}</span>
     <slot></slot>
     <div class="underlay" />
     <div class="shadow" />
@@ -8,17 +9,31 @@
 </template>
 
 <script>
-import check from "@/components/icon/check";
-
 export default {
-  components: {
-    check,
-  },
+  components: {},
   props: {
-   
+    title: {
+      type: String,
+      default: false,
+    },
+    value: {
+      type: [String, Number],
+      default: null,
+    },
+    modelValue: {
+      type: [String, Number],
+      default: null,
+    },
+  },
+  computed: {
+    isSelected() {
+      return this.$parent.modelValue === this.value;
+    },
   },
   methods: {
-    
+    selectTab() {
+      this.$parent.updateValue(this.value);
+    },
   },
 };
 </script>
@@ -37,36 +52,36 @@ export default {
 }
 .chip .shadow {
   display: none;
-  box-shadow: 0 10px 20px -10px rgba(var(--mio-theme-color-primary),.3);
+  box-shadow: 0 10px 20px -10px rgba(var(--mio-theme-color-primary), 0.3);
 }
 .chip .check {
-    display: none;
+  display: none;
 }
 .chip .underlay {
-    background-color: rgb(var(--mio-theme-color-primary-10));
+  background-color: rgb(var(--mio-theme-color-primary-10));
 }
 .chip .underlay {
-    background-color: rgb(var(--mio-theme-color-primary-10));
+  background-color: rgb(var(--mio-theme-color-primary-10));
 }
 .chip:hover .underlay {
-    background-color: rgb(var(--mio-theme-color-primary-20));
+  background-color: rgb(var(--mio-theme-color-primary-20));
 }
 .chip.selected {
   font-weight: 500;
 }
 .chip.selected .underlay {
-    background-color: rgb(var(--mio-theme-color-primary-40));
+  background-color: rgb(var(--mio-theme-color-primary-40));
 }
 .chip.selected .check {
-    display: block;
+  display: block;
 }
 .chip.selected .shadow {
   display: block;
 }
 .chip.disabled {
-    color: rgb(var(--mio-theme-color-primary-40));
+  color: rgb(var(--mio-theme-color-primary-40));
 }
 .chip.disabled .underlay {
-    background-color: rgb(var(--mio-theme-color-primary-10));
+  background-color: rgb(var(--mio-theme-color-primary-10));
 }
 </style>

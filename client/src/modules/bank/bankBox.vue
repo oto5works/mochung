@@ -1,19 +1,20 @@
 <template>
-  <formBox icon="bank" title="계좌 설정" @click="handleClickEvent">
-    <div class="edit-item__content">
-      <v-switch
-        style="pointer-events: none"
-        v-model="depositData.fnDeposit"
-        hide-details
-        inset
-      ></v-switch>
-    </div>
+  <cardView
+    icon="bank"
+    title="계좌 설정"
+    content="Use this to set the title for the section where guests can send"
+    @click="handleClickEvent"
+  >
+    <toggleSwitch
+      v-model="depositData.fnDeposit"
+      :clickEvent="false"
+    ></toggleSwitch>
     <bankDialog
       v-if="dialog"
       :dialog="dialog"
       @update:dialog="dialog = $event"
     />
-  </formBox>
+  </cardView>
 </template>
 <script>
 import { defineAsyncComponent } from "vue";

@@ -68,53 +68,6 @@
   background-color: var(--primary-color);
   opacity: 0.08;
 }
-.overlay_skeleton {
-  background: linear-gradient(90deg, #DDDDDD, #F0F0F0, #DDDDDD, #F0F0F0);
-	background-size: 400% 400%;
-	-webkit-animation: skeleton 2.25s ease infinite;
-	-moz-animation: skeleton 2.25s ease infinite;
-	animation: skeleton 2.25s ease infinite;
-  
-}
-.overlay_skeleton svg {
-  color: #000;
-  
-}
-@-webkit-keyframes skeleton {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
-}
-
-@-moz-keyframes skeleton {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
-}
-
-@keyframes skeleton {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
-}
 
 
 

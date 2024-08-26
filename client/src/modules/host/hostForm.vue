@@ -1,11 +1,14 @@
 <template>
   <div>
-    <v-tabs class="tab-defaulted" v-model="tab">
-      <v-tab v-for="(item, index) in hostInfo" :key="index" :value="index">
-        <span>{{ item.title }} 측 정보</span>
-      </v-tab>
-    </v-tabs>
-
+    <tabs v-model="tab">
+      <tabThumb
+        v-for="(item, index) in hostInfo"
+        :key="index"
+        :value="index"
+        :title="item.title"
+      >
+      </tabThumb>
+    </tabs>
     <div v-if="tab !== ''">
       <div
         v-for="(option, index) in hostFamily"
@@ -26,35 +29,39 @@
             :spacing="true"
           />
         </div>
-<!--
-        <form1HostComp
+        <hostFamily
           :hostTitle="hostInfo[index].title"
           :family="option"
           @update:family="option = $event"
         />
-        -->
-        <titleSection :title="`${hostInfo[index].title}과의 관계`" />
 
+        <titleSection title="가족 구성원 간의 관계" />
         <div
           class="flex align-items_center justify-content_space-between gap_12"
         >
           <formField
-            :label="`${hostInfo[index].title}과의 관계`"
+            :label="`${hostInfo[index].title}`"
             v-model="hostInfo[index].relation"
+            :spacing="true"
+            :hint="getHint(hostInfo[index].title)"
           />
         </div>
       </div>
     </div>
   </div>
 </template>
+
 <script>
 import { mapGetters } from "vuex";
+import tabs from "@/components/tab/tabs.vue";
+import tabThumb from "@/components/tab/tabThumb.vue";
+import hostFamily from "@/modules/host/hostFamily.vue";
 
 export default {
-  components: {  },
-  data: function () {
+  components: { tabs, tabThumb, hostFamily },
+  data() {
     return {
-      tab: "",
+      tab: 0,
     };
   },
   computed: {
@@ -62,6 +69,17 @@ export default {
       hostInfo: "getHostInfo",
       hostFamily: "getHostFamily",
     }),
+  },
+  methods: {
+    getHint(title) {
+      const hintMap = {
+        '신부': '장녀, 차녀, 첫째딸 등..',
+        '신랑': '장남, 차남, 첫째아들 등..'
+      };
+
+      // Find the hint based on the title
+      return hintMap[title] ? hintMap[title] : "지원 텍스트 없음";
+    },
   },
 };
 </script>

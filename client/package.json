@@ -37,6 +37,7 @@
     "tsparticles-engine": "^2.12.0",
     "tsparticles-shape-heart": "^2.9.3",
     "v-calendar": "^3.0.3",
+    "v-click-outside": "^3.2.0",
     "vue": "^3.2.38",
     "vue-daum-postcode": "^1.2.0",
     "vue-router": "^4.1.5",

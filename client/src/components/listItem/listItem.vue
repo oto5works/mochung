@@ -3,18 +3,19 @@
     :class="['listItem', { selected: modelValue }]"
     @click="updateValue($event)"
   >
-
     <icon v-if="icon" class="icon_18">
       <component :is="icon" />
     </icon>
-    <div class="display_flex flex-direction_column align-items_flex-start width_100">
+    <div
+      class="display_flex flex-direction_column align-items_flex-start width_100"
+    >
       <div v-if="label" class="label">{{ label }}</div>
       <div v-if="content" class="content">{{ content }}</div>
     </div>
 
-    <button v-if="checkBox" class="icon_24">
-      <icon v-if="!modelValue"><checkBox /></icon>
-      <icon v-if="modelValue" class="checked"><checkedBox /></icon>
+    <button v-if="checkbox" class="icon_24">
+      <icon v-if="!modelValue"><boxCleared /></icon>
+      <icon v-if="modelValue" class="checked"><boxChecked /></icon>
     </button>
 
     <div class="underlay" />
@@ -26,31 +27,49 @@ import { defineAsyncComponent } from "vue";
 
 export default {
   components: {
-    checkBox: defineAsyncComponent(() =>
-      import("@/components/icon/checkBox.vue")
+    boxCleared: defineAsyncComponent(() =>
+      import("@/components/icon/boxCleared.vue")
     ),
-    checkedBox: defineAsyncComponent(() =>
-      import("@/components/icon/checkedBox.vue")
+    boxChecked: defineAsyncComponent(() =>
+      import("@/components/icon/boxChecked.vue")
     ),
-    upload: defineAsyncComponent(() =>
-      import("@/components/icon/upload.vue")
-    ),
-    search: defineAsyncComponent(() =>
-      import("@/components/icon/search.vue")
-    ),
+    upload: defineAsyncComponent(() => import("@/components/icon/upload.vue")),
+    search: defineAsyncComponent(() => import("@/components/icon/search.vue")),
     magicwand: defineAsyncComponent(() =>
       import("@/components/icon/magicwand.vue")
     ),
-    trash: defineAsyncComponent(() =>
-      import("@/components/icon/trash.vue")
+    trash: defineAsyncComponent(() => import("@/components/icon/trash.vue")),
+    logoYoutube: defineAsyncComponent(() =>
+      import("@/components/icon/logoYoutube.vue")
     ),
-    youtube: defineAsyncComponent(() =>
-      import("@/components/icon/youtube.vue")
+    crop: defineAsyncComponent(() => import("@/components/icon/crop.vue")),
+    magicWand: defineAsyncComponent(() =>
+      import("@/components/icon/magicWand.vue")
     ),
-    crop: defineAsyncComponent(() =>
-      import("@/components/icon/crop.vue")
+    grid: defineAsyncComponent(() => import("@/components/icon/grid")),
+    swipe: defineAsyncComponent(() => import("@/components/icon/swipe")),
+    thumb: defineAsyncComponent(() => import("@/components/icon/thumbnail")),
+    slideshow: defineAsyncComponent(() =>
+      import("@/components/icon/slideshow")
     ),
-    
+    falling: defineAsyncComponent(() =>
+      import("@/components/icon/confettiFalling")
+    ),
+    side: defineAsyncComponent(() => import("@/components/icon/confettiSide")),
+    explosion: defineAsyncComponent(() =>
+      import("@/components/icon/confettiExplosion")
+    ),
+    confetti: defineAsyncComponent(() => import("@/components/icon/shapes")),
+    heart: defineAsyncComponent(() => import("@/components/icon/heart")),
+    sakura: defineAsyncComponent(() => import("@/components/icon/sakura")),
+    kanji: defineAsyncComponent(() => import("@/components/icon/kanji")),
+    flower: defineAsyncComponent(() => import("@/components/icon/flower")),
+    cross: defineAsyncComponent(() => import("@/components/icon/cross")),
+
+    ribbon: defineAsyncComponent(() => import("@/components/icon/ribbon")),
+    left: defineAsyncComponent(() => import("@/components/icon/alignLeft")),
+    center: defineAsyncComponent(() => import("@/components/icon/alignCenter")),
+    right: defineAsyncComponent(() => import("@/components/icon/alignRight")),
   },
   props: {
     icon: {
@@ -62,7 +81,7 @@ export default {
     content: {
       type: String,
     },
-    checkBox: {
+    checkbox: {
       type: Boolean,
       default: false,
     },

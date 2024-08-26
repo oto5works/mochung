@@ -1,64 +1,50 @@
 <template>
   <div
-    class="position_relative flex flex-direction_column gap_8 width_100 --border-radius_24"
+    class="position_relative display_flex flex-direction_column gap_24 width_100"
   >
     <div
-      class="position_relative last-child_h-hr_display_none --pa_4-4-0 --border-radius_24"
+      class="position_relative"
       v-for="(item, index) in bank.account"
       :key="index"
       :value="index"
     >
-      <div class="sp_16" />
-      <div class="flex align-items_center gap_18">
-        <div class="font-size_14 --font-weight">
-          {{ hostTitle }} 측 계좌 {{ index + 1 }}
+      <titleSection :title="`${hostTitle} 측 계좌 ${index + 1}`">
+        <buttonDefault
+          variant="tonal"
+          height="18"
+          :icon="true"
+          @click="handleDelete(index)"
+          ><icon class="icon_12"><x /></icon
+        ></buttonDefault>
+      </titleSection>
+
+      <formField v-model="item.number" label="계좌 번호">
+        <buttonDefault variant="tonal" height="24" @click="bankSwitch(index)"
+          ><icon class="icon_14"><component :is="item.bank.value" /></icon
+          ><span>{{ item.bank.title }}</span
+          ><icon class="icon_14"><dropdown /></icon
+        ></buttonDefault>
+      </formField>
+
+      <div class="display_flex gap_24">
+        <formField label="예금주" v-model="item.name" />
+        <div class="display_flex align-items_center gap_4">
+          <checkbox
+            :clickEvent="false"
+            v-model="item.files.url"
+            @click="kakaopaySwitch(index)"
+            label="카카오페이 등록"
+          >
+          </checkbox>
+          <buttonDefault
+            variant="filled"
+            height="18"
+            :icon="true"
+            @click="this.dialog.guide = true"
+            ><icon class="icon_12"><question /></icon
+          ></buttonDefault>
         </div>
-        <button @click="handleDelete(index)">
-          <icon class="icon_16"><x /></icon>
-        </button>
       </div>
-      <div class="sp_16" />
-
-      <div class="flex gap_12">
-        <!-- 은행 선택 -->
-        <buttonSelect
-          class="selected flex_1 height_40 pa_20 --border-radius_20"
-          @click="bankSwitch(index)"
-        >
-        <div class="flex justify-content_space-between width_100">
-          <span class="flex gap_4">
-            <icon><component :is="item.bank.value" /></icon>
-            <span>{{ item.bank.title }}</span>
-          </span>
-          <icon><caretDown /></icon>
-        </div>
-          
-        </buttonSelect>
-
-        <!-- 은행 선택 -->
-
-        <!-- 예금주 -->
-        <textField label="예금주" v-model="item.name" />
-        <!-- 예금주 -->
-      </div>
-
-      <!-- 계좌 번호 -->
-      <textField label="계좌 번호" v-model="item.number" />
-      <!-- 계좌 번호 -->
-
-      <div class="flex_center flex-direction_column width_100">
-        <buttonSelect
-          class="kakaopay"
-          :class="{ selected: item.files.url }"
-          @click="kakaopaySwitch(index)"
-        >
-          <icon class="icon_16" v-if="!item.files.url"><kakaopay /></icon>
-          <aniCheck class="icon_16" v-else />
-          <span>카카오페이 등록<span v-if="item.files.url"> 완료</span></span>
-        </buttonSelect>
-      </div>
-      <!-- 카카오페이 -->
-      <div class="sp_16" />
 
       <fileUploader
         v-if="dialog.kakaopay[index]"
@@ -70,65 +56,42 @@
         :files="item.files"
         @update:files="updateFiles($event, index)"
       >
-        <li v-if="!item.files.url" @click="guideSwitch(index)">
-          <div class="title">
-            <icon><question /></icon><span>카카오페이 설정방법</span>
-          </div>
-        </li>
-        <kakaopayGuide
-          v-if="dialog.guide[index]"
-          :dialog="dialog.guide[index]"
-          @update:dialog="dialog.guide[index] = $event"
-        />
       </fileUploader>
 
-      <bankOptions
+      <selectorBank
         v-if="dialog.hostBank[index]"
-        optionTitle="은행 선택"
         :options="hostBankOptions"
         :selected="item.bank"
         @update:selected="updateBank($event, index)"
         :dialog="dialog.hostBank[index]"
         @update:dialog="dialog.hostBank[index] = $event"
       />
-
-      <div class="absolute_100 overlay_pc --display_block-none-none" />
-      <div
-        class="absolute_100 outline_pc box-shadow_3-pc --display_block-none-none"
-      />
-      <div
-        v-if="index !== bank.account.length - 1"
-        class="h-hr --display_none-block-block"
-      />
     </div>
-
-    <div class="absolute_100 overlay_pc --display_none-block-none" />
-    <div
-      class="absolute_100 outline_pc box-shadow_3-pc --display_none-block-none"
+    <bankKakaopayGuide
+      v-if="dialog.guide"
+      :dialog="dialog.guide"
+      @update:dialog="dialog.guide = $event"
     />
   </div>
 </template>
 <script>
 import { defineAsyncComponent } from "vue";
 import { mapGetters } from "vuex";
-import aniCheck from "@/components/icon/aniCheck";
-
+import dropdown from "@/components/icon/dropdown";
+import question from "@/components/icon/question";
 
 export default {
   components: {
-    aniCheck,
-    bankOptions: defineAsyncComponent(() =>
-      import("@/modules/bank/bankOptions.vue")
+    dropdown, question,
+    selectorBank: defineAsyncComponent(() =>
+      import("@/components/selector/selectorBank.vue")
     ),
     fileUploader: defineAsyncComponent(() =>
-      import("@/modules/file/fileUploader.vue")
+      import("@/components/file/fileUploader.vue")
     ),
-    kakaopayGuide: defineAsyncComponent(() =>
-      import("@/modules/bank/kakaopayGuide.vue")
-    ),
-    question: defineAsyncComponent(() => import("@/components/icon/question")),
-    caretDown: defineAsyncComponent(() =>
-      import("@/components/icon/caretDown")
+    
+    bankKakaopayGuide: defineAsyncComponent(() =>
+      import("@/modules/bank/bankKakaopayGuide.vue")
     ),
     bankKb: defineAsyncComponent(() => import("@/components/icon/bankKb")),
     bankIbk: defineAsyncComponent(() => import("@/components/icon/bankIbk")),
@@ -172,13 +135,12 @@ export default {
     // 초기에 각 가족 항목에 대한 다이얼로그 상태를 false로 초기화합니다.
     const dialogBank = this.bank.account.map(() => false);
     const dialogKakaopay = this.bank.account.map(() => false);
-    const dialogGuide = this.bank.account.map(() => false);
 
     return {
       dialog: {
         hostBank: dialogBank,
         kakaopay: dialogKakaopay,
-        guide: dialogGuide,
+        guide: false,
       },
     };
   },
@@ -201,21 +163,9 @@ export default {
     kakaopaySwitch(index) {
       this.dialog.kakaopay[index] = true;
     },
-    guideSwitch(index) {
-      this.dialog.kakaopay[index] = true;
-    },
     updateFiles(value, index) {
       this.bank.account[index].files = value;
     },
   },
 };
 </script>
-
-<style scoped>
-.kakaopay {
-  max-width: 100%;
-    padding: 4px 8px;
-    border-radius: var(--border-radius-12);
-    min-height: unset;
-}
-</style>

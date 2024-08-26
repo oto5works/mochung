@@ -1,6 +1,6 @@
 <template>
   <div>
-    <buttonGroup
+    <tabsFlicking
       :options="options"
       v-model="tab"
       :enableDelete="true"
@@ -44,13 +44,13 @@
 <script>
 import plus from "@/components/icon/plus";
 import tiptap from "@/components/tiptap/tiptap.vue";
-import buttonGroup from "@/components/button/buttonGroup.vue";
+import tabsFlicking from "@/components/tab/tabsFlicking.vue";
 
 export default {
   components: {
     plus,
     tiptap,
-    buttonGroup,
+    tabsFlicking,
   },
   props: {
     options: { type: Array },

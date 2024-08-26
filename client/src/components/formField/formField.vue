@@ -43,8 +43,9 @@
           </buttonDefault>
 
           <label>{{ label }}</label>
-          <div class="formField-underline" />
+          
         </div>
+        <div class="formField-underline" />
       </div>
       <div class="formField-overlay" />
     </div>

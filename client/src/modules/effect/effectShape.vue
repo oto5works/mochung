@@ -1,7 +1,7 @@
 <template>
-  <formBox :icon="effect.shape" title="효과 모양" @click="dialog = true">
-    <div class="edit-article__text">{{ selectedShape }}</div>
-    <fnSelect
+  <cardView :icon="effect.shape" title="효과 모양" @click="dialog = true">
+    <span>{{ selectedShape }}</span>
+    <selectorOption
       v-if="dialog"
       optionTitle="효과 모양"
       :options="effectShapeOptions"
@@ -10,7 +10,7 @@
       :dialog="dialog"
       @update:dialog="dialog = $event"
     />
-  </formBox>
+  </cardView>
 </template>
 <script>
 import { mapGetters } from "vuex";
@@ -18,8 +18,8 @@ import { defineAsyncComponent } from "vue";
 
 export default {
   components: {
-    fnSelect: defineAsyncComponent(() =>
-      import("@/modules/functions/fnSelect.vue")
+    selectorOption: defineAsyncComponent(() =>
+      import("@/components/selector/selectorOption.vue")
     ),
   },
   props: {

@@ -16,7 +16,7 @@
       @update:files="homeData.files = $event"
     >
       <listItem
-        icon="youtube"
+        icon="logoYoutube"
         label="유튜브 링크 업로드"
         content="메인 이미지를 동영상으로 사용하려면 유튜브 링크를 업로드 해주세요."
         v-if="!homeData.files.url"

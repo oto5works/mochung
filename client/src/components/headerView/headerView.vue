@@ -6,16 +6,38 @@
       </div>
       <div class="menu-container">
         <div class="menu-wrap">
-          <buttonHeader :class="{ selected: isSelected('home') }" @click="goToHome()">Home</buttonHeader>
-          <buttonHeader :class="{ selected: isSelected('about') }" @click="goToAbout()">About</buttonHeader>
-          <buttonHeader :class="{ selected: isSelected('form') }" @click="goToForm()">Edit</buttonHeader>
-          <buttonHeader :class="{ selected: isSelected('services') }" @click="goToServices()">Services</buttonHeader>
-          <buttonHeader :class="{ selected: isSelected('components') }" @click="goToComponents()">Components</buttonHeader>
+          <buttonHeader
+            :class="{ selected: isSelected('home') }"
+            @click="goToHome()"
+            >Home</buttonHeader
+          >
+          <buttonHeader
+            :class="{ selected: isSelected('about') }"
+            @click="goToAbout()"
+            >About</buttonHeader
+          >
+          <buttonHeader
+            :class="{ selected: isSelected('form') }"
+            @click="goToForm()"
+            >Edit</buttonHeader
+          >
+          <buttonHeader
+            :class="{ selected: isSelected('services') }"
+            @click="goToServices()"
+            >Services</buttonHeader
+          >
+          <buttonHeader
+            :class="{ selected: isSelected('components') }"
+            @click="goToComponents()"
+            >Components</buttonHeader
+          >
           <div class="underlay" />
         </div>
       </div>
       <div class="login-container">
-        <buttonDefault variant="filled" height="46"><span>Login</span></buttonDefault>
+        <buttonDefault variant="filled" height="46"
+          ><span>Login</span></buttonDefault
+        >
       </div>
     </div>
   </header>
@@ -23,7 +45,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { useRoute } from 'vue-router';
+import { useRoute } from "vue-router";
 import logo from "@/components/logo.vue";
 import buttonHeader from "@/components/button/buttonHeader.vue";
 
@@ -123,9 +145,9 @@ export default {
   width: calc(100% + 48px);
   height: 100%;
   border-radius: 16px;
-  background-color: rgba(var(--mio-theme-color-background), 0.12);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background-color: rgba(215, 215, 195, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 .headerView .login-container {
   grid-column: 12 / 13; /* 12번 컬럼 */

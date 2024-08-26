@@ -3,9 +3,17 @@
 
   --mio-theme-color-primary: 0, 0, 0;
   --mio-theme-color-on-primary: 255, 255, 255;
-  --mio-theme-color-primary-05: 247, 247, 243;
-  --mio-theme-color-primary-10: 233, 233, 230;
-  --mio-theme-color-primary-20: 217, 217, 217;
+  --mio-theme-color-primary-05: 246, 246, 240;
+  --mio-theme-color-primary-07: 242, 242, 236;
+
+  --mio-theme-color-primary-05: 246, 246, 240;
+
+
+  
+  --mio-theme-color-primary-10: 237, 237, 230;
+  --mio-theme-color-primary-20: 218, 218, 210;
+  --mio-theme-color-primary-30: 196, 196, 185;
+
   --mio-theme-color-primary-40: 184, 184, 184;
   --mio-theme-color-primary-70: 138, 138, 138;
   --mio-theme-color-primary-90: 49, 49, 49;
@@ -17,6 +25,9 @@
   --mio-theme-color-on-background-70: 73, 69, 79;
 
   --mio-theme-color-error: 179, 38, 30;
+  --mio-theme-color-secondary: 55, 97, 251;
+  --mio-theme-color-on-secondary: #fff;
+
 
   --mio-theme-image-resize: url("https://oto5works.github.io/storage/image/mochung/resize.svg");
   --mio-theme-font-family: 'pretendard';
@@ -38,7 +49,6 @@
     --mio-theme-color-inverse-surface: #303030;
     --mio-theme-color-inverse-on-surface: #f2f2f2;
     --mio-theme-color-primary-80: #ffc6b8; /* Adjusted based on new primary color */
-    --mio-theme-color-primary-30: #ff9e73; /* Adjusted based on new primary color */
     
     --mio-theme-color-primary-gray: #6e6e6e;
 
@@ -46,8 +56,7 @@
     --mio-theme-color-neutral-90: #e3e3e3;
     --mio-theme-color-primary-container: #ffc6b8; /* Adjusted based on new primary color */
     --mio-theme-color-on-primary-container: #ff4d00; /* Adjusted based on new primary color */
-    --mio-theme-color-secondary: #00639b;
-    --mio-theme-color-on-secondary: #fff;
+ 
     --mio-theme-color-secondary-container: #c2e7ff;
     --mio-theme-color-on-secondary-container: #001d35;
     --mio-theme-color-tertiary-container: #c4eed0;

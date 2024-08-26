@@ -19,7 +19,7 @@
           <icon v-if="item.value === homeData.style" class="icon_12 color_--mio-theme-color-primary"><check/></icon>
           <div class="font-size_14 font-weight_700">{{ item.title }}</div>
         </div>
-        <buttonDefault variant="tonal" height="18" :class="{ selected: item.value === homeData.style }"
+        <buttonDefault variant="tonal" height="18" class="width_fit-content" :class="{ selected: item.value === homeData.style }"
         ><span>Preview</span><icon class="icon_12"><arrowUpRight/></icon></buttonDefault
       >
       </div>
@@ -43,7 +43,7 @@ export default {
   methods: {
     selectOption(option) {
       this.homeData.style = option.value;
-      this.$emit("update:dialog", false);
+      //this.$emit("update:dialog", false);
     },
   },
 };

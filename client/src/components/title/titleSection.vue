@@ -19,7 +19,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 0;
+  height: 42px;
 }
 .titleSection .title {
   font-size: 15px;

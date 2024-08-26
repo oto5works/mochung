@@ -1,17 +1,15 @@
 <template>
-  <formBox icon="audios" title="배경음악" @click="handleClickEvent">
-      <v-switch
-        style="pointer-events: none"
-        v-model="audiosData.fnAudios"
-        hide-details
-        inset
-      ></v-switch>
+  <cardView icon="audios" title="배경음악" content="Use this to set the title for the section where guests can send" @click="handleClickEvent">
+    <toggleSwitch
+      :clickEvent="false"
+      v-model="audiosData.fnAudios"
+    ></toggleSwitch>
     <audiosDialog
       v-if="dialog"
       :dialog="dialog"
       @update:dialog="dialog = $event"
     />
-  </formBox>
+  </cardView>
 </template>
 <script>
 import { defineAsyncComponent } from "vue";

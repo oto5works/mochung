@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import heroComp from "@/modules/hero/heroComp.vue";
+import heroComp from "@/preview/home/hero/heroComp.vue";
 
 export default {
   components: {

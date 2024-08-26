@@ -1,0 +1,41 @@
+.svgColor {
+  --button-thumb-color-background: 242, 242, 242;
+  --button-thumb-color-skin: 255, 255, 255;
+  --button-thumb-color-clothes: 255, 255, 255;
+  --button-thumb-color-hair: 243, 243, 243;
+  --button-thumb-color-line: 221, 221, 221;
+}
+.selected .svgColor {
+  --button-thumb-color-background: 216, 237, 255;
+  --button-thumb-color-skin: 255, 255, 255;
+  --button-thumb-color-clothes: 255, 255, 255;
+  --button-thumb-color-hair: 176, 205, 179;
+  --button-thumb-color-line: 23, 34, 62;
+}
+
+.svgColor .background {
+  color: rgb(var(--button-thumb-color-background));
+}
+.svgColor .skin {
+  color: rgb(var(--button-thumb-color-skin));
+}
+.svgColor .hair {
+  color: rgb(var(--button-thumb-color-hair));
+}
+.svgColor .clothes {
+  color: rgb(var(--button-thumb-color-clothes));
+}
+.svgColor .tie {
+  color: rgb(var(--button-thumb-color-line));
+}
+.svgColor .line {
+  fill: none;
+  display: inline-block;
+  vertical-align: baseline;
+  flex-shrink: 0;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+  stroke-width: 8;
+  stroke: rgb(var(--button-thumb-color-line));
+}

@@ -29,6 +29,7 @@
   width: 100%; /* 패딩을 상쇄하기 위한 너비 조정 */
   height: 100vh;
   top: 0;
+  overflow: hidden;
 }
 .layer-4 {
   position: relative;
@@ -37,6 +38,8 @@
   width: 100%;
   height: 100%;
 }
+
+
 
 /*--- 프리뷰 영역 ---*/
 .mobile {
@@ -123,7 +126,7 @@
   flex-direction: column;
   width: 100%;
   gap: 72px;
-  margin-top: 14vh;
+  margin-top: 12vh;
 }
 .editor .editor-item {
   position: relative;

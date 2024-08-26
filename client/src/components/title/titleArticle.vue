@@ -4,10 +4,16 @@
     <div v-if="!content" class="spacing-2" />
     <div class="title-wrap">
       <div class="title" v-html="title"></div>
-      <slot></slot>
     </div>
     <div v-if="content" class="spacing-3" />
-    <div class="content" v-if="content">{{ content }}</div>
+
+    <div class="content-wrap">
+      <div class="content" v-if="content" v-html="content"></div>
+
+      <div class="content-slot">
+        <slot></slot>
+      </div>
+    </div>
     <div class="spacing-1" />
     <div v-if="!content" class="spacing-2" />
   </div>
@@ -42,6 +48,11 @@ export default {
   font-size: 13px;
   line-height: 140%;
   color: rgb(var(--mio-theme-color-on-background-70));
+}
+.titleArticle .content-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 .spacing-1 {
   height: 24px;

@@ -1,32 +1,35 @@
 <template>
-  <div class="tooltipColor">
+  <div class="tooltipColor" v-click-outside="() => updateDialog(false)">
     <Flicking
       ref="flicking"
       class="flicking-color"
       :options="{ moveType: 'freeScroll', bound: true, align: 'prev' }"
     >
-      <button class="color-item">
-        <div class="color umbrella">
-            <input class="opacity_0" @input="updateSelected($event)" @click.stop type="color" />
+      <!-- Color picker button -->
+      <button class="color-wrap">
+        <div class="color-item umbrella">
+          <input
+            class="opacity_0"
+            @input="updateSelected($event)"
+            @click.stop
+            type="color"
+          />
         </div>
       </button>
+
+      <!-- Color options -->
       <button
-        class="color-item"
+        class="color-wrap"
         v-for="(item, index) in options"
         :key="index"
         @click="selectColor(item)"
-        :class="{ selected: item.value === selected }"
+        :class="{ selected: item.value === modelValue }"
       >
-        <div class="color">
-            <!--
+        <div class="color-item">
           <span
-            v-for="(color, colorIndex) in item.value"
-            :key="colorIndex"
+            v-for="(color, index) in getColorArray(item.value)"
+            :key="index"
             :style="{ backgroundColor: color }"
-          ></span>
-          -->
-          <span
-            :style="{ backgroundColor: item.value }"
           ></span>
         </div>
       </button>
@@ -36,21 +39,33 @@
 
 <script>
 import Flicking from "@egjs/vue3-flicking";
+import vClickOutside from "v-click-outside";
 
 export default {
-  components: { Flicking, },
-  props: {
-    selected: { type: [String, Array], default: "#A8D8EA" },
-    options: { type: Array },
+  components: { Flicking },
+  directives: {
+    clickOutside: vClickOutside.directive,
   },
+  props: {
+    modelValue: { type: [String, Array], default: "#A8D8EA" },
+    options: { type: Array, required: true },
+    dialog: { type: Boolean, required: true },
+  },
+  emits: ["update:modelValue", "update:dialog"],
   methods: {
     selectColor(option) {
-    this.$emit("update:selected", option.value); // 부모에게 이벤트 전송
-  },
-  updateSelected(event) {
-    event.stopPropagation(); // 부모 요소로 이벤트가 전파되지 않도록 함
-    this.$emit("update:selected", event.target.value); // 부모에게 이벤트 전송
-  },
+      this.$emit("update:modelValue", option.value);
+    },
+    updateSelected(event) {
+      event.stopPropagation();
+      this.$emit("update:modelValue", event.target.value);
+    },
+    updateDialog(value) {
+      this.$emit("update:dialog", value);
+    },
+    getColorArray(value) {
+      return Array.isArray(value) ? value : [value];
+    },
   },
 };
 </script>
@@ -69,7 +84,7 @@ export default {
   background-color: rgb(var(--mio-theme-color-background));
   transition: all 0.3s ease;
   z-index: 10;
-  box-shadow: 0 10px 20px -10px rgba(var(--mio-theme-color-on-background),.3);
+  box-shadow: 0 10px 20px -10px rgba(var(--mio-theme-color-on-background), 0.3);
 }
 .tooltipColor::after {
   position: absolute;
@@ -82,29 +97,44 @@ export default {
   right: 36px;
 }
 .flicking-color {
-    width: 100%;
-    padding: 0 16px;
+  width: 100%;
+  padding: 0 16px;
 }
-.color-item {
+
+.color-wrap {
+  position: relative;
+  display: flex;
+  
   width: 24px;
   height: 24px;
   border-radius: 50%;
   margin-right: 8px;
 }
-.color-item.selected {
+.color-wrap.selected {
   border: 1px solid rgb(var(--mio-theme-color-primary));
 }
-.color {
+
+
+.color-item {
+  position: relative;
   display: flex;
+  flex-wrap: wrap;
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  overflow: hidden;
   border: 1px solid rgba(var(--mio-theme-color-on-background), 0.1);
+  overflow: hidden;
 }
-.color span {
+.color-item span {
+  flex: 1 1 50%;
+}
+
+
+
+
+
+.color-segment {
   flex: 1;
-  
 }
 .umbrella {
   background: conic-gradient(
@@ -119,5 +149,7 @@ export default {
     violet
   );
 }
-
+.opacity_0 {
+  opacity: 0;
+}
 </style>

@@ -1,21 +1,12 @@
 <template>
   <div class="editor-item">
-    <formTitle1
-    :config="true"
-      info="STEP 4"
-      title="갤러리"
-      content="한 장당 최대 10MB의 이미지를 업로드할 수 있습니다. 최대 20장의 이미지까지 업로드 가능합니다."
+    <titleMain
+      step="STEP 1"
+      title="내 취향대로<br>모바일 카드를 꾸며보자"
+      content="다양한 템플릿을 활용하여 간편하게 디자인하거나, 직접 이미지를 업로드하여 당신만의 개성을 담아 모바일 카드를 제작할 수 있습니다."
     />
-
-    <section>
-      <article>
-        <formTitle2
-          title="이미지 갤러리"
-          content="한 장당 최대 10MB의 이미지를 업로드할 수 있습니다. 최대 20장의 이미지까지 업로드 가능합니다."
-        />
-        <galleryImageForm />
-      </article>
-    </section>
+    <galleryImageForm />
+    
 
     <section>
       <article>

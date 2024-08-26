@@ -94,12 +94,12 @@ const resetValue = {
       fnEffect: false,
       config: "falling",
       shape: "confetti",
-      color: ["#F55F56", '#8B67F3', '#F84C9F', '#FEDB50', '#6BEDF5'],
+      color: ["#F55F56", "#8B67F3", "#6BEDF5", "#FEDB50"],
     },
     /*-- 배경음악 --*/
     audiosData: {
       fnAudios: false,
-      fnAutoPlay: 1,
+      fnAutoPlay: false,
       url: null,
     },
     /*-- 커스텀 --*/
@@ -171,18 +171,15 @@ const resetValue = {
     transportData: [
       {
         title: "지하철 이용 시",
-        content:
-          "<p>지하철 이용 시</p>",
+        content: "<p>지하철 이용 시</p>",
       },
       {
         title: "버스 이용 시",
-        content:
-          "<p>버스 이용 시</p>",
+        content: "<p>버스 이용 시</p>",
       },
       {
         title: "자가용 이용 시",
-        content:
-          "<p>자가용 이용 시</p>",
+        content: "<p>자가용 이용 시</p>",
       },
     ],
 
@@ -262,7 +259,7 @@ const resetValue = {
       fnShare: true,
       fnCopy: true,
       fnKakaotalk: true,
-      fnTitle: '',
+      fnTitle: "",
     },
     /*-- 카카오 메세지 --*/
     kakaotalkData: {

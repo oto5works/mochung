@@ -24,7 +24,7 @@
 .item {
   grid-column: auto / span 1;
 }
-.component .title {
+.component > .title {
   font-size: 16px;
   font-weight: 700;
   border-bottom: 1px solid currentColor;

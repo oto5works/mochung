@@ -168,9 +168,8 @@ export default {
       { value: "flower", title: "국화" },
       { value: "ribbon", title: "추모 리본" },
       { value: "cross", title: "십자가" },
-
     ],
-   
+
     hostBankOptions: [
       { title: "국민은행", value: "bankKb" },
       { title: "기업은행", value: "bankIbk" },
@@ -642,12 +641,10 @@ export default {
       { value: "noise1", title: "Noise 1" },
       { value: "naturalPaper", title: "Natural Paper" },
     ],
-    
+
     effectColorOptions: [
-
-      { value: ["#F55F56", '#8B67F3', '#F84C9F', '#FEDB50', '#6BEDF5'], title: "색상1" },
-      { value: ["#FB7AA7", '#498FFF', '#F4F667', '#0ECB68'], title: "색상2" },
-
+      { value: ["#F55F56", "#8B67F3", "#6BEDF5", "#FEDB50"], title: "색상1" },
+      { value: ["#FB7AA7", "#498FFF", "#F4F667", "#0ECB68"], title: "색상2" },
       { value: ["#A8D8EA", "#AA96DA", "#FCBAD3", "#FFFFD2"], title: "색상5" },
       { value: ["#E3FDFD", "#CBF1F5", "#A6E3E9", "#71C9CE"], title: "색상6" },
       { value: ["#FF78C4", "#E1AEFF", "#FFBDF7", "#FFECEC"], title: "색상7" },
@@ -724,7 +721,6 @@ export default {
       return state.fontAlignOptions;
     },
 
-    
     getPrimaryColorOptions(state) {
       return state.primaryColorOptions;
     },

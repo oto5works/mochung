@@ -1,41 +1,33 @@
 <template>
-  <modalDialog :dialog="dialog" @update:dialog="updateDialog" :config="true">
-    <article class="z-index_2">
-      <formTitle2
+  <dialogFull :dialog="dialog" @update:dialog="updateDialog">
+    <div class="z-index_2">
+      <titleArticle
         title="메인 효과 설정"
         content="폭죽과 꽃가루 효과로 메인 화면을 특별하게 꾸며보세요. 모바일 초대장이 개성적으로 돋보이게 만들어줍니다."
       />
-      <effectColor :effect="effect" />
-      <effectConfig :effect="effect" />
-      <effectShape :effect="effect" />
-    </article>
-
-    <div class="dialog-actions">
-      <buttonText @click="updateDialog(false)">
-        <span>취소</span>
-      </buttonText>
-      <buttonDefault @click="saveValue">
-        <span>확인</span>
-      </buttonDefault>
+      <div class="display_flex flex-direction_column gap_8">
+        <effectColor :effect="effect" />
+        <effectConfig :effect="effect" />
+        <effectShape :effect="effect" />
+      </div>
     </div>
-
     <effectComp style="z-index: 1" :effect="effect" />
-  </modalDialog>
+  </dialogFull>
 </template>
 <script>
 import { mapGetters } from "vuex";
 import { defineAsyncComponent } from "vue";
 import effectComp from "@/modules/effect/effectComp.vue";
-import effectColor from "@/modules/color/effectColor.vue";
 import effectConfig from "@/modules/effect/effectConfig.vue";
 import effectShape from "@/modules/effect/effectShape.vue";
+import effectColor from "@/modules/effect/effectColor.vue";
 
 export default {
   components: {
     effectComp,
-    effectColor,
     effectConfig,
     effectShape,
+    effectColor,
   },
   props: {
     dialog: { type: Boolean },

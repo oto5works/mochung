@@ -1,14 +1,17 @@
 .cardView {
   justify-content: space-between;
   min-height: 72px;
+  width: 100%;
   padding: 24px;
   border-radius: 16px;
+  gap: 18px;
 }
-.cardView .underlay {
+.cardView > .underlay {
   background-color: rgb(var(--mio-theme-color-primary-05));
 }
-.cardView:hover .underlay {
-  background-color: rgb(var(--mio-theme-color-primary-10));
+.cardView.hover > .underlay,
+.cardView:hover > .underlay {
+  background-color: rgb(var(--mio-theme-color-primary-07));
 }
 .cardView .cardView-header {
   position: relative;
@@ -30,6 +33,7 @@
   text-align: left;
 }
 .cardView .content {
+  text-align: left;
   font-size: 13px;
   line-height: 140%;
   color: rgb(var(--mio-theme-color-on-background-70));

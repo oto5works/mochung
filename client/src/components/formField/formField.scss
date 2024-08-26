@@ -147,7 +147,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  height: 24px;
+  height: 16px;
   overflow: visible;
   grid-area: messages;
 }
@@ -166,7 +166,7 @@
   transition: all 0.2s ease-in-out;
 }
 
-.formField.focus .formField-details .messages,
+.formField .formField-details .messages,
 .formField.invalid .formField-details .messages {
   top: 4px;
   opacity: 1;

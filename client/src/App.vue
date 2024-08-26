@@ -6,10 +6,11 @@
 
     <!--<appbar />-->
     <RouterView />
+    <!--
     <div id="routerView" ref="routerView">
       
-      <appFooter />
-    </div>
+    <appFooter />
+    </div> -->
   </div>
 </template>
 

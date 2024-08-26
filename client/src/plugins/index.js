@@ -34,7 +34,6 @@ import textArea from "@/components/input/textArea.vue";
 // button
 import buttonOption from "@/components/button/buttonOption.vue";
 import buttonDefault from "@/components/button/buttonDefault.vue"; // new
-import buttonTab from "@/components/button/buttonTab.vue"; // new
 
 import buttonSelect from "@/components/button/buttonSelect.vue";
 import buttonFlicking from "@/components/button/buttonFlicking.vue";
@@ -49,6 +48,9 @@ import listItem from "@/components/listItem/listItem.vue"; // new
 
 // switch
 import toggleSwitch from "@/components/toggleSwitch/toggleSwitch.vue"; // new
+
+//checkbox
+import checkbox from "@/components/checkbox/checkbox.vue"; // new
 
 // title
 import titleMain from "@/components/title/titleMain.vue"; // new
@@ -88,6 +90,8 @@ import Particles from "vue3-particles";
 // Slicksort
 import { plugin as Slicksort } from "vue-slicksort";
 import "sal.js/dist/sal.css";
+// vClickOutside
+import vClickOutside from 'v-click-outside'
 
 export function registerPlugins(app) {
   app
@@ -98,6 +102,8 @@ export function registerPlugins(app) {
     .use(Particles)
     .use(Slicksort)
     .use(tinycolor)
+    .use(vClickOutside)
+
 
     .component("icon", icon)
     .component("arrowLeft", arrowLeft)
@@ -128,7 +134,6 @@ export function registerPlugins(app) {
 
     .component("buttonOption", buttonOption)
     .component("buttonDefault", buttonDefault) // new
-    .component("buttonTab", buttonTab) // new
 
     .component("buttonSelect", buttonSelect)
     .component("buttonFlicking", buttonFlicking)
@@ -138,6 +143,10 @@ export function registerPlugins(app) {
     .component("chip", chip) // new
     .component("listItem", listItem) // new
     .component("toggleSwitch", toggleSwitch) // new
+    .component("checkbox", checkbox) // new
+
+
+    
     .component("titleMain", titleMain) // new
     .component("titleArticle", titleArticle) // new
     .component("titleSection", titleSection) // new

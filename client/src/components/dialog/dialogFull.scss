@@ -1,0 +1,63 @@
+/*-- dialogFull.vue --*/
+.overlay.dialogFull {
+  z-index: 2000;
+}
+.dialogFull > .overlay__content {
+  width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0 24px;
+    align-content: start;
+    padding: 0 48px;
+    color: rgb(var(--mio-theme-color-on-background));
+
+
+  background-color: rgba(var(--mio-theme-color-background), 0.4);
+  --v-scrollbar-offset: 0px;
+  overflow-y: auto;
+}
+
+.dialogFull > .overlay__content > .dialog {
+  padding-bottom: 10vh;
+  position: relative;
+  grid-column: 7 / 11;
+  display: block;
+  width: 100%;
+  height: auto;
+  background-color: rgb(var(--mio-theme-color-background));
+}
+.dialogFull > .overlay__content > .overlay-header {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: calc(10vh + 64px);
+  top: 0;
+  grid-column: 7 / 11;
+  z-index: 10;
+  background-color: rgb(var(--mio-theme-color-background));
+}
+.dialogFull > .overlay__content > .overlay-header .dialog-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: 64px;
+}
+
+.dialogFull > .overlay__content > .dialog .dialog-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  min-height: calc(90vh - 64px);
+
+}
+
+/*--- 태블렛 ---*/
+@media all and (max-width: 1023px) {
+  .dialogFull > .overlay__content {
+    max-width: 480px;
+  }
+}
