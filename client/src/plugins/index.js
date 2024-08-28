@@ -14,12 +14,16 @@ import check from "@/components/icon/check.vue"; // new
 import search from "@/components/icon/search.vue"; // new
 
 // dialog
-// import modalDialog from "@/components/overlay/modalDialog.vue";
-// import bottomSheet from "@/components/overlay/bottomSheet.vue";
 import dialogFull from "@/components/dialog/dialogFull.vue"; // new
 import dialogBottom from "@/components/dialog/dialogBottom.vue"; // new
 import dialogModal from "@/components/dialog/dialogModal.vue"; // new
-import "@/components/dialog/overlay.scss";
+import "@/components/dialog/overlay.scss"; // new
+
+
+
+// 프리뷰에서 사용되는 COMPONENTS
+import sectionView from "@/preview/components/sectionView.vue"; // new
+import buttonCustom from "@/preview/components/buttonCustom.vue"; // new
 
 
 
@@ -27,18 +31,10 @@ import "@/components/dialog/overlay.scss";
 import formField from "@/components/formField/formField.vue"; // new
 
 
-import textField from "@/components/input/textField.vue";
-import textArea from "@/components/input/textArea.vue";
 
 
 // button
-import buttonOption from "@/components/button/buttonOption.vue";
 import buttonDefault from "@/components/button/buttonDefault.vue"; // new
-
-import buttonSelect from "@/components/button/buttonSelect.vue";
-import buttonFlicking from "@/components/button/buttonFlicking.vue";
-import buttonCheck from "@/components/button/buttonCheck.vue";
-import buttonText from "@/components/button/buttonText.vue";
 
 // chip
 import chip from "@/components/chip/chip.vue"; // new
@@ -58,7 +54,6 @@ import titleArticle from "@/components/title/titleArticle.vue"; // new
 import titleSection from "@/components/title/titleSection.vue"; // new
 
 // card
-import card from "@/components/card/card.vue";
 import cardView from "@/components/cardView/cardView.vue"; // new
 
 // sidebar
@@ -72,15 +67,18 @@ import router from "../router";
 // css
 import "@/styles/flicking.scss";
 import "@/components/button/button.scss";
-import "@/components/input/input.scss";
 import "@/styles/common.scss";
+import "@/styles/variable.scss";
+import "@/styles/font.scss";
+import "@/styles/reset.scss";
+import "@/styles/z-index.scss";
+import "@/styles/layout.scss";
+
 
 
 // Sticky
 // VueYouTubeEmbed
 
-// Vuetify
-import vuetify from "./vuetify";
 // tinycolor
 import tinycolor from "tinycolor2";
 // V-Calendar
@@ -97,7 +95,6 @@ export function registerPlugins(app) {
   app
     .use(store)
     .use(router)
-    .use(vuetify)
     .use(setupCalendar, {})
     .use(Particles)
     .use(Slicksort)
@@ -117,28 +114,22 @@ export function registerPlugins(app) {
 
     
 
-    // .component("modalDialog", modalDialog)
-    // .component("bottomSheet", bottomSheet)
     .component("dialogFull", dialogFull) // new
     .component("dialogBottom", dialogBottom) // new
     .component("dialogModal", dialogModal) // new
+    .component("sectionView", sectionView) // new
 
-
-    .component("formField", formField)
+    
+    .component("formField", formField) // new
 
     
     
-    .component("textField", textField)
-    .component("textArea", textArea)
 
 
-    .component("buttonOption", buttonOption)
     .component("buttonDefault", buttonDefault) // new
+    .component("buttonCustom", buttonCustom) // new
 
-    .component("buttonSelect", buttonSelect)
-    .component("buttonFlicking", buttonFlicking)
-    .component("buttonCheck", buttonCheck)
-    .component("buttonText", buttonText)
+
 
     .component("chip", chip) // new
     .component("listItem", listItem) // new
@@ -157,5 +148,4 @@ export function registerPlugins(app) {
 
     
     
-    .component("card", card);
 }

@@ -1,24 +1,14 @@
-// Plugins
+// 플러그인들
 import vue from '@vitejs/plugin-vue'
-import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
-// Utilities
+// 유틸리티들
 import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [
-    vue({ 
-      template: { transformAssetUrls }
-    }),
-    // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
-    vuetify({
-      autoImport: true,
-     // styles: {
-        //configFile: 'src/styles/settings.scss',
-     // },
-    }),
+  plugins: [
+    vue(), // transformAssetUrls 없이 vue()만 사용
   ],
   define: { 'process.env': {} },
   resolve: {
@@ -35,28 +25,21 @@ export default defineConfig({
       '.vue',
     ],
   },
-    // SCSS 전역 사용
-    css: {
-      loaderOptions: {
-        scss: {
-          modules: true
-        }
+  // SCSS 전역 사용
+  css: {
+    preprocessorOptions: {
+      scss: {
+        //additionalData: `@import "@/styles/common";`
       },
-      preprocessorOptions: {
-        scss: {
-          //additionalData: `@import "@/styles/common";`
-        },
+    }
+  },
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://localhost:3000",
+        changeOrigin: true,
+        secure: false
       }
     },
-    server: {
-      proxy: {
-        "/api": {
-          target: "http://localhost:3000",
-          changeOrigin: true,
-          secure: false
-        }
-      },
-    },
-
+  },
 })
-

@@ -1,5 +1,6 @@
 <template>
   <div class="background">
+    {{ backgroundData }}
     <div class="backgroundOverlay" />
     <!--
     <backgroundFilter

@@ -19,12 +19,10 @@ import { mapActions, mapGetters } from "vuex";
 import appbar from "@/components/appbar/appbar.vue";
 import headerView from "@/components/headerView/headerView.vue";
 
-import appFooter from "@/components/component/appFooter.vue";
 
 export default {
   components: {
-    appbar,
-    appFooter, headerView
+    appbar, headerView
     
   },
   data() {
@@ -40,13 +38,13 @@ export default {
   },
   mounted() {
     // Add an event listener for the window's onload event
-    window.addEventListener("load", this.handleWindowLoad);
-    window.addEventListener("resize", this.handleResize);
-    this.handleResize();
+    //window.addEventListener("load", this.handleWindowLoad);
+    //window.addEventListener("resize", this.handleResize);
+    //this.handleResize();
   },
   beforeDestroy() {
     // 컴포넌트 파기 시에 이벤트 리스너를 제거
-    window.removeEventListener("resize", this.handleResize);
+    //window.removeEventListener("resize", this.handleResize);
   },
   methods: {
     ...mapActions(["updateScreenWidthAction"]),

@@ -1,9 +1,5 @@
 <template>
   <div class="formOption">
-    <formTitle1
-      info="디자인 선택"
-      title="나만의 모바일 청첩장을 만들어보세요"
-    />
     <!-- content="간편한 템플릿을 활용하거나 자유롭게 디자인하여, 손쉽게 당신만의 스타일로 맞춤형 모바일 청첩장을 만들어보세요!" -->
     <div class="sp_72" />
     <div class="formOption__wrap">

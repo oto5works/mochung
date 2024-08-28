@@ -102,167 +102,13 @@
 }
 
 html[data-design-theme="design1"] {
-  --po-po-pc: var(--primary-on);
-  --pc-pc-tr: var(--primary-color);
-  --po-po-fc: var(--primary-on);
-  --po-po-tr: var(--primary-on);
-  --fc-fc-pc: var(--font-color);
-  --tr-bc-tr: transparent;
-  --tr-bo-tr: transparent;
-  --pc-tr-tr: var(--primary-color);
-  --po-fc-fc: var(--primary-on);
-  --po-tr-tr: var(--primary-on);
-  --po-pc-tr: var(--primary-on);
-  --fc-po-pc: var(--font-color);
-  --pc-po-pc: var(--primary-color);
-  --po-pc-pc: var(--primary-on);
-  --bo-bo-pc: var(--background-on);
-  --pc-pc-bc: var(--primary-color);
-  --bc-tr-bc: var(--background-color);
-  --pc-tr-pc: var(--primary-color);
-  --tr-pc-tr: transparent;
-  --pc-pc-po: var(--primary-color);
-  --03-03-1: 0.3;
-  --1-1-015: 1;
-  --1-1-03: 1;
-  --1px-1px-0px: 1px;
-  --0px-12px-0px: 0px;
-  --16px-0px-0px: 16px;
-  --16px-24px-16px: 16px;
-  --12px-24px-12px: 12px;
-  --24px-24px-0px: 24px;
-  --32px-32px-1px: 32px;
-  --block-none-block: block;
-  --none-block-block: none;
-  --none-block-none: none;
-  --none-none-block: none;
-  --block-none-none: block;
-  --block-block-none: block;
-  --flex-flex-none: flex;
-  --none-none-flex: none;
-  // Editor custom Button
-  --16px-0px-16px: 16px;
-  // onInv Preview
-  --16px-16px-0px: 16px;
-  --40px-72px-40px: 40px;
-  --56px-56px-64px: 56px;
-  // onInv Preview section padding value
-  --0-4-0: 0;
-  // onInv Preview intro host gap value
-  --8px-8px-24px: 8px;
-  // onInv Preview countdown padding value
-  --4-4-0: 4.2%;
-  // onInv Comment Bubble Writer padding value
-  --0-0-12: 0;
+ 
 }
 html[data-design-theme="design2"] {
-  --po-po-pc: var(--primary-on);
-  --pc-pc-tr: var(--primary-color);
-  --po-po-fc: var(--primary-on);
-  --po-po-tr: var(--primary-on);
-  --fc-fc-pc: var(--font-color);
-  --tr-bc-tr: var(--background-color);
-  --tr-bo-tr: var(--background-on);
-  --pc-tr-tr: transparent;
-  --po-fc-fc: var(--font-color);
-  --po-tr-tr: transparent;
-  --po-pc-tr: var(--primary-color);
-  --fc-po-pc: var(--primary-on);
-  --pc-po-pc: var(--primary-on);
-  --po-pc-pc: var(--primary-color);
-  --bo-bo-pc: var(--background-on);
-  --pc-pc-bc: var(--primary-color);
-  --bc-tr-bc: transparent;
-  --pc-tr-pc: transparent;
-  --tr-pc-tr: var(--primary-color);
-  --pc-pc-po: var(--primary-color);
-  --03-03-1: 0.3;
-  --1-1-015: 1;
-  --1-1-03: 1;
-  --1px-1px-0px: 1px;
-  --0px-12px-0px: 12px;
-  --16px-0px-0px: 0px;
-  --16px-24px-16px: 24px;
-  --12px-24px-12px: 24px;
-  --24px-24px-0px: 24px;
-  --32px-32px-1px: 32px;
-  --block-none-block: none;
-  --none-block-block: block;
-  --none-block-none: block;
-  --none-none-block: none;
-  --block-none-none: none;
-  --block-block-none: block;
-  --flex-flex-none: flex;
-  --none-none-flex: none;
-// Editor custom Button
---16px-0px-16px: 0px;
-  // onInv Preview
-  --16px-16px-0px: 16px;
-  --40px-72px-40px: 72px;
-  --56px-56px-64px: 56px;
-  // onInv Preview section padding value
-  --0-4-0: 4.1%;
-  // onInv Preview intro host gap value
-  --8px-8px-24px: 8px;
-  // onInv Preview countdown padding value
-  --4-4-0: 4.1%;
-  // onInv Comment Bubble Writer padding value
-  --0-0-12: 0;
+ 
 }
 html[data-design-theme="design3"] {
-  --po-po-pc: var(--primary-color);
-  --pc-pc-tr: transparent;
-  --po-po-fc: var(--font-color);
-  --po-po-tr: transparent;
-  --fc-fc-pc: var(--primary-color);
-  --tr-bc-tr: transparent;
-  --tr-bo-tr: transparent;
-  --pc-tr-tr: transparent;
-  --po-fc-fc: var(--font-color);
-  --po-tr-tr: transparent;
-  --po-pc-tr: transparent;
-  --fc-po-pc: var(--primary-color);
-  --pc-po-pc: var(--primary-color);
-  --po-pc-pc: var(--primary-color);
-  --bo-bo-pc: var(--primary-color);
-  --pc-pc-bc: var(--background-color);
-  --bc-tr-bc: var(--background-color);
-  --pc-tr-pc: var(--primary-color);
-  --tr-pc-tr: transparent;
-  --pc-pc-po: var(--primary-on);
-  --03-03-1: 1;
-  --1-1-015: 0.15;
-  --1-1-03: 0.3;
-  --1px-1px-0px: 0px;
-  --0px-12px-0px: 0px;
-  --16px-0px-0px: 0px;
-  --16px-24px-16px: 16px;
-  --12px-24px-12px: 12px;
-  --24px-24px-0px: 0px;
-  --32px-32px-1px: 1px;
-  --block-none-block: block;
-  --none-block-block: block;
-  --none-block-none: none;
-  --none-none-block: block;
-  --block-none-none: none;
-  --block-block-none: none;
-  --flex-flex-none: none;
-  --none-none-flex: flex;
-// Editor custom Button
---16px-0px-16px: 16px;
-  // onInv Preview
   
-  --16px-16px-0px: 0px;
-  --40px-72px-40px: 40px;
-  --56px-56px-64px: 64px;
-  // onInv Preview section padding value
-  --0-4-0: 0;
-  // onInv Preview intro host gap value
-  --8px-8px-24px: 24px;
-  // onInv Preview countdown padding value
-  --4-4-0: 0;
-  // onInv Comment Bubble Writer padding value
-  --0-0-12: 12px;
 }
 
 
@@ -270,225 +116,121 @@ html[data-design-theme="design3"] {
 html[data-align-theme="left"] {
   --text-align: left;
   --justify-content: flex-start;
+  --align-items: flex-start;
   // onInv Preview title max-width
 }
 html[data-align-theme="center"] {
   --text-align: center;
   --justify-content: center;
+  --align-items: center;
+
   // onInv Preview title max-width
 }
 html[data-align-theme="right"] {
   --text-align: right;
   --justify-content: flex-end;
+  --align-items: flex-end;
+
   // onInv Preview
 }
 
 /*--- border-radius ---*/
 html[data-radius-theme="0"] {
-  --border-radius-4: unset;
-  --border-radius-6: unset;
-  --border-radius-7: unset;
-  --border-radius-8: unset;
-  --border-radius-12: unset;
-  --border-radius-16: unset;
-  --border-radius-18: unset;
-  --border-radius-20: unset;
-  --border-radius-24: unset;
-  --border-radius-26: unset;
-  --border-radius-28: unset;
-  --border-radius-32: unset;
+  --border-radius_28: unset;
+  --border-radius_12: unset;
+  --border-radius_14: unset;
+
+
 }
 html[data-radius-theme="1"] {
-  --border-radius-4: 4px;
-  --border-radius-6: 6px;
-  --border-radius-7: 7px;
-  --border-radius-8: 8px;
-  --border-radius-12: 12px;
-  --border-radius-16: 16px;
-  --border-radius-18: 18px;
-  --border-radius-20: 20px;
-  --border-radius-24: 24px;
-  --border-radius-26: 26px;
-  --border-radius-28: 28px;
-  --border-radius-32: 32px;
+  --border-radius_28: 28px;
+--border-radius_12: 12px;
+--border-radius_14: 14px;
+
+
 }
 html[data-radius-theme="2"] {
-  --border-radius-4: 4px;
-  --border-radius-6: 6px;
-  --border-radius-7: 7px;
-  --border-radius-8: 8px;
-  --border-radius-12: 12px;
-  --border-radius-16: 16px;
-  --border-radius-18: 18px;
-  --border-radius-20: 20px;
-  --border-radius-24: 24px;
-  --border-radius-26: 26px;
-  --border-radius-28: 28px;
-  --border-radius-32: 32px;
+  --border-radius_28: 28px;
+  --border-radius_12: 12px;
+  --border-radius_14: 14px;
+
+
 }
 html[data-radius-theme="3"] {
-  --border-radius-4: 4px;
-  --border-radius-6: 6px;
-  --border-radius-7: 7px;
-  --border-radius-8: 8px;
-  --border-radius-12: 12px;
-  --border-radius-16: 16px;
-  --border-radius-18: 18px;
-  --border-radius-20: 20px;
-  --border-radius-24: 24px;
-  --border-radius-26: 26px;
-  --border-radius-28: 28px;
-  --border-radius-32: 32px;
+  --border-radius_28: 28px;
+--border-radius_12: 12px;
+--border-radius_14: 14px;
+
+
 }
 
 
 // border
 html[data-border-theme="false"] {
-  --border-opacity: 0;
-  --border-style: none;
-  --border-display: none;
+
 }
 html[data-border-theme="true"] {
-  --border-opacity: 1;
-  --border-style: solid;
-  --border-display: block;
+
 }
 // shadow
 html[data-shadow-theme="false"] {
-  --box-shadow-1: unset;
-  --box-shadow-2: unset;
-  --box-shadow-3: unset;
-  --box-shadow-display: none;
+
 }
 html[data-shadow-theme="true"] {
-  --box-shadow-1: 0 18px 96px -48px;
-  --box-shadow-2: 0 10px 20px -10px;
-  --box-shadow-3: 0px 2px 30px -20px
-  --box-shadow-display: block;
+
 }
 
 html[data-font-weight-theme="false"] {
-  --font-weight: 400
+  
 }
 html[data-font-weight-theme="true"] {
-  --font-weight: 700
+  
 }
 
 /*--- font-size ---*/
 html[data-font-size-theme="1"] {
-  --font-size-10: 10px;
-  --font-size-11: 11px;
-  --font-size-12: 12px;
-  --font-size-13: 13px;
-  --font-size-14: 12px;
-  --font-size-15: 15px;
-  --font-size-16: 14px;
-  --font-size-18: 16px;
-  --font-size-20: 18px;
-  --font-size-22: 20px;
-  --font-size-24: 22px;
-  --font-size-26: 24px;
-  --font-size-28: 24px;
-  --font-size-32: 28px;
-  --font-size-36: 32px;
+
+  --font-size_11: 11px;
+  --font-size_12: 12px;
+  --font-size_13: 13px;
+  --font-size_16: 16px;
+
+  --font-size_22: 22px;
+
+  --font-size_24: 24px;
+  --font-size_48: 48px;
+
+
 }
 html[data-font-size-theme="2"] {
-  --font-size-10: 10px;
-  --font-size-11: 11px;
-  --font-size-12: 12px;
-  --font-size-13: 13px;
-  --font-size-14: 14px;
-  --font-size-15: 15px;
-  --font-size-16: 16px;
-  --font-size-18: 18px;
-  --font-size-20: 20px;
-  --font-size-22: 22px;
-  --font-size-24: 24px;
-  --font-size-26: 26px;
-  --font-size-28: 28px;
-  --font-size-32: 32px;
-  --font-size-36: 36px;
+
+  --font-size_11: 11px;
+  --font-size_12: 12px;
+  --font-size_13: 13px;
+  --font-size_16: 16px;
+  --font-size_22: 22px;
+  --font-size_24: 24px;
+
+  --font-size_48: 48px;
+
 }
 html[data-font-size-theme="3"] {
-  --font-size-10: 10px;
-  --font-size-11: 11px;
-  --font-size-12: 12px;
-  --font-size-13: 13px;
-  --font-size-14: 16px;
-  --font-size-15: 15px;
-  --font-size-16: 18px;
-  --font-size-18: 20px;
-  --font-size-20: 24px;
-  --font-size-22: 26px;
-  --font-size-24: 28px;
-  --font-size-26: 32px;
-  --font-size-28: 32px;
-  --font-size-32: 36px;
-  --font-size-36: 40px;
+  --font-size_10: 10px;
+
+  --font-size_11: 11px;
+  --font-size_12: 12px;
+  --font-size_13: 13px;
+  --font-size_16: 16px;
+
+  --font-size_22: 22px;
+  --font-size_24: 24px;
+
+  --font-size_48: 48px;
+
+
 }
 html[data-font-size-theme="4"] {
 
 }
-
-
-
-
-// spacing
-/*
-html[data-spacing-theme="spoqaHanSansLight"] { --letter-spacing: -0.08em }
-html[data-spacing-theme="spoqaHanSans"] { --letter-spacing: -0.08em }
-html[data-spacing-theme="eulyoo1945"] { --letter-spacing: 0.08em }
-*/
-
-.--primary-color { color: var(--primary-color); fill: var(--primary-color); }
-.--primary-on { color: var(--primary-on); fill: var(--primary-on); }
-.--background-color { color: var(--background-color) }
-.--background-gradient { color: var(--background-gradient) }
-.--font-color { color: var(--font-color) }
-.--font-weight { font-weight: var(--font-weight) }
-.--letter-spacing { letter-spacing: var(--letter-spacing) }
-// align
-.--text-align { text-align: var(--text-align) }
-.--justify-content { justify-content: var(--justify-content) }
-.--align-items { align-items: var(--justify-content) }
-// --border-radius
-.--border-radius_4 { border-radius: var(--border-radius-4) }
-.--border-radius_8 { border-radius: var(--border-radius-8) }
-.--border-radius_12 { border-radius: var(--border-radius-12) }
-.--border-radius_16 { border-radius: var(--border-radius-16) }
-.--border-radius_18 { border-radius: var(--border-radius-18) }
-.config .--border-radius_20 { border-radius: var(--border-radius-20) }
-.--border-radius_20 { border-radius: 20px }
-
-.--border-radius_24 { border-radius: var(--border-radius-24) }
-
-.--border-radius_26 { border-radius: var(--border-radius-26) }
-
-.--border-radius_32 { border-radius: var(--border-radius-32) }
-// display
-.--display_block-none-block { display: var(--block-none-block);}
-.--display_none-block-block { display: var(--none-block-block);}
-.--display_none-none-block { display: var(--none-none-block);}
-.--display_block-none-none { display: var(--block-none-none);}
-.--display_block-block-none { display: var(--block-block-none);}
-.--display_none-block-none { display: var(--none-block-none);}
-// height
-.--height_12px-24px-12px { height: var(--12px-24px-12px)}
-
-// font-size
-
-.--font-size_10 { font-size: var(--font-size-10);}
-.--font-size_11 { font-size: var(--font-size-11);}
-.--font-size_12 { font-size: var(--font-size-12);}
-.--font-size_13 { font-size: var(--font-size-13);}
-.--font-size_14 { font-size: var(--font-size-14);}
-.--font-size_15 { font-size: var(--font-size-15);}
-.--font-size_16 { font-size: var(--font-size-16);}
-.--font-size_18 { font-size: var(--font-size-18);}
-.--font-size_20 { font-size: var(--font-size-20);}
-.--font-size_22 { font-size: var(--font-size-22);}
-.--font-size_24 { font-size: var(--font-size-24);}
-.--font-size_28 { font-size: var(--font-size-28);}
-.--font-size_32 { font-size: var(--font-size-32);}
 
 

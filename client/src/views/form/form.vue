@@ -9,7 +9,7 @@
     </div>
     <div class="layer-2">
       <formOption v-if="!formOption" />
-      <component :is="formOption" />
+      <component v-if="formOption" :is="formOption" />
     </div>
 
     <div class="layer-3">
@@ -114,12 +114,12 @@ export default {
 }
 .preview-mobile {
   position: relative;
-  height: 100%;
+  height: 80%;
   aspect-ratio: var(--mio-theme-aspect-ratio);
   border-radius: 44px;
   border: 4px solid black;
   outline: 4px solid black;
-  transform: scale(0.8);
+  transform: scale(1);
   contain: layout;
   overflow: hidden;
   -webkit-filter: drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.1));

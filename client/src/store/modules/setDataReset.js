@@ -5,16 +5,18 @@ const resetValue = {
     hostData: {
       functions: {
         fnContact: true,
-        fnProfile: false,
+        // 신랑 신부 profile 사진 및 코멘트 사용 유무 (추후 업데이트 예정)
+        // fnProfile: false,
       },
       info: [
         {
-          comment: "",
-          files: { file: null, url: null },
-          host: { title: "신랑", name: "Cheol-soo", tell: "", relation: "" },
+          // 신랑 신부 profile 사진 및 코멘트 (추후 업데이트 예정)
+          // comment: "",
+          // files: { file: null, url: null },
+          host: { title: "Groom", name: "Benjamin", tell: "010-1234-1234", relation: "Eldest Son" },
           family: [
-            { title: "아버님", name: "", tell: "", info: false },
-            { title: "어머님", name: "", tell: "", info: false },
+            { title: "Father", name: "James", tell: "010-1234-1234", info: false },
+            { title: "Mother", name: "Emma", tell: "010-1234-1234", info: false },
           ],
           bank: {
             fnFold: false,
@@ -26,6 +28,7 @@ const resetValue = {
                 },
                 number: "",
                 name: "",
+                // kakaopay image
                 files: {
                   file: null,
                   url: null,
@@ -35,12 +38,13 @@ const resetValue = {
           },
         },
         {
-          comment: "",
-          files: { file: null, url: null },
-          host: { title: "신부", name: "Younghee", tell: "", relation: "" },
+          // 신랑 신부 profile 사진 및 코멘트 (추후 업데이트 예정)
+          // comment: "",
+          // files: { file: null, url: null },
+          host: { title: "Bride", name: "Isabella", tell: "010-1234-1234", relation: "Eldest Daughter" },
           family: [
-            { title: "아버님", name: "", tell: "", info: false },
-            { title: "어머님", name: "", tell: "", info: false },
+            { title: "Father", name: "Alexander", tell: "010-1234-1234", info: false },
+            { title: "Mother", name: "Olivia", tell: "010-1234-1234", info: false },
           ],
           bank: {
             fnFold: false,
@@ -52,6 +56,7 @@ const resetValue = {
                 },
                 number: "",
                 name: "",
+                // kakaopay image
                 files: {
                   file: null,
                   url: null,
@@ -104,32 +109,40 @@ const resetValue = {
     },
     /*-- 커스텀 --*/
     customData: {
-      temp: "",
-      styleBackground: "defaulted",
-      backgroundColor: "#ffffff",
-      gradient1: "#FFFFFF",
-      gradient2: "#FFFFFF",
-      gradient3: "#E99460",
-      filter: "",
-      design: "design1",
+      temp: "", // 디자인 템플릿 사용유무
+      styleBackground: "defaulted", // defaulted, gradient
+      backgroundColor: [255, 255, 0],
+      design: "design1", // 디자인 스타일 design1: default, design2: card style, design3: line style
       align: "left",
-      primaryColor: "#ff4d00",
-      radius: 2,
-      // level: 0, 1, 2, 3
-      border: false,
-      shadow: false,
-      fontSize: 2,
-      // level: 1, 2, 3,
-      fontColor: "#000000",
+      primaryColor: [0, 255, 0], // rgb값
+      radius: 2, // level: 0, 1, 2, 3
+      border: false, // 객체의 border
+      shadow: false, // 객체의 shadow
+      fontSize: 2, // level: 1, 2, 3,
+      fontColor: [0, 0, 255], // rgb값
       fontFamily: "pretendard",
-      fontWeight: true,
+      fontWeight: true, // bold 사용 유무
       stamp: "flower",
+      /*-- add --*/
+       
+      // gradient1: "#FFFFFF",
+      // gradient2: "#FFFFFF",
+      // gradient3: "#E99460",
+      // filter: "",
     },
     /*-- 인트로 --*/
     introData: {
-      title: "FIELDS OF EXPRESSION",
-      content:
-        "<p>Get an official Creative Cloud subscription.</p><p>When you make a payment, specify an expiration date and choose a plan that works for you (all apps or Adobe Photography).</p><p>Create an Adobe ID for your data and pay for a subscription in Turkey within 24 hours.</p>",
+      title: "Our Wedding Day",
+      content:`
+        <p>We are overjoyed to invite you to join us on the most important day of our lives.</p>
+        <p></p>
+        <p>As we take this beautiful step forward together, your presence would mean everything to us. 
+        On this day, we celebrate love, commitment, and the beginning of a new chapter.</p>
+        <p></p>
+        <p>We are incredibly grateful to have you in our lives, and we can't wait to share this special moment with you.</p>
+        <p></p>
+        <p>Thank you for being a part of our journey, and we look forward to creating unforgettable memories together.</p>
+      `,
       files: [{ file: null, url: null }],
     },
     /*-- 예식일  --*/
@@ -147,15 +160,15 @@ const resetValue = {
       }),
       fnCalendar: true,
       calendar: "calendar1",
-      fnCountdown: true,
+      fnCountdown: false,
     },
 
     /*-- 예식 장소  --*/
     locationData: {
-      title: "FIELDS OF EXPRESSION",
-      name: "WEDDING ITALY",
-      info: "CHUNGDAM, SEOUL",
-      tell: "02-559-5500",
+      title: "Directions",
+      name: "Elegant Rose Garden",
+      info: "Orchid Ballroom, 2nd Floor",
+      tell: "+82 2-1234-5678",
       address: "Gangnam-gu, Seoul",
       detail: "72, Nonhyeon-ro 79-gil (Yeoksam-dong 828-10) ",
       lat: "37.566826004661",
@@ -170,18 +183,44 @@ const resetValue = {
     /*-- 교통수단 안내  --*/
     transportData: [
       {
-        title: "지하철 이용 시",
-        content: "<p>지하철 이용 시</p>",
+        title: "BY BUS",
+        content: `
+          <p>To reach the venue by bus, start by finding the nearest bus stop at "Rose Garden Station."</p>
+          <p></p>
+          <p>Board Bus Number 42 and ride until you reach the "Blossom Lane Stop."</p>
+          <p></p>
+          <p>From there, it’s a short 5-minute walk to the Elegant Rose Garden, located at 123 Blossom Lane. 
+          Simply walk straight for about 300 meters, and you’ll find us on the right.</p>
+          <p></p>
+          <p>For the most up-to-date bus schedules and route information, please visit the Seoul City Transit website.</p>
+        `,
       },
       {
-        title: "버스 이용 시",
-        content: "<p>버스 이용 시</p>",
+        title: "BY SUBWAY",
+        content: `
+          <p>To get to the venue by subway, start by traveling to "Rose Garden Station" on Line 5.</p>
+          <p></p>
+          <p>Take Exit 2 and follow the signs for the "Blossom Lane" exit. From the subway station, it’s about a 10-minute walk to the Elegant Rose Garden.</p>
+          <p></p>
+          <p>Walk straight for about 500 meters, and you will reach Blossom Lane. Turn right, and you’ll find us at 123 Blossom Lane on the right-hand side.</p>
+          <p></p>
+          <p>For more details on subway routes and schedules, please visit the Seoul Subway website.</p>
+        `,
       },
       {
-        title: "자가용 이용 시",
-        content: "<p>자가용 이용 시</p>",
+        title: "BY CAR",
+        content: `
+          <p>If you’re driving to the venue, you can use the address 123 Blossom Lane, Seoul. There is ample parking available at the venue.</p>
+          <p></p>
+          <p>From the central Seoul area, take the "Flower Road" exit from the main highway and follow the signs to Blossom Lane.</p>
+          <p></p>
+          <p>There is a parking lot directly in front of the Elegant Rose Garden, with spaces available for visitors.</p>
+          <p></p>
+          <p>For real-time traffic updates and the best routes, please check a navigation app or GPS service.</p>
+        `,
       },
     ],
+    
 
     /*-- 공지사항 안내  --*/
     noticeData: {
@@ -212,7 +251,7 @@ const resetValue = {
     },
     /*-- 미디어 갤러리 --*/
     galleryData: {
-      title: "갤러리",
+      title: "Gallery",
       fnGallery: true,
       image: {
         fnImage: true,
@@ -221,7 +260,7 @@ const resetValue = {
       },
       video: {
         fnVideo: true,
-        url: "2222",
+        url: "https://www.youtube.com/",
         fnAutoPlay: false,
       },
     },
@@ -277,13 +316,13 @@ const resetValue = {
     orderData: {
       order: [
         "intro",
-        "calendar",
-        "location",
-        "notice",
-        "gallery",
-        "comment",
-        "survey",
-        "deposit",
+       "calendar",
+       "location",
+      //  "notice",
+       "gallery",
+      //  "comment",
+      //  "survey",
+      //  "deposit",
       ],
     },
   },

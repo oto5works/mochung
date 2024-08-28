@@ -1,13 +1,5 @@
 <template>
   <div class="youtubeForm">
-    <titleArticle
-      title="FIELDS OF EXPRESSION"
-      content="Get an official Creative Cloud subscription. When you make a payment"
-    >
-      <button class="youtube-link" @click="openYouTube">
-        <span>Shortcut to YouTube</span><icon><logoYoutube /></icon>
-      </button>
-    </titleArticle>
     <formField
       v-model="url"
       @input="updateUrl"
@@ -28,12 +20,12 @@ export default {
   props: {
     modelValue: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
-      url: this.modelValue
+      url: this.modelValue,
     };
   },
   watch: {
@@ -41,17 +33,17 @@ export default {
       this.url = newVal;
     },
     url(newVal) {
-      this.$emit('update:modelValue', newVal);
-    }
+      this.$emit("update:modelValue", newVal);
+    },
   },
   methods: {
     updateUrl() {
-      this.$emit('update:modelValue', this.url);
+      this.$emit("update:modelValue", this.url);
     },
     openYouTube() {
-      window.open('https://www.youtube.com', '_blank');
-    }
-  }
+      window.open("https://www.youtube.com", "_blank");
+    },
+  },
 };
 </script>
 

@@ -1,0 +1,95 @@
+<template>
+  <div>
+    <sectionView>
+      <div id="previewLocation">
+        <div class="width_100 --font-size_24 font-weight_700">
+          {{ locationData.title }}
+        </div>
+        <div
+          style="height: fit-content"
+          class="display_flex justify-content_space-between text-align_left"
+        >
+          <div
+            style="width: 36%"
+            class="display_flex flex-direction_column gap_24"
+          >
+            <span class="--font-size_16 font-weight_700 line-height_130">{{
+              locationData.name
+            }}</span>
+            <span class="--font-size_11 line-height_130"
+              >({{ locationData.info }})</span
+            >
+          </div>
+          <div
+            style="width: 46%"
+            class="display_flex flex-direction_column gap_48 --font-size_13"
+          >
+            <span class="line-height_130">
+              {{ locationData.address }}<br />{{ locationData.detail }}
+            </span>
+            <div class="tell">
+              <div class="font-weight_700">TELL</div>
+              <span
+                class="line-height_130 text-decoration_underline"
+                @click="callWeddingHallTell"
+                >{{ locationData.tell }}</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <buttonCustom>
+          <span>VIEW ON MAP</span>
+        </buttonCustom>
+      </div>
+    </sectionView>
+
+
+
+
+    <locationMap
+      :map="locationData.map"
+      :lat="locationData.lat"
+      :lng="locationData.lng"
+      :fileUrl="locationData.fileUrl"
+    />
+
+
+
+    <locationTransport />
+  </div>
+</template>
+
+<script>
+import { defineAsyncComponent } from "vue";
+import { mapGetters } from "vuex";
+
+
+export default {
+  components: {
+    locationMap: defineAsyncComponent(() =>
+      import("@/preview/location/locationMap.vue")
+    ),
+    locationTransport: defineAsyncComponent(() =>
+      import("@/preview/location/locationTransport.vue")
+    ),
+  },
+  computed: {
+    ...mapGetters({
+      locationData: "getLocationData",
+    }),
+  },
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+    callWeddingHallTell() {
+      let phoneNumber = this.locationData.tell;
+      phoneNumber = phoneNumber.replace(/\D/g, "");
+      window.open(`tel:${phoneNumber}`);
+    },
+  },
+};
+</script>

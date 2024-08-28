@@ -6,7 +6,7 @@
       :color="homeColor"
       :fontFamily="null"
     />
-    <frameView v-if="previewHome.frame" :frame="previewHome.frame" />
+    <!--<frameView v-if="previewHome.frame" :frame="previewHome.frame" />-->
     <heroView :item="previewHome.item" />
   </div>
 </template>

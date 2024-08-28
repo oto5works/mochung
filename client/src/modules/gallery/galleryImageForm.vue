@@ -4,6 +4,9 @@
       title="FIELDS OF EXPRESSION"
       content="Get an official Creative Cloud subscription. When you make a payment"
     >
+    <template #slot>
+      <toggleSwitch v-model="imageGallery.fnImage" />
+    </template>
       <buttonDefault variant="tonal" height="32" @click="toggleSwitch">
         <checkbox v-model="handle" :clickEvent="false" />
         <span>순서 변경</span>

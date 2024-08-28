@@ -42,9 +42,9 @@
             <div class="font-size_14 font-weight_700">{{ item.title }}</div>
           </div>
           <buttonDefault
+            style="width: fit-content"
             variant="tonal"
             height="18"
-            class="width_fit-content"
             :class="{ selected: item.value === customData.temp }"
             ><span>Preview</span><icon class="icon_12"><arrowUpRight /></icon
           ></buttonDefault>
@@ -75,25 +75,25 @@ export default {
       tempOptions: "getTempOptions",
     }),
     filteredTempOptions() {
-  const selectedCategory = this.tab;
+      const selectedCategory = this.tab;
 
-  if (selectedCategory === 0) {
-    // 'all'이 선택된 경우 모든 옵션을 반환합니다.
-    return this.tempOptions;
-  } else {
-    const categoryValue = this.tempCategorys[selectedCategory]?.value;
+      if (selectedCategory === 0) {
+        // 'all'이 선택된 경우 모든 옵션을 반환합니다.
+        return this.tempOptions;
+      } else {
+        const categoryValue = this.tempCategorys[selectedCategory]?.value;
 
-    if (!categoryValue) {
-      return []; // 잘못된 선택일 경우 빈 배열을 반환
-    }
+        if (!categoryValue) {
+          return []; // 잘못된 선택일 경우 빈 배열을 반환
+        }
 
-    return this.tempOptions.filter(option =>
-      Array.isArray(option.category) &&
-      option.category.includes(categoryValue)
-    );
-  }
-}
-
+        return this.tempOptions.filter(
+          (option) =>
+            Array.isArray(option.category) &&
+            option.category.includes(categoryValue)
+        );
+      }
+    },
   },
   data() {
     return {

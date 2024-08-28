@@ -12,8 +12,25 @@
     </tabs>
 
     <audiosOptions v-if="tab === 0" />
-    <youtubeForm v-if="tab === 1" v-model="audiosData.url" />
 
+    <div v-if="tab === 1">
+      <titleArticle
+        title="FIELDS OF EXPRESSION"
+        content="Get an official Creative Cloud subscription. When you make a payment"
+      >
+        <button
+          class="gap_8"
+          @click="window.open('https://www.youtube.com', '_blank')"
+        >
+          <span
+            style="color: rgb(55, 97, 251)"
+            class="font-size_14 text-decoration_underline"
+            >Shortcut to YouTube</span
+          ><icon><logoYoutube /></icon>
+        </button>
+      </titleArticle>
+      <youtubeForm v-model="audiosData.url" />
+    </div>
     <div class="form-spacing" />
 
     <cardView
@@ -34,9 +51,11 @@ import { mapGetters } from "vuex";
 import { defineAsyncComponent } from "vue";
 import tabs from "@/components/tab/tabs.vue";
 import tab from "@/components/tab/tab.vue";
+import logoYoutube from "@/components/icon/logoYoutube";
 
 export default {
   components: {
+    logoYoutube,
     tabs,
     tab,
     audiosOptions: defineAsyncComponent(() =>

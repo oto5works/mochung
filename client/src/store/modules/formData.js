@@ -6,10 +6,9 @@ export default {
   state: {
     postData: { ...resetValue }, // resetValue 객체의 복사본을 할당
     res: {
-      message: '',
-      status: '',    
-    }
-
+      message: "",
+      status: "",
+    },
   },
   mutations: {
     updateFormData(state, newData) {
@@ -61,35 +60,44 @@ export default {
       }
     },
 
-
-
-
     /*-- save FormData --*/
     async saveFormData({ state, commit }) {
-      
       if (state.postData.id) {
         try {
-          commit("updateResponse", { message: '데이터 업데이트 중...', status: 'processing' });
+          commit("updateResponse", {
+            message: "데이터 업데이트 중...",
+            status: "processing",
+          });
           const id = state.postData.id;
           const formData = state.postData.formData;
           await editPost(id, formData);
-          commit("updateResponse", { message: '업데이트 완료', status: 'success' });
+          commit("updateResponse", {
+            message: "업데이트 완료",
+            status: "success",
+          });
           commit("resetFormData");
         } catch (error) {
           console.error("업데이트 중 오류가 발생했습니다. 오류 내용:", error);
-          commit("updateResponse", { message: `업데이트 중 오류가 발생했습니다. 오류 내용: ${error}`, status: 'error' });
+          commit("updateResponse", {
+            message: `업데이트 중 오류가 발생했습니다. 오류 내용: ${error}`,
+            status: "error",
+          });
           throw error;
         }
       } else {
         try {
-          commit("updateResponse", { message: '데이터 저장 중...', status: 'processing' });
+          commit("updateResponse", {
+            message: "데이터 저장 중...",
+            status: "processing",
+          });
           const formData = new FormData();
           const data = state.postData.formData;
           const homeFile = state.postData.formData.homeData.files?.file;
           const audioFile = state.postData.formData.audiosData.files?.file;
           const locationFile = state.postData.formData.locationData.files?.file;
           const galleryFiles = state.postData.formData.galleryData.image.files;
-          const kakaotalkFile = state.postData.formData.kakaotalkData.files?.file;
+          const kakaotalkFile =
+            state.postData.formData.kakaotalkData.files?.file;
           console.log("userId", data);
           formData.append("userId", auth.state.userId);
           formData.append("data", JSON.stringify({ data }));
@@ -121,20 +129,18 @@ export default {
             });
           });
           await createPost(formData);
-          commit("updateResponse", { message: '저장 완료', status: 'success' });
+          commit("updateResponse", { message: "저장 완료", status: "success" });
           commit("resetFormData");
         } catch (error) {
           console.error("저장 중 오류가 발생했습니다. 오류 내용:", error);
-          commit("updateResponse", { message: `저장 중 오류가 발생했습니다. 오류 내용: ${error}`, status: 'error' });
+          commit("updateResponse", {
+            message: `저장 중 오류가 발생했습니다. 오류 내용: ${error}`,
+            status: "error",
+          });
           throw error;
         }
       }
-    }
-
-    
-
-
-
+    },
   },
   getters: {
     /*-- response --*/
@@ -173,14 +179,7 @@ export default {
     getAudiosData: (state) => {
       return state.postData.formData.audiosData;
     },
-    /*-- 커스텀 --*/
-    getCustomData(state) {
-      return state.postData.formData.customData;
-    },
-    /*-- 커스텀 디자인 --*/
-    getDesign(state) {
-      return state.postData.formData.customData.design;
-    },
+
     /*-- 폰트 패밀리 --*/
     getFontFamily: (state) => {
       return state.postData.formData.customData.fontFamily;
@@ -391,9 +390,30 @@ export default {
         account: state.postData.formData.hostData.info[1].bank.account,
       },
     ],
-    /*-- 프라이머리 컬러 --*/
+
+    /*-- 커스텀 --*/
+    getCustomData(state) {
+      return state.postData.formData.customData;
+    },
+    // 디자인
+    getDesign(state) {
+      return state.postData.formData.customData.design;
+    },
+    // 프라이머리 컬러
     getPrimaryColor: (state) => {
       return state.postData.formData.customData.primaryColor;
+    },
+    // 그림자
+    getShadow: (state) => {
+      return state.postData.formData.customData.shadow;
+    },
+    // 그림자
+    getBorder: (state) => {
+      return state.postData.formData.customData.border;
+    },
+    // align
+    getAlign: (state) => {
+      return state.postData.formData.customData.align;
     },
   },
 };

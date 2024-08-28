@@ -7,16 +7,13 @@
     />
     <galleryImageForm />
     
-
-    <section>
-      <article>
+<div class="form-spacing"/>
         <formTitle2
           title="비디오 갤러리"
           content="메인 이미지를 업로드 하고 위치 조정을 해보아요."
         />
         <galleryVideoForm />
-      </article>
-    </section>
+
   </div>
 </template>
 <script>

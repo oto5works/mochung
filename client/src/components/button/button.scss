@@ -6,6 +6,27 @@
   top: 0;
   left: 0;
 }
+button {
+  cursor: pointer;
+  padding-block: 0;
+  padding-inline: 0;
+  border-width: 0;
+  border-style: none;
+  border-color: transparent;
+  border-image: none;
+  background-color: transparent;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  line-height: inherit;
+  text-transform: none;
+  text-decoration: none;
+  outline: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 
 /*--- 공통사항 ---*/
 button .shadow {

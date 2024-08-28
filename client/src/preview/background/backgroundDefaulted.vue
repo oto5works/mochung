@@ -1,9 +1,9 @@
 <template>
-  <div class="backgroundDefaulted" :style="{ backgroundColor: circleColor }">
+  <div class="backgroundDefaulted" :style="{ backgroundColor: rgbArrayToString(circleColor) }">
     <transition name="circle">
       <div
         class="circle"
-        :style="{ backgroundColor: backgroundColor }"
+        :style="{ backgroundColor: rgbArrayToString(backgroundColor) }"
         v-if="showCircle"
         @click="circleClicked"
       ></div>
@@ -14,7 +14,10 @@
 <script>
 export default {
   props: {
-    backgroundColor: { type: String },
+    backgroundColor: { 
+      type: Array, // RGB 배열
+      default: () => [255, 255, 255] // 기본값을 흰색으로 설정
+    },
   },
   data() {
     return {
@@ -24,9 +27,13 @@ export default {
   },
   methods: {
     circleClicked() {
-      // circle가 클릭되었을 때, watch에 의해 backgroundColor가 변경됩니다.
-      this.backgroundColor = "#e74c3c"; // 클릭 시 배경색 변경
+      // 클릭 시 배경색 변경
+      this.backgroundColor = [231, 76, 60]; // 클릭 시 배경색 변경 (RGB 배열)
       this.showCircle = true;
+    },
+    // RGB 배열을 문자열로 변환
+    rgbArrayToString(rgbArray) {
+      return `rgb(${rgbArray.join(', ')})`;
     },
   },
   watch: {
