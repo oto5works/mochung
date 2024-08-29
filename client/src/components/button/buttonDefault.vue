@@ -1,5 +1,5 @@
 <template>
-  <button class="buttonDefault" :class="variant" :style="computedStyles">
+  <button class="buttonDefault" :class="variant" :style="computedStyles" :disabled="disabled">
     <slot></slot>
     <div class="underlay" />
     <div class="shadow" />
@@ -20,6 +20,10 @@ export default {
     height: {
       type: String,
       default: '40', // 18, 24, 32, 36, 40, 46
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {
@@ -160,10 +164,10 @@ export default {
 .buttonDefault.tonal.selected .shadow {
   display: block;
 }
-.buttonDefault.tonal.disabled {
+.buttonDefault.tonal:disabled {
   color: rgb(var(--mio-theme-color-primary-40));
 }
-.buttonDefault.tonal.disabled .underlay {
+.buttonDefault.tonal:disabled .underlay {
   background-color: rgb(var(--mio-theme-color-primary-10));
 }
 /* filled */
@@ -185,7 +189,7 @@ export default {
 .buttonDefault.filled.selected .shadow {
   display: block;
 }
-.buttonDefault.filled.disabled .underlay {
+.buttonDefault.filled:disabled .underlay {
   background-color: rgb(var(--mio-theme-color-primary-40));
 }
 /* text */
@@ -204,10 +208,10 @@ export default {
 .buttonDefault.text.selected .shadow {
   display: block;
 }
-.buttonDefault.text.disabled {
+.buttonDefault.text:disabled {
   color: rgb(var(--mio-theme-color-primary-40));
 }
-.buttonDefault.text.disabled .underlay {
+.buttonDefault.text:disabled .underlay {
   background-color: transparent;
 }
 </style>

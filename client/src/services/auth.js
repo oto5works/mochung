@@ -1,3 +1,4 @@
+/*-- services/auth.js --*/
 import axios from 'axios';
 import store from '../store/index';
 import router from '@/router/index';
@@ -90,6 +91,8 @@ export function loginAuth() {
                   const email = response.data['email']
 
                   const userData = { userId, status, email }
+                  store.dispatch('handleAuthSuccess', userData);
+
                   router.push('/');
                   
                   // navigate to home page
@@ -157,12 +160,18 @@ export function checkToken() {
         })
         .then(response => {
           console.log('Token verification successful', response.data);
+          const userId = response.data.info.userId
+                  const iat = response.data.info.iat
+                  const exp = response.data.info.exp
+          const userData = { userId, iat, exp }
+          store.dispatch('handleAuthSuccess', userData);
 
           // Resolve with user data or other relevant information
           resolve(response.data);
         })
         .catch(error => {
           console.error('Token verification failed', error);
+          store.dispatch('handleAuthFail');
 
           // Reject with an error message or status
           reject(error);

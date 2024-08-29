@@ -46,8 +46,13 @@ export default {
       import("@/preview/location/locationView")
     ),
     gallery: defineAsyncComponent(() =>
-    import("@/preview/gallery/galleryView")
+      import("@/preview/gallery/galleryView")
     ),
+    survey: defineAsyncComponent(() => import("@/preview/survey/surveyView")),
+    comment: defineAsyncComponent(() =>
+      import("@/preview/comment/commentView")
+    ),
+
     audios: defineAsyncComponent(() =>
       import("@/modules/audios/audiosView.vue")
     ),
@@ -61,16 +66,11 @@ export default {
       import("@/views/preview/downScroll")
     ),
 
-   
     notice: defineAsyncComponent(() => import("@/views/preview/notice/notice")),
 
-    comment: defineAsyncComponent(() =>
-      import("@/modules/comment/commentView.vue")
-    ),
     deposit: defineAsyncComponent(() =>
       import("@/views/preview/deposit/deposit")
     ),
-    survey: defineAsyncComponent(() => import("@/views/preview/survey/survey")),
     footers: defineAsyncComponent(() =>
       import("@/views/preview/footers/footers")
     ),

@@ -1,65 +1,52 @@
-/* auth.js */
-import router from '@/router/index';
-  import { getAUser } from '@/services/users';
-
-// VueX 모듈
+// store/modules/auth.js
 const auth = {
   state: {
     isAuthenticated: false,
-    userId: '',
-    status: '',
-    email: '',
+    userId: null,
+    status: "guest",
+    email: "",
   },
-  getters: {
-    getUserData: state => state,
-  },
+
   mutations: {
     logout(state) {
       state.isAuthenticated = false;
       state.userId = null;
-      state.status = 'guest';
-      router.push('/');
+      state.status = "guest";
+      router.push("/");
     },
-    SOCIAL_LOGIN(state, { data }) {   
-      state.isAuthenticated = true;   
+    SOCIAL_LOGIN(state, { data }) {
+      state.isAuthenticated = true;
       state.userId = data.id;
     },
     setAuthFail(state) {
       state.isAuthenticated = false;
       state.userId = null;
-      state.status = 'guest';
+      state.status = "guest";
     },
     setAuthSuccess(state, userData) {
-      state.userId = userData.userId
       state.isAuthenticated = true;
-      console.log ('setAuthSuccess?', userData )
+      state.userId = userData.userId;
+      state.status = "user";
+      console.log("setAuthSuccess", userData);
     },
   },
   actions: {
     logout({ commit }) {
-      commit('logout');
+      commit("logout");
     },
     handleAuthFail({ commit }) {
-      commit('setAuthFail');
+      commit("setAuthFail");
     },
-    handleAuthSuccess({ commit, state }, userData) {
-      commit('setAuthSuccess', userData);
-      console.log ('handleAuthSuccess?', userData )
+    handleAuthSuccess({ commit }, userData) {
+      commit("setAuthSuccess", userData);
+      console.log("handleAuthSuccess", userData);
     },
-    /*
-async handleAuthSuccess({ commit, state }, userData) {
-      state.isAuthenticated = true;
-      state.userId = userData.userId
-      try {
-        const data = await getAUser(state.userId);
-        // Commit 'setAuthSuccess' mutation with user data
-        commit('setAuthSuccess', data);
-      } catch (error) {
-        console.error('Failed to fetch user data after authentication', error);
-        // Handle error as needed
-      }
+  },
+  getters: {
+    getUserData: (state) => state,
+    getUserId: (state) => {
+      return state.userId;
     },
-    */
   },
 };
 

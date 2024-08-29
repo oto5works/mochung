@@ -1,7 +1,7 @@
 <!-- SaveFormDataButton.vue -->
 
 <template>
-  <modalDialog :dialog="dialog" @update:dialog="updateDialog" :config="true">
+  <dialogModal :dialog="dialog" @update:dialog="updateDialog">
     <div>
       <div class="flex justify-content_center width_100">
         <div class="illust">
@@ -66,7 +66,7 @@
         <icon><archive /></icon>
       </buttonDefault>
     </article>
-  </modalDialog>
+  </dialogModal>
 </template>
 
 <script>

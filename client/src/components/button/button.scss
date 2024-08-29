@@ -27,7 +27,9 @@ button {
   -moz-appearance: none;
   appearance: none;
 }
-
+button:disabled {
+  pointer-events: none;
+}
 /*--- 공통사항 ---*/
 button .shadow {
   z-index: -2;

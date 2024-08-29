@@ -4,7 +4,6 @@
     :dialog="dialog"
     title="파일 업로드"
     @update:dialog="updateDialog"
-    :config="true"
   >
     <slot></slot>
 

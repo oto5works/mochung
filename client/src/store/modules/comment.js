@@ -5,12 +5,20 @@ export default {
     commentsByArchiveId: {
       test: [
         {
-          id: 1,
-          status: "user",
+          id: 0,
           writer: "No Comment",
           password: "1234",
           content: "등록된 방명록이 없습니다.",
           dateCreate: "",
+          isWriter: true
+        },
+        {
+          id: 1,
+          writer: "No Comment",
+          password: "1234",
+          content: "등록된 방명록이 없습니다.",
+          dateCreate: "",
+          isWriter: false
         },
       ],
     },
@@ -45,11 +53,11 @@ export default {
     },
 
     /*-- 저장 --*/
-    async handleSaveAction(context, data) {
+    async submitCommentAction(context, data) {
       const id = data.post_id;
       try {
         if (id !== undefined && id !== null) {
-          console.log("d가 있으면 댓글 저장 로직 실행??");
+          console.log("id가 있으면 댓글 저장 로직 실행??");
           // id가 있으면 댓글 저장 로직 실행
           await context.dispatch("saveComment", data);
         } else {
@@ -88,7 +96,6 @@ export default {
         const testComment = {
           ...data,
           id: newTestId,
-          status: "guest",
           dateCreate: new Date().toISOString(), // Adding the current time
         };
   

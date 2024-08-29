@@ -13,10 +13,25 @@ const resetValue = {
           // 신랑 신부 profile 사진 및 코멘트 (추후 업데이트 예정)
           // comment: "",
           // files: { file: null, url: null },
-          host: { title: "Groom", name: "Benjamin", tell: "010-1234-1234", relation: "Eldest Son" },
+          host: {
+            title: "Groom",
+            name: "Benjamin",
+            tell: "010-1234-1234",
+            relation: "Eldest Son",
+          },
           family: [
-            { title: "Father", name: "James", tell: "010-1234-1234", info: false },
-            { title: "Mother", name: "Emma", tell: "010-1234-1234", info: false },
+            {
+              title: "Father",
+              name: "James",
+              tell: "010-1234-1234",
+              info: false,
+            },
+            {
+              title: "Mother",
+              name: "Emma",
+              tell: "010-1234-1234",
+              info: false,
+            },
           ],
           bank: {
             fnFold: false,
@@ -41,10 +56,25 @@ const resetValue = {
           // 신랑 신부 profile 사진 및 코멘트 (추후 업데이트 예정)
           // comment: "",
           // files: { file: null, url: null },
-          host: { title: "Bride", name: "Isabella", tell: "010-1234-1234", relation: "Eldest Daughter" },
+          host: {
+            title: "Bride",
+            name: "Isabella",
+            tell: "010-1234-1234",
+            relation: "Eldest Daughter",
+          },
           family: [
-            { title: "Father", name: "Alexander", tell: "010-1234-1234", info: false },
-            { title: "Mother", name: "Olivia", tell: "010-1234-1234", info: false },
+            {
+              title: "Father",
+              name: "Alexander",
+              tell: "010-1234-1234",
+              info: false,
+            },
+            {
+              title: "Mother",
+              name: "Olivia",
+              tell: "010-1234-1234",
+              info: false,
+            },
           ],
           bank: {
             fnFold: false,
@@ -124,7 +154,7 @@ const resetValue = {
       fontWeight: true, // bold 사용 유무
       stamp: "flower",
       /*-- add --*/
-       
+
       // gradient1: "#FFFFFF",
       // gradient2: "#FFFFFF",
       // gradient3: "#E99460",
@@ -133,7 +163,7 @@ const resetValue = {
     /*-- 인트로 --*/
     introData: {
       title: "Our Wedding Day",
-      content:`
+      content: `
         <p>We are overjoyed to invite you to join us on the most important day of our lives.</p>
         <p></p>
         <p>As we take this beautiful step forward together, your presence would mean everything to us. 
@@ -173,7 +203,7 @@ const resetValue = {
       detail: "72, Nonhyeon-ro 79-gil (Yeoksam-dong 828-10) ",
       lat: "37.566826004661",
       lng: "126.978652258309",
-      map: "kakaomap",
+      map: "map", // map, file
       app: ["navermap", "kakaomap", "kakaonavi", "tmap"],
       files: {
         file: null,
@@ -220,7 +250,6 @@ const resetValue = {
         `,
       },
     ],
-    
 
     /*-- 공지사항 안내  --*/
     noticeData: {
@@ -280,9 +309,14 @@ const resetValue = {
     /*-- 설문조사 --*/
     surveyData: {
       fnSurvey: true,
-      title: "설문조사",
-      content:
-        "<p>번거로우시겠지만,</p><p>아래 날짜까지 참석 여부의 응답을 부탁드립니다.</p><p>&nbsp;</p><h1><strong>2023년 07월 29일 (토)</strong></h1><h2></h2><h2>﹡기일까지의 연락이 어려운 경우에는 따로 연락을 전해 주시면 감사하겠습니다.</h2>",
+      title: "Guest Survey",
+      content: `
+          <p>Hello everyone, I hope this message finds you well. I kindly ask that you confirm your attendance by July 29, 2023 (Saturday). Your timely response is important to help us finalize the arrangements.</p>
+          <p></p>
+          <p>If responding by the deadline is difficult for any reason, please let us know as soon as possible. Your prompt attention to this matter would be greatly appreciated.</p>
+          <p></p>
+          <p>Thank you in advance for your cooperation. Best regards,</p>
+        `,
       functions: {
         fnRsvp: true,
         fnInfo: true,
@@ -316,13 +350,14 @@ const resetValue = {
     orderData: {
       order: [
         "intro",
-       "calendar",
-       "location",
-      //  "notice",
-       "gallery",
-      //  "comment",
-      //  "survey",
-      //  "deposit",
+        "calendar",
+        "location",
+        "gallery",
+        "survey",
+        "comment",
+        //  "notice",
+
+        //  "deposit",
       ],
     },
   },

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex gap_24">
+    <div class="display_flex gap_24">
       <formField type="date" label="date" v-model="dateData.date" />
       <formField type="time" label="time" v-model="dateData.time" />
     </div>

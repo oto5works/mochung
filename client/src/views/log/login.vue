@@ -2,12 +2,7 @@
   <div class="login">
     <div class="common-space" />
     <div class="login-content">
-      <formTitle1
-        class="width_100"
-        :info="loginScript.info"
-        :title="loginScript.title"
-        :content="loginScript.content"
-      />
+
       <div class="sp_24" />
       <div class="login-button">
         <loginNaver />
@@ -26,7 +21,6 @@ export default {
   components: { loginNaver },
   computed: {
     ...mapGetters({
-      loginScript: "getLoginScript",
     }),
   },
 };

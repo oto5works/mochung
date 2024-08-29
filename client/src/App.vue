@@ -3,7 +3,7 @@
   <div class="app">
   
 <headerView />
-
+{{ userData }}
     <!--<appbar />-->
     <RouterView />
     <!--
@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      auth: "isAuthenticated",
+      userData: "getUserData",
       username: "getUserName",
     }),
   },

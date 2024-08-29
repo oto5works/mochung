@@ -15,7 +15,7 @@ import loginNaverCallback from "@/views/log/loginNaverCallback.vue";
 const form = () => import("@/views/form/form.vue");
 const form1 = () => import("@/views/form/form1.vue");
 
-const view = () => import("@/views/form/formView.vue");
+const formView = () => import("@/views/form/formView.vue");
 // user
 const components = () => import("@/views/components/components.vue");
 const coupon = () => import("@/views/admin/adminCoupon.vue");
@@ -70,8 +70,8 @@ const router = createRouter({
     // 보기
     {
       path: "/:id",
-      name: "view",
-      component: view,
+      name: "formView",
+      component: formView,
       meta: { requiresAuth: false },
       props: { big: false },
     },
@@ -84,8 +84,8 @@ const router = createRouter({
     },
     {
       path: "/:id/%ED%81%B0%EA%B8%80%EC%9E%90", // "큰글자"를 URL 인코딩한 값
-      name: "viewBig",
-      component: view,
+      name: "formViewBig",
+      component: formView,
       meta: { requiresAuth: false },
       props: { big: true },
     },

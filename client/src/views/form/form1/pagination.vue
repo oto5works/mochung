@@ -1,36 +1,32 @@
 <template>
   <article>
     <div class="form1Pagination">
-      <buttonDefault
-        v-if="isLastTab"
-      >
+      <buttonDefault v-if="isLastTab" @click="dialog = true">
         <span>
           SAVE<icon><arrowRight3 /></icon>
         </span>
         <p>완료</p>
-        <saveButton />
       </buttonDefault>
 
-      <buttonDefault
-        v-if="!isLastTab"
-        @click="goToNextTab"
-      >
+      <buttonDefault v-if="!isLastTab" @click="goToNextTab">
         <span>
           UP NEXT<icon><arrowRight3 /></icon>
         </span>
         <p>{{ nextTabTitle }}</p>
       </buttonDefault>
 
-      <buttonDefault
-        v-if="!isFirstTab"
-        @click="goToPreviousTab"
-      >
+      <buttonDefault v-if="!isFirstTab" @click="goToPreviousTab">
         <span>
           <icon><arrowLeft3 /></icon>PREVIOUS
         </span>
         <p>{{ previousTabTitle }}</p>
       </buttonDefault>
     </div>
+    <saveDialog
+      v-if="dialog"
+      :dialog="dialog"
+      @update:dialog="dialog = $event"
+    />
   </article>
 </template>
 
@@ -45,8 +41,9 @@ export default {
   components: {
     arrowLeft3,
     arrowRight3,
-    saveButton: defineAsyncComponent(() => import("@/modules/save/saveButton.vue")),
-    
+    saveDialog: defineAsyncComponent(() =>
+      import("@/modules/save/saveDialog.vue")
+    ),
   },
   data() {
     return {
@@ -90,7 +87,6 @@ export default {
       this.updateTabCompletionStatus(this.section, false); // Set current tab completion status to false
       this.updateSection(previousTab);
       window.scrollTo(0, 0); // Scroll to the top of the window
-
     },
     goToNextTab() {
       const currentIndex = this.form1TabOptions.findIndex(
@@ -100,7 +96,6 @@ export default {
       this.updateTabCompletionStatus(this.section, true); // Set current tab completion status to false
       this.updateSection(nextTab);
       window.scrollTo(0, 0); // Scroll to the top of the window
-
     },
     updateTabCompletionStatus(tabValue, status) {
       const tabIndex = this.form1TabOptions.findIndex(
@@ -108,7 +103,6 @@ export default {
       );
       this.form1TabOptions[tabIndex].completed = status;
     },
-   
   },
 };
 </script>

@@ -2,18 +2,16 @@
   <div class="formView">
     <div class="formView__content">
       <preview />
-      <fnStyle />
     </div>
   </div>
 </template>
 
 <script>
-import preview from "@/views/preview/preview.vue";
-import fnStyle from "@/modules/functions/fnStyle.vue";
+import preview from "@/preview/preview.vue";
 import { mapActions } from "vuex";
 
 export default {
-  components: { preview, fnStyle },
+  components: { preview },
   props: {
     big: { type: Boolean },
   },

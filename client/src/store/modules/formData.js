@@ -4,6 +4,8 @@ import auth from "./auth";
 
 export default {
   state: {
+    writerId: null,
+    pay: false,
     postData: { ...resetValue }, // resetValue 객체의 복사본을 할당
     res: {
       message: "",
@@ -17,6 +19,9 @@ export default {
     updateResponseFormData(state, res) {
       console.log("데이터확인", res);
       state.postData.formData = res.formData.data;
+      console.log("writerId:", res.user_id);
+      state.writerId = res.user_id;
+      state.pay = res.pay;
     },
     resetFormData(state) {
       const copiedValue = JSON.parse(JSON.stringify(resetValue));
@@ -414,6 +419,14 @@ export default {
     // align
     getAlign: (state) => {
       return state.postData.formData.customData.align;
+    },
+
+    /*-- post 정보 --*/
+    getWriterId: (state) => {
+      return state.writerId;
+    },
+    getPay: (state) => {
+      return state.pay;
     },
   },
 };

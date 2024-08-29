@@ -2,8 +2,8 @@
   <sectionView>
     <div id="previewMap" :class="{ 'design3': design === 'design3' }">
 
-      <kakaomap
-        v-if="map === 'kakaomap'"
+      <googlemaps
+        v-if="map === 'map'"
         :lat="lat"
         :lng="lng"
       />
@@ -26,8 +26,8 @@ import { mapGetters } from "vuex";
 
 export default {
   components: {
-    kakaomap: defineAsyncComponent(() =>
-      import("@/preview/location/kakaomap.vue")
+    googlemaps: defineAsyncComponent(() =>
+      import("@/preview/location/googlemaps.vue")
     ),
   },
   computed: {

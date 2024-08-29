@@ -28,10 +28,13 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
-  padding: 32px 0;
+  padding-top: 32px;
+  padding-bottom: 32px;
+
 }
 .titleArticle.hasContent {
-  padding: 24px 0;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 .title-wrap {
   display: flex;

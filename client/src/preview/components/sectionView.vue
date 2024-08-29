@@ -1,8 +1,6 @@
 <template>
-  <section 
-  :class="{ design3: design === 'design3' }"
-  >
-      <slot></slot>
+  <section :class="design">
+    <slot></slot>
   </section>
 </template>
 
@@ -29,7 +27,7 @@ section {
   padding: 0;
 }
 .section-content {
-    position: relative;
-    display: block;
+  position: relative;
+  display: block;
 }
 </style>

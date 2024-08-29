@@ -120,23 +120,10 @@
   background-color: rgb(var(--mio-theme-color-primary-40));
 }
 
-// 인풋
-.formField .textField-space {
-  flex: 0 0 20px;
-}
 
-.formField textarea {
-  padding: 8px 0;
-  width: 100%;
-  height: 100%;
-  resize: none;
-  border-width: 0;
-  font-size: 14px;
-  color: var(--formField-font-color);
-}
-.formField button svg {
-  color: var(--formField-primary-color);
-}
+
+
+
 .formField.focus button svg {
   stroke-width: 26;
 }
@@ -199,4 +186,49 @@
 }
 .formField.invalid .formField-underline {
   background-color: rgb(var(--mio-theme-color-error)) !important;
+}
+
+
+
+/*-- textarea --*/
+.formField.formArea .formField-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 36px;
+  height: unset;
+}
+.formField.formArea .formField-content .formField-input textarea {
+  width: 100%;
+  height: 100%;
+  border-width: 0;
+  font-size: 16px;
+  border-radius: 18px;
+  padding: 24px;
+  background-color: rgb(var(--mio-theme-color-primary-05));
+  resize: none;
+}
+// label
+.formField.formArea label {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  transform: translateY(0%);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  color: rgb(var(--mio-theme-color-on-background-20));
+  line-height: 130%;
+  pointer-events: none;
+  transition: all 0.2s ease-in-out;
+}
+.formField.formArea.active label,
+.formField.formArea.focus label,
+.formField.formArea.date label {
+  font-size: 16px;
+  transform: translateY(-50%);
+  color: rgb(var(--mio-theme-color-on-background-40));
+  opacity: 0;
 }
