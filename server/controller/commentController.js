@@ -5,6 +5,7 @@ const Post = require('../models/Post');
 exports.create = async (req, res, next) => {
   try {
     const post_id = req.body.post_id;
+    const isWriter = req.body.isWriter;
     const writer = req.body.writer;
     const password = req.body.password;
     const content = req.body.content;
@@ -23,6 +24,7 @@ exports.create = async (req, res, next) => {
       post_id,
       user_ip,
       writer,
+      isWriter,
       password,
       content,
       dateCreate: Date.now(),
@@ -48,6 +50,7 @@ exports.detail = async (req, res) => {
   const comment = await Post.findById(id).populate('comments', {
     post_id: 1,
     writer: 1,
+    isWriter: 1,
     password: 1,
     content: 1,
     dateCreate: 1,

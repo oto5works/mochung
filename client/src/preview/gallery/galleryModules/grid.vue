@@ -20,25 +20,12 @@
         <div class="grid-fake" v-if="image === null"></div>
       </div>
     </div>
-    <div class="sp_24" />
-
-    <div
-      class="display_flex align-items_center justify-content_center gap_48 width_100"
-    >
-      <button @click="prevPage" :disabled="currentPage === 1">
-        <icon><caretLeft /></icon>
-      </button>
-
-      <div class="display_flex align-items_center gap_12 --font-size_11">
-        <span>{{ currentPage }}</span>
-        <icon class="icon_14"><slash /></icon>
-        <span>{{ totalPages }}</span>
-      </div>
-
-      <button @click="nextPage" :disabled="currentPage === totalPages">
-        <icon><caretRight /></icon>
-      </button>
-    </div>
+    <pagination
+      :currentPage="currentPage"
+      :totalPages="totalPages"
+      @prev-page="prevPage"
+      @next-page="nextPage"
+    />
   </div>
 </template>
 
@@ -46,13 +33,13 @@
 import { defineAsyncComponent } from "vue";
 import caretLeft from "@/components/icon/caretLeft";
 import caretRight from "@/components/icon/caretRight";
-import slash from "@/components/icon/slash";
+import pagination from "@/components/pagination/pagination.vue";
 
 export default {
   components: {
     caretLeft,
     caretRight,
-    slash,
+    pagination,
     fileViewer: defineAsyncComponent(() =>
       import("@/components/file/fileViewer.vue")
     ),

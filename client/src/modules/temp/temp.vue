@@ -24,10 +24,9 @@
           @click="selectOption(item)"
           :class="{ selected: item.value === customData.temp }"
           :style="{
-            backgroundImage: `url('https://www.moyo-studio.com/wp-content/uploads/2023/05/product4v8FINAL2WM.jpg')`,
+            backgroundImage: `url('${imageBaseUrl}${item.value}.webp')`,
           }"
         ></div>
-        <!-- https://jwpggit.github.io/storage/image/moInv/${item.value}.webp -->
 
         <div class="display_flex flex-direction_column gap_16">
           <div
@@ -59,6 +58,7 @@
     </Flicking>
   </div>
 </template>
+
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Flicking from "@egjs/vue3-flicking";
@@ -93,6 +93,10 @@ export default {
             option.category.includes(categoryValue)
         );
       }
+    },
+    imageBaseUrl() {
+      // 환경 변수를 사용하여 이미지 기본 URL 반환
+      return import.meta.env.VITE_IMAGE_BASE_URL || 'https://default.url/';
     },
   },
   data() {
@@ -163,7 +167,7 @@ export default {
           await this.$refs.flicking.moveTo(selectedIndex);
         } else {
           console.error("Selected index not found. 값이 없습니다.");
-          // You can customize this message or take appropriate action.
+          // 적절한 액션을 취할 수 있습니다.
         }
       } catch (error) {
         console.log("selectedIndex 없음");

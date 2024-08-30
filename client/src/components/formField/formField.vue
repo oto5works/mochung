@@ -1,3 +1,4 @@
+<!-- formField.vue -->
 <template>
   <div class="formField" :class="formFieldClasses">
     <div class="formField-wrap">
@@ -54,7 +55,7 @@
         <buttonDefault variant="tonal" height="14" :icon="true">
           <icon class="icon_10"><warning /></icon>
         </buttonDefault>
-        <span>{{ errorMessage }}</span>
+        <span>{{ localErrorMessage }}</span>
       </div>
 
       <div class="messages" v-if="isValid && hint">
@@ -106,13 +107,20 @@ export default {
   data() {
     return {
       isFocused: false,
-      errorMessage: "",
       showPassword: false,
+      localErrorMessage: "",
     };
   },
   computed: {
     isValid() {
-      return this.errorMessage === "";
+      return this.rules.every(rule => {
+        const result = rule(this.modelValue);
+        if (result !== true) {
+          this.localErrorMessage = result;
+          return false;
+        }
+        return true;
+      });
     },
     formFieldClasses() {
       return {
@@ -129,20 +137,7 @@ export default {
   methods: {
     handleInput(event) {
       this.$emit("update:modelValue", event.target.value);
-      this.validate();
     },
-
-    async validate() {
-      this.errorMessage = ""; // 초기화
-      for (const rule of this.rules) {
-        const result = await rule(this.modelValue); // 비동기 함수 처리
-        if (result !== true) {
-          this.errorMessage = result; // errorMessage 업데이트
-          return; // 유효하지 않은 경우 더 이상 검사하지 않고 종료
-        }
-      }
-    },
-
     togglePasswordVisibility() {
       this.showPassword = !this.showPassword;
     },

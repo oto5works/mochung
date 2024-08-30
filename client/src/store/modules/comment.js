@@ -6,18 +6,26 @@ export default {
       test: [
         {
           id: 0,
-          writer: "No Comment",
+          writer: null,
           password: "1234",
-          content: "등록된 방명록이 없습니다.",
-          dateCreate: "",
+          content: "로그인한 사용자가 방명록에 댓글을 작성하면, 다음과 같은 형식으로 댓글이 표시됩니다.",
+          dateCreate: "2024-08-30",
           isWriter: true
         },
         {
           id: 1,
-          writer: "No Comment",
+          writer: "GuestUser",
           password: "1234",
-          content: "등록된 방명록이 없습니다.",
-          dateCreate: "",
+          content: "게스트가 방명록에 댓글을 작성하면, 댓글은 다음과 같은 형식으로 표시됩니다.",
+          dateCreate: "2024-08-30",
+          isWriter: false
+        },
+        {
+          id: 1,
+          writer: "GuestUser",
+          password: "1234",
+          content: "여기서 댓글을 입력해보세요.",
+          dateCreate: "2024-08-30",
           isWriter: false
         },
       ],

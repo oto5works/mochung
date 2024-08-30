@@ -1,0 +1,127 @@
+.comment {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 8px 0;
+}
+.comment.isWriter {
+  justify-content: flex-end;
+}
+.comment .comment-wrap {
+  max-width: 70%;
+}
+.comment .comment-content {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  width: 100%;
+}
+.comment.isWriter .comment-content {
+  justify-content: flex-end;
+}
+
+.comment .comment-profile {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.comment.isWriter .comment-profile {
+  display: none;
+}
+.comment .comment-bubble {
+  width: fit-content;
+  height: fit-content;
+  text-align: left;
+  padding: 12px 16px;
+}
+.comment .comment-bubble span {
+  font-size: 14px;
+}
+
+// comment-writer
+.comment .comment-writer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 24px;
+  overflow: visible;
+}
+.comment .comment-writer {
+  justify-content: flex-start;
+  padding-left: 38px;
+}
+.comment.isWriter .comment-writer {
+  justify-content: flex-end;
+  padding-left: 0;
+}
+
+.comment .writer-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+.comment .writer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+.comment .writer span {
+  white-space: nowrap
+}
+/*-- 기본값 --*/
+.comment .comment-bubble {
+  border-radius: 24px 24px 24px 0;
+  color: rgb(var(--mio-theme-color-primary));
+  background-color: rgb(var(--mio-theme-color-primary-10));
+}
+.comment.isWriter .comment-bubble {
+  border-radius: 24px 24px 0 24px;
+  color: rgb(var(--mio-theme-color-on-primary));
+  background-color: rgb(var(--mio-theme-color-primary));
+}
+
+/*-- custom --*/
+#preview .comment .comment-bubble {
+  border-radius: var(--border-radius_24) var(--border-radius_24)
+    var(--border-radius_24) 0;
+}
+#preview .comment.isWriter .comment-bubble {
+  border-radius: var(--border-radius_24) var(--border-radius_24) 0
+    var(--border-radius_24);
+}
+
+#preview .comment .comment-bubble {
+  color: rgb(var(--font-color));
+  background-color: rgba(var(--primary-color), 0.12);
+}
+#preview .comment.isWriter .comment-bubble {
+  color: rgb(var(--primary-on));
+  background-color: rgb(var(--primary-color));
+}
+// design3
+#preview .comment.design3 .comment-bubble {
+  color: rgb(var(--font-color));
+  background-color: transparent;
+  padding: 8px 8px;
+}
+#preview .comment.isWriter.design3 .comment-bubble {
+  color: var(--primary-color);
+  background-color: transparent;
+}
+#preview .comment.design3{
+  border-bottom: 1px solid rgba(var(--primary-color), 0.12);
+}
+#preview .comment.design3 .writer-content {
+  padding: 0 8px;
+}

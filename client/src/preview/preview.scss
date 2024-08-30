@@ -200,6 +200,40 @@
 #previewTransport .flicking-camera {
   height: 56px;
 }
+.previewComment {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: var(--align-items);
+  justify-content: center;
+  gap: 48px;
+  padding: 196px 0 88px 0;
+  border-radius: var(--border-radius_28);
+  background-color: azure;
+}
+.previewComment .title-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: var(--align-items);
+  justify-content: center;
+  gap: 24px;
+  padding: 0 24px;
+  width: 100%;
+}
+
+
+.previewDeposit {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 196px 0 88px 0;
+}
+
+
+
+
 .section-underlay {
   position: absolute;
   content: "";

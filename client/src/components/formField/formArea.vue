@@ -67,12 +67,18 @@ export default {
   data() {
     return {
       isFocused: false,
-      errorMessage: "",
     };
   },
   computed: {
     isValid() {
-      return this.errorMessage === "";
+      return this.rules.every(rule => rule(this.modelValue) === true);
+    },
+    errorMessage() {
+      for (const rule of this.rules) {
+        const result = rule(this.modelValue);
+        if (result !== true) return result;
+      }
+      return '';
     },
     formFieldClasses() {
       return {
@@ -85,7 +91,7 @@ export default {
   methods: {
     handleInput(event) {
       this.$emit("update:modelValue", event.target.value);
-      this.validate();
+      // this.validate();
     },
 
     async validate() {

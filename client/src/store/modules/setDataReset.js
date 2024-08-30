@@ -275,8 +275,8 @@ const resetValue = {
     },
     /*-- 계좌 --*/
     depositData: {
-      fnDeposit: false,
-      title: "축의금 보내실 곳",
+      fnDeposit: true,
+      title: "For Sending Your Gift",
     },
     /*-- 미디어 갤러리 --*/
     galleryData: {
@@ -303,7 +303,7 @@ const resetValue = {
     /*-- 방명록 --*/
     commentData: {
       fnComment: true,
-      title: "방명록",
+      title: "Post Congrats",
       password: "1234",
     },
     /*-- 설문조사 --*/
@@ -355,9 +355,10 @@ const resetValue = {
         "gallery",
         "survey",
         "comment",
+        "deposit",
         //  "notice",
 
-        //  "deposit",
+        //  ,
       ],
     },
   },

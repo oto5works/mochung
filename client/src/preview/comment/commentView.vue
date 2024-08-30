@@ -2,13 +2,15 @@
   <div id="previewComment">
     <sectionView v-if="commentData.fnComment">
       <div class="previewComment">
-        <div class="previewTitle">{{ commentData.title }}</div>
-        writerId = {{ writerId }}<br>
-        userId = {{ userId }}
-        <buttonCustom @click="dialog = true">
-          <span>WRITE</span>
-        </buttonCustom>
-        <comments />
+        <div class="title-wrap">
+          <div class="width_100 --font-size_24 font-weight_700">
+            {{ commentData.title }}
+          </div>
+          <buttonCustom @click="dialog = true">
+            <span>WRITE</span>
+          </buttonCustom>
+        </div>
+        <comments class="pa_16"/>
       </div>
       <commentForm
         v-if="dialog"
@@ -40,9 +42,6 @@ export default {
   computed: {
     ...mapGetters({
       commentData: "getCommentData",
-      writerId: "getWriterId",
-      userId: "getUserId",
-      
     }),
   },
 };

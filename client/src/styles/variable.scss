@@ -1,6 +1,5 @@
-// style 
+// style
 :root {
-
   --mio-theme-color-primary: 0, 0, 0;
   --mio-theme-color-on-primary: 255, 255, 255;
   --mio-theme-color-primary-05: 246, 246, 240;
@@ -8,8 +7,6 @@
 
   --mio-theme-color-primary-05: 246, 246, 240;
 
-
-  
   --mio-theme-color-primary-10: 237, 237, 230;
   --mio-theme-color-primary-20: 218, 218, 210;
   --mio-theme-color-primary-30: 196, 196, 185;
@@ -28,71 +25,91 @@
   --mio-theme-color-secondary: 55, 97, 251;
   --mio-theme-color-on-secondary: #fff;
 
-
   --mio-theme-image-resize: url("https://oto5works.github.io/storage/image/mochung/resize.svg");
-  --mio-theme-font-family: 'pretendard';
+  --mio-theme-font-family: "pretendard";
 
+  --mio-theme-color-on-surface-variant-1: linear-gradient(
+    0deg,
+    rgba(68, 71, 70, 0.36),
+    rgba(68, 71, 70, 0)
+  );
+  --mio-theme-color-on-surface-variant-2: linear-gradient(
+    0deg,
+    rgba(68, 71, 70, 0.08),
+    rgba(68, 71, 70, 0.08)
+  );
+  --mio-theme-color-on-surface-variant-4: linear-gradient(
+    0deg,
+    rgba(68, 71, 70, 0.12),
+    rgba(68, 71, 70, 0.12)
+  );
+  --mio-theme-color-on-surface-2: linear-gradient(
+      0deg,
+      rgba(31, 31, 31, 0.08),
+      rgba(31, 31, 31, 0.08)
+    ),
+    var(--mio-theme-color-secondary-container);
+  --mio-theme-color-on-surface-4: linear-gradient(
+      0deg,
+      rgba(31, 31, 31, 0.12),
+      rgba(31, 31, 31, 0.12)
+    ),
+    var(--mio-theme-color-secondary-container);
+  --mio-theme-color-white: #fff;
 
+  --mio-theme-color-on-surface: #1f1f1f;
+  --mio-theme-color-on-surface-variant: #444746;
+  --mio-theme-color-surface-0: #fff;
+  --mio-theme-color-surface-variant: #e1e3e1;
+  --mio-theme-color-inverse-surface: #303030;
+  --mio-theme-color-inverse-on-surface: #f2f2f2;
+  --mio-theme-color-primary-80: #ffc6b8; /* Adjusted based on new primary color */
 
-  
-    --mio-theme-color-on-surface-variant-1: linear-gradient(0deg, rgba(68, 71, 70, .36), rgba(68, 71, 70, 0));
-    --mio-theme-color-on-surface-variant-2: linear-gradient(0deg, rgba(68, 71, 70, .08), rgba(68, 71, 70, .08));
-    --mio-theme-color-on-surface-variant-4: linear-gradient(0deg, rgba(68, 71, 70, .12), rgba(68, 71, 70, .12));
-    --mio-theme-color-on-surface-2: linear-gradient(0deg, rgba(31, 31, 31, .08), rgba(31, 31, 31, .08)), var(--mio-theme-color-secondary-container);
-    --mio-theme-color-on-surface-4: linear-gradient(0deg, rgba(31, 31, 31, .12), rgba(31, 31, 31, .12)), var(--mio-theme-color-secondary-container);
-    --mio-theme-color-white: #fff;
-    
-    --mio-theme-color-on-surface: #1f1f1f;
-    --mio-theme-color-on-surface-variant: #444746;
-    --mio-theme-color-surface-0: #fff;
-    --mio-theme-color-surface-variant: #e1e3e1;
-    --mio-theme-color-inverse-surface: #303030;
-    --mio-theme-color-inverse-on-surface: #f2f2f2;
-    --mio-theme-color-primary-80: #ffc6b8; /* Adjusted based on new primary color */
-    
-    --mio-theme-color-primary-gray: #6e6e6e;
+  --mio-theme-color-primary-gray: #6e6e6e;
 
-    --mio-theme-color-neutral-10: #1f1f1f;
-    --mio-theme-color-neutral-90: #e3e3e3;
-    --mio-theme-color-primary-container: #ffc6b8; /* Adjusted based on new primary color */
-    --mio-theme-color-on-primary-container: #ff4d00; /* Adjusted based on new primary color */
- 
-    --mio-theme-color-secondary-container: #c2e7ff;
-    --mio-theme-color-on-secondary-container: #001d35;
-    --mio-theme-color-tertiary-container: #c4eed0;
-    --mio-theme-color-on-tertiary-container: #072711;
-    --mio-theme-color-utility-error: #b3261e;
-    --mio-theme-color-utility-on-error: #fff;
-    --mio-theme-color-utility-outline: #747775;
-    --mio-theme-color-surface-1: #f8fafd;
-    --mio-theme-color-surface-2: #f3f6fc;
-    --mio-theme-color-surface-3: #eff3fa;
-    --mio-theme-color-surface-4: #edf2fa;
-    --mio-theme-color-surface-5: #eaf0f9;
-    --mio-theme-color-extensions-do-container: #085786;
-    --mio-theme-color-extensions-on-do-container: #fff;
-    --mio-theme-color-extensions-dont-container: #b3261e;
-    --mio-theme-color-extensions-on-dont-container: #fff;
-    --mio-theme-color-extensions-caution-container: #e8e971;
-    --mio-theme-color-extensions-on-caution-container: #1f1f1f;
-    --mio-theme-color-ref-secondary-200: #7fcfff;
-    --mio-theme-color-ref-secondary-300: #5ab3f0;
-    --mio-theme-color-ref-neutral-100: #e3e3e3;
-    --mio-theme-color-ref-neutral-200: #c7c7c7;
-    --mio-theme-color-scrim-video-container: rgb(31 31 31 / 64%);
-    --mio-theme-color-scrim-video-control: rgb(255 255 255 / 12%);
-    --mio-theme-color-scrim-video-control-pressed: rgb(255 255 255 / 24%);
-    --mio-theme-color-copy-link-tooltip: #f2f2f2;
-    --mio-theme-elevation-1: 0px 1px 2px 0px rgb(0 0 0 / 30%), 0px 1px 3px 1px rgb(0 0 0 / 15%);
-    --mio-theme-elevation-2: 0px 1px 2px 0px rgb(0 0 0 / 30%), 0px 2px 6px 2px rgb(0 0 0 / 15%);
-    --mio-theme-elevation-3: 0px 1px 3px 0px rgb(0 0 0 / 30%), 0px 4px 8px 3px rgb(0 0 0 / 15%);
-    --mio-theme-screen-width: 1023px;
-    --mio-theme-aspect-ratio: 375 / 812; // 아이폰x 해상도 비율
-    --mio-theme-font-family-1: 'pretendard';
-    --mio-theme-font-family-2: 'nanumsquareneo';
-    --mio-theme-storage: 'https://jwpggit.github.io/storage/image/moInv/';
+  --mio-theme-color-neutral-10: #1f1f1f;
+  --mio-theme-color-neutral-90: #e3e3e3;
+  --mio-theme-color-primary-container: #ffc6b8; /* Adjusted based on new primary color */
+  --mio-theme-color-on-primary-container: #ff4d00; /* Adjusted based on new primary color */
+
+  --mio-theme-color-secondary-container: #c2e7ff;
+  --mio-theme-color-on-secondary-container: #001d35;
+  --mio-theme-color-tertiary-container: #c4eed0;
+  --mio-theme-color-on-tertiary-container: #072711;
+  --mio-theme-color-utility-error: #b3261e;
+  --mio-theme-color-utility-on-error: #fff;
+  --mio-theme-color-utility-outline: #747775;
+  --mio-theme-color-surface-1: #f8fafd;
+  --mio-theme-color-surface-2: #f3f6fc;
+  --mio-theme-color-surface-3: #eff3fa;
+  --mio-theme-color-surface-4: #edf2fa;
+  --mio-theme-color-surface-5: #eaf0f9;
+  --mio-theme-color-extensions-do-container: #085786;
+  --mio-theme-color-extensions-on-do-container: #fff;
+  --mio-theme-color-extensions-dont-container: #b3261e;
+  --mio-theme-color-extensions-on-dont-container: #fff;
+  --mio-theme-color-extensions-caution-container: #e8e971;
+  --mio-theme-color-extensions-on-caution-container: #1f1f1f;
+  --mio-theme-color-ref-secondary-200: #7fcfff;
+  --mio-theme-color-ref-secondary-300: #5ab3f0;
+  --mio-theme-color-ref-neutral-100: #e3e3e3;
+  --mio-theme-color-ref-neutral-200: #c7c7c7;
+  --mio-theme-color-scrim-video-container: rgb(31 31 31 / 64%);
+  --mio-theme-color-scrim-video-control: rgb(255 255 255 / 12%);
+  --mio-theme-color-scrim-video-control-pressed: rgb(255 255 255 / 24%);
+  --mio-theme-color-copy-link-tooltip: #f2f2f2;
+  --mio-theme-elevation-1: 0px 1px 2px 0px rgb(0 0 0 / 30%),
+    0px 1px 3px 1px rgb(0 0 0 / 15%);
+  --mio-theme-elevation-2: 0px 1px 2px 0px rgb(0 0 0 / 30%),
+    0px 2px 6px 2px rgb(0 0 0 / 15%);
+  --mio-theme-elevation-3: 0px 1px 3px 0px rgb(0 0 0 / 30%),
+    0px 4px 8px 3px rgb(0 0 0 / 15%);
+  --mio-theme-screen-width: 1023px;
+  --mio-theme-aspect-ratio: 375 / 812; // 아이폰x 해상도 비율
+  --mio-theme-font-family-1: "pretendard";
+  --mio-theme-font-family-2: "nanumsquareneo";
+  --mio-theme-storage: "https://jwpggit.github.io/storage/image/moInv/";
 }
-
 
 .color_mio-primary-color {
   color: var(--mio-theme-color-primary);
@@ -102,15 +119,11 @@
 }
 
 html[data-design-theme="design1"] {
- 
 }
 html[data-design-theme="design2"] {
- 
 }
 html[data-design-theme="design3"] {
-  
 }
-
 
 /*--- align ---*/
 html[data-align-theme="left"] {
@@ -136,60 +149,48 @@ html[data-align-theme="right"] {
 
 /*--- border-radius ---*/
 html[data-radius-theme="0"] {
-  --border-radius_28: unset;
   --border-radius_12: unset;
   --border-radius_14: unset;
-
-
+  --border-radius_24: unset;
+  --border-radius_28: unset;
 }
 html[data-radius-theme="1"] {
-  --border-radius_28: 28px;
---border-radius_12: 12px;
---border-radius_14: 14px;
-
-
-}
-html[data-radius-theme="2"] {
-  --border-radius_28: 28px;
   --border-radius_12: 12px;
   --border-radius_14: 14px;
-
-
+  --border-radius_24: 24px;
+  --border-radius_28: 28px;
+}
+html[data-radius-theme="2"] {
+  --border-radius_12: 12px;
+  --border-radius_14: 14px;
+  --border-radius_24: 24px;
+  --border-radius_28: 28px;
 }
 html[data-radius-theme="3"] {
+  --border-radius_12: 12px;
+  --border-radius_14: 14px;
+  --border-radius_24: 24px;
   --border-radius_28: 28px;
---border-radius_12: 12px;
---border-radius_14: 14px;
-
-
 }
-
 
 // border
 html[data-border-theme="false"] {
-
 }
 html[data-border-theme="true"] {
-
 }
 // shadow
 html[data-shadow-theme="false"] {
-
 }
 html[data-shadow-theme="true"] {
-
 }
 
 html[data-font-weight-theme="false"] {
-  
 }
 html[data-font-weight-theme="true"] {
-  
 }
 
 /*--- font-size ---*/
 html[data-font-size-theme="1"] {
-
   --font-size_11: 11px;
   --font-size_12: 12px;
   --font-size_13: 13px;
@@ -200,11 +201,8 @@ html[data-font-size-theme="1"] {
   --font-size_24: 24px;
   --font-size_32: 32px;
   --font-size_48: 48px;
-
-
 }
 html[data-font-size-theme="2"] {
-
   --font-size_11: 11px;
   --font-size_12: 12px;
   --font-size_13: 13px;
@@ -214,7 +212,6 @@ html[data-font-size-theme="2"] {
   --font-size_32: 32px;
 
   --font-size_48: 48px;
-
 }
 html[data-font-size-theme="3"] {
   --font-size_10: 10px;
@@ -229,11 +226,6 @@ html[data-font-size-theme="3"] {
   --font-size_32: 32px;
 
   --font-size_48: 48px;
-
-
 }
 html[data-font-size-theme="4"] {
-
 }
-
-

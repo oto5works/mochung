@@ -4,7 +4,7 @@
     <!-- 은행 예금주 -->
     <div class="flex align-items_center justify-content_space-between pa_6">
       <div class="flex align-items_center gap_8 flex_1">
-        <icon class="bank"><component :is="item.bank.value" /></icon>
+        <icon><component :is="item.bank.value" /></icon>
         <div
           v-if="item.bank.value !== 'bankSelf'"
           class="--font-size_14 --font-weight line-height_100 word-break_break-all"
@@ -18,32 +18,21 @@
           {{ item.bank.self }}
         </div>
       </div>
-      <div
-        class="flex_1 --font-size_14 text-align_right line-height_100 word-break_break-all"
-      >
+      <div>
         예금주 : {{ item.name }}
       </div>
     </div>
     <!-- 은행 예금주 -->
-    <div class="sp_16" />
     <!-- 계좌번호 -->
     <div
-      class="position_relative flex_center gap_18 width_100 min-height_40 pa_12 cursor_pointer --border-radius_24"
       @click="copyAccountNumber(item.number)"
     >
-      <div
-        style="letter-spacing: 0.1em"
-        class="position_relative --font-size_16 --font-weight word-break_break-all line-height_100 z-index_2"
-      >
-        {{ item.number
-        }}<span class="opacity_40" v-if="!item.number">0000000000000</span>
+      <div>
+        {{ item.number }}<span class="opacity_40" v-if="!item.number">0000000000000</span>
       </div>
-      <div style="height: 16px" class="v-hr z-index_2" />
       <button class="--primary-color z-index_2">
         <icon class="icon_18"><copy /></icon>
       </button>
-      <div class="absolute_100 overlay_pc" />
-      <div class="absolute_100 outline_pc box-shadow_4-pc" />
     </div>
     <!-- 계좌번호 -->
 
@@ -55,12 +44,6 @@
       <div class="sp_16" />
       <button class="kakaopay" @click="dialog = true">
         <icon><kakaopay /></icon>
-        <imageViewer
-          :image="item.files"
-          v-if="dialog"
-          :dialog="dialog"
-          @update:dialog="dialog = $event"
-        />
       </button>
     </div>
     <!-- 카카오페이 -->
@@ -70,6 +53,13 @@
       class="absolute_100 outline_pc box-shadow_4-pc --display_block-none-none"
     />
     <div class="h-hr --display_none-block-block" />
+
+    <fileViewer
+      :image="item.files"
+      v-if="dialog"
+      :dialog="dialog"
+      @update:dialog="dialog = $event"
+    />
   </div>
 </template>
 
@@ -80,8 +70,8 @@ import copy from "@/components/icon/copy.vue";
 export default {
   components: {
     copy,
-    imageViewer: defineAsyncComponent(() =>
-      import("@/components/component/imageViewer")
+    fileViewer: defineAsyncComponent(() =>
+      import("@/components/file/fileViewer.vue")
     ),
     kakaopay: defineAsyncComponent(() => import("@/components/icon/kakaopay")),
     bankKb: defineAsyncComponent(() => import("@/components/icon/bankKb")),
@@ -139,33 +129,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.kakaopay {
-  padding: 0 12px;
-  background-color: #ffeb00;
-  border-radius: var(--border-radius-24);
-}
-.kakaopay::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: var(--border-radius-24);
-  display: var(--box-shadow-display);
-  -webkit-box-shadow: 0 10px 20px -10px #000;
-  box-shadow: 0 10px 20px -10px #000;
-  outline-style: var(--border-style);
-  outline-width: 1px;
-  outline-color: #000;
-}
-.kakaopay svg {
-  stroke: unset;
-  fill: #000;
-}
-.bank {
-  stroke: unset;
-  fill: var(--font-color);
-}
-</style>

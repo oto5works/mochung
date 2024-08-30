@@ -52,6 +52,9 @@ export default {
     comment: defineAsyncComponent(() =>
       import("@/preview/comment/commentView")
     ),
+    deposit: defineAsyncComponent(() =>
+      import("@/preview/deposit/depositView")
+    ),
 
     audios: defineAsyncComponent(() =>
       import("@/modules/audios/audiosView.vue")
@@ -68,9 +71,6 @@ export default {
 
     notice: defineAsyncComponent(() => import("@/views/preview/notice/notice")),
 
-    deposit: defineAsyncComponent(() =>
-      import("@/views/preview/deposit/deposit")
-    ),
     footers: defineAsyncComponent(() =>
       import("@/views/preview/footers/footers")
     ),
