@@ -1,26 +1,32 @@
 <template>
-  <sectionView>
-    <div id="previewCalendar">
-      <component :is="dateData.calendar" :date="dateData.date">
-        <calendarComp :date="dateData.date" />
-      </component>
-      <div class="display_flex gap_16 --font-size_12 letter-spacing_8 font-weight_700">
-        {{ setDate }}  {{ setTime }}
-        <span>|</span>
-        <span v-if="dDay">
-          {{ dDay }}
-        </span>
+  <article>
+    <sectionView id="previewCalendar">
+      <div class="container previewCalendar">
+        <component :is="dateData.calendar" :date="dateData.date">
+          <calendarComp :date="dateData.date" />
+        </component>
+        <div
+          class="display_flex gap_16 --font-size_12 letter-spacing_8 font-weight_700"
+        >
+          {{ setDate }} {{ setTime }}
+          <span>|</span>
+          <span v-if="dDay">
+            {{ dDay }}
+          </span>
+        </div>
       </div>
-    </div>
+    </sectionView>
 
-    <!--
-      <countdownView
+    <!--<sectionView id="previewCountdown">
+      <div class="previewCountdown">
+        <countdownView
         v-if="dateData.fnCountdown"
         :date="dateData.date"
         :time="dateData.time"
       />
-    -->
-  </sectionView>
+      </div>
+    </sectionView>-->
+  </article>
 </template>
 
 <script>

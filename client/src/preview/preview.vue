@@ -4,15 +4,28 @@
 
     <background />
 
+<!--
+    <div id="audiosView">
+      <audios v-if="previewFunction.audios" />
+
+</div>
+-->
+
+<div id="functionsView">
+  <likeView v-if="previewFunction.like" />
+
+  <buttonAlt variant="fuctions">
+    <icon><caretDown /></icon>
+</buttonAlt>
+</div>
     <!--
-    <audios v-if="previewFunction.audios" />
-    <likeView v-if="previewFunction.like" />
-    <downScroll />
+    
+   
 
-    <effect v-if="previewFunction.effect" />
+    
     -->
-
-    <div class="preview__content">
+    <effect v-if="previewFunction.effect" />
+    <div class="preview-content">
       <home />
       <component
         v-for="(option, index) of previewFunction.order"
@@ -30,10 +43,12 @@ import { defineAsyncComponent } from "vue";
 import { mapGetters, mapActions } from "vuex";
 import customData from "@/preview/customData.vue";
 import "@/preview/preview.scss";
+import caretDown from "@/components/icon/caretDown.vue";
+import buttonAlt from "@/preview/components/buttonAlt.vue";
 
 export default {
   components: {
-    customData,
+    customData, caretDown, buttonAlt,
     background: defineAsyncComponent(() =>
       import("@/preview/background/backgroundView.vue")
     ),
@@ -57,17 +72,15 @@ export default {
     ),
 
     audios: defineAsyncComponent(() =>
-      import("@/modules/audios/audiosView.vue")
+      import("@/preview/audios/audiosView.vue")
     ),
 
     effect: defineAsyncComponent(() =>
-      import("@/modules/effect/effectView.vue")
+      import("@/preview/effect/effectView.vue")
     ),
-    likeView: defineAsyncComponent(() => import("@/modules/like/likeView.vue")),
+    likeView: defineAsyncComponent(() => import("@/preview/like/likeView.vue")),
 
-    downScroll: defineAsyncComponent(() =>
-      import("@/views/preview/downScroll")
-    ),
+
 
     notice: defineAsyncComponent(() => import("@/views/preview/notice/notice")),
 
@@ -93,3 +106,4 @@ export default {
   },
 };
 </script>
+

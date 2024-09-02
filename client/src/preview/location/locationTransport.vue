@@ -1,18 +1,16 @@
 <template>
-  <sectionView>
-    <div id="previewTransport">
-      <tabs class="width_100 tabs" :options="transportData" v-model="tab" />
-      <div v-if="tab !== ''">
-        <div
-          v-for="(option, index) in transportData"
-          :key="index"
-          v-show="tab === index"
-        >
-          <div class="preview-tiptap" v-html="option.content" />
-        </div>
+  <div>
+    <tabs class="width_100 tabs" :options="transportData" v-model="tab" />
+    <div v-if="tab !== ''">
+      <div
+        v-for="(option, index) in transportData"
+        :key="index"
+        v-show="tab === index"
+      >
+        <div class="preview-tiptap" v-html="option.content" />
       </div>
     </div>
-  </sectionView>
+  </div>
 </template>
 
 <script>
@@ -35,6 +33,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-
-</style>

@@ -151,24 +151,31 @@ html[data-align-theme="right"] {
 html[data-radius-theme="0"] {
   --border-radius_12: unset;
   --border-radius_14: unset;
+  --border-radius_20: unset;
+
   --border-radius_24: unset;
   --border-radius_28: unset;
 }
 html[data-radius-theme="1"] {
   --border-radius_12: 12px;
   --border-radius_14: 14px;
+  --border-radius_20: 20px;
+
   --border-radius_24: 24px;
   --border-radius_28: 28px;
 }
 html[data-radius-theme="2"] {
   --border-radius_12: 12px;
   --border-radius_14: 14px;
+  --border-radius_20: 20px;
+
   --border-radius_24: 24px;
   --border-radius_28: 28px;
 }
 html[data-radius-theme="3"] {
   --border-radius_12: 12px;
   --border-radius_14: 14px;
+  --border-radius_20: 20px;
   --border-radius_24: 24px;
   --border-radius_28: 28px;
 }

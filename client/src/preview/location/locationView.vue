@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <sectionView>
-      <div id="previewLocation">
+  <article>
+    <sectionView id="previewLocation">
+      <div class="container previewLocation">
         <div class="width_100 --font-size_24 font-weight_700">
           {{ locationData.title }}
         </div>
@@ -44,26 +44,29 @@
       </div>
     </sectionView>
 
+    <section id="previewMap" :class="design">
+      <div class="container previewMap">
+        <locationMap
+          :map="locationData.map"
+          :lat="locationData.lat"
+          :lng="locationData.lng"
+          :fileUrl="locationData.fileUrl"
+        />
+        <div v-if="shadow" class="shadow" />
+      </div>
+    </section>
 
-
-
-    <locationMap
-      :map="locationData.map"
-      :lat="locationData.lat"
-      :lng="locationData.lng"
-      :fileUrl="locationData.fileUrl"
-    />
-
-
-
-    <locationTransport />
-  </div>
+    <sectionView id="previewTransport">
+      <div class="container previewTransport">
+        <locationTransport />
+      </div>
+    </sectionView>
+  </article>
 </template>
 
 <script>
 import { defineAsyncComponent } from "vue";
 import { mapGetters } from "vuex";
-
 
 export default {
   components: {
@@ -77,12 +80,12 @@ export default {
   computed: {
     ...mapGetters({
       locationData: "getLocationData",
+      design: "getDesign",
+      shadow: "getShadow",
     }),
   },
   data() {
-    return {
-
-    };
+    return {};
   },
   methods: {
     callWeddingHallTell() {

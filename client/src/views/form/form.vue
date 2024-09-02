@@ -47,6 +47,7 @@ import { mapGetters, mapActions } from "vuex";
 /*-- form스타일을 고르는 중 미리 load 하기 --*/
 import "@/views/form/form.scss";
 
+
 export default {
   components: {
     preview: defineAsyncComponent(() => import("@/preview/preview.vue")),
@@ -114,12 +115,12 @@ export default {
 }
 .preview-mobile {
   position: relative;
-  height: 80%;
+  height: 100%;
   aspect-ratio: var(--mio-theme-aspect-ratio);
   border-radius: 44px;
   border: 4px solid black;
   outline: 4px solid black;
-  transform: scale(1);
+  transform: scale(0.8);
   contain: layout;
   overflow: hidden;
   -webkit-filter: drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.1));

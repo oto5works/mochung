@@ -19,13 +19,13 @@ button {
   color: inherit;
   text-align: inherit;
   line-height: inherit;
-  text-transform: none;
   text-decoration: none;
   outline: none;
   box-shadow: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  text-transform: uppercase;
 }
 button:disabled {
   pointer-events: none;
@@ -319,59 +319,6 @@ button:hover svg {
   -webkit-mask-image: url("https://jwpggit.github.io/storage/image/card/check.svg");
   mask-image: url("https://jwpggit.github.io/storage/image/card/check.svg");
   background-size: cover;
-}
-
-/*-- config --*/
-
-// button-defaulted
-.config .button-defaulted {
-  background: var(--pc-pc-tr);
-  border-color: var(--po-po-pc);
-  color: var(--po-po-pc);
-  fill: var(--po-po-pc);
-  border-style: var(--border-style);
-  border-width: 1px;
-}
-.config .button-defaulted::after {
-  background-color: var(--primary-on);
-}
-.config .button-defaulted::before {
-  display: var(--box-shadow-display);
-  -webkit-box-shadow: 0 10px 20px -10px var(--primary-color);
-  box-shadow: 0 10px 20px -10px var(--primary-color);
-}
-// button-inverse
-.config .button-inverse {
-  background: var(--po-po-tr);
-  border-color: var(--pc-pc-po);
-  color: var(--pc-pc-po);
-  fill: var(--pc-pc-po);
-  border-style: var(--border-style);
-}
-.config .button-inverse::after {
-  background-color: var(--primary-color);
-}
-.config .button-inverse::before {
-  display: var(--box-shadow-display);
-  -webkit-box-shadow: 0 10px 20px -10px var(--primary-on);
-  box-shadow: 0 10px 20px -10px var(--primary-on);
-}
-
-/*-- button-outline --*/
-.config .button-outline {
-  color: var(--primary-color);
-  fill: var(--primary-color);
-}
-.config .button-outline::after {
-  outline-color: var(--primary-color);
-}
-.config .button-outline::before {
-  background-color: var(--primary-color);
-}
-
-// button-icon
-.config .button-icon::before {
-  background-color: var(--primary-color);
 }
 
 // button-option

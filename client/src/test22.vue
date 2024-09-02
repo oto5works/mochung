@@ -67,9 +67,16 @@ export default {
 <style scoped>
 .fnOption {
   position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 200vh;
+  height: auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
+  background-color: aquamarine;
+  z-index: 3;
 }
 .fnOption-item {
   position: relative;

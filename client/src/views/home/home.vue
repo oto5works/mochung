@@ -45,17 +45,19 @@
    <div class="layer-3">
 gird 영역 ;;;
    </div>
-    
+   <likeView />
+
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import app from "@/components/icon/app.vue";
+import likeView from "@/preview/like/likeView.vue";
 
 
 export default {
-  components: { app },
+  components: { app, likeView },
   data() {
     return {
       data1: false,

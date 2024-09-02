@@ -1,7 +1,6 @@
 <template>
   <div class="background">
-    {{ backgroundData }}
-    <div class="backgroundOverlay" />
+    <div v-if="design === 'design2'" class="backgroundOverlay" />
     <!--
     <backgroundFilter
       v-if="backgroundData.filter"
@@ -42,6 +41,7 @@ export default {
   computed: {
     ...mapGetters({
       backgroundData: "getBackgroundData",
+      design: "getDesign",
     }),
   },
 };
@@ -64,9 +64,7 @@ export default {
   height: 100%;
   top: 0;
   left: 0;
-  display: var(--none-block-none);
-  background-color: var(--background-on);
-  opacity: 0.12;
+  background-color: rgba(var(--background-on), 0.08);
 }
 
 .editorGradient,

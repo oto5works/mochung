@@ -4,10 +4,12 @@
     <homeDialog
       v-if="dialog"
       :dialog="dialog"
-      @update:dialog="dialog = $event"
+      @closeDialog="handleClose"
+      @confirmDialog="handleConfirm"
     />
   </cardView>
 </template>
+
 <script>
 import { defineAsyncComponent } from "vue";
 import { mapGetters, mapActions } from "vuex";
@@ -21,6 +23,7 @@ export default {
   data() {
     return {
       dialog: false,
+      initialStyle: null, // homeData.style의 초기 상태를 저장할 변수
     };
   },
   computed: {
@@ -38,8 +41,18 @@ export default {
   methods: {
     ...mapActions(["handleScrollToAction"]),
     handleClickEvent() {
+      this.initialStyle = this.homeData.style; // 다이얼로그를 열 때 현재 스타일을 저장
       this.dialog = true;
       this.handleScrollToAction("previewHome");
+    },
+    handleClose() {
+      this.homeData.style = this.initialStyle; // 다이얼로그를 닫을 때 저장해둔 스타일로 복원
+      this.dialog = false;
+    },
+    handleConfirm() {
+      // Confirm 버튼 클릭 시 실행할 로직
+      console.log("Confirm 버튼이 클릭되었습니다.");
+      this.dialog = false;
     },
   },
 };

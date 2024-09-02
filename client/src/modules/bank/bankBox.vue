@@ -12,7 +12,8 @@
     <bankDialog
       v-if="dialog"
       :dialog="dialog"
-      @update:dialog="dialog = $event"
+      @closeDialog="handleClose"
+      @confirmDialog="handleConfirm"
     />
   </cardView>
 </template>
@@ -40,11 +41,22 @@ export default {
     ...mapActions(["handleScrollToAction"]),
     handleClickEvent() {
       if (this.depositData.fnDeposit === false) {
+        this.depositData.fnDeposit = true;
+        this.handleScrollToAction("previewDeposit");
         this.dialog = true;
       } else {
         this.depositData.fnDeposit = false;
       }
-      this.handleScrollToAction("previewDeposit");
+    },
+    handleClose() {
+      this.depositData.fnDeposit = false;
+      this.dialog = false;
+    },
+    handleConfirm() {
+      // Confirm 버튼 클릭 시 실행할 로직
+      console.log("Confirm 버튼이 클릭되었습니다.");
+      this.dialog = false;
+      this.depositData.fnDeposit = true;
     },
   },
 };

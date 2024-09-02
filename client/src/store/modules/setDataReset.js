@@ -126,16 +126,16 @@ const resetValue = {
 
     /*-- 이펙트 --*/
     effectData: {
-      fnEffect: false,
+      fnEffect: true,
       config: "falling",
       shape: "confetti",
       color: ["#F55F56", "#8B67F3", "#6BEDF5", "#FEDB50"],
     },
     /*-- 배경음악 --*/
     audiosData: {
-      fnAudios: false,
-      fnAutoPlay: false,
-      url: null,
+      fnAudios: true,
+      fnAutoPlay: true,
+      url: 'https://www.youtube.com/watch?v=m9sOWoZ3ADw',
     },
     /*-- 커스텀 --*/
     customData: {

@@ -45,6 +45,7 @@ export default {
   display: flex;
   justify-content: space-between;
   gap: 16px;
+  width: 100%;
 }
 .titleArticle .title {
   font-size: 18px;

@@ -1,6 +1,6 @@
 <template>
-  <div class="effect__wrap">
-    <effectComp :effect="effectData" />
+  <div class="effectView">
+    <tsParticlesView :effect="effectData" />
   </div>
 </template>
 
@@ -10,8 +10,8 @@ import { defineAsyncComponent } from "vue";
 
 export default {
   components: {
-    effectComp: defineAsyncComponent(() =>
-      import("@/modules/effect/effectComp.vue")
+    tsParticlesView: defineAsyncComponent(() =>
+      import("@/components/tsParticles/tsParticlesView.vue")
     ),
   },
   computed: {
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style scoped>
-.effect__wrap {
+.effectView {
   position: absolute;
   display: block;
   width: 100%;

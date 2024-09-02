@@ -23,6 +23,9 @@ import "@/components/dialog/overlay.scss"; // new
 
 // 프리뷰에서 사용되는 COMPONENTS
 import sectionView from "@/preview/components/sectionView.vue"; // new
+import sectionViewAlt from "@/preview/components/sectionViewAlt.vue"; // new
+
+
 import buttonCustom from "@/preview/components/buttonCustom.vue"; // new
 
 
@@ -118,6 +121,7 @@ export function registerPlugins(app) {
     .component("dialogBottom", dialogBottom) // new
     .component("dialogModal", dialogModal) // new
     .component("sectionView", sectionView) // new
+    .component("sectionViewAlt", sectionViewAlt) // new
 
     
     .component("formField", formField) // new

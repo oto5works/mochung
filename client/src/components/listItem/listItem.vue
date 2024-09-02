@@ -39,6 +39,8 @@ export default {
       import("@/components/icon/magicwand.vue")
     ),
     trash: defineAsyncComponent(() => import("@/components/icon/trash.vue")),
+    pencil: defineAsyncComponent(() => import("@/components/icon/pencil")),
+
     logoYoutube: defineAsyncComponent(() =>
       import("@/components/icon/logoYoutube.vue")
     ),

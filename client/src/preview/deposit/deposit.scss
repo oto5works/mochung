@@ -1,81 +1,92 @@
-.v-expansion-panel .deposit_display {
-  display: none;
-}
-.v-expansion-panel--active .deposit_display {
-  display: var(--none-block-none);
-}
-.deposit_background {
-  background-color: var(--primary-color);
-}
-
-.animation {
-  transition: all 0.2s ease-in-out;
-}
-.v-expansion-panel--active > .v-expansion-panel-title {
-  border-bottom-left-radius: var(--border-radius-16);
-  border-bottom-right-radius: var(--border-radius-16);
-  min-height: unset;
-}
-
-.v-expansion-panel__shadow {
-  display: none;
-}
-
-.button-icon {
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-}
-.v-expansion-panel-title--active .button-icon {
-  transform: scaleY(-1);
-}
-
-.v-expansion-panel-title__overlay {
-  display: none;
-}
-
-/*--- deposit ---*/
-.deposit .v-expansion-panel {
-  background-color: unset;
-  color: unset;
-}
-
-// title
-.deposit
-  .v-expansion-panel
-  .v-expansion-panel-title
-  .v-expansion-panel-title__icon {
-  display: none;
-}
-.deposit .v-expansion-panel .v-expansion-panel-title {
-  padding: unset;
-  min-height: 40px;
-}
-
-.deposit .v-expansion-panel-text__wrapper {
+.deposits {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 12px 6.15%;
+  width: 100%;  
+}
+.deposits .deposits-item {
+  width: 100%;
+  border-radius: 24px;
+  transition: all 0.3s ease;
 }
 
-.deposit .v-expansion-panel-title .deposit-bank {
-  position: relative;
-  background-color: var(--primary-color);
-  color: var(--primary-on);
-  border-radius: var(--border-radius-24);
+.deposits .deposits-button {
+  justify-content: space-between;
   height: 72px;
+  padding: 0 24px;
+  width: 100%;
+  transition: all 0.2s ease;
 }
-.deposit
-  .v-expansion-panel-title.v-expansion-panel-title--active
-  .deposit-bank {
-  background-color: transparent;
-  color: var(--font-color);
-  border-radius: unset;
+.deposits .deposits-button.selected {
   height: 40px;
 }
-.deposit
-  .v-expansion-panel-title.v-expansion-panel-title--active
-  .deposit-bank
-  .absolute_100 {
-  display: none;
+.deposits .deposits-panels {
+  padding: 0 24px;
+}
+
+
+/*-- design --*/
+// design 1
+.deposits.design1 .deposits-item {
+  color: rgb(var(--primary-on));
+  background-color: rgb(var(--primary-color));
+}
+.deposits.design1 .deposits-item.selected {
+  color: rgb(var(--font-color));
+  background-color: rgb(var(--background-color));
+}
+// design 2
+.deposits.design2 .deposits-item {
+  color: rgb(var(--font-color));
+  background-color: rgb(var(--background-color));
+}
+// design 3
+.deposits.design3 .deposits-item {
+  color: rgb(var(--font-color));
+  background-color: rgb(var(--background-color));
+}
+// deposits-line 
+.deposits.design3 .deposits-line {
+  position: absolute;
+  display: block;
+  content: "";
+  left: 50%;
+  bottom: -1px;
+  transform: translateX(-50%);
+  width: calc(100% + 16px);
+  height: 1px;
+  background-color: rgba(var(--primary-color), 0.4);
+}
+
+
+
+
+/*-- deposit --*/
+.deposit {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 40px 0;
+  border-top: 1px solid rgba(var(--primary-color), .24);
+}
+.deposit .deposit-list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 28px;
+  text-align: left;
+}
+.deposit .deposit-list .title {
+  font-size: var(--font-size_12);
+}
+.deposit .deposit-list .content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size_13);
+  font-weight: 700;
 }

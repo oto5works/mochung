@@ -2,20 +2,41 @@
 .overlay.dialogFull {
   z-index: 2000;
 }
-.dialogFull > .overlay__content {
+.dialogFull .overlay__content {
+  position: relative; /* 또는 position: absolute; */
   width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 0 24px;
-    align-content: start;
-    padding: 0 48px;
-    color: rgb(var(--mio-theme-color-on-background));
-
-
-  background-color: rgba(var(--mio-theme-color-background), 0.4);
+  height: auto;
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0 24px;
+  align-content: start;
+  padding: 0 48px;
   --v-scrollbar-offset: 0px;
   overflow-y: auto;
+}
+.dialogFull .overlay__content {
+  -ms-overflow-style: none;
+}
+.dialogFull .overlay__content::-webkit-scrollbar {
+  display: none;
+}
+.dialogFull .dialogFull-scrim {
+  position: absolute;
+  pointer-events: auto;
+  grid-column: 6 / 13;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  background: rgb(var(--mio-theme-color-on-background));
+  &.active {
+    opacity: 0.4;
+  }
+  z-index: -1;
 }
 
 .dialogFull > .overlay__content > .dialog {
@@ -52,7 +73,6 @@
   flex-direction: column;
   padding: 0;
   min-height: calc(90vh - 64px);
-
 }
 
 /*--- 태블렛 ---*/

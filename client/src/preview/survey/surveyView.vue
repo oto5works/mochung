@@ -1,5 +1,5 @@
 <template>
-  <div id="previewSurvey" :class="design">
+  <article id="previewSurvey" :class="design">
     <sectionView v-if="surveyData.fnSurvey">
       <div class="previewSurvey">
         <div class="--font-size_11 font-weight_700 width_100">NOTICE</div>
@@ -23,7 +23,7 @@
         @update:dialog="dialog = $event"
       />
     </sectionView>
-  </div>
+  </article>
 </template>
 <script>
 import { mapGetters } from "vuex";

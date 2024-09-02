@@ -1,5 +1,5 @@
 <template>
-  <section class="sectionView" :class="design">
+  <section :class="design">
     <slot></slot>
   </section>
 </template>
@@ -17,13 +17,14 @@ export default {
 </script>
 
 <style scoped>
-.sectionView {
+section {
   position: relative;
   display: block;
   padding: 4px 8px;
 }
-.sectionView.design3 {
+.design3 {
   border-top: 1px solid rgba(var(--primary-color), 0.4);
+  padding: 0;
 }
 .section-content {
   position: relative;

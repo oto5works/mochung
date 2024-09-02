@@ -22,13 +22,15 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-.preview__content {
+.preview-content {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
   z-index: 1;
 }
+
+
 
 .pa_40 {
   padding-left: 40px;
@@ -130,64 +132,119 @@
   height: fit-content;
 }
 
+
+/*-- functions --*/
+
+#audiosView {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  overflow: visible;
+  z-index: 4;
+}
+#functionsView {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  bottom: 16px;
+  right: 16px;
+  gap: 8px;
+  overflow: visible;
+  z-index: 4;
+}
+
+
+
+
+
 /*-- section --*/
+// 공통
 #preview {
   text-align: var(--text-align);
 }
-#previewIntro {
+#preview .container {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  padding: 196px 40px 88px 40px;
+  width: 100%;
   border-radius: var(--border-radius_28);
-  background-color: azure;
+  background-color: rgb(var(--background-color));
 }
-#previewHost {
-  position: relative;
-  display: flex;
-  flex-direction: column;
+// 인트로
+#introView {
+  z-index: 4;
+}
+.previewIntro {
+  padding: 196px 40px 88px 40px;
+}
+// 호스트
+.previewHost {
   align-items: var(--align-items);
-  justify-content: center;
   gap: 40px;
   padding: 88px 40px;
-  border-radius: var(--border-radius_28);
-  background-color: azure;
 }
-#previewCalendar {
-  position: relative;
-  display: flex;
-  flex-direction: column;
+#previewHost.design1 {
+  z-index: 10;
+}
+#previewHost.design1 .shadow {
+  -webkit-filter: drop-shadow(0px 16px 32px rgba(var(--background-on), 0.06));
+  filter: drop-shadow(0px 16px 32px rgba(var(--background-on), 0.06));
+  -webkit-box-shadow: 0 32px 96px rgba(var(--background-on), 0.1);
+  box-shadow: 0 32px 96px rgba(var(--background-on), 0.1);
+}
+// 캘린더
+.previewCalendar {
   align-items: center;
-  justify-content: center;
   gap: 64px;
   padding: 196px 0 88px 0;
-  border-radius: var(--border-radius_28);
-  background-color: azure;
 }
-#previewLocation {
-  position: relative;
-  display: flex;
-  flex-direction: column;
+// 위치
+.previewLocation {
   align-items: center;
-  justify-content: center;
   gap: 128px;
   padding: 196px 16px 32px 16px;
-  border-radius: var(--border-radius_28);
-  background-color: azure;
 }
-#previewTransport {
+// 지도
+
+#previewMap {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 128px 16px;
-  border-radius: var(--border-radius_28);
-  background-color: azure;
+  display: block;
+  padding: 4px 8px;
 }
-#previewGallery {
+#previewMap.design1 {
+  z-index: 10;
+}
+#previewMap.design1 .shadow {
+  -webkit-filter: drop-shadow(0px 16px 32px rgba(var(--background-on), 0.06));
+  filter: drop-shadow(0px 16px 32px rgba(var(--background-on), 0.06));
+  -webkit-box-shadow: 0 32px 96px rgba(var(--background-on), 0.1);
+  box-shadow: 0 32px 96px rgba(var(--background-on), 0.1);
+}
+#previewMap.design3 {
+  border-top: 1px solid rgba(var(--primary-color), 0.4);
+  padding: 0;
+}
+#previewMap .previewMap {
+  width: 100%;
+  height: 390px;
+  border-radius: var(--border-radius_28);
+}
+#previewMap #map {
+  border-radius: var(--border-radius_28);
+}
+#previewMap.design3 #map {
+  border-radius: unset;
+}
+// 대중교통
+.previewTransport {
+  padding: 128px 16px;
+}
+.previewTransport .flicking-camera {
+  height: 56px;
+}
+// 갤러리
+.previewGallery {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -196,20 +253,16 @@
   padding: 196px 0;
   gap: 196px;
 }
-
-#previewTransport .flicking-camera {
-  height: 56px;
+.previewGallery.design3 {
+  border-top: 1px solid rgba(var(--primary-color), 0.4);
 }
+// 설문조사
+
+// 댓글
 .previewComment {
-  position: relative;
-  display: flex;
-  flex-direction: column;
   align-items: var(--align-items);
-  justify-content: center;
   gap: 48px;
   padding: 196px 0 88px 0;
-  border-radius: var(--border-radius_28);
-  background-color: azure;
 }
 .previewComment .title-wrap {
   position: relative;
@@ -221,27 +274,36 @@
   padding: 0 24px;
   width: 100%;
 }
-
-
+// 은행
 .previewDeposit {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 56px;
   padding: 196px 0 88px 0;
 }
 
-
-
-
-.section-underlay {
+// shadow
+.preview .container .shadow {
   position: absolute;
   content: "";
   width: 100%;
   height: 100%;
-  left: 0;
   top: 0;
-  background-color: rgba(var(--primary-color), 1);
+  left: 0;
   border-radius: inherit;
+  pointer-events: none;
   z-index: -1;
+}
+.preview .container .overlay {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
 }

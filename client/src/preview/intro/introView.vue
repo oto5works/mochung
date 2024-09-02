@@ -1,22 +1,27 @@
 <template>
-  <div>
-    <sectionView>
-      <div id="previewIntro">
-        <div class="--font-size_22 font-weight_700 line-height_130 width_100">{{ introData.title }}</div>
+  <article id="introView">
+    <sectionView id="previewIntro">
+      <div class="container previewIntro">
+        <div class="--font-size_22 font-weight_700 line-height_130 width_100">
+          {{ introData.title }}
+        </div>
         <div class="sp_22" />
         <div class="preview-tiptap" v-html="introData.content" />
         <div class="sp_56" />
       </div>
     </sectionView>
 
-    <sectionView>
-      <div id="previewHost">
+    <sectionView id="previewHost" :class="design">
+      <div class="container previewHost">
         <introFamily v-if="familyExist" />
         <introHost />
         <buttonCustom v-if="hostFunctions.fnContact" @click="dialog = true">
           <span>contact us</span>
         </buttonCustom>
-        <div class="section-underlay" />
+        <div v-if="shadow" class="shadow" />
+        <div class="overlay" />
+
+        
       </div>
     </sectionView>
     <introContact
@@ -24,7 +29,7 @@
       :dialog="dialog"
       @update:dialog="dialog = $event"
     />
-  </div>
+  </article>
 </template>
 <script>
 import { defineAsyncComponent } from "vue";
@@ -47,6 +52,8 @@ export default {
       introData: "getIntroData",
       hostFunctions: "getHostFunctions",
       familyExist: "getFamilyExist",
+      design: "getDesign",
+      shadow: "getShadow",
     }),
   },
   data() {

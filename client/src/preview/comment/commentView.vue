@@ -1,7 +1,7 @@
 <template>
-  <div id="previewComment">
+  <article id="previewComment">
     <sectionView v-if="commentData.fnComment">
-      <div class="previewComment">
+      <div class="container previewComment">
         <div class="title-wrap">
           <div class="width_100 --font-size_24 font-weight_700">
             {{ commentData.title }}
@@ -18,7 +18,7 @@
         @update:dialog="dialog = $event"
       />
     </sectionView>
-  </div>
+  </article>
 </template>
 
 <script>

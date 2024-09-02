@@ -1,7 +1,7 @@
 <template>
-  <button
+  <buttonAlt
+    variant="fuctions"
     :class="{ 'heart-ing': particles }"
-    class="button-like button-defaulted --border-radius_32"
     id="like"
     @click="triggerParticlesAnimation"
   >
@@ -12,40 +12,41 @@
       :options="particleOptions"
     />
     <icon :class="{ 'heart-beat': particles }"><heart /></icon>
-  </button>
+  </buttonAlt>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-
 import { toggleLike } from "@/services/posts";
 import { loadFull } from "tsparticles";
 import { tsParticles } from "tsparticles-engine";
 import { loadHeartShape } from "tsparticles-shape-heart";
 import heart from "@/components/icon/heart.vue";
+import buttonAlt from "@/preview/components/buttonAlt.vue";
 
 export default {
-  components: { heart },
+  components: { heart, buttonAlt },
   watch: {
-    // color 값이 변경될 때 실행될 함수 정의
     primaryColor: {
       handler(newColor) {
-        // 파티클 컨테이너가 아직 초기화되지 않았으면 초기화
+        const colorString = `rgb(${newColor.join(", ")})`;
         if (!this.particleContainer) {
           this.initializeParticles(this.$refs.particleContainer);
         } else {
-          // 파티클 컨테이너가 이미 초기화된 경우, 색상에 맞게 업데이트
-          this.particleContainer.options.particles.color.value = newColor;
+          this.particleContainer.options.particles.color.value = colorString;
           this.particleContainer.refresh();
         }
       },
-      deep: true, // 객체 또는 배열의 내부 속성까지 감지할 때 사용
+      deep: true,
     },
   },
   computed: {
     ...mapGetters({
       primaryColor: "getPrimaryColor",
     }),
+    primaryColorString() {
+      return `rgb(${this.primaryColor.join(", ")})`;
+    },
   },
   data() {
     return {
@@ -71,7 +72,7 @@ export default {
           },
           wobble: { enable: true, distance: 10, speed: { min: -7, max: 7 } },
           shape: { type: ["heart"] },
-          color: '#000000',
+          color: '#000000', // 초기값 설정
           size: {
             value: 14,
             random: {
@@ -84,7 +85,7 @@ export default {
             animation: {
               enable: true,
               minimumValue: 0,
-              speed: 1,
+              speed: 3,
               startValue: "max",
               destroy: "min",
             },
@@ -94,7 +95,7 @@ export default {
     };
   },
   created() {
-    this.particleOptions.particles.color = this.primaryColor;
+    this.particleOptions.particles.color = this.primaryColorString;
   },
   methods: {
     async initializeParticles(engine) {
@@ -112,7 +113,6 @@ export default {
       if (this.particleContainer) {
         this.handleLike();
         this.submitLike();
-        // Toggle animation class to trigger the animation
         const likeBtn = document.querySelector("#like");
         if (!likeBtn) {
           return;
@@ -131,8 +131,6 @@ export default {
           };
           this.particleContainer.particles.addParticle(particle);
         }
-
-        // Set particles to false after animation
       }
     },
 
@@ -160,16 +158,6 @@ export default {
 </script>
 
 <style scoped>
-#like {
-  position: fixed;
-  bottom: 84px;
-  right: 4.2%;
-  z-index: 4;
-}
-.button-like {
-  width: 56px;
-  height: 56px;
-}
 
 .heart-beat {
   animation: heartBeat 0.2s;

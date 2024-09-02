@@ -1,7 +1,7 @@
 <template>
-  <div class="display_flex align-items_center gap_host width_100 flex-wrap_wrap">
+  <div class="hostInfo">
     <!-- Render hostInfo items with slashes in between -->
-    <div v-for="(option, index) in hostInfo" :key="index" class="display_flex align-items_center gap_host ">
+    <div v-for="(option, index) in hostInfo" :key="index" class="display_flex align-items_center gap_24 ">
       <!-- Render title and name for each option -->
 
 <div class="display_flex align-items_center gap_12">
@@ -38,6 +38,16 @@ export default {
 
 <style scoped>
 .gap_host {
-  gap: 8px 28px;
+  gap: 8px 24px;
 }
+.hostInfo {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: var(--justify-content);
+  gap: 8px 28px;
+  width: 100%;
+}
+
 </style>

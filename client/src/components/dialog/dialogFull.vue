@@ -2,14 +2,9 @@
   <teleport to="body" v-if="dialog">
     <div class="overlay-container" v-bind="$attrs"> <!-- $attrs를 여기에 바인딩 -->
       <div class="overlay dialogFull">
-        <div
-          class="overlay__scrim"
-          @click="closeDialog"
-          :class="{ active: loaded }"
-        />
         <div class="overlay__content" :class="{ active: loaded }">
           <div class="overlay-header">
-          <div class="dialog-header">
+            <div class="dialog-header">
               <buttonDefault
                 variant="tonal"
                 height="32"
@@ -22,18 +17,23 @@
               <buttonDefault
                 variant="text"
                 height="32"
-                @click="closeDialog"
+                @click="confirmDialog"
               >
-                <span>적용하기</span>
+                <span>CONFIRM</span>
               </buttonDefault>
             </div>
           </div>
           <div class="dialog">
-           
             <div class="dialog-content">
               <slot></slot>
             </div>
+            <div
+            class="dialogFull-scrim"
+            @click="closeDialog"
+            :class="{ active: loaded }"
+          />
           </div>
+          
         </div>
       </div>
     </div>
@@ -67,7 +67,10 @@ export default {
   },
   methods: {
     closeDialog() {
-      this.$emit("update:dialog", false);
+      this.$emit("closeDialog");  // 'confirmDialog' 이벤트 발생
+    },
+    confirmDialog() {
+      this.$emit("confirmDialog");  // 'confirmDialog' 이벤트 발생
     },
   },
 };

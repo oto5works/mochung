@@ -1,5 +1,5 @@
 <template>
-  <div class="effect__wrap">
+  <div class="tsParticles">
     <tsParticles
       v-if="shouldRenderConfetti"
       :color="effect.color"
@@ -18,7 +18,7 @@ import { defineAsyncComponent } from "vue";
 export default {
   components: {
     tsParticles: defineAsyncComponent(() =>
-      import("@/modules/effect/tsParticles.vue")
+      import("@/components/tsParticles/tsParticles.vue")
     ),
   },
   props: {
@@ -233,7 +233,7 @@ export default {
 </script>
 
 <style scoped>
-.effect__wrap {
+.tsParticles {
   position: absolute;
   display: block;
   width: 100%;
