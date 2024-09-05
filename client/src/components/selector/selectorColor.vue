@@ -1,5 +1,5 @@
 <template>
-  <cardView icon="color" :title="title" @click="dialog = true">
+  <cardView icon="color" :title="title" @click="toggleDialog">
     <div class="cardView-content">
       <div class="color-item">
         <span
@@ -8,14 +8,14 @@
           :style="{ backgroundColor: c }"
         ></span>
       </div>
-      <span>{{ selectedColor }}</span>
+      <span class="selectedColor">{{ selectedColor }}</span>
     </div>
     <tooltipColor
       v-if="dialog"
       :options="options"
       v-model="color"
       :dialog="dialog"
-      @update:dialog="dialog = $event"
+      @update:dialog="handleDialogUpdate"
     />
   </cardView>
 </template>
@@ -72,9 +72,11 @@ export default {
     },
   },
   methods: {
-    toggleDialog(event) {
-      event.stopPropagation();
+    toggleDialog() {
       this.dialog = !this.dialog;
+    },
+    handleDialogUpdate(value) {
+      this.dialog = value;
     },
   },
 };
@@ -100,5 +102,11 @@ export default {
 }
 .color-item span {
   flex: 1 1 50%;
+}
+.selectedColor {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
 }
 </style>

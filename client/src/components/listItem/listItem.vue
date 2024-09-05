@@ -72,6 +72,9 @@ export default {
     left: defineAsyncComponent(() => import("@/components/icon/alignLeft")),
     center: defineAsyncComponent(() => import("@/components/icon/alignCenter")),
     right: defineAsyncComponent(() => import("@/components/icon/alignRight")),
+    eye: defineAsyncComponent(() => import("@/components/icon/eye")),
+    share: defineAsyncComponent(() => import("@/components/icon/share")),
+
   },
   props: {
     icon: {

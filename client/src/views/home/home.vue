@@ -1,34 +1,42 @@
 <template>
   <div class="container">
-
     <div class="layer-1">
-      <div class="mobile"/>
+      <div class="mobile" />
     </div>
+    <tooltipMenu>
+      <listItem />
+      <listItem icon="upload" label="삭제" />
+      <listItem icon="upload" label="감지형" />
 
-<div class="layer-2">
-  <h1>style: tonal</h1>
-  <div class="sp_180"/>
-  <div class="sp_180"/>
-  <div class="sp_180"/>
-  <div class="sp_180"/>
-  <div class="sp_180"/>
-  <div class="sp_180"/>
-  <div class="sp_180"/>
-  <div class="sp_180"/>
-  <div class="sp_180"/>
-  <div class="sp_180"/>
+      <listItem icon="upload" label="삭제" />
+
+      <listItem icon="upload" label="삭제" />
+
+    </tooltipMenu>
+    <div class="layer-2">
+      <h1>style: tonal</h1>
+      <div class="sp_180" />
+      <div class="sp_180" />
+      <div class="sp_180" />
+      <div class="sp_180" />
+      <div class="sp_180" />
+      <div class="sp_180" />
+      <div class="sp_180" />
+      <div class="sp_180" />
+      <div class="sp_180" />
+      <div class="sp_180" />
       <buttonDefault variant="tonal" height="18"
         ><span>18-height</span></buttonDefault
       >
-      <div class="sp_180"/>
+      <div class="sp_180" />
       <buttonDefault variant="tonal" height="24"
         ><span>24-height</span></buttonDefault
       >
-      <div class="sp_180"/>
+      <div class="sp_180" />
       <buttonDefault variant="tonal" height="32"
         ><span>32-height</span></buttonDefault
       >
-      <div class="sp_180"/>
+      <div class="sp_180" />
       <buttonDefault variant="tonal" height="36"
         ><span>36-height</span></buttonDefault
       >
@@ -40,13 +48,9 @@
       <buttonDefault variant="tonal" height="46"
         ><span>46-height</span></buttonDefault
       >
-
-</div>
-   <div class="layer-3">
-gird 영역 ;;;
-   </div>
-   <likeView />
-
+    </div>
+    <div class="layer-3">gird 영역 ;;;</div>
+    <likeView />
   </div>
 </template>
 
@@ -54,20 +58,18 @@ gird 영역 ;;;
 import { mapGetters } from "vuex";
 import app from "@/components/icon/app.vue";
 import likeView from "@/preview/like/likeView.vue";
-
+import tooltipMenu from "@/components/tooltip/tooltipMenu.vue";
+import listItem from "@/components/listItem/listItem.vue";
 
 export default {
-  components: { app, likeView },
+  components: { app, likeView, tooltipMenu, listItem },
   data() {
     return {
       data1: false,
     };
   },
-  computed: {
-  },
-  methods: {
-
-  },
+  computed: {},
+  methods: {},
 };
 </script>
 

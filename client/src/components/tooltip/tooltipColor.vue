@@ -1,5 +1,5 @@
 <template>
-  <div class="tooltipColor" v-click-outside="() => updateDialog(false)">
+  <div class="tooltipColor" v-click-outside="handleClickOutside">
     <Flicking
       ref="flicking"
       class="flicking-color"
@@ -40,11 +40,19 @@
 <script>
 import Flicking from "@egjs/vue3-flicking";
 import vClickOutside from "v-click-outside";
+const { bind, unbind } = vClickOutside.directive;
 
 export default {
   components: { Flicking },
   directives: {
-    clickOutside: vClickOutside.directive,
+    clickOutside: {
+      mounted(el, binding) {
+        bind(el, { value: binding.value });
+      },
+      beforeUnmount(el) {
+        unbind(el);
+      },
+    },
   },
   props: {
     modelValue: { type: [String, Array], default: "#A8D8EA" },
@@ -65,6 +73,9 @@ export default {
     },
     getColorArray(value) {
       return Array.isArray(value) ? value : [value];
+    },
+    handleClickOutside() {
+      this.updateDialog(false);  // 외부 클릭 시 dialog 값을 false로 설정
     },
   },
 };

@@ -14,8 +14,19 @@
         height="32"
         :icon="true"
         @click="dialog.more = true"
-        ><icon class="icon_16"><dots /></icon
-      ></buttonDefault>
+        ><icon class="icon_16"><dots /></icon>
+        <tooltipMenu
+        v-if="dialog.more"
+        :dialog="dialog.more"
+        @update:dialog="dialog.more = $event"
+      >
+        <listItem icon="trash" label="삭제" @click="handleDelete" />
+        <listItem icon="pencil" label="수정" @click="handleEdit" />
+        <listItem icon="eye" label="미리보기" @click="handlePreview" />
+        <listItem icon="share" label="공유하기" @click="dialog.share = true" />
+      </tooltipMenu>
+      </buttonDefault>
+      
     </div>
     <div class="title-wrap">
       <div class="title">Save the Date</div>
@@ -110,14 +121,8 @@
   -->
 
     <!-- Dialog -->
-    <more
-      v-if="dialog.more"
-      :dialog="dialog.more"
-      @update:dialog="dialog.more = $event"
-      :root="true"
-      :id="archive.id"
-      @confirmDelete="confirmDelete"
-    />
+
+  
     <survey
       v-if="dialog.survey"
       :dialog="dialog.survey"
@@ -149,7 +154,6 @@ import { defineAsyncComponent } from "vue";
 import links from "@/components/icon/links";
 import naver from "@/components/icon/naver";
 
-import eye from "@/components/icon/eye";
 import heart from "@/components/icon/heart";
 import chat from "@/components/icon/chat";
 import sparkle from "@/components/icon/sparkle";
@@ -158,11 +162,14 @@ import lock from "@/components/icon/lock";
 import rsvp from "@/components/icon/rsvp";
 import dots from "@/components/icon/dots";
 
+import tooltipMenu from "@/components/tooltip/tooltipMenu.vue";
+
+
 export default {
   components: {
+    tooltipMenu,
     links,
     naver,
-    eye,
     heart,
     chat,
     sparkle,
@@ -181,6 +188,7 @@ export default {
         survey: false,
         comment: false,
         active: false,
+        share: false,
       },
     };
   },
@@ -231,13 +239,21 @@ export default {
       const id = this.archive.id; // Get the ID from the props
       this.$router.push({ name: "view", params: { id: id } }); // Navigate to the 'view' route with the ID parameter
     },
-    confirmDelete() {
+    handleDelete() {
       this.$emit("confirmDelete");
     },
     handlePayment() {
       if (!this.archive.pay) {
         this.dialog.active = true;
       }
+    },
+    handlePreview() {
+      const id = this.id; // Get the ID from the props
+      this.$router.push({ name: "view", params: { id: id } }); // Navigate to the 'view' route with the ID parameter
+    },
+    handleEdit() {
+      const id = this.id; // Get the ID from the props
+      this.$router.push({ name: "edit", params: { id: id } }); // Navigate to the 'view' route with the ID parameter
     },
   },
 };

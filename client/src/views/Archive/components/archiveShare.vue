@@ -1,47 +1,19 @@
 <template>
-  <bottomSheet
-    :dialog="dialog"
+  <tooltipMenu :dialog="dialog"
     title="더보기"
-    @update:dialog="updateDialog"
-    :root="root"
-  >
-    <ul>
-      <li @click="handleDelete">
-        <div class="title">
-          <icon><trash /></icon><span>삭제</span>
-        </div>
-      </li>
-      <li @click="handleEdit">
-        <div class="title">
-          <icon><pencil /></icon><span>수정</span>
-        </div>
-      </li>
-      <li @click="handlePreview">
-        <div class="title">
-          <icon><eye/></icon><span>미리보기</span>
-        </div>
-      </li>
-      <li @click="dialogVisible = true">
-        <div class="title">
-          <icon><share /></icon><span>공유하기</span>
-        </div>
-      </li>
-    </ul>
+    @update:dialog="updateDialog">
+      <listItem />
+      <listItem icon="trash" label="삭제" @click="handleDelete" />
+      <listItem icon="pencil" label="수정" @click="handleEdit" />
 
-    <!-- 다이얼로그 추가 -->
-    <inDialog
-      v-if="dialogVisible"
-      :dialog="dialogVisible"
-      @update:dialog="updateInDialog"
-      title="공유하기"
-      :root="root"
-    >
+      <listItem icon="eye" label="미리보기" @click="handlePreview" />
 
+      <listItem icon="share" label="공유하기" @click="dialogVisible = true" />
 
-      <div class="sp_16" />
-    </inDialog>
-    <!-- 다이얼로그 추가 -->
-  </bottomSheet>
+    
+
+    </tooltipMenu>
+
 </template>
 <script>
 import { defineAsyncComponent } from "vue";

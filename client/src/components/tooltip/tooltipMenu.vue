@@ -7,6 +7,7 @@
 <script>
 import vClickOutside from "v-click-outside";
 const { bind, unbind } = vClickOutside.directive;
+import "@/components/tooltip/tooltip.scss";
 
 export default {
   components: {},
@@ -34,17 +35,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.tooltipMenu {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  --v-scrollbar-offset: 0px;
-  overflow-y: auto;
-  border-radius: 26px;
-  padding: 8px;
-  width: 100%;
-  max-width: 160px;
-  background-color: rgb(var(--mio-theme-color-primary-05));
-}
-</style>

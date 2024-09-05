@@ -1,0 +1,18 @@
+.tooltipMenu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  --v-scrollbar-offset: 0px;
+  overflow-y: auto;
+  border-radius: 26px;
+  padding: 8px;
+  background-color: rgb(var(--mio-theme-color-background));
+  width: fit-content;
+  box-shadow: 0 10px 20px -10px rgba(var(--mio-theme-color-on-background), 0.3);
+  z-index: 10;
+}
+
+.tooltipMenu .listItem {
+    width: 100%;
+    min-height: unset;
+  }

@@ -93,6 +93,7 @@ import { plugin as Slicksort } from "vue-slicksort";
 import "sal.js/dist/sal.css";
 // vClickOutside
 import vClickOutside from 'v-click-outside'
+console.log("v-click-outside is loaded:", vClickOutside);
 
 export function registerPlugins(app) {
   app

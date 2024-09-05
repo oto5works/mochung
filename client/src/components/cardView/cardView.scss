@@ -43,6 +43,9 @@
   font-weight: 500;
   text-align: left;
 }
+.cardView .title span {
+  white-space: nowrap;
+}
 .cardView .content {
   text-align: left;
   font-size: 13px;
