@@ -1,15 +1,13 @@
 <template>
-  <dialogFull
-    :dialog="dialog"
-    @update:dialog="updateDialog"
-    title="메인화면 스타일"
-  >
+    <dialogModal :dialog="dialog" @update:dialog="updateDialog">
+
     <titleArticle
-      title="메인 효과 설정"
+    class="pa_24"
+      title="메인 222효과 설정"
       content="폭죽과 꽃가루 효과로 메인 화면을 특별하게 꾸며보세요. 모바일 초대장이 개성적으로 돋보이게 만들어줍니다."
     />
-    <homeOptions @update:dialog="updateDialog" />
-  </dialogFull>
+    <homeOptions class="pa_24" @update:dialog="updateDialog" />
+  </dialogModal>
 </template>
 <script>
 import { defineAsyncComponent } from "vue";

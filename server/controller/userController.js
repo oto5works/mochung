@@ -21,6 +21,7 @@ exports.me = async (req, res) => {
     const user = await User.findById(id).populate('archive', {
       formData: 1,
       dateCreate: 1,
+      dateExpiration: 1,
       pay: 1,
       like: 1,
       surveys: 1,

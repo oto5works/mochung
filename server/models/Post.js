@@ -9,6 +9,9 @@ const postSchema = new Schema({
   writer: String,
   formData: Object,
   dateCreate: Date,
+  dateExpiration: Date,
+
+
   pay: Boolean,
   like: Number,
   comments: [

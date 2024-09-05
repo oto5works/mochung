@@ -1,0 +1,102 @@
+.archive {
+  color: var(--mio-theme-color-on-background);
+  margin-top: var(--mio-theme-editor-spacing-top);
+}
+.archives {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.archiveCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 24px;
+  background-color: rgb(var(--mio-theme-color-primary-05));
+  border-radius: 26px;
+}
+.archiveCard .header-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.archiveCard .link {
+  text-decoration: underline;
+  color: rgb(var(--mio-theme-color-secondary));
+  cursor: pointer;
+}
+.archiveCard .title-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  padding: 24px 0;
+}
+.archiveCard .title {
+  font-size: 28px;
+  font-weight: 700;
+}
+.archiveCard .image-wrap {
+  width: 100%;
+  height: 164px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 24px;
+}
+.archiveCard .functions-wrap {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  padding: 16px 0;
+}
+.archiveCard .footer-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: 100%;
+  padding: 20px 0;
+  border-top: 1px solid rgb(var(--mio-theme-color-primary-10));
+}
+/*-- payment --*/
+.archiveCard .pay-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.archiveCard .pay-wrap .thumb {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* 축소 방지 */
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: rgb(var(--mio-theme-color-primary-10));
+}
+
+.archiveCard .pay-wrap .thumb.active {
+  color: white;
+  background: linear-gradient(135deg, #6DD5FA 0%, #2980B9 100%);
+
+}
+.archiveCard .pay-wrap .content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.archiveCard .pay-wrap .content .payment {
+  font-size: 15px;
+  font-weight: 500;
+}
+.archiveCard .pay-wrap .content .dateExp {
+  font-size: 11px;
+}

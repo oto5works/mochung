@@ -7,6 +7,9 @@ import { checkToken } from '@/services/auth'; // 경로를 맞춰주세요
 const app = createApp(App);
 app.config.globalProperties.$http = axios;
 
+
+
+
 // Vuex 액션을 디스패치하기 위한 변수
 let store;
 let router; 

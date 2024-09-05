@@ -1,32 +1,57 @@
-.svgColor {
-  --button-thumb-color-background: 242, 242, 242;
-  --button-thumb-color-skin: 255, 255, 255;
-  --button-thumb-color-clothes: 255, 255, 255;
-  --button-thumb-color-hair: 243, 243, 243;
-  --button-thumb-color-line: 221, 221, 221;
+button:hover .form-svg svg {
+  stroke-width: 1.4;
 }
+.form-svg svg {
+  stroke-width: 1.2;
+}
+button:hover .thumb-svg svg {
+  stroke-width: 8;
+}
+.thumb-svg svg {
+  stroke-width: 6;
+}
+
+.svgColor {
+  --svg-color-background: 230, 230, 230; /* Light gray */
+  --svg-color-skin: 255, 255, 255; /* Pale gray */
+  --svg-color-clothes: 200, 200, 200; /* Gray */
+  --svg-color-hair: 160, 160, 160; /* Dark gray */
+  --svg-color-primary: 180, 180, 180; /* Medium gray */
+  --svg-color-black: 120, 120, 120; /* Darker gray */
+  --svg-color-white: 240, 240, 240; /* Light gray */
+}
+
 .selected .svgColor {
-  --button-thumb-color-background: 216, 237, 255;
-  --button-thumb-color-skin: 255, 255, 255;
-  --button-thumb-color-clothes: 255, 255, 255;
-  --button-thumb-color-hair: 176, 205, 179;
-  --button-thumb-color-line: 23, 34, 62;
+  --svg-color-background: 224, 255, 255; /* Light cyan */
+  --svg-color-skin: 255, 255, 255; /* Peach puff */
+  --svg-color-clothes: 255, 182, 194; /* Sky blue */
+  --svg-color-hair: 176, 205, 180; /* Light pink */
+  --svg-color-black: 25, 25, 112; /* Midnight blue */
+  --svg-color-primary: 216, 237, 255; /* Bisque */
+  --svg-color-white: 255, 255, 240; /* Ivory */
 }
 
 .svgColor .background {
-  color: rgb(var(--button-thumb-color-background));
+  color: rgb(var(--svg-color-background));
 }
 .svgColor .skin {
-  color: rgb(var(--button-thumb-color-skin));
+  color: rgb(var(--svg-color-skin));
 }
 .svgColor .hair {
-  color: rgb(var(--button-thumb-color-hair));
+  color: rgb(var(--svg-color-hair));
 }
 .svgColor .clothes {
-  color: rgb(var(--button-thumb-color-clothes));
+  color: rgb(var(--svg-color-clothes));
 }
-.svgColor .tie {
-  color: rgb(var(--button-thumb-color-line));
+
+.svgColor .primary {
+  color: rgb(var(--svg-color-primary));
+}
+.svgColor .black {
+  color: rgb(var(--svg-color-black));
+}
+.svgColor .white {
+  color: rgb(var(--svg-color-white));
 }
 .svgColor .line {
   fill: none;
@@ -36,6 +61,15 @@
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-miterlimit: 10;
-  stroke-width: 8;
-  stroke: rgb(var(--button-thumb-color-line));
+  stroke: rgb(var(--svg-color-black));
+}
+
+.svgColor .background,
+.svgColor .skin,
+.svgColor .hair,
+.svgColor .clothes,
+.svgColor .black,
+.svgColor .primary,
+.svgColor .line {
+  transition: all 1.2s ease;
 }

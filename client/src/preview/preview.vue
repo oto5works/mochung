@@ -12,7 +12,7 @@
 -->
 
 <div id="functionsView">
-  <likeView v-if="previewFunction.like" />
+  <!--<likeView v-if="previewFunction.like" />-->
 
   <buttonAlt variant="fuctions">
     <icon><caretDown /></icon>
@@ -24,7 +24,7 @@
 
     
     -->
-    <effect v-if="previewFunction.effect" />
+   <!-- <effect v-if="previewFunction.effect" /> -->
     <div class="preview-content">
       <home />
       <component

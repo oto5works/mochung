@@ -1,5 +1,6 @@
 <template>
-  <dialogFull :dialog="dialog" @update:dialog="updateDialog">
+  <dialogModal :dialog="dialog" @update:dialog="updateDialog">
+    <div class="pa_24">
     <titleArticle
       title="FIELDS OF EXPRESSION"
       content="Get an official Creative Cloud subscription. When you make a payment"
@@ -43,7 +44,8 @@
         >
       </div>
     </div>
-  </dialogFull>
+  </div>
+  </dialogModal>
 </template>
 <script>
 import { mapGetters } from "vuex";

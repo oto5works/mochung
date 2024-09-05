@@ -16,7 +16,6 @@
       :height="0"
       :autoplay="0"
     />
-
     <Flicking
       ref="flicking"
       class="flicking-item"

@@ -1,5 +1,29 @@
 export default {
   state: {
+    formOptions: [
+      {
+        value: "form1",
+        title: "간편하고 빠르게<br />완성하는 스마트 디자인",
+        options: [
+          "Download all (9,072) Download all (9,072)",
+          "Figma plugin / library",
+          "Sketch plugin",
+          "GitHub",
+          "Request an icon",
+          "Donate / Patreon",
+        ],
+      },
+      {
+        value: "form2",
+        title: "나만의 개성을 담은<br />특별한 커스텀 디자인",
+        options: [
+          "Showcase",
+          "whatever, really",
+          "Design file",
+          "Donate / Patreon",
+        ],
+      },
+    ],
     form1TabOptions: [
       { title: "디자인", value: "design", completed: false },
       { title: "예식 정보", value: "wedding", completed: false },
@@ -704,6 +728,9 @@ export default {
   mutations: {},
   actions: {},
   getters: {
+    getFormOptions(state) {
+      return state.formOptions;
+    },
     getForm1TabOptions(state) {
       return state.form1TabOptions;
     },

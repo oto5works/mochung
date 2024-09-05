@@ -1,3 +1,22 @@
+.editor {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 72px;
+    margin-top: var(--mio-theme-editor-spacing-top);
+  }
+  .editor .editor-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .editor .editor-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 .form-spacing {
     height: 8.5vh;
 }

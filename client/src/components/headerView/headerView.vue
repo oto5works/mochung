@@ -17,14 +17,14 @@
             >About</buttonHeader
           >
           <buttonHeader
+            :class="{ selected: isSelected('archive') }"
+            @click="goToArchive()"
+            >Archive</buttonHeader
+          >
+          <buttonHeader
             :class="{ selected: isSelected('form') }"
             @click="goToForm()"
             >Edit</buttonHeader
-          >
-          <buttonHeader
-            :class="{ selected: isSelected('services') }"
-            @click="goToServices()"
-            >Services</buttonHeader
           >
           <buttonHeader
             :class="{ selected: isSelected('components') }"
@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="login-container">
-        <buttonDefault variant="filled" height="46"
+        <buttonDefault variant="filled" height="46" @click="goToLogin()"
           ><span>Login</span></buttonDefault
         >
       </div>
@@ -75,14 +75,17 @@ export default {
     goToAbout() {
       this.$router.push({ name: "about" });
     },
+    goToArchive() {
+      this.$router.push({ name: "archive" });
+    },
     goToForm() {
       this.$router.push({ name: "form" });
     },
-    goToServices() {
-      this.$router.push({ name: "services" });
-    },
     goToComponents() {
       this.$router.push({ name: "components" });
+    },
+    goToLogin() {
+      this.$router.push({ name: "login" });
     },
   },
 };

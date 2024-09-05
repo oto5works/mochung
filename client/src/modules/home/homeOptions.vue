@@ -70,6 +70,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
+  width: 100%;
 }
 .fnOption-item {
   position: relative;

@@ -14,7 +14,6 @@ import check from "@/components/icon/check.vue"; // new
 import search from "@/components/icon/search.vue"; // new
 
 // dialog
-import dialogFull from "@/components/dialog/dialogFull.vue"; // new
 import dialogBottom from "@/components/dialog/dialogBottom.vue"; // new
 import dialogModal from "@/components/dialog/dialogModal.vue"; // new
 import "@/components/dialog/overlay.scss"; // new
@@ -52,6 +51,7 @@ import toggleSwitch from "@/components/toggleSwitch/toggleSwitch.vue"; // new
 import checkbox from "@/components/checkbox/checkbox.vue"; // new
 
 // title
+import titlePage from "@/components/title/titlePage.vue"; // new
 import titleMain from "@/components/title/titleMain.vue"; // new
 import titleArticle from "@/components/title/titleArticle.vue"; // new
 import titleSection from "@/components/title/titleSection.vue"; // new
@@ -117,7 +117,6 @@ export function registerPlugins(app) {
 
     
 
-    .component("dialogFull", dialogFull) // new
     .component("dialogBottom", dialogBottom) // new
     .component("dialogModal", dialogModal) // new
     .component("sectionView", sectionView) // new
@@ -141,7 +140,8 @@ export function registerPlugins(app) {
     .component("checkbox", checkbox) // new
 
 
-    
+    .component("titlePage", titlePage) // new
+
     .component("titleMain", titleMain) // new
     .component("titleArticle", titleArticle) // new
     .component("titleSection", titleSection) // new

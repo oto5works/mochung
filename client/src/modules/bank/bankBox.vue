@@ -12,8 +12,7 @@
     <bankDialog
       v-if="dialog"
       :dialog="dialog"
-      @closeDialog="handleClose"
-      @confirmDialog="handleConfirm"
+      @update:dialog="dialog = $event"
     />
   </cardView>
 </template>
@@ -39,6 +38,7 @@ export default {
   },
   methods: {
     ...mapActions(["handleScrollToAction"]),
+
     handleClickEvent() {
       if (this.depositData.fnDeposit === false) {
         this.depositData.fnDeposit = true;

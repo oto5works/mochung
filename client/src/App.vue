@@ -3,7 +3,6 @@
   <div class="app">
   
 <headerView />
-{{ userData }}
     <!--<appbar />-->
     <RouterView />
     <!--
@@ -11,6 +10,8 @@
       
     <appFooter />
     </div> -->
+    {{ userData }}
+
   </div>
 </template>
 

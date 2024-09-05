@@ -1,5 +1,6 @@
 <template>
-  <dialogFull :dialog="dialog" @update:dialog="updateDialog">
+  <dialogModal :dialog="dialog" @update:dialog="updateDialog">
+    <div class="pa_24">
     <titleArticle title="Music Options" />
 
     <tabs v-model="tab">
@@ -44,7 +45,8 @@
         v-model="audiosData.fnAutoPlay"
       ></toggleSwitch>
     </cardView>
-  </dialogFull>
+  </div>
+  </dialogModal>
 </template>
 <script>
 import { mapGetters } from "vuex";

@@ -1,5 +1,5 @@
 <template>
-  <dialogFull :dialog="dialog" @update:dialog="updateDialog">
+  <dialogModal :dialog="dialog" @update:dialog="updateDialog">
     <div class="z-index_2">
       <titleArticle
         title="메인 효과 설정"
@@ -12,7 +12,7 @@
       </div>
     </div>
     <effectComp style="z-index: 1" :effect="effect" />
-  </dialogFull>
+  </dialogModal>
 </template>
 <script>
 import { mapGetters } from "vuex";

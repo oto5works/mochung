@@ -4,8 +4,7 @@
     <homeDialog
       v-if="dialog"
       :dialog="dialog"
-      @closeDialog="handleClose"
-      @confirmDialog="handleConfirm"
+      @update:dialog="dialog = $event"
     />
   </cardView>
 </template>
@@ -40,6 +39,8 @@ export default {
   },
   methods: {
     ...mapActions(["handleScrollToAction"]),
+
+    // 추후 업데이트 
     handleClickEvent() {
       this.initialStyle = this.homeData.style; // 다이얼로그를 열 때 현재 스타일을 저장
       this.dialog = true;

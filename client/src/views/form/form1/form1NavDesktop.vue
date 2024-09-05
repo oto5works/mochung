@@ -69,7 +69,7 @@ export default {
   position: sticky;
   display: flex;
   justify-content: center;
-  top: 14vh;
+  top: var(--mio-theme-editor-spacing-top);
   width: fit-content;
   min-width: 140px;
   margin: 0;

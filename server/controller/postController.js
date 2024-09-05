@@ -54,7 +54,6 @@ exports.create = async (req, res, next) => {
     if (kakaotalkFile) {
       formData.data.kakaotalkData.files.url = req.files.kakaotalkFile[0].url;
       formData.data.kakaotalkData.files.file.type = req.files.kakaotalkFile[0].mimetype;
-
     }
     const galleryFiles = req.files.galleryFiles;
     console.log("galleryFiles: ", galleryFiles);
@@ -90,9 +89,10 @@ exports.create = async (req, res, next) => {
       }
     }
 
-
-    //const bankFiles = req.files.bankFiles.url;
-    //const galleryFiles = req.files.galleryFiles.url;
+    // Calculate dateExpiration based on dateData.date
+    const eventDate = new Date(formData.data.dateData.date);
+    const dateExpiration = new Date(eventDate);
+    dateExpiration.setMonth(eventDate.getMonth() + 3); // Set expiration date to 3 months after the event date
 
     // Find the user by user_id
     const user = await User.findById(user_id);
@@ -109,6 +109,7 @@ exports.create = async (req, res, next) => {
       pay: false,
       like: 0,
       dateCreate: Date.now(),
+      dateExpiration, // Include the calculated date expiration
     };
 
     const newPost = new Post(newPostInfo);
@@ -126,6 +127,7 @@ exports.create = async (req, res, next) => {
     next(error);
   }
 };
+
 
 exports.delete = async (req, res, next) => {
   try {

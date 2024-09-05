@@ -1,5 +1,5 @@
 <template>
-  <button :class="['cardView', { alt: alt }]">
+  <button class="card" :class="['cardView', { alt: alt }]">
     <div class="cardView-header">
       <icon class="icon_24"><component :is="icon" /></icon>
       <div class="title-wrap">
