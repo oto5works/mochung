@@ -21,14 +21,15 @@ button:hover .thumb-svg svg {
   --svg-color-white: 240, 240, 240; /* Light gray */
 }
 
-.selected .svgColor {
+.selected .svgColor,
+button:hover .svgColor {
   --svg-color-background: 224, 255, 255; /* Light cyan */
   --svg-color-skin: 255, 255, 255; /* Peach puff */
   --svg-color-clothes: 255, 182, 194; /* Sky blue */
   --svg-color-hair: 176, 205, 180; /* Light pink */
-  --svg-color-black: 25, 25, 112; /* Midnight blue */
+  --svg-color-black: 0, 0, 0; /* Midnight blue */
   --svg-color-primary: 216, 237, 255; /* Bisque */
-  --svg-color-white: 255, 255, 240; /* Ivory */
+  --svg-color-white: 255, 255, 255; /* Ivory */
 }
 
 .svgColor .background {
@@ -43,7 +44,6 @@ button:hover .thumb-svg svg {
 .svgColor .clothes {
   color: rgb(var(--svg-color-clothes));
 }
-
 .svgColor .primary {
   color: rgb(var(--svg-color-primary));
 }
@@ -71,5 +71,5 @@ button:hover .thumb-svg svg {
 .svgColor .black,
 .svgColor .primary,
 .svgColor .line {
-  transition: all 1.2s ease;
+  transition: all 0.4s ease;
 }

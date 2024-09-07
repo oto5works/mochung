@@ -20,3 +20,135 @@
 .form-spacing {
     height: 8.5vh;
 }
+
+
+/*-- formOption --*/
+.formOption .formOptionCard {
+  width: 36vh;
+}
+.formOption {
+  position: relative;
+  width: 100%;
+  color: var(--mio-theme-color-on-background);
+  margin-top: var(--mio-theme-editor-spacing-top);
+}
+.formOption .formOption-content {
+  position: relative;
+  display: flex;
+  width: 100%;
+  gap: 24px;
+  justify-content: center;
+}
+.formOption .flicking {
+  display: none;
+}
+/*--- 모바일 ---*/
+@media all and (max-width: 479px) {
+  .formOption .flicking {
+    display: block;
+    width: 100%;
+  }
+  .formOption .flicking .formOptionCard {
+    width: 36vh;
+    margin-right: 16px;
+  }
+}
+
+
+
+
+/*-- formOptionCard --*/
+
+.formOptionCard {
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+  width: 100%;
+  padding: 48px 24px 24px 24px;
+  border-radius: 32px;
+}
+.formOptionCard .formOptionCard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+.formOptionCard .list-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+}
+.formOptionCard .title-wrap {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+}
+.formOptionCard .title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 130%;
+}
+.formOptionCard .list-item {
+  flex-wrap: nowrap;
+  width: 100%;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+.formOptionCard .list-item span {
+  font-size: 15px;
+  white-space: nowrap; /* 줄바꿈 방지 */
+  overflow: hidden; /* 넘치는 내용 숨김 */
+  text-overflow: ellipsis; /* 말줄임 적용 */
+  width: 100%;
+}
+.formOptionCard .image {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.formOptionCard .image .svgColor {
+  width: 80%;
+}
+
+// hover + selected
+.formOptionCard:hover,
+.formOptionCard.selected {
+  color: rgb(var(--mio-theme-color-primary));
+}
+.formOptionCard:hover .underlay,
+.formOptionCard.selected .underlay {
+  background-color: rgb(224, 255, 255);
+}
+.formOptionCard .formOptionCard-content,
+.formOptionCard .image {
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+.formOptionCard:hover .formOptionCard-content,
+.formOptionCard.selected .formOptionCard-content,
+.formOptionCard:hover .image,
+.formOptionCard.selected .image {
+  opacity: 1;
+}
+
+// formOptionCard-arrow
+.formOptionCard-arrow {
+  width: 40px;
+  height: 40px;
+  opacity: 0;
+}
+.formOptionCard-arrow svg {
+  stroke-width: 12!important;
+}
+
+.formOptionCard:hover .formOptionCard-arrow,
+.formOptionCard.selected .formOptionCard-arrow
+{
+  opacity: 1;
+}

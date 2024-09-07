@@ -1,8 +1,10 @@
 <template>
   <div class="titlePage">
-    <div class="title" v-html="title"></div>
-      <div class="content" v-if="content">{{ content }}</div>
-      <slot></slot> 
+    <div class="titlePage-content">
+      <div class="title" v-html="title"></div>
+      <div class="content" v-if="content" v-html="content"></div>
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -19,21 +21,31 @@ export default {
 .titlePage {
   position: relative;
   display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.titlePage-content {
+  position: relative;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 24px;
-  margin-bottom: 64px;
+  gap: 2.5rem;
+  margin-bottom: 120px;
   text-align: center;
+  max-width: 660px;
 }
 .titlePage .title {
-  font-size: 64px;
-  font-weight: 700;
-  line-height: 130%;
+  font-size: 6rem;
+  letter-spacing: -0.02em;
+  line-height: 6.5rem;
+  font-weight: 800;
+  font-family: "EBGaramond", "pretendard", sans-serif;
 }
 .titlePage .content {
-  font-size: 20px;
-  line-height: 168%;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  letter-spacing: 0;
   color: rgb(var(--mio-theme-color-on-background-70));
 }
 </style>

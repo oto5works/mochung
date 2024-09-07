@@ -1,4 +1,5 @@
 // url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/TTTtangsbudaejjigaeB.woff2') format('woff2');
+$base-url: 'https://oto5works.github.io/storage'; // 기본값
 
 h1,
 h2,
@@ -37,7 +38,13 @@ u {
 .font-weight_700 {
   font-weight: 700;
 }
-
+@font-face {
+  font-family: "EBGaramond";
+  src: url("#{$base-url}/font/EBGaramond-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900; /* 가변 폰트의 가중치 범위 */
+  font-display: swap;
+}
 // 프리텐다드
 @font-face {
   font-family: "pretendard";

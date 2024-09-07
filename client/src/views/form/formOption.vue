@@ -1,19 +1,34 @@
 <template>
   <div class="formOption">
     <titlePage
-      title="FIELDS OF EXPRESSION"
-      content="간편한 템플릿을 활용하거나 자유롭게 디자인하여, 손쉽게 당신만의 스타일로 맞춤형 모바일 청첩장을 만들어보세요!"
+      title="Create at"
+      content="Our premium space puts brands in front of the world’s most influential audiences, generating more attention than any other digital platform."
     />
+    <div class="formOption-content">
+      <formOptionCard
+          class="formOptionCard"
+          v-for="(option) in formOptions"
+          :key="option.value"
+          :value="option.value"
+          :title="option.title"
+          :options="option.options"
+          @click="handleFormOption(option.value)"
+        >
+          <component :is="option.value" />
+        </formOptionCard>
+
+    </div>
+
     <div class="flicking">
       <Flicking
         ref="flicking"
         class="flicking-item"
-        :options="{ moveType: 'snap', bound: true, align: 'prev' }"
+        :options="{ moveType: 'snap', bound: true, align: 'center' }"
         :plugins="plugins"
         @changed="onSlideChanged"
       >
-        <cardSelect
-          class="cardSelect"
+        <formOptionCard
+          class="formOptionCard"
           v-for="(option, index) in formOptions"
           :key="option.value"
           :value="option.value"
@@ -23,7 +38,7 @@
           @click="handleFormOption(option.value)"
         >
           <component :is="option.value" />
-        </cardSelect>
+        </formOptionCard>
 
         <template #viewport>
           <span class="flicking-arrow-prev"></span>
@@ -43,14 +58,15 @@ import { Arrow, Pagination } from "@egjs/flicking-plugins";
 
 import form1 from "@/components/svg/form1.vue";
 import form2 from "@/components/svg/form2.vue";
-import cardSelect from "@/components/cardView/cardSelect.vue";
+import formOptionCard from "@/views/form/formOptionCard.vue";
+import "@/views/form/form.scss";
 
 export default {
   components: {
     Flicking,
     form1,
     form2,
-    cardSelect,
+    formOptionCard,
   },
   data() {
     return {
@@ -74,19 +90,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.cardSelect {
-  width: 36vh;
-  margin-right: 16px;
-}
-
-.cardSelect.selected {
-  border: 2px solid var(--mio-theme-color-primary); /* 선택된 슬라이드를 강조 */
-}
-
-.formOption {
-  color: var(--mio-theme-color-on-background);
-  margin-top: var(--mio-theme-editor-spacing-top);
-}
-</style>

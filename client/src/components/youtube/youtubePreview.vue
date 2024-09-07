@@ -1,12 +1,10 @@
 <template>
   <div class="youtubePreview">
     <div class="videoPlayer" v-if="videoPreview" v-html="videoPreview"></div>
-    <div v-else class="youtube-message">
-      <span>비디오가 등록되지 않았습니다. 주소를 입력해주세요.</span>
-    </div>
   </div>
 </template>
 <script>
+import '@/components/youtube/youtube.scss'
 export default {
   components: {},
   props: {
@@ -24,41 +22,12 @@ export default {
       if (youtubeMatch && youtubeMatch[1].length === 11) {
         return `<iframe class="videoIframe" src="https://www.youtube.com/embed/${youtubeMatch[1]}" frameborder="0" allowfullscreen></iframe>`;
       } else {
-        return '<span>유효하지 않은 YouTube URL입니다. 다시 입력해주세요.</span>';
+        return '<div class="youtube-message"><span>유효하지 않은 YouTube URL입니다. 다시 입력해주세요.</span></div>';
       }
     }
-    return '<span>비디오가 등록되지 않았습니다. 주소를 입력해주세요.</span>';
+    return '<div class="youtube-message"><span>비디오가 등록되지 않았습니다. 주소를 입력해주세요.</span></div>';
   },
 },
 
 };
 </script>
-
-<style scoped>
-.youtubePreview {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  aspect-ratio: 9 / 5;
-  background-color: rgb(var(--mio-theme-color-on-background));
-}
-.youtubePreview span {
-  color: rgb(var(--mio-theme-color-background));
-  font-size: 14px;
-}
-</style>
-
-<style>
-.videoPlayer {
-  position: relative; /* absolute는 부모가 relative일 때 부모를 따라간다. */
-  width: 100%;
-  padding-bottom: 56.25%;
-}
-.videoIframe {
-  position: absolute;
-  width: 100%; /* 부모에 맞게 꽉 채운다. */
-  height: 100%;
-}
-</style>

@@ -1,36 +1,29 @@
 <template>
   <header class="headerView">
     <div class="container">
-      <div class="logo-container" @click="goToHome()">
+      <div class="logo-container" @click="$router.push({ name: 'home' })">
         <span class="logo">logo</span>
       </div>
       <div class="menu-container">
         <div class="menu-wrap">
+          
+         
           <buttonHeader
-            :class="{ selected: isSelected('home') }"
-            @click="goToHome()"
-            >Home</buttonHeader
+            :class="{ selected: $route.name === 'archive' }"
+            @click="$router.push({ name: 'archive' })"
+            >archive</buttonHeader
           >
           <buttonHeader
-            :class="{ selected: isSelected('about') }"
-            @click="goToAbout()"
-            >About</buttonHeader
+            :class="{ selected: $route.name === 'form' }"
+            @click="$router.push({ name: 'form' })"
+            >form</buttonHeader
           >
           <buttonHeader
-            :class="{ selected: isSelected('archive') }"
-            @click="goToArchive()"
-            >Archive</buttonHeader
+            :class="{ selected: $route.name === 'components' }"
+            @click="$router.push({ name: 'components' })"
+            >components</buttonHeader
           >
-          <buttonHeader
-            :class="{ selected: isSelected('form') }"
-            @click="goToForm()"
-            >Edit</buttonHeader
-          >
-          <buttonHeader
-            :class="{ selected: isSelected('components') }"
-            @click="goToComponents()"
-            >Components</buttonHeader
-          >
+         
           <div class="underlay" />
         </div>
       </div>

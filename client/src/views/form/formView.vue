@@ -47,6 +47,8 @@ export default {
   display: block;
   width: 480px;
   height: 100%;
+  contain: layout;
+
 }
 @media all and (max-width: 479px) {
   .formView__content {

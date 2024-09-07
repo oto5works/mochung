@@ -15,9 +15,9 @@ export default {
       },
       {
         value: "form2",
-        title: "나만의 개성을 담은<br />특별한 커스텀 디자인",
+        title: "자유로운<br />특별한 커스텀 디자인",
         options: [
-          "Showcase",
+          "모든 글을 수정할수 있어요",
           "whatever, really",
           "Design file",
           "Donate / Patreon",

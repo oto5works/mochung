@@ -1,19 +1,20 @@
 <!-- formCreate.vue -->
 <template>
   <div class="layout">
-    <div class="layer-1">
+    <div class="layer-5" v-if="!formOption">
+      <formOption />
+    </div>
+    <div class="layer-1" v-if="formOption">
       <div class="preview-wrap">
         <!--<div class="form-preview__wrap"></div>-->
         <div class="preview-mobile"><preview /></div>
       </div>
     </div>
-    <div class="layer-2">
-      <formOption v-if="!formOption" />
-      <component v-if="formOption" :is="formOption" />
+    <div class="layer-2" v-if="formOption">
+      <component  :is="formOption" />
     </div>
 
-    <div class="layer-3">
-
+    <div class="layer-3" v-if="formOption">
       <form1NavDesktop v-if="formOption === 'form1'" />
       <form2NavDesktop v-if="formOption === 'form2'" />
       <!--
@@ -46,7 +47,6 @@ import { mapGetters, mapActions } from "vuex";
 
 /*-- form스타일을 고르는 중 미리 load 하기 --*/
 import "@/views/form/form.scss";
-
 
 export default {
   components: {

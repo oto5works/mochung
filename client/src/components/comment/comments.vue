@@ -1,5 +1,5 @@
 <template>
-  <div class="commentWrap">
+  <div class="comments">
     <comment
       v-for="item in displayedComments"
       :key="item.id"

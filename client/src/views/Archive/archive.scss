@@ -1,19 +1,32 @@
+.archive-image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #f6f6f0;
+  background-position: center;
+  background-size: cover;
+}
 .archive {
   color: var(--mio-theme-color-on-background);
   margin-top: var(--mio-theme-editor-spacing-top);
 }
 .archives {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 0 48px;
 }
 .archiveCard {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 24px;
+  padding: 24px 24px 0 24px;
   background-color: rgb(var(--mio-theme-color-primary-05));
   border-radius: 26px;
 }
@@ -25,6 +38,7 @@
   width: 100%;
 }
 .archiveCard .link {
+  font-size: 13px;
   text-decoration: underline;
   color: rgb(var(--mio-theme-color-secondary));
   cursor: pointer;
@@ -45,9 +59,16 @@
   width: 100%;
   height: 164px;
   background-position: center;
-  background-size: cover;
+  background-size: 100%;
   border-radius: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
 }
+.archiveCard:hover .image-wrap {
+  background-size: 108%;
+}
+
 .archiveCard .functions-wrap {
   position: relative;
   display: flex;
@@ -72,11 +93,11 @@
 }
 
 .archiveCard .pay-wrap .thumb {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0; /* 축소 방지 */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* 축소 방지 */
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -85,8 +106,7 @@
 
 .archiveCard .pay-wrap .thumb.active {
   color: white;
-  background: linear-gradient(135deg, #6DD5FA 0%, #2980B9 100%);
-
+  background: linear-gradient(135deg, #5978e7 0%, #756fd1 50%, #9266ae 100%);
 }
 .archiveCard .pay-wrap .content {
   display: flex;

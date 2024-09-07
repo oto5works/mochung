@@ -1,15 +1,14 @@
 <!-- ParentComponent.vue -->
 <template>
   <div class="layout">
-    <div class="layer-1"></div>
-    <div class="layer-2">
+    <div class="layer-5">
       <div class="archive">
         <titlePage
-          title="FIELDS OF EXPRESSION"
-          content="간편한 템플릿을 활용하거나 자유롭게 디자인하여, 손쉽게 당신만의 스타일로 맞춤형 모바일 청첩장을 만들어보세요!"
+          title="Collection"
+          content="The simplest way to send big files? That’s us. A platform to empower<br> creatives while using business as a force for good? Also us."
         >
-        <buttonDefault variant="filled" height="40"
-        ><span>Start</span></buttonDefault
+        <buttonDefault variant="filled" height="46"
+        ><span>Read stories</span></buttonDefault
       >
         </titlePage>
         <div class="archives">
@@ -22,29 +21,6 @@
         </div>
       </div>
     </div>
-
-    <div class="layer-3">
-      <!--
-      <sidebar
-        title="Components"
-        :selected="currentComponent"
-        :options="components"
-        @update:selected="handleUpdateSelected"
-      />
-
-   -->
-    </div>
-
-    <!--
-      <div
-        v-if="formOption"
-        class="form-preview"
-        ref="previewComponent"
-        :class="{ active: showPreview }"
-      >
-        
-      </div>
-      -->
   </div>
 </template>
 

@@ -13,20 +13,30 @@
         variant="tonal"
         height="32"
         :icon="true"
-        @click="dialog.more = true"
-        ><icon class="icon_16"><dots /></icon>
-        <tooltipMenu
-        v-if="dialog.more"
-        :dialog="dialog.more"
-        @update:dialog="dialog.more = $event"
+        @click="handleDialogMore"
+        :class="{
+          selected: dialog.more,
+        }"
       >
-        <listItem icon="trash" label="삭제" @click="handleDelete" />
-        <listItem icon="pencil" label="수정" @click="handleEdit" />
-        <listItem icon="eye" label="미리보기" @click="handlePreview" />
-        <listItem icon="share" label="공유하기" @click="dialog.share = true" />
-      </tooltipMenu>
+        <icon class="icon_14" v-if="dialog.more"><x /></icon>
+
+        <icon class="icon_16" v-else><dots /></icon>
+
+        <tooltipMenu
+          v-if="dialog.more"
+          :dialog="dialog.more"
+          @update:dialog="dialog.more = $event"
+        >
+          <listItem icon="trash" label="삭제" @click="handleDelete" />
+          <listItem icon="pencil" label="수정" @click="handleEdit" />
+          <listItem icon="eye" label="미리보기" @click="handlePreview" />
+          <listItem
+            icon="share"
+            label="공유하기"
+            @click="dialog.share = true"
+          />
+        </tooltipMenu>
       </buttonDefault>
-      
     </div>
     <div class="title-wrap">
       <div class="title">Save the Date</div>
@@ -34,12 +44,12 @@
         Creative at
         {{ archive.formData.data.dateData.date }}
         {{ archive.formData.data.dateData.time }}<br />
-        Delete at
       </span>
     </div>
     <div
       class="image-wrap"
       :style="{ backgroundImage: `url('${getRandomOrHeroImage()}')` }"
+      @click="handlePreview"
     />
     <div class="functions-wrap">
       <buttonDefault
@@ -122,7 +132,6 @@
 
     <!-- Dialog -->
 
-  
     <survey
       v-if="dialog.survey"
       :dialog="dialog.survey"
@@ -137,12 +146,10 @@
       :root="true"
       :id="archive.id"
     />
-    <active
+    <archiveActive
       v-if="dialog.active"
       :dialog="dialog.active"
       @update:dialog="dialog.active = $event"
-      :root="true"
-      :input="outlined"
       :id="archive.id"
     />
     <!-- Dialog -->
@@ -164,7 +171,6 @@ import dots from "@/components/icon/dots";
 
 import tooltipMenu from "@/components/tooltip/tooltipMenu.vue";
 
-
 export default {
   components: {
     tooltipMenu,
@@ -176,10 +182,11 @@ export default {
     rsvp,
     dots,
     lock,
-    more: defineAsyncComponent(() => import("@/views/archive/more.vue")),
     survey: defineAsyncComponent(() => import("@/views/archive/survey.vue")),
     comment: defineAsyncComponent(() => import("@/views/archive/comment.vue")),
-    active: defineAsyncComponent(() => import("@/views/archive/active.vue")),
+    archiveActive: defineAsyncComponent(() =>
+      import("@/views/archive/components/archiveActive.vue")
+    ),
   },
   data() {
     return {
@@ -235,21 +242,26 @@ export default {
         return this.archive.formData.data.homeData.files.url;
       }
     },
+    handleDialogMore() {
+      this.dialog.more = !this.dialog.more; // 현재 상태를 반전시킴
+      // this.$emit("confirmDelete");
+    },
     handlePreview() {
       const id = this.archive.id; // Get the ID from the props
-      this.$router.push({ name: "view", params: { id: id } }); // Navigate to the 'view' route with the ID parameter
+      const url = this.$router.resolve({
+        name: "formView",
+        params: { id: id },
+      }).href;
+      window.open(url, "_blank"); // Open the route in a new tab
     },
     handleDelete() {
+      this.dialog.more = !this.dialog.more; // 현재 상태를 반전시킴
       this.$emit("confirmDelete");
     },
     handlePayment() {
       if (!this.archive.pay) {
         this.dialog.active = true;
       }
-    },
-    handlePreview() {
-      const id = this.id; // Get the ID from the props
-      this.$router.push({ name: "view", params: { id: id } }); // Navigate to the 'view' route with the ID parameter
     },
     handleEdit() {
       const id = this.id; // Get the ID from the props
