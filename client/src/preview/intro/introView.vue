@@ -2,12 +2,15 @@
   <article id="introView">
     <sectionView id="previewIntro">
       <div class="container previewIntro">
-        <div class="--font-size_22 font-weight_700 line-height_130 width_100">
-          {{ introData.title }}
+        <div class="tiptap-wrap">
+          <div class="--font-size_22 font-weight_700 line-height_130 width_100">
+            {{ introData.title }}
+          </div>
+          <div class="preview-tiptap" v-html="introData.content" />
         </div>
-        <div class="sp_22" />
-        <div class="preview-tiptap" v-html="introData.content" />
-        <div class="sp_56" />
+
+        <div class="sp_96" />
+        <stampView />
       </div>
     </sectionView>
 
@@ -20,8 +23,6 @@
         </buttonCustom>
         <div v-if="shadow" class="shadow" />
         <div class="overlay" />
-
-        
       </div>
     </sectionView>
     <introContact
@@ -34,7 +35,6 @@
 <script>
 import { defineAsyncComponent } from "vue";
 import { mapGetters } from "vuex";
-
 export default {
   components: {
     introFamily: defineAsyncComponent(() =>
@@ -45,6 +45,9 @@ export default {
     ),
     introContact: defineAsyncComponent(() =>
       import("@/preview/intro/introContact.vue")
+    ),
+    stampView: defineAsyncComponent(() =>
+      import("@/preview/stamp/stampView.vue")
     ),
   },
   computed: {

@@ -1,0 +1,194 @@
+.appbar_pc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px; /* 고정 높이 설정 */
+  color: rgb(var(--mio-theme-color-on-background));
+  background-color: transparent;
+  padding: 0 48px; /* 좌우 패딩 */
+  box-sizing: border-box; /* 패딩과 경계선을 포함한 박스 모델 */
+  display: flex;
+  align-items: center; /* 수직 중앙 정렬 */
+}
+.appbar_pc .container {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto; /* 중앙 정렬 */
+  box-sizing: border-box; /* 패딩과 경계선을 포함한 박스 모델 */
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* 12컬럼 그리드 시스템 설정 */
+  gap: 24px; /* 그리드 아이템 간의 간격 */
+}
+.appbar_pc .logo-container {
+  position: relative;
+  height: 100%;
+  grid-column: 1 / 3; /* 1번 컬럼부터 2번 컬럼까지 */
+  display: flex;
+  align-items: center;
+}
+.appbar_pc .logo-container .logo {
+  height: 25%;
+  width: 100%;
+}
+/* 메뉴 컨테이너 */
+.appbar_pc .menu-container {
+  grid-column: 7 / 11; /* 7번 컬럼부터 10번 컬럼까지 */
+  display: flex;
+  align-items: center;
+}
+.appbar_pc .menu-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  width: fit-content;
+  height: 48px;
+}
+.appbar_pc .menu-wrap > .underlay {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 48px);
+  height: 100%;
+  border-radius: 16px;
+  background-color: rgba(215, 215, 195, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.appbar_pc .login-container {
+  grid-column: 12 / 13; /* 12번 컬럼 */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* 오른쪽 정렬 */
+}
+.appbar_pc .login {
+  width: 100%;
+  height: 40px;
+}
+
+/*-- appbar Button --*/
+.appbarButton {
+  position: relative;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  transition: all 0.4s ease-in-out;
+  font-size: 14px;
+}
+.appbarButton.selected {
+  font-weight: 500;
+}
+.appbarButton .underlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 36px);
+  height: 100%;
+}
+.appbarButton:hover .underlay {
+  background-color: rgb(var(--mio-theme-color-primary-10));
+}
+.appbarButton.selected .underlay {
+  background-color: rgb(var(--mio-theme-color-primary-20));
+}
+
+.appbar_mobile {
+  display: none;
+}
+@media all and (max-width: 479px) {
+  .appbar_pc {
+    display: none;
+  }
+
+  /*-- appbar mobile --*/
+
+  .appbar_mobile {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 8px 16px;
+    box-sizing: border-box; /* 패딩과 경계선을 포함한 박스 모델 */
+  }
+
+  .appbar_mobile .container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 56px;
+    padding: 0 8px 0 24px;
+    border-radius: 12px;
+    background-color: rgba(215, 215, 195, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .appbar_mobile .container.isOpen {
+    border-radius: 12px 12px 0 0;
+  }
+  .appbar_mobile .container .logo {
+    font-size: 1.3rem;
+    letter-spacing: 0;
+    font-weight: 600;
+    font-family: "EBGaramond", "pretendard", sans-serif;
+  }
+  .appbar_mobile .container .logo svg {
+    height: 100%;
+  }
+
+  .appbar_mobile .appbar-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+    width: 100%;
+    padding: 0 8px 16px 8px;
+    background-color: rgba(215, 215, 195, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 0 0 12px 12px;
+  }
+  .appbar_mobile .appbar-panel.isOpen {
+    max-height: 1000px; /* 콘텐츠를 모두 담을 수 있을 만큼 큰 값 */
+    opacity: 1;
+  }
+
+  .appbarAuth {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 16px;
+    border-radius: 18px;
+    background-color: rgb(var(--mio-theme-color-primary-10));
+  }
+  .appbarAuth .content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .appbarAuth .svgColor {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .appbarAuth .svgColor svg {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}

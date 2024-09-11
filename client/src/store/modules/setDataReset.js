@@ -117,9 +117,9 @@ const resetValue = {
       item: {
         filename: "aaaaa",
         id: "hero-image",
-        x: 1,
-        y: 5,
-        w: 5,
+        x: 0,
+        y: 6,
+        w: 8,
         h: 6,
       },
     },
@@ -141,18 +141,18 @@ const resetValue = {
     customData: {
       temp: "", // 디자인 템플릿 사용유무
       styleBackground: "defaulted", // defaulted, gradient
-      backgroundColor: [255, 255, 0],
-      design: "design1", // 디자인 스타일 design1: default, design2: card style, design3: line style
-      align: "left",
-      primaryColor: [0, 255, 0], // rgb값
+      backgroundColor: [255, 255, 255],
+      design: "design3", // 디자인 스타일 design1: default, design2: card style, design3: line style
+      align: "center",
+      primaryColor: [0, 0, 0], // rgb값
       radius: 2, // level: 0, 1, 2, 3
       border: false, // 객체의 border
       shadow: false, // 객체의 shadow
       fontSize: 2, // level: 1, 2, 3,
-      fontColor: [0, 0, 255], // rgb값
+      fontColor: [0, 0, 0], // rgb값
       fontFamily: "pretendard",
       fontWeight: true, // bold 사용 유무
-      stamp: "flower",
+      stamp: "leaf1",
       /*-- add --*/
 
       // gradient1: "#FFFFFF",

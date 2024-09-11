@@ -33,7 +33,7 @@
         :is="option"
       />
 
-      <!-- <footers /> -->
+       <footersView /> 
     </div>
   </div>
 </template>
@@ -84,8 +84,8 @@ export default {
 
     notice: defineAsyncComponent(() => import("@/views/preview/notice/notice")),
 
-    footers: defineAsyncComponent(() =>
-      import("@/views/preview/footers/footers")
+    footersView: defineAsyncComponent(() =>
+      import("@/preview/footers/footersView.vue")
     ),
   },
   created() {

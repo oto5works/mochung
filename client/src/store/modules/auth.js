@@ -4,7 +4,9 @@ const auth = {
     isAuthenticated: false,
     userId: null,
     status: "guest",
-    email: "",
+    userInfo: {
+      email: "",
+    },
   },
 
   mutations: {

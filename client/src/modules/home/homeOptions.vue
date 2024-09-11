@@ -58,6 +58,8 @@ export default {
   methods: {
     selectOption(option) {
       this.homeData.style = option.value;
+      this.homeData.item = option.item;
+
       //this.$emit("update:dialog", false);
     },
   },

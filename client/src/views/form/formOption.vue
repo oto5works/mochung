@@ -6,17 +6,16 @@
     />
     <div class="formOption-content">
       <formOptionCard
-          class="formOptionCard"
-          v-for="(option) in formOptions"
-          :key="option.value"
-          :value="option.value"
-          :title="option.title"
-          :options="option.options"
-          @click="handleFormOption(option.value)"
-        >
-          <component :is="option.value" />
-        </formOptionCard>
-
+        class="formOptionCard"
+        v-for="option in formOptions"
+        :key="option.value"
+        :value="option.value"
+        :title="option.title"
+        :options="option.options"
+        @click="handleFormOption(option.value)"
+      >
+        <component :is="option.value" />
+      </formOptionCard>
     </div>
 
     <div class="flicking">
@@ -58,6 +57,8 @@ import { Arrow, Pagination } from "@egjs/flicking-plugins";
 
 import form1 from "@/components/svg/form1.vue";
 import form2 from "@/components/svg/form2.vue";
+import form3 from "@/components/svg/form3.vue";
+
 import formOptionCard from "@/views/form/formOptionCard.vue";
 import "@/views/form/form.scss";
 
@@ -66,6 +67,7 @@ export default {
     Flicking,
     form1,
     form2,
+    form3,
     formOptionCard,
   },
   data() {

@@ -73,6 +73,8 @@ export default {
       customData: "getCustomData",
       tempCategorys: "getTempCategorys",
       tempOptions: "getTempOptions",
+      homeStyleOptions: "getHomeStyleOptions",
+      homeData: "getHomeData",
     }),
     filteredTempOptions() {
       const selectedCategory = this.tab;
@@ -127,6 +129,10 @@ export default {
       const selectedTemp = this.tempOptions.find(
         (item) => item.value === option.value
       );
+      const homeStyle = this.homeStyleOptions.find(
+        (item) => item.value === selectedTemp.homeStyle
+      );
+console.log ('fff' , homeStyle)
       const updateData = {
         customData: {
           ...this.customData,
@@ -151,6 +157,8 @@ export default {
         },
       };
       if (selectedTemp) {
+        this.homeData.style = homeStyle.value;
+      this.homeData.item = homeStyle.item;
         this.updateFormDataAction(updateData);
         this.selectedIndex(option.value);
       }

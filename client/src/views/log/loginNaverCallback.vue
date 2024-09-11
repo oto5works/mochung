@@ -20,8 +20,9 @@ export default {
   computed: {
     ...mapGetters({ userData: 'getUserData' }),
   },
-  mounted () {
+  created () {
     loginAuth()
   }
 }
 </script>
+

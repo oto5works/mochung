@@ -23,6 +23,7 @@ export const getAUser = async (id) => {
   }
 }
 
+
 export const getUserPosts = async (userId) => {
   try {
     const res = await axios.get(postBaseUrl + userId + '/posts');

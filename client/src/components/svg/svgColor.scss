@@ -53,6 +53,13 @@ button:hover .svgColor {
 .svgColor .white {
   color: rgb(var(--svg-color-white));
 }
+.svgColor .bg {
+  color: rgba(var(--svg-color-white), 0);
+}
+.selected .svgColor .bg,
+button:hover .svgColor .bg {
+  color: rgba(var(--svg-color-white), 1);
+}
 .svgColor .line {
   fill: none;
   display: inline-block;

@@ -23,6 +23,11 @@ export default {
           "Donate / Patreon",
         ],
       },
+      {
+        value: "form3",
+        title: "자유로운<br />특별한 커스텀 디자인",
+        options: [],
+      },
     ],
     form1TabOptions: [
       { title: "디자인", value: "design", completed: false },
@@ -82,28 +87,40 @@ export default {
     homeStyleOptions: [
       {
         value: "home1",
-        x: 1,
-        y: 5,
-        w: 5,
-        h: 6,
+        item: {
+          filename: "aaaaa",
+          id: "hero-image",
+          x: 0,
+          y: 6,
+          w: 8,
+          h: 6,
+        },
         title: "메인 화면 1",
         src: "http://localhost:5173/form/easy",
       },
       {
         value: "home2",
-        x: 0,
-        y: 0,
-        w: 8,
-        h: 12,
+        item: {
+          filename: "aaaaa",
+          id: "hero-image",
+          x: 0,
+          y: 0,
+          w: 8,
+          h: 12,
+        },
         title: "메인 화면 2",
         src: "http://localhost:5173/form/easy",
       },
       {
         value: "home3",
-        x: 1,
-        y: 1,
-        w: 6,
-        h: 10,
+        item: {
+          filename: "aaaaa",
+          id: "hero-image",
+          x: 1,
+          y: 1,
+          w: 6,
+          h: 10,
+        },
         title: "메인 화면 3",
         src: "http://localhost:5173/form/easy",
       },
@@ -332,9 +349,10 @@ export default {
         fontColor: [0, 0, 0],
         fontFamily: "pretendard",
         fontWeight: false,
-        stamp: "",
+        stamp: "leaf1",
         category: ["character"],
         src: "http://localhost:5173/form/easy",
+        homeStyle: "home1"
       },
       {
         value: "design1",
@@ -358,6 +376,7 @@ export default {
         stamp: "",
         category: ["character"],
         src: "http://localhost:5173/form/easy",
+        homeStyle: "home2"
       },
       {
         value: "design2",

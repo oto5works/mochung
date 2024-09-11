@@ -1,8 +1,9 @@
 <!-- App.vue -->
 <template>
   <div class="app">
-  
-<headerView />
+    <appbar_pc />
+    <appbar_mobile />
+
     <!--<appbar />-->
     <RouterView />
     <!--
@@ -11,20 +12,18 @@
     <appFooter />
     </div> -->
     {{ userData }}
-
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import appbar from "@/components/appbar/appbar.vue";
-import headerView from "@/components/headerView/headerView.vue";
-
+import appbar_pc from "@/components/appbar/appbar_pc.vue";
+import appbar_mobile from "@/components/appbar/appbar_mobile.vue";
 
 export default {
   components: {
-    appbar, headerView
-    
+    appbar_mobile,
+    appbar_pc,
   },
   data() {
     return {
@@ -72,7 +71,6 @@ export default {
   display: block;
   width: 100%;
   height: 100%;
-
 }
 #routerView {
   position: relative;
@@ -80,7 +78,6 @@ export default {
   width: 100%;
   height: 100%;
   background-color: rgb(254, 242, 226);
-  
 }
 
 footer {

@@ -14,6 +14,8 @@
             {{ dDay }}
           </span>
         </div>
+          <stampView />
+        
       </div>
     </sectionView>
 
@@ -50,6 +52,9 @@ export default {
     ),
     calendar3: defineAsyncComponent(() =>
       import("@/preview/calendar/calendar3.vue")
+    ),
+    stampView: defineAsyncComponent(() =>
+      import("@/preview/stamp/stampView.vue")
     ),
   },
   computed: {
@@ -100,7 +105,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-/* 필요한 스타일 추가 */
-</style>

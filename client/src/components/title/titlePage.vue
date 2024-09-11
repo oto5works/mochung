@@ -49,3 +49,21 @@ export default {
   color: rgb(var(--mio-theme-color-on-background-70));
 }
 </style>
+
+<style scoped>
+@media all and (max-width: 479px) {
+  .titlePage-content {
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
+  .titlePage .title {
+  font-size: 3rem;
+  letter-spacing: -0.01em;
+  line-height: 3.25rem;
+}
+.titlePage .content {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+}
+</style>

@@ -38,3 +38,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.hero__wrap {
+  background-color: aqua;
+}
+</style>

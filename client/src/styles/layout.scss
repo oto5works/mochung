@@ -122,3 +122,16 @@
     outline: unset;
   }
 }
+
+
+@media all and (max-width: 479px) {
+  .layout {
+    width: 100%;
+    height: auto;
+    display: block;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    padding: 0 16px;
+    color: rgb(var(--mio-theme-color-on-background));
+  }
+}
