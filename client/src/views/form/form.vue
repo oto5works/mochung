@@ -1,23 +1,26 @@
 <!-- formCreate.vue -->
 <template>
-  <div class="layout">
-    <div class="layer-5" v-if="!formOption">
+  <div>
+    <div class="ui-page" v-if="!formOption">
       <formOption />
     </div>
-    <div class="layer-1" v-if="formOption">
-      <div class="preview-wrap">
-        <!--<div class="form-preview__wrap"></div>-->
-        <div class="preview-mobile"><preview /></div>
-      </div>
-    </div>
-    <div class="layer-2" v-if="formOption">
-      <component  :is="formOption" />
-    </div>
 
-    <div class="layer-3" v-if="formOption">
-      <form1NavDesktop v-if="formOption === 'form1'" />
-      <form2NavDesktop v-if="formOption === 'form2'" />
-      <!--
+    <div class="form-grid">
+      <div class="layer-1" v-if="formOption">
+        <div class="preview-wrap">
+          <!--<div class="form-preview__wrap"></div>-->
+          <div class="preview-mobile"><preview /></div>
+        </div>
+      </div>
+      <div class="layer-2" v-if="formOption">
+        <component :is="formOption" />
+        <formPage />
+      </div>
+
+      <div class="layer-3" v-if="formOption">
+        <form1NavDesktop v-if="formOption === 'form1'" />
+        <form2NavDesktop v-if="formOption === 'form2'" />
+        <!--
       <sidebar
         title="Components"
         :selected="currentComponent"
@@ -26,8 +29,8 @@
       />
 
    -->
+      </div>
     </div>
-
     <!--
       <div
         v-if="formOption"
@@ -52,7 +55,7 @@ export default {
   components: {
     preview: defineAsyncComponent(() => import("@/preview/preview.vue")),
     formOption: defineAsyncComponent(() =>
-      import("@/views/form/formOption.vue")
+      import("@/views/form/formOption/formOption.vue")
     ),
 
     // form1
@@ -71,6 +74,9 @@ export default {
     ),
     form2NavMobile: defineAsyncComponent(() =>
       import("@/views/form/form2/form2NavMobile.vue")
+    ),
+    formPage: defineAsyncComponent(() =>
+      import("@/views/form/formPage/formPage.vue")
     ),
   },
   created() {

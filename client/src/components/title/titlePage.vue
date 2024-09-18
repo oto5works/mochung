@@ -40,7 +40,8 @@ export default {
   letter-spacing: -0.02em;
   line-height: 6.5rem;
   font-weight: 800;
-  font-family: "EBGaramond", "pretendard", sans-serif;
+  font-family: var(--mio-theme-font-family-sp);
+  text-transform: capitalize;
 }
 .titlePage .content {
   font-size: 1.25rem;

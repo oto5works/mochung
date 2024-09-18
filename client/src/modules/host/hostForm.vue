@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="editor-formField">
     <tabs v-model="tab">
       <tabThumb
         v-for="(item, index) in hostInfo"

@@ -3,7 +3,7 @@
     <Flicking
       v-if="renderFlicking"
       ref="flicking"
-      class="flicking-item"
+      class="flicking-item editor-flicking"
       :options="{ moveType: 'snap', bound: true, align: 'prev' }"
     >
       <tab

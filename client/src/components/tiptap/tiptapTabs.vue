@@ -6,7 +6,7 @@
       :enableDelete="true"
       @deleteTab="handleDeleteTab"
     />
-    <div v-if="tab !== ''">
+    <div class="editor-tiptap" v-if="tab !== ''">
       <div
         v-for="(option, index) in options"
         :key="index"

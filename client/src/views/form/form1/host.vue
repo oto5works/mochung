@@ -8,7 +8,9 @@
     <hostForm />
     <div class="form-spacing" />
     <titleArticle title="Article Title" />
+    <div class="editor-content">
     <bankBox />
+    </div>
   </div>
 </template>
 <script>

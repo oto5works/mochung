@@ -14,6 +14,9 @@ app.config.globalProperties.$http = axios;
 let store;
 let router; 
 
+// 설정된 앱 이름을 문서 제목으로 설정
+document.title = import.meta.env.VITE_APP_NAME;
+
 async function initializeApp() {
   try {
     // 토큰 검증

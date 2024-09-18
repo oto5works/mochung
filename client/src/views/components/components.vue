@@ -30,9 +30,10 @@ import tiptap from "@/views/components/tiptap.vue";
 import tabs from "@/views/components/tabs.vue";
 import checkboxes from "@/views/components/checkboxes.vue";
 import cardViews from "@/views/components/cardViews.vue";
+import illusts from "@/views/components/illusts.vue";
 
 export default {
-  components: { buttons, chips, icons, listItems, formFields, tiptap, tabs, checkboxes,cardViews },
+  components: { buttons, chips, icons, listItems, formFields, tiptap, tabs, checkboxes,cardViews, illusts },
   data() {
     return {
       currentComponent: "buttons",
@@ -44,7 +45,7 @@ export default {
         { label: "Icons", value: "icons" },
         { label: "List Items", value: "listItems" },
         { label: "Item Card", value: "cardViews" },
-
+        { label: "Illust", value: "illusts" },
         { label: "Form Fields", value: "formFields" },
         { label: "Tiptap", value: "tiptap" },
         

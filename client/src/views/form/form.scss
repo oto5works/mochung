@@ -1,50 +1,37 @@
 .editor {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 72px;
-    margin-top: var(--mio-theme-editor-spacing-top);
-  }
-  .editor .editor-item {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-  .editor .editor-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-.form-spacing {
-    height: 8.5vh;
-}
-
-
-/*-- formOption --*/
-.formOption .formOptionCard {
-  width: 36vh;
-}
-.formOption {
-  position: relative;
-  width: 100%;
-  color: var(--mio-theme-color-on-background);
-  margin-top: var(--mio-theme-editor-spacing-top);
-}
-.formOption .formOption-content {
   position: relative;
   display: flex;
+  flex-direction: column;
   width: 100%;
-  gap: 24px;
-  justify-content: center;
+  gap: 72px;
 }
+.editor .editor-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.editor .editor-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-spacing {
+  height: 8.5vh;
+}
+
+/*-- formOption --*/
 .formOption .flicking {
   display: none;
 }
 /*--- 모바일 ---*/
 @media all and (max-width: 479px) {
-  .formOption .formOption-content {
+  .formOption .formOptionCard {
+    width: 36vh;
+    gap: 3rem;
+    padding: 24px;
+  }
+  .formOption .ui-grid {
     display: none;
   }
   .formOption .flicking {
@@ -52,13 +39,10 @@
     width: 100%;
   }
   .formOption .flicking .formOptionCard {
-    width: 36vh;
-    margin-right: 16px;
+    width: 86%;
+    margin-right: 6%;
   }
 }
-
-
-
 
 /*-- formOptionCard --*/
 
@@ -66,15 +50,16 @@
   position: relative;
   flex-direction: column;
   justify-content: space-between;
-  gap: 48px;
+  gap: 5rem;
   width: 100%;
-  padding: 48px 24px 24px 24px;
+  padding: 32px;
   border-radius: 32px;
+  grid-column: auto / span 4;
 }
 .formOptionCard .formOptionCard-content {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 24px;
   width: 100%;
 }
 .formOptionCard .list-wrap {
@@ -92,7 +77,7 @@
   width: 100%;
 }
 .formOptionCard .title {
-  font-size: 32px;
+  font-size: 2.2rem;
   font-weight: 700;
   line-height: 130%;
 }
@@ -103,7 +88,7 @@
   overflow: hidden;
 }
 .formOptionCard .list-item span {
-  font-size: 15px;
+  font-size: 1rem;
   white-space: nowrap; /* 줄바꿈 방지 */
   overflow: hidden; /* 넘치는 내용 숨김 */
   text-overflow: ellipsis; /* 말줄임 적용 */
@@ -121,8 +106,8 @@
 
 // hover + selected
 .formOptionCard .underlay {
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgba(0, 0, 0, 0.2);;
+  background-color: rgb(var(--mio-theme-color-background));
+  border: 1px solid rgb(var(--mio-theme-color-primary-20));
 }
 .formOptionCard:hover,
 .formOptionCard.selected {
@@ -130,8 +115,7 @@
 }
 .formOptionCard:hover .underlay,
 .formOptionCard.selected .underlay {
-  background-color: rgb(0, 0, 0);
-  border: 1px solid rgb(0, 0, 0);;
+  background-color: rgb(var(--mio-theme-color-primary));
 }
 .formOptionCard .formOptionCard-content,
 .formOptionCard .image {
@@ -152,11 +136,15 @@
   opacity: 0;
 }
 .formOptionCard-arrow svg {
-  stroke-width: 12!important;
+  stroke-width: 12 !important;
 }
 
 .formOptionCard:hover .formOptionCard-arrow,
-.formOptionCard.selected .formOptionCard-arrow
-{
+.formOptionCard.selected .formOptionCard-arrow {
   opacity: 1;
+}
+@media all and (max-width: 479px) {
+  .formOptionCard .title {
+    font-size: 2rem;
+  }
 }

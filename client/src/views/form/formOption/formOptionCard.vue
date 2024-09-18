@@ -14,14 +14,14 @@
         :key="index"
         class="gap_8 list-item"
       >
-        <icon class="icon_12"><check /></icon><span class="opacity_70">{{ option }}</span>
+        <icon class="icon_16"><check /></icon><span class="opacity_70">{{ option }}</span>
       </button>
       <button
         v-if="options.length > 4"
         @click="handleMoreClick"
         class="gap_8 list-item"
       >
-        <icon style="transform: rotate(90deg)" class="icon_12"><dots /></icon>
+        <icon style="transform: rotate(90deg)" class="icon_16"><dots /></icon>
         <span class="text-decoration_underline">MORE</span>
       </button>
     </div>

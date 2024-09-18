@@ -9,9 +9,10 @@
     <!--
     <div id="routerView" ref="routerView">
       
-    <appFooter />
+    
     </div> -->
-    {{ userData }}
+    <appFooter v-if="shouldShowFooter" />
+   
   </div>
 </template>
 
@@ -19,11 +20,13 @@
 import { mapActions, mapGetters } from "vuex";
 import appbar_pc from "@/components/appbar/appbar_pc.vue";
 import appbar_mobile from "@/components/appbar/appbar_mobile.vue";
+import appFooter from "@/components/appFooter/appFooter.vue";
 
 export default {
   components: {
     appbar_mobile,
     appbar_pc,
+    appFooter,
   },
   data() {
     return {
@@ -31,10 +34,9 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({
-      userData: "getUserData",
-      username: "getUserName",
-    }),
+    shouldShowFooter() {
+      return !['login', 'preview'].includes(this.$route.name);
+    }
   },
   mounted() {
     // Add an event listener for the window's onload event

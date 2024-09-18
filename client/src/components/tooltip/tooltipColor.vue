@@ -41,6 +41,7 @@
 import Flicking from "@egjs/vue3-flicking";
 import vClickOutside from "v-click-outside";
 const { bind, unbind } = vClickOutside.directive;
+import "@/components/tooltip/tooltip.scss";
 
 export default {
   components: { Flicking },
@@ -82,85 +83,5 @@ export default {
 </script>
 
 <style scoped>
-.tooltipColor {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  bottom: 70%;
-  right: 4%;
-  width: fit-content;
-  max-width: 80%;
-  height: 56px;
-  border-radius: 16px;
-  background-color: rgb(var(--mio-theme-color-background));
-  transition: all 0.3s ease;
-  z-index: 10;
-  box-shadow: 0 10px 20px -10px rgba(var(--mio-theme-color-on-background), 0.3);
-}
-.tooltipColor::after {
-  position: absolute;
-  content: "";
-  border-style: solid;
-  border-width: 8px 6px 0;
-  border-color: rgb(var(--mio-theme-color-background)) transparent;
-  display: block;
-  bottom: -8px;
-  right: 36px;
-}
-.flicking-color {
-  width: 100%;
-  padding: 0 16px;
-}
 
-.color-wrap {
-  position: relative;
-  display: flex;
-  
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  margin-right: 8px;
-}
-.color-wrap.selected {
-  border: 1px solid rgb(var(--mio-theme-color-primary));
-}
-
-
-.color-item {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 1px solid rgba(var(--mio-theme-color-on-background), 0.1);
-  overflow: hidden;
-}
-.color-item span {
-  flex: 1 1 50%;
-}
-
-
-
-
-
-.color-segment {
-  flex: 1;
-}
-.umbrella {
-  background: conic-gradient(
-    from 90deg,
-    violet,
-    indigo,
-    blue,
-    green,
-    yellow,
-    orange,
-    red,
-    violet
-  );
-}
-.opacity_0 {
-  opacity: 0;
-}
 </style>

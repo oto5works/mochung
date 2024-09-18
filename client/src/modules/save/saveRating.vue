@@ -4,10 +4,10 @@
       v-for="star in maxStars"
       :key="star"
       class="star"
-      :class="{ 'filled': star <= hoverValue || star <= modelValue }"
+      :class="{ filled: star <= hoverValue || star <= modelValue }"
       @click="setValue(star)"
     >
-      <star/>
+      <star />
     </icon>
   </div>
 </template>
@@ -16,48 +16,50 @@
 import star from "@/components/icon/star.vue";
 
 export default {
-    components: {
-        star
-    },
+  components: {
+    star,
+  },
   props: {
     modelValue: {
       type: Number,
-      required: true
+      required: true,
     },
     maxStars: {
       type: Number,
-      default: 5
-    }
+      default: 5,
+    },
   },
-  emits: ['update:modelValue'],
+  emits: ["update:modelValue"],
   data() {
     return {
-      hoverValue: this.modelValue
+      hoverValue: this.modelValue,
     };
   },
   methods: {
     setValue(star) {
-      this.$emit('update:modelValue', star);
+      this.$emit("update:modelValue", star);
     },
     setHoverValue(star) {
       this.hoverValue = star;
     },
     resetHoverValue() {
       this.hoverValue = 0;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
 .rating {
-    display: flex;
-    gap:8px;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
   color: currentColor;
+  padding: 32px 0;
 }
 .rating svg {
-    width: 24px;
-    height: 24px;
+  width: 32px;
+  height: 32px;
 }
 .star {
   cursor: pointer;

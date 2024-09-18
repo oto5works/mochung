@@ -1,33 +1,36 @@
 <template>
-  <article>
-    <div class="form1Pagination">
-      <buttonDefault v-if="isLastTab" @click="dialog = true">
-        <span>
-          SAVE<icon><arrowRight3 /></icon>
-        </span>
-        <p>완료</p>
-      </buttonDefault>
+  <div class="formPage">
+    <buttonDefault variant="filled" height="40" v-if="isLastTab" @click="dialog = true">
+      <span>저장하기</span>
+    </buttonDefault>
 
-      <buttonDefault v-if="!isLastTab" @click="goToNextTab">
-        <span>
-          UP NEXT<icon><arrowRight3 /></icon>
-        </span>
-        <p>{{ nextTabTitle }}</p>
-      </buttonDefault>
-
-      <buttonDefault v-if="!isFirstTab" @click="goToPreviousTab">
-        <span>
-          <icon><arrowLeft3 /></icon>PREVIOUS
-        </span>
-        <p>{{ previousTabTitle }}</p>
-      </buttonDefault>
+    <div
+      class="page-button"
+      variant="text"
+      height="46"
+      v-if="!isLastTab"
+      @click="goToNextTab"
+    >
+      <span>{{ nextTabTitle }}</span
+      ><span class="page-arrow">&nbsp;→</span>
     </div>
-    <saveDialog
+
+    <div
+      class="page-button"
+      variant="text"
+      height="46"
+      v-if="!isFirstTab"
+      @click="goToPreviousTab"
+    >
+      <span>{{ previousTabTitle }}</span><span class="page-arrow">&nbsp;←</span>
+    </div>
+
+    <saveTitle
       v-if="dialog"
       :dialog="dialog"
       @update:dialog="dialog = $event"
     />
-  </article>
+  </div>
 </template>
 
 <script>
@@ -41,8 +44,8 @@ export default {
   components: {
     arrowLeft3,
     arrowRight3,
-    saveDialog: defineAsyncComponent(() =>
-      import("@/modules/save/saveDialog.vue")
+    saveTitle: defineAsyncComponent(() =>
+      import("@/modules/save/saveTitle.vue")
     ),
   },
   data() {
@@ -108,39 +111,50 @@ export default {
 </script>
 
 <style scoped>
-.form1Pagination {
+.formPage {
   position: relative;
   display: flex;
+  align-items: center;
   flex-direction: row-reverse;
+  justify-content: space-between;
   width: 100%;
   gap: 8px;
+  margin-top: 64px;
 }
-.buttonDefault {
-  flex: 1;
-  min-height: 112px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  padding: 0 24px;
-  border-radius: var(--border-radius-24);
+
+.page-button {
+  position: relative;
+  display: inline-flex;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  white-space: nowrap;
+  height: fit-content;
 }
-.buttonDefault svg {
-  stroke-width: 12;
+.page-button:before {
+  background: currentColor;
+  bottom: -1px;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transition: all 0.3s ease-out;
+  width: 100%;
 }
-.buttonDefault span {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  font-size: 12px;
-  word-spacing: 0.1em;
+.page-button:hover:before {
+  width: calc(100% + 4px);
 }
-.buttonDefault p {
-  font-weight: 700;
-  font-size: 24px;
+
+.page-button .page-arrow {
+  display: block;
+  transition: all 0.3s ease-out;
+}
+.page-button:hover .page-arrow {
+  transform: translate(4px);
 }
 @media all and (max-width: 1023px) {
-  .form1Pagination {
-    flex-direction: column;
-  }
+
 }
 </style>

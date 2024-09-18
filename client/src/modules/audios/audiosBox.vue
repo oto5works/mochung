@@ -33,11 +33,7 @@ export default {
   },
   methods: {
     handleClickEvent() {
-      if (this.audiosData.fnAudios === false) {
-        this.dialog = true;
-      } else {
-        this.audiosData.fnAudios = false;
-      }
+      this.dialog = true;
     },
   },
 };

@@ -1,9 +1,8 @@
 <template>
   <header class="appbar_mobile">
-    <div class="container" :class="{ isOpen: isOpen }">
-      <div class="logo">
-        <span>{{ appName }}</span>
-      </div>
+    <div class="appbar-content" :class="{ isOpen: isOpen }">
+    <div class="container" >
+      <appLogo />
 
       <buttonDefault
         variant="text"
@@ -20,9 +19,9 @@
       <div class="list">
         <listItem
           icon="upload"
-          label="archive"
-          :class="{ selected: $route.name === 'archive' }"
-          @click="handleArchive"
+          label="collection"
+          :class="{ selected: $route.name === 'collection' }"
+          @click="handleCollection"
         />
         <listItem
           icon="upload"
@@ -37,14 +36,17 @@
           @click="handleComponents"
         />
       </div>
+     
     </div>
+  </div>
+  <div v-if="isOpen" class="scrim" @click="toggleFold()" />
+
   </header>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import { useRoute } from "vue-router";
-import logo from "@/components/logo.vue";
+import appLogo from "@/components/appLogo/appLogo.vue";
 import list from "@/components/icon/list.vue";
 import appbarAuth from "@/components/appbar/appbarAuth.vue";
 
@@ -53,7 +55,7 @@ import "@/components/appbar/appbar.scss";
 export default {
   components: {
     appbarAuth,
-    logo,
+    appLogo,
     list,
   },
   data() {
@@ -69,8 +71,8 @@ export default {
     },
   },
   methods: {
-    handleArchive() {
-      this.$router.push({ name: "archive" });
+    handleCollection() {
+      this.$router.push({ name: "collection" });
       this.toggleFold();
     },
     handleForm() {

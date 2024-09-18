@@ -64,5 +64,10 @@ export default {
       dialog: false,
     };
   },
+  methods: {
+    closeDialog() {
+      this.$emit("update:dialog", false);
+    },
+  }
 };
 </script>

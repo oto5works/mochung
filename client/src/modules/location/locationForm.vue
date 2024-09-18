@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="editor-content">
     <formField
       ref="addressInput"
       label="Address"

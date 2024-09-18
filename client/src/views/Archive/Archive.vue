@@ -1,25 +1,22 @@
 <!-- ParentComponent.vue -->
 <template>
-  <div class="layout">
-    <div class="layer-5">
-      <div class="archive">
-        <titlePage
-          title="Collection"
-          content="The simplest way to send big files? That’s us. A platform to empower<br> creatives while using business as a force for good? Also us."
-        >
-        <buttonDefault variant="filled" height="46"
+  <div class="ui-page">
+    <titlePage
+      title="Collection"
+      content="The simplest way to send big files? That’s us. A platform to empower<br> creatives while using business as a force for good? Also us."
+    >
+      <buttonDefault variant="filled" height="46"
         ><span>Read stories</span></buttonDefault
       >
-        </titlePage>
-        <div class="archives">
-          <archiveCard
-            v-for="(archiveItem, index) in archives"
-            :key="index"
-            :archive="archiveItem"
-            @confirmDelete="confirmDelete(archiveItem.id)"
-          />
-        </div>
-      </div>
+    </titlePage>
+
+    <div class="ui-grid">
+      <archiveCard
+        v-for="(archiveItem, index) in archives"
+        :key="index"
+        :archive="archiveItem"
+        @confirmDelete="confirmDelete(archiveItem.id)"
+      />
     </div>
   </div>
 </template>

@@ -24,39 +24,53 @@ export default {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  margin-bottom: 64px;
+  gap: 2rem 24px;
+  margin-bottom: 4rem;
 }
 .titleMain .step {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 1.4px;
+  font-size: 1rem;
+        font-weight: 500;
+        letter-spacing: .1875rem;
+        line-height: 1.125rem;
+        text-transform: uppercase;
 }
 .title-wrap {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1.5rem;
 }
 .titleMain .title {
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 130%;
+  font-size: 3rem;
+        letter-spacing: -.01em;
+        line-height: 3.25rem;
+  font-weight: 800;
+  font-family: var(--mio-theme-font-family-sp);
 }
 .titleMain .content {
-  font-size: 16px;
-  line-height: 168%;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.75rem;
+  letter-spacing: 0;
   color: rgb(var(--mio-theme-color-on-background-70));
 }
 </style>
 
 <style scoped>
-/*--- 태블렛 ---*/
-@media all and (max-width: 1023px) {
-  .titleMain h1 {
-    font-size: 24px;
+@media all and (max-width: 479px) {
+  .titleMain .step {
+    font-size: .875rem;
+    letter-spacing: .1875rem;
+    line-height: 1.125rem;
+    text-transform: uppercase;
+}
+  .titleMain .title {
+    font-size: 2rem;
+    letter-spacing: -.01em;
+    line-height: 2.25rem;
   }
-  .titleMain.config h1 {
-    font-size: var(--font-size-24);
+  .titleMain .content {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }
 </style>

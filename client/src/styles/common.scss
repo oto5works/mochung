@@ -1,4 +1,5 @@
 /*--- common.scss ---*/
+html,
 body {
   font-family: var(--mio-theme-font-family);
 }
@@ -46,9 +47,6 @@ textarea:focus {
 .width_100 {
   width: 100%;
 }
-
-
-
 
 .icon_10 {
   width: 10px;
@@ -103,6 +101,9 @@ textarea:focus {
 .display_flex {
   display: flex;
 }
+.display_grid {
+  display: grid;
+}
 .display_none {
   display: none;
 }
@@ -144,8 +145,6 @@ textarea:focus {
 .cursor_pointer {
   cursor: pointer;
 }
-
-
 
 /*-- gap --*/
 .gap_2 {
@@ -396,58 +395,6 @@ textarea:focus {
 .z-index_5 {
   z-index: 5;
 }
-
-/*-- Fill --*/
-.fill_bc {
-  fill: var(--background-color);
-}
-.fill_bo {
-  fill: var(--background-on);
-}
-.fill_pc {
-  fill: var(--primary-color);
-}
-.fill_po {
-  fill: var(--primary-on);
-}
-
-.fill_fc {
-  fill: var(--font-color);
-}
-.fill_color {
-  fill: currentColor;
-  stroke: unset;
-}
-.fill_current {
-  fill: currentColor !important;
-}
-
-/*-- stroke --*/
-.stroke_fc {
-  fill: none;
-  stroke: var(--font-color);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-miterlimit: 10;
-  stroke-width: 1.5;
-}
-.stroke_po {
-  fill: none;
-  stroke: var(--primary-on);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-miterlimit: 10;
-  stroke-width: 1.5;
-}
-.stroke_bc {
-  stroke: var(--background-color);
-}
-.stroke_unset {
-  stroke: unset !important;
-}
-.stroke_arrow {
-  stroke-width: 8 !important;
-}
 .object-fit_cover {
   object-fit: cover;
 }
@@ -501,139 +448,12 @@ textarea:focus {
 .position_absolute {
   position: absolute;
 }
-.color_primary-color {
-  color: var(--primary-color);
-}
-.color_kakaopay {
-  color: #ffeb00;
-}
-.color_--mio-theme-color-primary {
-  color: rgb(var(--mio-theme-color-primary));
-}
 .text-decoration_underline {
   text-decoration: underline;
-}
-.common-space {
-  width: 14%;
-  background-color: #ffeb00;
-}
-
-.list ul {
-  list-style: none;
-}
-.list ul li {
-  position: relative;
-  margin-bottom: 12px;
-  font-size: 16px;
-  font-weight: var(--font-weight);
-}
-.list ul content {
-  display: block;
-  margin-bottom: 32px;
-}
-.list ul li:before {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  transform: rotate(calc(var(--rotation) * 36deg));
-  background-color: var(--font-color);
-  -webkit-mask-image: url(@/assets/list-bullet.svg);
-  mask-image: url(@/assets/list-bullet.svg);
-  background-size: cover;
-  line-height: 0;
-  text-align: center;
-  content: "";
-  margin-right: 8px;
-  margin-bottom: 2px;
-}
-.list ul li:nth-child(2) {
-  --rotation: 2;
-}
-.list ul li:nth-child(4n + 3) {
-  --rotation: 3;
-}
-.list ul li:nth-child(3n + 2) {
-  --rotation: 4;
-}
-.list ul li:nth-child(3n) {
-  --rotation: 5;
-}
-.list ul li:nth-child(4n + 1) {
-  --rotation: 6;
-}
-.list ul li:nth-child(3n + 1) {
-  --rotation: 7;
-}
-
-.v-list-item__content {
-  overflow: visible;
-}
-.v-list-item-title,
-.flicking-title {
-  hyphens: auto;
-  overflow-wrap: normal;
-  overflow: hidden;
-  padding: 0;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  word-break: normal;
-  word-wrap: break-word;
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: unset;
-  line-height: 1.5rem;
-  text-transform: none;
-}
-.v-list-item-subtitle,
-.flicking-exp {
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-  opacity: var(--v-medium-emphasis-opacity);
-  overflow: hidden;
-  padding: 0;
-  text-overflow: ellipsis;
-  font-size: 0.875rem;
-  font-weight: 400;
-  letter-spacing: unset;
-  line-height: 1rem;
-  text-transform: none;
 }
 
 /* 모바일 세로 (해상도 ~ 479px)*/
 @media all and (max-width: 1023px) {
-  .width_50--100 {
-    width: 100%;
-  }
-  .padding-top_48--0 {
-    padding-top: 0 !important;
-  }
-  .pa_32__16 {
-    padding: 0 16px;
-  }
-  .pa_vw--0 {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .pa_vw--4 {
-    padding-left: 4px;
-    padding-right: 4px;
-  }
-
-  .display_flex--block {
-    display: block;
-  }
-  .display_none--block {
-    display: block;
-  }
-  .display_block--none {
-    display: none;
-  }
-  .display_none--flex {
-    display: flex;
-  }
-  .common-space {
-    width: unset;
-  }
 }
 
 /*-- 태블릿 --*/
@@ -642,4 +462,18 @@ textarea:focus {
 
 /*--- 모바일 ---*/
 @media all and (max-width: 479px) {
+  .mobile-padding,
+  .titlePage,
+  .editor .titleMain,
+  .editor .titleArticle,
+  .formPage,
+  .editor .editor-content,
+  .editor .editor-formField,
+  .editor .editor-flicking,
+  .editor-tiptap,
+  .slicklist__wrap,
+  .youtubeForm {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }

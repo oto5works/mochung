@@ -10,7 +10,7 @@
     <Flicking
       v-if="renderFlicking"
       ref="flicking"
-      class="flicking-item"
+      class="flicking-item editor-flicking"
       :options="{ moveType: 'snap', bound: true, align: 'prev' }"
       :plugins="plugins"
     >
@@ -194,7 +194,7 @@ console.log ('fff' , homeStyle)
 <style scoped>
 .fnOption-item {
   position: relative;
-  width: 160px;
+  width: 13vw;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -211,5 +211,13 @@ console.log ('fff' , homeStyle)
 }
 .fnOption-image.selected {
   border: 1px solid rgb(var(--mio-theme-color-primary));
+}
+</style>
+
+<style scoped>
+@media all and (max-width: 479px) {
+  .fnOption-item {
+  width: 48vw;
+}
 }
 </style>

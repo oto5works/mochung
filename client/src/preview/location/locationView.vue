@@ -30,7 +30,7 @@
             <div class="tell">
               <div class="font-weight_700">TELL</div>
               <span
-                class="line-height_130 text-decoration_underline"
+                class="line-height_130 text-decoration_underline cursor_pointer"
                 @click="callWeddingHallTell"
                 >{{ locationData.tell }}</span
               >
@@ -38,9 +38,14 @@
           </div>
         </div>
 
-        <buttonCustom>
+        <buttonCustom @click="dialog = true">
           <span>VIEW ON MAP</span>
         </buttonCustom>
+        <locationApp
+          v-if="dialog"
+          :dialog="dialog"
+          @update:dialog="dialog = $event"
+        />
       </div>
     </sectionView>
 
@@ -76,6 +81,9 @@ export default {
     locationTransport: defineAsyncComponent(() =>
       import("@/preview/location/locationTransport.vue")
     ),
+    locationApp: defineAsyncComponent(() =>
+      import("@/preview/location/locationApp.vue")
+    ),
   },
   computed: {
     ...mapGetters({
@@ -85,7 +93,9 @@ export default {
     }),
   },
   data() {
-    return {};
+    return {
+      dialog: false,
+    };
   },
   methods: {
     callWeddingHallTell() {

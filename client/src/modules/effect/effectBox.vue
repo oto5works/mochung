@@ -34,11 +34,7 @@ export default {
   methods: {
     ...mapActions(["handleScrollToAction"]),
     handleClickEvent() {
-      if (this.effectData.fnEffect === false) {
-        this.dialog = true;
-      } else {
-        this.effectData.fnEffect = false;
-      }
+      this.dialog = true;
       this.handleScrollToAction("previewHome");
     },
   },

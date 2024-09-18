@@ -1,17 +1,15 @@
 <template>
   <header class="appbar_pc">
     <div class="container">
-      <div class="logo-container" @click="$router.push({ name: 'home' })">
-        <span class="logo">logo</span>
+      <div class="logo-container" @click="$router.push({ name: 'form' })">
+        <appLogo />
       </div>
       <div class="menu-container">
         <div class="menu-wrap">
-          
-         
           <appbarButton
-            :class="{ selected: $route.name === 'archive' }"
-            @click="$router.push({ name: 'archive' })"
-            >archive</appbarButton
+            :class="{ selected: $route.name === 'collection' }"
+            @click="$router.push({ name: 'collection' })"
+            >collection</appbarButton
           >
           <appbarButton
             :class="{ selected: $route.name === 'form' }"
@@ -23,12 +21,12 @@
             @click="$router.push({ name: 'components' })"
             >components</appbarButton
           >
-         
+
           <div class="underlay" />
         </div>
       </div>
       <div class="login-container">
-        <buttonDefault variant="filled" height="46" @click="goToLogin()"
+        <buttonDefault variant="filled" height="32" @click="goToLogin()"
           ><span>Login</span></buttonDefault
         >
       </div>
@@ -38,19 +36,18 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { useRoute } from "vue-router";
-import logo from "@/components/logo.vue";
+import appLogo from "@/components/appLogo/appLogo.vue";
 import appbarButton from "@/components/appbar/appbarButton.vue";
 import "@/components/appbar/appbar.scss";
 
 export default {
   components: {
-    logo,
+    appLogo,
     appbarButton,
   },
   data() {
     return {
-      isTransform: true,
+      appName: import.meta.env.VITE_APP_NAME || "DefaultAppName",
     };
   },
   computed: {
@@ -69,8 +66,8 @@ export default {
     goToAbout() {
       this.$router.push({ name: "about" });
     },
-    goToArchive() {
-      this.$router.push({ name: "archive" });
+    goToCollection() {
+      this.$router.push({ name: "collection" });
     },
     goToForm() {
       this.$router.push({ name: "form" });
@@ -85,5 +82,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

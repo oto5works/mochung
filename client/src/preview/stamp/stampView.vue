@@ -33,7 +33,7 @@ export default {
   height: auto;
 }
 .stamp .leaf1 {
-  width: 32%;
+  width: 28%;
   height: auto;
 }
 </style>

@@ -40,13 +40,8 @@ export default {
     ...mapActions(["handleScrollToAction"]),
 
     handleClickEvent() {
-      if (this.depositData.fnDeposit === false) {
-        this.depositData.fnDeposit = true;
-        this.handleScrollToAction("previewDeposit");
-        this.dialog = true;
-      } else {
-        this.depositData.fnDeposit = false;
-      }
+      this.dialog = true;
+      this.handleScrollToAction("previewDeposit");
     },
     handleClose() {
       this.depositData.fnDeposit = false;

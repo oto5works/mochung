@@ -2,8 +2,8 @@
   <div class="editor-item">
     <titleMain
       step="STEP 1"
-      title="내 취향대로<br>모바일 카드를 꾸며보자"
-      content="다양한 템플릿을 활용하여 간편하게 디자인하거나, 직접 이미지를 업로드하여 당신만의 개성을 담아 모바일 카드를 제작할 수 있습니다."
+      title="Beautiful ideas need a beautiful space"
+      content="We care about the details, because it’s the little things –– like receiving a beautiful branded email –– that make your audience feel special."
     />
     <titleArticle title="디자인 템플릿 선택" />
     <temp />

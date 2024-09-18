@@ -3,11 +3,17 @@
 </template>
 
 <script>
-import { logoutAuth } from '@/services/auth';
+import { logoutAuth } from "@/services/auth";
 
 export default {
-  mounted() {
-    logoutAuth(); // Trigger the logout action when the component is mounted
+  created() {
+    logoutAuth()
+      .then(() => {
+        this.$router.push({ name: "home" }); // 로그아웃 후 'home' 라우트로 이동
+      })
+      .catch((error) => {
+        console.error("Logout failed:", error);
+      });
   },
 };
 </script>

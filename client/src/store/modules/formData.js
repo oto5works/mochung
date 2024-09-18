@@ -9,7 +9,7 @@ export default {
     postData: { ...resetValue }, // resetValue 객체의 복사본을 할당
     res: {
       message: "",
-      status: "",
+      status: "processing..",
     },
   },
   mutations: {
@@ -70,21 +70,26 @@ export default {
       if (state.postData.id) {
         try {
           commit("updateResponse", {
-            message: "데이터 업데이트 중...",
+            message: "Updating data...",
             status: "processing",
           });
+    
+          // 딜레이 추가 (2초)
+          await new Promise(resolve => setTimeout(resolve, 2000));
+    
           const id = state.postData.id;
           const formData = state.postData.formData;
           await editPost(id, formData);
+    
           commit("updateResponse", {
-            message: "업데이트 완료",
+            message: "Update complete.",
             status: "success",
           });
           commit("resetFormData");
         } catch (error) {
-          console.error("업데이트 중 오류가 발생했습니다. 오류 내용:", error);
+          console.error("An error occurred during the update. Error details:", error);
           commit("updateResponse", {
-            message: `업데이트 중 오류가 발생했습니다. 오류 내용: ${error}`,
+            message: `An error occurred during the update. Error details: ${error}`,
             status: "error",
           });
           throw error;
@@ -92,20 +97,24 @@ export default {
       } else {
         try {
           commit("updateResponse", {
-            message: "데이터 저장 중...",
+            message: "Saving data...",
             status: "processing",
           });
+    
+          // 딜레이 추가 (2초)
+          await new Promise(resolve => setTimeout(resolve, 2000));
+    
           const formData = new FormData();
           const data = state.postData.formData;
           const homeFile = state.postData.formData.homeData.files?.file;
           const audioFile = state.postData.formData.audiosData.files?.file;
           const locationFile = state.postData.formData.locationData.files?.file;
           const galleryFiles = state.postData.formData.galleryData.image.files;
-          const kakaotalkFile =
-            state.postData.formData.kakaotalkData.files?.file;
-          console.log("userId", data);
+          const kakaotalkFile = state.postData.formData.kakaotalkData.files?.file;
+    
           formData.append("userId", auth.state.userId);
           formData.append("data", JSON.stringify({ data }));
+    
           if (homeFile && homeFile.file) {
             formData.append("homeFile", homeFile.file);
           }
@@ -125,27 +134,32 @@ export default {
           if (kakaotalkFile && kakaotalkFile.file) {
             formData.append("kakaotalkFile", kakaotalkFile.file);
           }
+    
           state.postData.formData.hostData.info.forEach((account, index) => {
-            const accountFiles = account.bank.account.map(
-              (item) => item.files.file
-            );
+            const accountFiles = account.bank.account.map((item) => item.files.file);
             accountFiles.forEach((file, fileIndex) => {
               formData.append(`bankFiles${index}`, file);
             });
           });
+    
           await createPost(formData);
-          commit("updateResponse", { message: "저장 완료", status: "success" });
+    
+          commit("updateResponse", {
+            message: "Save complete.",
+            status: "success",
+          });
           commit("resetFormData");
         } catch (error) {
-          console.error("저장 중 오류가 발생했습니다. 오류 내용:", error);
+          console.error("An error occurred during saving. Error details:", error);
           commit("updateResponse", {
-            message: `저장 중 오류가 발생했습니다. 오류 내용: ${error}`,
+            message: `An error occurred during saving. Error details: ${error}`,
             status: "error",
           });
           throw error;
         }
       }
     },
+    
   },
   getters: {
     /*-- response --*/

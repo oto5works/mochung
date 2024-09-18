@@ -45,6 +45,12 @@ u {
   font-weight: 100 900; /* 가변 폰트의 가중치 범위 */
   font-display: swap;
 }
+@font-face {
+  font-family: "GTSuper";
+  src: url("#{$base-url}/font/gtsuper.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 800;
+}
 // 프리텐다드
 @font-face {
   font-family: "pretendard";

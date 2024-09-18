@@ -122,8 +122,8 @@ export function logoutAuth() {
   // Clear the 'token' cookie
   document.cookie = 'vatoken=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;';
 
-  // Commit the 'logout' mutation in the Vuex store
-  store.commit('logout');
+  // Vuex 액션을 호출하여 로그아웃 처리
+  return store.dispatch('logout');
 }
 
 

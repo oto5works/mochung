@@ -9,7 +9,7 @@
 
     <div
       style="grid-template-columns: 1fr 1fr"
-      class="grid width_100 pa_24 gap_8"
+      class="display_grid width_100 pa_24 gap_8"
     >
       <buttonDefault
         variant="text"

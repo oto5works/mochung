@@ -6,6 +6,10 @@ import home from "@/views/home/home.vue";
 import archive from "@/views/archive/archive.vue";
 import support from "@/views/support/support.vue";
 
+import legal from "@/views/legal/legal.vue";
+
+
+
 // 유저 (로그인, 로그아웃)
 import login from "@/views/log/login.vue";
 import logout from "@/views/log/logout.vue";
@@ -13,7 +17,7 @@ import loginNaverCallback from "@/views/log/loginNaverCallback.vue";
 
 // 비동기적 로딩 컴포넌트
 const form = () => import("@/views/form/form.vue");
-const form1 = () => import("@/views/form/form1.vue");
+const formSave = () => import("@/views/form/formSave/formSave.vue");
 
 const formView = () => import("@/views/form/formView.vue");
 // user
@@ -53,10 +57,16 @@ const router = createRouter({
       component: form,
       meta: { requiresAuth: false },
     },
+    {
+      path: "/form/save",
+      name: "save",
+      component: formSave,
+      meta: { requiresAuth: false },
+    },
     // 내 정보
     {
-      path: "/archive",
-      name: "archive",
+      path: "/collection",
+      name: "collection",
       component: archive,
       meta: { requiresAuth: false },
     },
@@ -66,6 +76,11 @@ const router = createRouter({
       name: "support",
       component: support,
       meta: { requiresAuth: false },
+    },
+    {
+      path: '/legal/:section?',
+      name: 'legal',
+      component: legal
     },
     // 보기
     {

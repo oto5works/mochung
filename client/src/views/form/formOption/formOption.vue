@@ -1,10 +1,10 @@
 <template>
-  <div class="formOption">
+  <div class="ui-page formOption">
     <titlePage
       title="Create at"
       content="Our premium space puts brands in front of the world’s most influential audiences, generating more attention than any other digital platform."
     />
-    <div class="formOption-content">
+    <div class="ui-grid">
       <formOptionCard
         class="formOptionCard"
         v-for="option in formOptions"
@@ -21,7 +21,7 @@
     <div class="flicking">
       <Flicking
         ref="flicking"
-        class="flicking-item"
+        class="flicking-item mobile-padding"
         :options="{ moveType: 'snap', bound: true, align: 'center' }"
         :plugins="plugins"
         @changed="onSlideChanged"
@@ -59,7 +59,7 @@ import form1 from "@/components/svg/form1.vue";
 import form2 from "@/components/svg/form2.vue";
 import form3 from "@/components/svg/form3.vue";
 
-import formOptionCard from "@/views/form/formOptionCard.vue";
+import formOptionCard from "@/views/form/formOption/formOptionCard.vue";
 import "@/views/form/form.scss";
 
 export default {

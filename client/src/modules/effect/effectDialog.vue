@@ -1,33 +1,49 @@
 <template>
   <dialogModal :dialog="dialog" @update:dialog="updateDialog">
-    <div class="z-index_2">
+    <div class="pa_24">
       <titleArticle
-        title="메인 효과 설정"
-        content="폭죽과 꽃가루 효과로 메인 화면을 특별하게 꾸며보세요. 모바일 초대장이 개성적으로 돋보이게 만들어줍니다."
+        title="FIELDS 22OF EXPRESSION"
+        content="Get an official Creative Cloud subscription. When you make a payment"
       />
+    </div>
+
+    <div class="pa_24 z-index_2">
+      <effectSwitch />
+      <enableView class="selected"  v-if="!effectData.fnEffect" title="기능 이용 대기 중" content="현재 이 기능은 비활성화되어 있습니다.<br>활성화하여 사용해 보세요." />
+    </div>
+
+    <div v-if="effectData.fnEffect" class="pa_24 z-index_2">
+      <div class="sp_8"/>
       <div class="display_flex flex-direction_column gap_8">
         <effectColor :effect="effect" />
         <effectConfig :effect="effect" />
         <effectShape :effect="effect" />
       </div>
     </div>
-    <effectComp style="z-index: 1" :effect="effect" />
+    <tsParticlesView v-if="effectData.fnEffect" style="z-index: 1" :effect="effect" />
   </dialogModal>
 </template>
 <script>
 import { mapGetters } from "vuex";
 import { defineAsyncComponent } from "vue";
-import effectComp from "@/modules/effect/effectComp.vue";
+import tsParticlesView from "@/components/tsParticles/tsParticlesView.vue";
 import effectConfig from "@/modules/effect/effectConfig.vue";
 import effectShape from "@/modules/effect/effectShape.vue";
 import effectColor from "@/modules/effect/effectColor.vue";
 
+import enableView from "@/components/enable/enableView.vue";
+
+
+import effectSwitch from "@/modules/effect/effectSwitch.vue";
 export default {
   components: {
-    effectComp,
+    tsParticlesView,
     effectConfig,
     effectShape,
     effectColor,
+
+    effectSwitch,
+    enableView
   },
   props: {
     dialog: { type: Boolean },

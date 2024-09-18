@@ -1,7 +1,6 @@
 <template>
   <div class="editor" ref="editor">
     <component :is="section" />
-    <pagination />
   </div>
 </template>
 <script>
@@ -23,9 +22,6 @@ export default {
     host: defineAsyncComponent(() => import("@/views/form/form1/host.vue")),
     functions: defineAsyncComponent(() =>
       import("@/views/form/form1/functions.vue")
-    ),
-    pagination: defineAsyncComponent(() =>
-      import("@/views/form/form1/pagination.vue")
     ),
   },
   computed: {

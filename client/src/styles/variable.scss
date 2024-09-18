@@ -1,7 +1,7 @@
 // style
 :root {
-  --mio-theme-color-primary: 0, 0, 0;
-  --mio-theme-color-on-primary: 255, 255, 255;
+  --mio-theme-color-primary: 22, 22, 22;
+  --mio-theme-color-on-primary: 248, 248, 248;
   --mio-theme-color-primary-05: 246, 246, 240;
   --mio-theme-color-primary-07: 242, 242, 236;
 
@@ -16,21 +16,22 @@
   --mio-theme-color-primary-90: 49, 49, 49;
 
   --mio-theme-color-background: 255, 255, 255;
-  --mio-theme-color-on-background: 0, 0, 0;
+  --mio-theme-color-on-background: 22, 22, 22;
   --mio-theme-color-on-background-20: 217, 217, 217;
   --mio-theme-color-on-background-40: 153, 153, 153;
   --mio-theme-color-on-background-70: 73, 69, 79;
 
   --mio-theme-color-error: 179, 38, 30;
-  --mio-theme-color-secondary: 55, 97, 251;
+  --mio-theme-color-secondary: 79, 96, 251;
   --mio-theme-color-on-secondary: 255, 255, 255;
 
   --mio-theme-image-resize: url("https://oto5works.github.io/storage/image/mochung/resize.svg");
-  --mio-theme-font-family: "pretendard";
   --mio-theme-screen-width: 1023px;
   --mio-theme-aspect-ratio: 375 / 812; // 아이폰x 해상도 비율
   --mio-theme-font-family: "pretendard";
-  --mio-theme-editor-spacing-top: 12vh;
+  --mio-theme-font-family-sp: "GTSuper", "pretendard", sans-serif; // EBGaramond, GTSuper
+
+  --mio-theme-editor-spacing-top: 18vh;
 
 
 

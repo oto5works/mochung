@@ -60,6 +60,9 @@ button:hover .svgColor {
 button:hover .svgColor .bg {
   color: rgba(var(--svg-color-white), 1);
 }
+.svgColor {
+  fill: currentColor;
+}
 .svgColor .line {
   fill: none;
   display: inline-block;

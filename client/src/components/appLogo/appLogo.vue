@@ -1,8 +1,20 @@
 <template>
-  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 224 100" style="enable-background:new 0 0 224 100;" xml:space="preserve">
-<g>
-	<path d="M39.1,64.8c-0.9-2.2-2-4.8-3.3-7.7c-1.1-2.7-2.2-5.3-3.2-7.7c-1.7-4.1-3.3-8.1-4.8-11.7c-1.6-3.9-3.2-7.9-4.7-11.7L23,25.8
+  <div class="appLogo">
+    <span class="appName">{{ appName }}</span>
+    <svg
+      version="1.1"
+      id="Layer_1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px"
+      y="0px"
+      viewBox="0 0 224 100"
+      style="enable-background: new 0 0 224 100"
+      xml:space="preserve"
+    >
+      <g>
+        <path
+          d="M39.1,64.8c-0.9-2.2-2-4.8-3.3-7.7c-1.1-2.7-2.2-5.3-3.2-7.7c-1.7-4.1-3.3-8.1-4.8-11.7c-1.6-3.9-3.2-7.9-4.7-11.7L23,25.8
 		h-1.8l-9.5,21.8c-3.4,7.5-7.2,15.9-11.4,25L0,73.3l0.8-0.2c0.3-0.1,0.7-0.2,1.1-0.2l1-0.1l1,0.1l1.4,0.3l0.1-0.3
 		C6.7,69.1,8,65.8,9,63l3.2-7.8l2.9-0.1h10.3l3,0.1l1.1,2.5c1,2.4,2.1,5,3.1,7.8c0.5,1.3,0.9,2.3,1.1,2.9c0.4,1.2,0.9,2.7,1.5,4.6
 		l0.1,0.3h0.3c0.2,0,0.4-0.1,0.8-0.1c0.4-0.1,0.7-0.1,0.9-0.1l1.6-0.1l1.5,0.1l2.3,0.3l-0.2-0.8C40.7,68.4,39.6,65.8,39.1,64.8z
@@ -33,8 +45,19 @@
 		c0,0.5,0.1,1.2,0.1,2.4c0,1.4,0,2.1-0.1,2.6c0.2,0,0.2,0,0.5,0s0.3,0,0.6,0c-0.1-1.1-0.1-1.7-0.1-2.5h0.2c0.5,0.6,1.1,1.3,2,2.5
 		c0.3,0,0.5,0,0.6,0c0.2,0,0.3,0,0.5,0v-0.1C210.8,71.6,209.3,69.9,208.9,69.4z M207.7,69.3c0-0.6,0-1.2,0-1.9c0.8,0,1.8,0,1.8,0.9
 		C209.5,69.3,208.2,69.3,207.7,69.3z"
-    fill="currentColor"
-    />
-</g>
-</svg>
+          fill="currentColor"
+        />
+      </g>
+    </svg>
+  </div>
 </template>
+<script>
+import "@/components/appLogo/appLogo.scss";
+export default {
+  data() {
+    return {
+      appName: import.meta.env.VITE_APP_NAME || "DefaultAppName",
+    };
+  },
+};
+</script>

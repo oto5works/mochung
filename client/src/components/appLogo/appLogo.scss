@@ -1,0 +1,19 @@
+.appLogo svg {
+  display: none;
+}
+.appbar_pc .appName {
+  font-size: 1.6rem;
+}
+.login .content-right .appName {
+  font-size: 1.4rem;
+}
+.appbar_mobile .appName,
+.login .content-left .appName,
+.appFooter .appName {
+  font-size: 1.25rem;
+}
+.appName {
+  letter-spacing: -0.01em;
+  font-weight: 800;
+  font-family: var(--mio-theme-font-family-sp);
+}

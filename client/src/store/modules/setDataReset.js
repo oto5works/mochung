@@ -139,7 +139,7 @@ const resetValue = {
     },
     /*-- 커스텀 --*/
     customData: {
-      temp: "", // 디자인 템플릿 사용유무
+      temp: "temp_basic_1", // 디자인 템플릿 사용유무
       styleBackground: "defaulted", // defaulted, gradient
       backgroundColor: [255, 255, 255],
       design: "design3", // 디자인 스타일 design1: default, design2: card style, design3: line style

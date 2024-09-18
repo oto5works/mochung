@@ -1,11 +1,10 @@
 <template>
-  <a :href="naverLoginUrl">
-    <buttonDefault class="gap_8 height_48 width_100 border-radius_24" color="#62da6b">
-      <icon><naver /></icon>
-      <span>네이버로 시작하기</span>
-    </buttonDefault>
-  </a>
+  <buttonDefault class="naver" variant="filled" height="46" @click="navigateToNaver">
+    <icon><naver /></icon>
+    <span>Log in with Naver</span>
+  </buttonDefault>
 </template>
+
 <script>
 import naver from "@/components/icon/naver.vue";
 export default {
@@ -13,15 +12,24 @@ export default {
   data() {
     return {
       naverLoginUrl:
-        "https://nid.naver.com/oauth2.0/authorize?" +
-        "client_id=K4zOH6MzWXb5jjEMIQWa" +
-        "&response_type=code" +
-        "&redirect_uri=http://localhost:5173/login/naver" +
-        "&state=RAMDOM_STATE",
+        `https://nid.naver.com/oauth2.0/authorize?` +
+        `client_id=${import.meta.env.VITE_NAVER_CLIENT_ID}` +
+        `&response_type=code` +
+        `&redirect_uri=${import.meta.env.VITE_NAVER_REDIRECT_URI}` +
+        `&state=RAMDOM_STATE`,
     };
+  },
+  methods: {
+    navigateToNaver() {
+      window.location.href = this.naverLoginUrl;
+    },
   },
 };
 </script>
 
 <style scoped>
+.naver {
+  width: 100%;
+  max-width: 400px;
+}
 </style>

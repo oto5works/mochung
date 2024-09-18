@@ -39,7 +39,7 @@
       </buttonDefault>
     </div>
     <div class="title-wrap">
-      <div class="title">Save the Date</div>
+      <div class="title">{{ archive.formData.data.functionData.fnTitle }}</div>
       <span class="font-size_13">
         Creative at
         {{ archive.formData.data.dateData.date }}

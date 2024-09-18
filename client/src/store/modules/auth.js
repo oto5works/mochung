@@ -14,7 +14,6 @@ const auth = {
       state.isAuthenticated = false;
       state.userId = null;
       state.status = "guest";
-      router.push("/");
     },
     SOCIAL_LOGIN(state, { data }) {
       state.isAuthenticated = true;
@@ -34,7 +33,10 @@ const auth = {
   },
   actions: {
     logout({ commit }) {
-      commit("logout");
+      return new Promise((resolve) => {
+        commit("logout");
+        resolve(); // 로그아웃 후 프로미스 완료
+      });
     },
     handleAuthFail({ commit }) {
       commit("setAuthFail");
