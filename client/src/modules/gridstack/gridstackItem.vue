@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     topValue() {
-      return `calc(${this.item.y} * 24px)`;
+      return `calc(${this.item.y} * 6vh)`;
     },
   },
 };

@@ -86,8 +86,7 @@ export default {
   color: rgb(var(--mio-theme-color-primary));
 }
 .login .content-left .text {
-  font-family: GT Super WT, "ui-serif", "Georgia", "Cambria", "Times New Roman",
-    "Times", "serif";
+  font-family: var(--mio-theme-font-family-sp);
   margin-top: 1rem;
   font-size: 2.25rem;
   text-align: center;

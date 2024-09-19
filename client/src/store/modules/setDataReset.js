@@ -105,9 +105,10 @@ const resetValue = {
     /*-- 홈 --*/
     homeData: {
       style: "home1",
-      frame: "flower",
+      frame: null,
       color: "#000000",
       title: "Save the Date",
+      fnFile: true,
       type: "file",
       illust: null,
       files: {

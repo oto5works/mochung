@@ -6,8 +6,9 @@
       :color="homeColor"
       :fontFamily="null"
     />
+    
     <!--<frameView v-if="previewHome.frame" :frame="previewHome.frame" />-->
-    <heroView :item="previewHome.item" />
+    <heroView v-if="previewHome.fnFile"  />
   </div>
 </template>
 
@@ -59,13 +60,13 @@ export default {
   position: relative;
   width: 100%;
   aspect-ratio: var(--mio-theme-aspect-ratio);
-  background-color: var(--tr-bc-tr);
 }
 .home__wrap {
   position: relative;
   width: 100%;
   height: 100%;
   color: var(--home-color);
+  pointer-events: none;
   z-index: 3;
 }
 .frame__wrap {

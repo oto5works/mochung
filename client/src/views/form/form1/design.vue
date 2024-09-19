@@ -12,7 +12,8 @@
     <div class="editor-content">
       <homeBox />
       <homeColor />
-      <homeFile />
+      
+      <homeFileBox />
     </div>
     <!--
     <section>
@@ -28,14 +29,14 @@
 import temp from "@/modules/temp/temp";
 import homeBox from "@/modules/home/homeBox";
 import homeColor from "@/modules/home/homeColor";
-import homeFile from "@/modules/home/homeFile";
+import homeFileBox from "@/modules/homeFile/homeFileBox.vue";
 
 export default {
   components: {
     temp,
     homeBox,
     homeColor,
-    homeFile,
+    homeFileBox,
   },
 };
 </script>

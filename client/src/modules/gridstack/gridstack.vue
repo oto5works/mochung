@@ -1,121 +1,65 @@
-<!-- gridstack.vue -->
-
 <template>
-  <div class="gridstack">
-    <div id="gridstack">
-      <div id="grid-container">
-        <div class="home-component">
-          <component
-            v-if="homeData.style"
-            :is="homeData.style"
-            :options="homeDefaultedOptions"
-            :color="homeColor"
-          />
+  <teleport to="body" v-if="dialog">
+    <div class="overlay-container" v-bind="$attrs">
+      <div class="overlay gridstack">
+        <div
+          class="overlay__scrim"
+          @click="closeDialog"
+          :class="{ active: loaded }"
+        />
+        <div class="overlay__action">
+          <buttonDefault
+            class="dialog-save"
+            variant="tonal"
+            height="32"
+            @click="saveImage"
+          >
+            <span>Confirm</span>
+          </buttonDefault>
+          <buttonDefault
+            class="dialog-close"
+            variant="tonal"
+            height="32"
+            :icon="true"
+            @click="closeDialog"
+          >
+            <icon class="icon_16"><x /></icon>
+          </buttonDefault>
         </div>
-        <div class="grid-stack">
-          <gridstackItem :item="homeData.item"></gridstackItem>
-          <div class="grid__wrap">
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
+        <div class="overlay__page">
+          <span>x {{ homeData.item.x }} y {{ homeData.item.y }} w {{ homeData.item.w }} h {{ homeData.item.h }}</span>
+        </div>
+
+
+        <div class="overlay__content" :class="{ active: loaded }">
+          <div class="dialog">
+            <div class="dialog-content">
+              <!-- gridstack -->
+              <div id="gridstack">
+                <div id="grid-container">
+                  <div class="home-component">
+                    <component
+                      v-if="homeData.style"
+                      :is="homeData.style"
+                      :options="homeDefaultedOptions"
+                      :color="homeColor"
+                    />
+                  </div>
+                  <div class="grid-stack">
+                    <gridstackItem :item="homeData.item"></gridstackItem>
+                    <div class="grid__wrap">
+                      <div v-for="n in 96" :key="n" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- gridstack -->
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </teleport>
 </template>
 
 <script>
@@ -138,10 +82,22 @@ export default {
     home5: defineAsyncComponent(() => import("@/preview/home/home/home5")),
     home6: defineAsyncComponent(() => import("@/preview/home/home/home6")),
   },
+  props: {
+    dialog: { type: Boolean },
+  },
   data() {
     return {
       grid: undefined,
       count: 1,
+      loaded: false,
+      item: {
+        filename: "aaaaa",
+        id: "hero-image",
+        x: 0,
+        y: 0,
+        w: 0,
+        h: 0,
+      },
     };
   },
   computed: {
@@ -152,10 +108,15 @@ export default {
     }),
   },
   mounted() {
+
+
+    setTimeout(() => {
+      this.loaded = true;
+    }, 1);
     // Define your options object with configuration options
     let options = {
       float: true, // Allow items to be freely positioned
-      cellHeight: "24px", // Height of each cell
+      cellHeight: "6vh", // Height of each cell
       column: 8, // Number of columns in the grid
       row: 12,
       //minRow: 12,         // Minimum number of rows in the grid
@@ -185,6 +146,9 @@ export default {
     });
   },
   methods: {
+    closeDialog() {
+      this.$emit("update:dialog", false);
+    },
     handleGridEvent(action, element) {
       const node = element.gridstackNode;
       this.homeData.item.x = node.x;
@@ -203,50 +167,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.gridstack {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: auto;
-}
-#gridstack {
-  position: relative;
-  height: 288px;
-  aspect-ratio: 3 / 5;
-  overflow: hidden;
-  background-color: rgb(var(--mio-theme-color-primary-05));
-}
-.grid__wrap {
-  position: absolute;
-  content: "";
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(12, 1fr);
-  gap: 1px;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* This makes the div non-clickable */
-  z-index: 3;
-}
-.grid__wrap > div {
-  outline: 1px solid rgb(var(--mio-theme-color-primary));
-  opacity: 0.08;
-}
-#grid-container {
-}
-.home-component {
-  position: absolute;
-  width: 480px;
-  height: 800px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) scale(0.36);
-  z-index: 2;
-  pointer-events: none;
-}
-</style>
+<style scoped></style>

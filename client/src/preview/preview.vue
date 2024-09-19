@@ -4,27 +4,27 @@
 
     <background />
 
-<!--
+    <!--
     <div id="audiosView">
       <audios v-if="previewFunction.audios" />
 
 </div>
 -->
 
-<div id="functionsView">
-  <!--<likeView v-if="previewFunction.like" />-->
+    <div id="functionsView">
+      <!--<likeView v-if="previewFunction.like" />-->
 
-  <buttonAlt variant="fuctions">
-    <icon><caretDown /></icon>
-</buttonAlt>
-</div>
+      <buttonAlt variant="fuctions" @click="handleClickEvent">
+        <icon><caretDown /></icon>
+      </buttonAlt>
+    </div>
     <!--
     
    
 
     
     -->
-   <!-- <effect v-if="previewFunction.effect" /> -->
+    <!-- <effect v-if="previewFunction.effect" /> -->
     <div class="preview-content">
       <home />
       <component
@@ -33,7 +33,7 @@
         :is="option"
       />
 
-       <footersView /> 
+      <footersView />
     </div>
   </div>
 </template>
@@ -48,7 +48,9 @@ import buttonAlt from "@/preview/components/buttonAlt.vue";
 
 export default {
   components: {
-    customData, caretDown, buttonAlt,
+    customData,
+    caretDown,
+    buttonAlt,
     background: defineAsyncComponent(() =>
       import("@/preview/background/backgroundView.vue")
     ),
@@ -80,8 +82,6 @@ export default {
     ),
     likeView: defineAsyncComponent(() => import("@/preview/like/likeView.vue")),
 
-
-
     notice: defineAsyncComponent(() => import("@/views/preview/notice/notice")),
 
     footersView: defineAsyncComponent(() =>
@@ -99,11 +99,13 @@ export default {
     }),
   },
   methods: {
-    ...mapActions(["fetchFormData"]),
+    ...mapActions(["fetchFormData", "handleScrollToAction"]),
     handleFetchFormData(id) {
       this.fetchFormData(id);
+    },
+    handleClickEvent() {
+      this.handleScrollToAction("previewFooter");
     },
   },
 };
 </script>
-

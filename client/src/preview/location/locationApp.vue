@@ -1,18 +1,52 @@
 <template>
-  <dialogBottom :dialog="dialog" title="연락하기" @update:dialog="updateDialog">
-    <listItem
-      icon="upload"
-      label="이미지 업로드"
-      v-if="!files.url"
-      @click="triggerFileInput"
-    />
+  <dialogBottom
+    :dialog="dialog"
+    title="앱에서 보기"
+    @update:dialog="updateDialog"
+  >
+    <listItem @click="handleNaverMap">
+      <div class="display_flex align-items_center gap_16">
+        <button class="navermap app-button">
+          <icon><navermap /></icon>
+        </button>
+        <span>네이버맵</span>
+      </div>
+    </listItem>
+    <listItem @click="handleKakaoNavi">
+      <div class="display_flex align-items_center gap_16">
+        <button class="kakaonavi app-button">
+          <icon><kakaonavi /></icon>
+        </button>
+        <span>카카오네비</span>
+      </div>
+    </listItem>
+    <listItem @click="handleKakaoMap">
+      <div class="display_flex align-items_center gap_16">
+        <button class="kakaomap app-button">
+          <icon><kakaomap /></icon>
+        </button>
+        <span>카카오맵</span>
+      </div>
+    </listItem>
+    <listItem @click="handleTmap">
+      <div class="display_flex align-items_center gap_16">
+        <button class="tmap app-button">
+          <icon><tmap /></icon>
+        </button>
+        <span>티맵</span>
+      </div>
+    </listItem>
   </dialogBottom>
 </template>
 <script>
 import { mapGetters } from "vuex";
+import navermap from "@/components/icon/navermap";
+import kakaonavi from "@/components/icon/kakaonavi";
+import kakaomap from "@/components/icon/kakaomap";
+import tmap from "@/components/icon/tmap";
 
 export default {
-  components: {},
+  components: { navermap, kakaonavi, kakaomap, tmap },
   props: {
     dialog: { type: Boolean },
   },
@@ -114,3 +148,28 @@ export default {
   },
 };
 </script>
+<style scoped>
+.app-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+}
+.navermap {
+  background-color: #51b654;
+}
+.kakaomap,
+.kakaonavi {
+  background-color: #f0d94a;
+}
+.tmap {
+  background: conic-gradient(
+    from 0deg,
+    #ee59b0,
+    /* Start with the first color */ #6de2b2,
+    /* Smooth transition to the second color */ #1b68f6,
+    /* Smooth transition to the third color */ #6d47f6,
+    /* Smooth transition to the fourth color */ #ee59b0
+      /* Close the loop by smoothly blending into the first color again */
+  );
+}
+</style>

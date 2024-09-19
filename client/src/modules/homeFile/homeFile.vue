@@ -44,7 +44,7 @@ export default {
       import("@/components/file/fileUploader.vue")
     ),
     gridstack: defineAsyncComponent(() =>
-      import("@/modules/gridstack/gridstackDialog.vue")
+      import("@/modules/gridstack/gridstack.vue")
     ),
   },
   computed: {

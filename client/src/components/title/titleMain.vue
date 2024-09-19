@@ -29,10 +29,10 @@ export default {
 }
 .titleMain .step {
   font-size: 1rem;
-        font-weight: 500;
-        letter-spacing: .1875rem;
-        line-height: 1.125rem;
-        text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.1875rem;
+  line-height: 1.125rem;
+  text-transform: uppercase;
 }
 .title-wrap {
   display: flex;
@@ -41,15 +41,15 @@ export default {
 }
 .titleMain .title {
   font-size: 3rem;
-        letter-spacing: -.01em;
-        line-height: 3.25rem;
+  letter-spacing: -0.01em;
+  line-height: 3.25rem;
   font-weight: 800;
   font-family: var(--mio-theme-font-family-sp);
 }
 .titleMain .content {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 1.75rem;
+  line-height: 168%;
   letter-spacing: 0;
   color: rgb(var(--mio-theme-color-on-background-70));
 }
@@ -58,14 +58,14 @@ export default {
 <style scoped>
 @media all and (max-width: 479px) {
   .titleMain .step {
-    font-size: .875rem;
-    letter-spacing: .1875rem;
+    font-size: 0.875rem;
+    letter-spacing: 0.1875rem;
     line-height: 1.125rem;
     text-transform: uppercase;
-}
+  }
   .titleMain .title {
     font-size: 2rem;
-    letter-spacing: -.01em;
+    letter-spacing: -0.01em;
     line-height: 2.25rem;
   }
   .titleMain .content {

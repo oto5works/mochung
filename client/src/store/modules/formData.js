@@ -371,6 +371,7 @@ export default {
           info: state.postData.formData.locationData.info,
         },
       },
+      fnFile: state.postData.formData.homeData.fnFile,
       item: {
         x: state.postData.formData.homeData.item.x,
         y: state.postData.formData.homeData.item.y,

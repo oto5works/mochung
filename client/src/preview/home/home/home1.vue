@@ -1,6 +1,7 @@
 <template>
   <div class="home__wrap" :style="{ color: color }">
     <div class="home__content">
+      <div class="home-scale">
       <div class="font-size_18 bold text-align_center">{{ options.title }}</div>
       <div class="sp_4" />
       <div class="h-hr" />
@@ -14,6 +15,7 @@
         WEDDING CEREMONY<br />
         {{ options.host0.name }} & {{ options.host1.name }}<br />
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -76,6 +78,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

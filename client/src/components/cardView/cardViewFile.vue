@@ -16,7 +16,7 @@
             class="image-preview"
             :style="{ backgroundImage: `url('${url}')` }"
           ></div>
-          <div class="display_flex flex-direction_column  text-align_left gap_4px">
+          <div class="display_flex flex-direction_column  text-align_left gap_4">
             <span class="font-size_13 font-weight_500">Upload Completed</span>
             <span class="text-decoration_underline">Settings</span>
           </div>

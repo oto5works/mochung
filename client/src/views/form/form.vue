@@ -117,7 +117,7 @@ export default {
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: #f6f6f0;
+  background-color: rgba(var(--primary-color), 0.04);
 }
 .preview-mobile {
   position: relative;

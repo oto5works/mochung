@@ -7,13 +7,14 @@
       <component :is="icon" />
     </icon>
     <div
+      v-if="label"
       class="display_flex flex-direction_column align-items_flex-start width_100"
     >
       <div v-if="label" class="label">{{ label }}</div>
       <div v-if="content" class="content" v-html="content"></div>
     </div>
 
-<slot></slot>
+    <slot></slot>
     <button v-if="checkbox" class="icon_24">
       <icon v-if="!modelValue"><boxCleared /></icon>
       <icon v-if="modelValue" class="checked"><boxChecked /></icon>
@@ -75,7 +76,6 @@ export default {
     right: defineAsyncComponent(() => import("@/components/icon/alignRight")),
     eye: defineAsyncComponent(() => import("@/components/icon/eye")),
     share: defineAsyncComponent(() => import("@/components/icon/share")),
-
   },
   props: {
     icon: {
