@@ -17,7 +17,7 @@
           <span>RESPOND HERE</span>
         </button>
       </div>
-      <surveySubmit
+      <surveyDialog
         v-if="dialog"
         :dialog="dialog"
         @update:dialog="dialog = $event"
@@ -31,8 +31,8 @@ import { defineAsyncComponent } from "vue";
 
 export default {
   components: {
-    surveySubmit: defineAsyncComponent(() =>
-      import("@/preview/survey/surveySubmit.vue")
+    surveyDialog: defineAsyncComponent(() =>
+      import("@/preview/survey/surveyDialog.vue")
     ),
   },
   data() {

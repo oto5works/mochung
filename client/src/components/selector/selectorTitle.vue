@@ -16,6 +16,7 @@
           :value="recommendation"
           :title="recommendation"
           :selected="recommendation === optionTitle"
+          @click="selectRecommendation(recommendation)"
         >
         </chip>
       </chips>
@@ -88,7 +89,6 @@ export default {
     },
     selectRecommendation(recommendation) {
       this.optionTitle = recommendation;
-      this.dialog = false; // Close the dialog after selection if needed
     },
     saveValue() {
       this.dialog = false;

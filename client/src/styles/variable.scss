@@ -37,13 +37,6 @@
 
 }
 
-.color_mio-primary-color {
-  color: var(--mio-theme-color-primary);
-}
-.font-family_mio-font-family-2 {
-  font-family: var(--mio-theme-font-family-2);
-}
-
 html[data-design-theme="design1"] {
 }
 html[data-design-theme="design2"] {
@@ -106,21 +99,6 @@ html[data-radius-theme="3"] {
   --border-radius_28: 28px;
 }
 
-// border
-html[data-border-theme="false"] {
-}
-html[data-border-theme="true"] {
-}
-// shadow
-html[data-shadow-theme="false"] {
-}
-html[data-shadow-theme="true"] {
-}
-
-html[data-font-weight-theme="false"] {
-}
-html[data-font-weight-theme="true"] {
-}
 
 /*--- font-size ---*/
 html[data-font-size-theme="1"] {
@@ -161,4 +139,21 @@ html[data-font-size-theme="3"] {
   --font-size_48: 48px;
 }
 html[data-font-size-theme="4"] {
+}
+
+/*--- font-weight ---*/
+html[data-font-weight-theme="light"] {
+  --font-weight_400: 400;
+  --font-weight_500: 500;
+  --font-weight_700: 700;
+}
+html[data-font-weight-theme="medium"] {
+  --font-weight_400: 400;
+  --font-weight_500: 500;
+  --font-weight_700: 700;
+}
+html[data-font-weight-theme="bold"] {
+  --font-weight_400: 400;
+  --font-weight_500: 500;
+  --font-weight_700: 700;
 }

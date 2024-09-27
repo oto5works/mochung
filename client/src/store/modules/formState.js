@@ -5,7 +5,7 @@ export default {
     showPreview: false,
     section: null,
     screenWidth: "",
-    formOption: ''
+    formOption: null,
   },
   mutations: {
     togglePreview(state) {
@@ -21,9 +21,8 @@ export default {
       state.screenWidth = width <= 1023 ? "mobile" : "desktop";
     },
     handleScrollTo(state, previewId) {
-      
       if (previewId) {
-        console.log('받은것요', previewId)
+        console.log("받은것요", previewId);
         const targetSection = document.getElementById(previewId);
         const routerView = document.getElementById("preview");
         if (targetSection && routerView) {
@@ -34,6 +33,9 @@ export default {
           });
         }
       }
+    },
+    resetFormOption(state) {
+      state.formOption = null; // 초기화
     },
   },
   actions: {
@@ -54,6 +56,9 @@ export default {
     },
     updateFormOption({ commit }, option) {
       commit("setFormOption", option);
+    },
+    resetFormOptionAction({ commit }) {
+      commit("resetFormOption"); // resetFormOption 뮤테이션 호출
     },
   },
   getters: {

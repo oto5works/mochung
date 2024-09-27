@@ -1,15 +1,12 @@
 <template>
-  <button
-    :class="['checkbox', { selected: modelValue }]"
-    @click="handleClick"
-  >
+  <button :class="['checkbox', { selected: isChecked }]" @click="handleClick">
     <button class="icon_24">
-      <icon v-if="!modelValue"><boxCleared /></icon>
-      <icon v-if="modelValue" class="checked"><boxChecked /></icon>
+      <icon v-if="!isChecked"><boxCleared /></icon>
+      <icon v-if="isChecked" class="checked"><boxChecked /></icon>
       <div class="underlay" />
     </button>
     <span v-if="label">{{ label }}</span>
-    <slot></slot>
+   <slot></slot>
   </button>
 </template>
 
@@ -39,16 +36,34 @@ export default {
       type: Boolean,
       default: true,
     },
+    value: {
+      type: [String, Number, Boolean],
+      default: undefined,
+    },
   },
   emits: ["update:modelValue"],
+  computed: {
+    isChecked() {
+      if (this.value !== undefined) {
+        console.log ('if = True')
+        return this.modelValue === this.value;
+      }
+      console.log ('if = False')
+      return this.modelValue === true;
+    },
+  },
   methods: {
     handleClick(event) {
       if (this.clickEvent) {
-        this.updateValue(event);
+        this.updateValue();
       }
     },
     updateValue() {
-      this.$emit("update:modelValue", !this.modelValue);
+      if (this.value !== undefined) {
+        this.$emit("update:modelValue", this.isChecked ? null : this.value);
+      } else {
+        this.$emit("update:modelValue", !this.isChecked);
+      }
     },
   },
 };
@@ -74,11 +89,10 @@ export default {
   stroke: rgb(var(--mio-theme-color-on-primary));
 }
 .checkbox .underlay {
-border-radius: 8px;
-  }
+  border-radius: 8px;
+}
 .checkbox:hover .underlay,
-.checkbox.hover .underlay
-{
+.checkbox.hover .underlay {
   background-color: rgb(var(--mio-theme-color-primary-10));
 }
 .checkbox.selected .underlay {

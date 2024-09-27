@@ -24,26 +24,20 @@ export default {
     heroView: defineAsyncComponent(() =>
       import("@/preview/home/hero/heroView.vue")
     ),
-    home1: defineAsyncComponent(() =>
-      import("@/preview/home/home/home1.vue")
+    minimalChic: defineAsyncComponent(() =>
+      import("@/preview/home/home/minimalChic.vue")
     ),
-    home2: defineAsyncComponent(() =>
-      import("@/preview/home/home/home2")
+    classicElegance: defineAsyncComponent(() =>
+      import("@/preview/home/home/classicElegance")
     ),
-    home3: defineAsyncComponent(() =>
-      import("@/preview/home/home/home3")
+    modernSimplicity: defineAsyncComponent(() =>
+      import("@/preview/home/home/modernSimplicity")
     ),
-    home4: defineAsyncComponent(() =>
-      import("@/preview/home/home/home4")
+    welcomingWarmth: defineAsyncComponent(() =>
+      import("@/preview/home/home/welcomingWarmth")
     ),
-    home5: defineAsyncComponent(() =>
-      import("@/preview/home/home/home5")
-    ),
-    home6: defineAsyncComponent(() =>
-      import("@/preview/home/home/home6")
-    ),
-    home7: defineAsyncComponent(() =>
-      import("@/preview/home/home/home7")
+    elegantFlow: defineAsyncComponent(() =>
+      import("@/preview/home/home/elegantFlow")
     ),
   },
   computed: {

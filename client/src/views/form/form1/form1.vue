@@ -29,11 +29,8 @@ export default {
   },
   created() {
     this.updateSection("design");
-    window.addEventListener("beforeunload", this.handleBeforeUnload);
   },
-  beforeUnmount() {
-    window.removeEventListener("beforeunload", this.handleBeforeUnload);
-  },
+
   methods: {
     ...mapActions(["updateSection"]),
     handleBeforeUnload(event) {

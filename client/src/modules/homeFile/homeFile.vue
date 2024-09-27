@@ -23,8 +23,8 @@
       />
       <listItem
         icon="crop"
-        label="위치 및 크기 수정"
-        content="메인화면의 이미지의 위치나 크기를 수정할수 있습니다."
+        label="이미지 위치 및 크기 조정"
+        content="메인화면에서 이미지의 위치와 크기를 설정하세요."
         v-if="homeData.files.url"
         @click="gridstack = true"
       />

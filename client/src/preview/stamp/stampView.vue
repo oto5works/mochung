@@ -10,6 +10,9 @@ export default {
   components: {
     stamp: defineAsyncComponent(() => import("@/components/stamp/stamp")),
     leaf1: defineAsyncComponent(() => import("@/preview/stamp/leaf1.vue")),
+    lily: defineAsyncComponent(() => import("@/preview/stamp/lily.vue")),
+    asterisk: defineAsyncComponent(() => import("@/preview/stamp/asterisk.vue")),
+
   },
   props: {
     title: { type: String },
@@ -35,5 +38,14 @@ export default {
 .stamp .leaf1 {
   width: 28%;
   height: auto;
+}
+.stamp .lily {
+  width: 28%;
+  height: auto;
+}
+.stamp .asterisk {
+  width: 16px;
+  height: auto;
+
 }
 </style>

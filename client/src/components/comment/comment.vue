@@ -2,10 +2,13 @@
   <div :class="['comment', design, { isWriter: comment.isWriter }]">
     <div class="comment-wrap">
       <div class="comment-content">
-        <div
+        <!-- :style="{ backgroundImage: `url('${imageUrl}')` }" -->
+        <button
           class="comment-profile"
-          :style="{ backgroundImage: `url('${imageUrl}')` }"
-        />
+          
+        >
+        <icon class="icon_18"><user /></icon>
+        </button>
         <div class="comment-bubble" @click="showMore = true">
           <span v-if="!showMore">
             {{ comment.content.slice(0, 64) }}
@@ -50,6 +53,8 @@
 import { defineAsyncComponent } from "vue";
 import { mapGetters } from "vuex";
 import dots from "@/components/icon/dots.vue";
+import user from "@/components/icon/user.vue";
+
 import moment from "moment";
 import "moment/locale/ko";
 import "@/components/comment/comment.scss";
@@ -57,6 +62,7 @@ import "@/components/comment/comment.scss";
 export default {
   components: {
     dots,
+    user,
     commentMore: defineAsyncComponent(() =>
       import("@/components/comment/commentMore.vue")
     ),

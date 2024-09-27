@@ -16,11 +16,18 @@
       />
     </div>
     <div v-if="homeData.fnFile" class="pa_24">
-      <div class="sp_8"></div>
-      <homeFile />
-     
-
+      <div class="form-spacing" />
+      <div class="display_flex flex-direction_column gap_8">
+        <homeFile />
+        <cardView icon="crop" title="이미지 위치 및 크기 조정" content="메인화면에서 이미지의 위치와 크기를 설정하세요." @click="gridstack = true">
+          <gridstack
+            v-if="gridstack"
+            :dialog="gridstack"
+            @update:dialog="gridstack = $event"
+          />
+        </cardView>
       
+      </div>
     </div>
   </dialogModal>
 </template>
@@ -37,13 +44,18 @@ export default {
     selectorTitle,
     enableView,
     homeFileSwitch,
-    homeFile
+    homeFile,
+    gridstack: defineAsyncComponent(() =>
+      import("@/modules/gridstack/gridstack.vue")
+    ),
   },
   props: {
     dialog: { type: Boolean },
   },
   data() {
     return {
+      gridstack: false,
+      fileViewer: false,
     };
   },
   computed: {

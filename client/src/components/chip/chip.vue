@@ -1,5 +1,5 @@
 <template>
-  <button class="chip" :class="{ selected: isSelected }" @click="selectTab">
+  <button class="chip" :class="{ selected: selected }">
     <icon class="check icon_16"><check /></icon>
     <span>{{ title }}</span>
     <slot></slot>
@@ -16,23 +16,9 @@ export default {
       type: String,
       default: false,
     },
-    value: {
-      type: [String, Number],
-      default: null,
-    },
-    modelValue: {
-      type: [String, Number],
-      default: null,
-    },
-  },
-  computed: {
-    isSelected() {
-      return this.$parent.modelValue === this.value;
-    },
-  },
-  methods: {
-    selectTab() {
-      this.$parent.updateValue(this.value);
+    selected: {
+      type: Boolean,
+      default: false,
     },
   },
 };

@@ -98,7 +98,7 @@ export default {
     },
     imageBaseUrl() {
       // 환경 변수를 사용하여 이미지 기본 URL 반환
-      return import.meta.env.VITE_IMAGE_BASE_URL || 'https://default.url/';
+      return import.meta.env.VITE_IMAGE_BASE_URL || "https://default.url/";
     },
   },
   data() {
@@ -132,7 +132,7 @@ export default {
       const homeStyle = this.homeStyleOptions.find(
         (item) => item.value === selectedTemp.homeStyle
       );
-console.log ('fff' , homeStyle)
+      console.log("fff", homeStyle);
       const updateData = {
         customData: {
           ...this.customData,
@@ -158,7 +158,7 @@ console.log ('fff' , homeStyle)
       };
       if (selectedTemp) {
         this.homeData.style = homeStyle.value;
-      this.homeData.item = homeStyle.item;
+        this.homeData.item = homeStyle.item;
         this.updateFormDataAction(updateData);
         this.selectedIndex(option.value);
       }
@@ -217,7 +217,7 @@ console.log ('fff' , homeStyle)
 <style scoped>
 @media all and (max-width: 479px) {
   .fnOption-item {
-  width: 48vw;
-}
+    width: 48vw;
+  }
 }
 </style>

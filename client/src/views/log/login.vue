@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     goBack() {
-      this.$router.go(-1); // Navigate to the previous page
+      this.$router.push({ name: "form" });
     },
   },
 };

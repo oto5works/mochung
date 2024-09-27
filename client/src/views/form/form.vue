@@ -88,6 +88,13 @@ export default {
       this.$store.commit("resetFormData"); // Vue 컴포넌트 내에서 호출
     }
   },
+  beforeRouteLeave(to, from, next) {
+    // 여기에 실행할 로직을 추가
+    console.log("라우터를 벗어나기 전에 실행됩니다.");
+    this.handleRouteLeave();
+    // 다음 라우트로 이동
+    next();
+  },
   computed: {
     ...mapGetters({
       //postData: 'getFormData',
@@ -101,9 +108,14 @@ export default {
       "updateFormDataAction",
       "fetchFormData",
       "resetFormDataAction",
+      "resetFormOptionAction",
     ]),
     handleFetchFormData(id) {
       this.fetchFormData(id);
+    },
+    handleRouteLeave() {
+      this.resetFormOptionAction();
+      console.log("formOption의 값:", this.formOption);
     },
   },
 };

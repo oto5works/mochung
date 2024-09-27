@@ -12,7 +12,7 @@
       >
         <span v-if="index2 !== 0 && option2.name">·</span>
         <div class="display_flex align-items_center gap_4 letter-spacing_8">
-          <icon v-if="option2.info" class="icon_16">
+          <icon v-if="option2.info" class="icon_12">
             <component :is="option2.info" />
           </icon>
           <span v-if="option2.name">{{ option2.name }}</span>
@@ -44,4 +44,3 @@ export default {
   },
 };
 </script>
-

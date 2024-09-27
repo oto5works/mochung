@@ -1,19 +1,15 @@
 <template>
-  <formBox icon="rsvp" title="게스트 정보 수집" @click="handleClickEvent">
-    <div class="formBox__content">
-      <v-switch
-        style="pointer-events: none"
-        v-model="surveyData.fnSurvey"
-        hide-details
-        inset
-      ></v-switch>
-    </div>
+    <cardView icon="rsvp" title="효과 설정" content="Use this to set the title for the section where guests can send" @click="handleClickEvent">
+    <toggleSwitch
+      :clickEvent="false"
+      v-model="surveyData.fnSurvey"
+    ></toggleSwitch>
     <surveyDialog
       v-if="dialog"
       :dialog="dialog"
       @update:dialog="dialog = $event"
     />
-  </formBox>
+  </cardView>
 </template>
 <script>
 import { defineAsyncComponent } from "vue";
@@ -38,11 +34,7 @@ export default {
   methods: {
     ...mapActions(["handleScrollToAction"]),
     handleClickEvent() {
-      if (this.surveyData.fnSurvey === false) {
-        this.dialog = true;
-      } else {
-        this.surveyData.fnSurvey = false;
-      }
+      this.dialog = true;
       this.handleScrollToAction("previewSurvey");
     },
   },

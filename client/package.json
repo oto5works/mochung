@@ -9,6 +9,7 @@
   "dependencies": {
     "@egjs/flicking-plugins": "^4.7.0",
     "@egjs/vue3-flicking": "^4.10.6",
+    "@google/generative-ai": "^0.19.0",
     "@popperjs/core": "^2.11.7",
     "@pqina/flip": "^1.7.7",
     "@tiptap/extension-bold": "^2.0.2",

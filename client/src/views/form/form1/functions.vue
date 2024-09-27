@@ -8,17 +8,20 @@
     <div class="editor-content">
       <audiosBox />
       <effectBox />
+      <surveyBox />
     </div>
   </div>
 </template>
 <script>
 import audiosBox from "@/modules/audios/audiosBox.vue";
 import effectBox from "@/modules/effect/effectBox.vue";
+import surveyBox from "@/modules/survey/surveyBox.vue";
 
 export default {
   components: {
     audiosBox,
     effectBox,
+    surveyBox,
   },
 };
 </script>

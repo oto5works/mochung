@@ -6,16 +6,15 @@
           <calendarComp :date="dateData.date" />
         </component>
         <div
-          class="display_flex gap_16 --font-size_12 letter-spacing_8 font-weight_700"
+          class="display_flex gap_16 --font-size_12 letter-spacing_8 font-weight_700 day"
         >
-          {{ setDate }} {{ setTime }}
+          {{ setDate }}, {{ setTime }}
           <span>|</span>
           <span v-if="dDay">
             {{ dDay }}
           </span>
         </div>
-          <stampView />
-        
+        <stampView />
       </div>
     </sectionView>
 
@@ -64,26 +63,44 @@ export default {
     setDate() {
       const parts = this.dateData.date.split("-");
       const year = parts[0];
-      const month = parts[1];
-      const day = parts[2];
-      return `${year}. ${parseInt(month)}. ${parseInt(day)}.`;
+      const month = parseInt(parts[1]) - 1; // JavaScript의 월은 0부터 시작
+      const day = parseInt(parts[2]);
+
+      const dateObj = new Date(year, month, day);
+
+      const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      const monthsOfYear = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+
+      const dayOfWeek = daysOfWeek[dateObj.getDay()];
+      const monthName = monthsOfYear[month]; // 0-based index for month
+
+      return `${dayOfWeek}, ${day} ${monthName} ${year}`;
     },
     setTime() {
       const parts = this.dateData.time.split(":");
       const hours = parseInt(parts[0]);
       const minutes = parseInt(parts[1]);
 
-      // Determine AM or PM
-      const period = hours >= 12 ? "PM" : "AM";
-
-      // Convert to 12-hour format
-      const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
-
-      // Pad minutes with leading zero if needed
+      // Pad hours and minutes with leading zero if needed
+      const formattedHours = hours < 10 ? `0${hours}` : hours;
       const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
 
-      return `${period} ${formattedHours} : ${formattedMinutes}`;
+      return `${formattedHours}:${formattedMinutes}`;
     },
+
     dDay() {
       const today = new Date();
       const targetDate = new Date(
@@ -105,3 +122,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.day {
+text-transform: uppercase;
+}
+</style>

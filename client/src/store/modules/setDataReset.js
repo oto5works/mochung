@@ -127,33 +127,33 @@ const resetValue = {
 
     /*-- 이펙트 --*/
     effectData: {
-      fnEffect: true,
+      fnEffect: false,
       config: "falling",
       shape: "confetti",
       color: ["#F55F56", "#8B67F3", "#6BEDF5", "#FEDB50"],
     },
     /*-- 배경음악 --*/
     audiosData: {
-      fnAudios: true,
-      fnAutoPlay: true,
-      url: 'https://www.youtube.com/watch?v=m9sOWoZ3ADw',
+      fnAudios: false,
+      fnAutoPlay: false,
+      url: "https://www.youtube.com/watch?v=m9sOWoZ3ADw",
     },
     /*-- 커스텀 --*/
     customData: {
       temp: "temp_basic_1", // 디자인 템플릿 사용유무
       styleBackground: "defaulted", // defaulted, gradient
-      backgroundColor: [255, 255, 255],
-      design: "design3", // 디자인 스타일 design1: default, design2: card style, design3: line style
+      backgroundColor: [39, 57, 64],
+      design: "design1", // 디자인 스타일 design1: default, design2: card style, design3: line style
       align: "center",
-      primaryColor: [0, 0, 0], // rgb값
-      radius: 2, // level: 0, 1, 2, 3
+      primaryColor: [221, 217, 209], // rgb값
+      radius: "0", // level: 0, 1, 2, 3
       border: false, // 객체의 border
       shadow: false, // 객체의 shadow
-      fontSize: 2, // level: 1, 2, 3,
-      fontColor: [0, 0, 0], // rgb값
+      fontSize: "2", // level: 1, 2, 3,
+      fontColor: [221, 217, 209], // rgb값
       fontFamily: "pretendard",
-      fontWeight: true, // bold 사용 유무
-      stamp: "leaf1",
+      fontWeight: "light", // light, medium, bold
+      stamp: "lily",
       /*-- add --*/
 
       // gradient1: "#FFFFFF",

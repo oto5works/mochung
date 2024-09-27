@@ -23,20 +23,20 @@ export default {
     const design = this.customData.design;
     const align = this.customData.align;
     const radius = this.customData.radius;
-    //const border = this.customData.border;
-    //const shadow = this.customData.shadow;
-    const spacing = this.customData.fontFamily;
+    // const border = this.customData.border;
+    // const shadow = this.customData.shadow;
+    // const spacing = this.customData.fontFamily;
     const fontSize = this.customData.fontSize;
-    //const fontWeight = this.customData.fontWeight;
+    const fontWeight = this.customData.fontWeight;
 
     setDocumentAttribut("design", design);
     setDocumentAttribut("align", align);
     setDocumentAttribut("radius", radius);
-    //setDocumentAttribut('border', border);
-    //setDocumentAttribut('shadow', shadow);
-    setDocumentAttribut("spacing", spacing);
+    // setDocumentAttribut('border', border);
+    // setDocumentAttribut('shadow', shadow);
+    // setDocumentAttribut("spacing", spacing);
     setDocumentAttribut("font-size", fontSize);
-    //setDocumentAttribut('font-weight', fontWeight);
+    setDocumentAttribut("font-weight", fontWeight);
 
     // font-style
     const fontColor = this.customData.fontColor;
@@ -47,12 +47,12 @@ export default {
     setDocumentProperty("home-color", homeColor);
 
     // gradient
-    const gradient1 = this.customData.gradient1;
-    const gradient2 = this.customData.gradient2;
-    const gradient3 = this.customData.gradient3;
-    setDocumentProperty("gradient-1", gradient1);
-    setDocumentProperty("gradient-2", gradient2);
-    setDocumentProperty("gradient-3", gradient3);
+    // const gradient1 = this.customData.gradient1;
+    // const gradient2 = this.customData.gradient2;
+    // const gradient3 = this.customData.gradient3;
+    // setDocumentProperty("gradient-1", gradient1);
+    // setDocumentProperty("gradient-2", gradient2);
+    // setDocumentProperty("gradient-3", gradient3);
   },
   watch: {
     // Color
@@ -69,56 +69,29 @@ export default {
     //'customData.shadow': (newValue) => setDocumentAttribut('shadow', newValue),
     // font
     "customData.fontFamily": (newValue) => {
-      setDocumentAttribut("spacing", newValue);
+      // setDocumentAttribut("spacing", newValue);
       setDocumentProperty("font-family", newValue);
     },
     "customData.fontSize": (newValue) =>
       setDocumentAttribut("font-size", newValue),
-    //'customData.fontWeight': (newValue) => setDocumentAttribut('font-weight', newValue),
+    "customData.fontWeight": (newValue) =>
+      setDocumentAttribut("font-weight", newValue),
 
     "customData.fontColor": (newValue) =>
       setDocumentProperty("font-color", newValue),
     homeColor: (newValue) => setDocumentProperty("home-color", newValue),
-    "customData.gradient1": (newValue) =>
-      setDocumentProperty("gradient-1", newValue),
-    "customData.gradient2": (newValue) =>
-      setDocumentProperty("gradient-2", newValue),
-    "customData.gradient3": (newValue) =>
-      setDocumentProperty("gradient-3", newValue),
+    // "customData.gradient1": (newValue) =>
+    //  setDocumentProperty("gradient-1", newValue),
+    // "customData.gradient2": (newValue) =>
+    //  setDocumentProperty("gradient-2", newValue),
+    // "customData.gradient3": (newValue) =>
+    //  setDocumentProperty("gradient-3", newValue),
 
     // design
     "customData.design": (newValue) => setDocumentAttribut("design", newValue),
-    /*
-    'customData.design': function(newValue) {
-      if (newValue === 'design3') {
-        this.setUnderlined();
-      } else {
-        this.setOutlined();
-      }
-      setDocumentAttribut('design', newValue);
-    },
-    */
   },
   methods: {
     ...mapActions(["updateFormDataAction"]),
-    setUnderlined() {
-      const updateData = {
-        customData: {
-          ...this.customData,
-          border: true,
-        },
-      };
-      this.updateFormDataAction(updateData);
-    },
-    setOutlined() {
-      const updateData = {
-        customData: {
-          ...this.customData,
-          border: false,
-        },
-      };
-      this.updateFormDataAction(updateData);
-    },
   },
 };
 </script>
