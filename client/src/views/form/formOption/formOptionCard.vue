@@ -5,7 +5,7 @@
       <div class="title-wrap">
         <span class="title" v-html="title"></span>
         <button class="formOptionCard-arrow">
-          <icon class="icon_28"><arrowRight3 /></icon>
+          <icon><arrowRight2 /></icon>
         </button>
       </div>
       <div class="list-wrap">
@@ -37,12 +37,12 @@
 <script>
 import check from "@/components/icon/check";
 import dots from "@/components/icon/dots.vue";
-import arrowRight3 from "@/components/icon/arrowRight3.vue";
+import arrowRight2 from "@/components/icon/arrowRight2.vue";
 
 export default {
   components: {
     check,
-    dots,arrowRight3
+    dots,arrowRight2
   },
   props: {
     title: {

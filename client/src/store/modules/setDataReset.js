@@ -104,7 +104,7 @@ const resetValue = {
     },
     /*-- 홈 --*/
     homeData: {
-      style: "home1",
+      style: "minimalChic",
       frame: null,
       color: "#000000",
       title: "Save the Date",
@@ -119,9 +119,9 @@ const resetValue = {
         filename: "aaaaa",
         id: "hero-image",
         x: 0,
-        y: 6,
+        y: 5,
         w: 8,
-        h: 6,
+        h: 7,
       },
     },
 
@@ -200,8 +200,8 @@ const resetValue = {
       name: "Elegant Rose Garden",
       info: "Orchid Ballroom, 2nd Floor",
       tell: "+82 2-1234-5678",
-      address: "Gangnam-gu, Seoul",
-      detail: "72, Nonhyeon-ro 79-gil (Yeoksam-dong 828-10) ",
+      address: "District 5, Metro City",
+      detail: "45, Sunset Boulevard (Lakeview Heights 123-45)",
       lat: "37.566826004661",
       lng: "126.978652258309",
       map: "map", // map, file

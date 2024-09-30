@@ -120,8 +120,8 @@ export default {
         },
       };
       if (result) {
-       // this.homeData.style = homeStyle.value;
-       // this.homeData.item = homeStyle.item;
+        this.homeData.style = homeStyle.value;
+        this.homeData.item = homeStyle.item;
         this.updateFormDataAction(updateData);
       }
     },

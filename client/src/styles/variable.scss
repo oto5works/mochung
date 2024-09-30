@@ -2,20 +2,21 @@
 :root {
   --mio-theme-color-primary: 22, 22, 22;
   --mio-theme-color-on-primary: 248, 248, 248;
+  
+  
   --mio-theme-color-primary-05: 246, 246, 240;
   --mio-theme-color-primary-07: 242, 242, 236;
-
-  --mio-theme-color-primary-05: 246, 246, 240;
-
   --mio-theme-color-primary-10: 237, 237, 230;
   --mio-theme-color-primary-20: 218, 218, 210;
   --mio-theme-color-primary-30: 196, 196, 185;
-
   --mio-theme-color-primary-40: 184, 184, 184;
   --mio-theme-color-primary-70: 138, 138, 138;
   --mio-theme-color-primary-90: 49, 49, 49;
+  
+  --mio-theme-color-white: 255, 255, 255;
+  --mio-theme-color-black: 0, 0, 0;
 
-  --mio-theme-color-background: 255, 255, 255;
+  --mio-theme-color-background: 250, 250, 250;
   --mio-theme-color-on-background: 22, 22, 22;
   --mio-theme-color-on-background-20: 217, 217, 217;
   --mio-theme-color-on-background-40: 153, 153, 153;
@@ -28,8 +29,8 @@
   --mio-theme-image-resize: url("https://oto5works.github.io/storage/image/mochung/resize.svg");
   --mio-theme-screen-width: 1023px;
   --mio-theme-aspect-ratio: 375 / 812; // 아이폰x 해상도 비율
-  --mio-theme-font-family: "pretendard";
-  --mio-theme-font-family-sp: "EBGaramond", "pretendard", sans-serif; // EBGaramond, GTSuper
+  --mio-theme-font-family: "pretendard"; // pretendard, suit
+  --mio-theme-font-family-sp: "cormorantgaramond", "pretendard", sans-serif; // EBGaramond, GTSuper, Cormorant Garamond
 
   --mio-theme-editor-spacing-top: 18vh;
 

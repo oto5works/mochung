@@ -39,12 +39,13 @@ export default {
   font-size: 6rem;
   letter-spacing: -0.02em;
   line-height: 6.5rem;
-  font-weight: 800;
+  font-weight: 700;
   font-family: var(--mio-theme-font-family-sp);
-  text-transform: capitalize;
 }
+/* + text-transform: capitalize; */
 .titlePage .content {
   font-size: 1.25rem;
+  font-weight: 300;
   line-height: 1.75rem;
   letter-spacing: 0;
   color: rgb(var(--mio-theme-color-on-background-70));

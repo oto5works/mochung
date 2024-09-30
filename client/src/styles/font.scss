@@ -1,5 +1,5 @@
 // url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/TTTtangsbudaejjigaeB.woff2') format('woff2');
-$base-url: 'https://oto5works.github.io/storage'; // 기본값
+$base-url: "https://oto5works.github.io/storage"; // 기본값
 
 h1,
 h2,
@@ -40,11 +40,45 @@ u {
 }
 @font-face {
   font-family: "EBGaramond";
-  src: url("#{$base-url}/font/EBGaramond-VariableFont_wght.ttf") format("truetype");
+  src: url("#{$base-url}/font/EBGaramond-VariableFont_wght.ttf")
+    format("truetype");
   font-style: normal;
   font-weight: 100 900; /* 가변 폰트의 가중치 범위 */
   font-display: swap;
 }
+
+/* Cormorant Garamond Italic */
+@font-face {
+  font-family: "cormorantgaramond";
+  src: url("#{$base-url}/font/cormorantgaramond-300.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "cormorantgaramond";
+  src: url("#{$base-url}/font/cormorantgaramond-400.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "cormorantgaramond";
+  src: url("#{$base-url}/font/cormorantgaramond-500.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "cormorantgaramond";
+  src: url("#{$base-url}/font/cormorantgaramond-600.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "cormorantgaramond";
+  src: url("#{$base-url}/font/cormorantgaramond-700.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+}
+
 @font-face {
   font-family: "GTSuper";
   src: url("#{$base-url}/font/gtsuper.woff2") format("woff2");
@@ -53,67 +87,36 @@ u {
 }
 // 프리텐다드
 @font-face {
-  font-family: "pretendard";
-  src: url("https://oto5works.github.io/storage/font/pretendard-400.woff2")
-    format("woff2");
-  font-style: normal;
-  font-weight: 400;
+	font-family: 'pretendard';
+	font-weight: 45 920;
+	font-style: normal;
+	font-display: swap;
+	src: url('#{$base-url}/font/pretendard-variable.woff2') format('woff2-variations');
 }
+// suit
 @font-face {
-  font-family: "pretendard";
-  src: url("https://oto5works.github.io/storage/font/pretendard-700.woff2")
-    format("woff2");
-  font-style: bold;
-  font-weight: 700;
+	font-family: 'suit';
+	font-weight: 100 900;
+  src: url('#{$base-url}/font/suit-variable.woff2') format('woff2-variations');
 }
-
-
-// 프리텐다드 Light
-@font-face {
-  font-family: "pretendardLight";
-  src: url("https://jwpggit.github.io/storage/font/pretendard-300.woff2")
-    format("woff2");
-  font-style: normal;
-  font-weight: 400;
-}
-@font-face {
-  font-family: "pretendardLight";
-  src: url("https://jwpggit.github.io/storage/font/pretendard-500.woff2")
-    format("woff2");
-  font-style: bold;
-  font-weight: 700;
-}
-
 // 본명조
 @font-face {
   font-family: "notoserif";
-  src: url("https://jwpggit.github.io/storage/font/notoserif-400.woff2")
-    format("woff2");
+  src: url("#{$base-url}/font/notoserif-variable.ttf")
+    format("truetype");
   font-style: normal;
-  font-weight: 400;
+  font-weight: 200 900; /* 가변 폰트의 가중치 범위 */
+  font-display: swap;
 }
-@font-face {
-  font-family: "notoserif";
-  src: url("https://jwpggit.github.io/storage/font/notoserif-700.woff2")
-    format("woff2");
-  font-style: bold;
-  font-weight: 700;
-}
-// 본명조 Light
-@font-face {
-  font-family: "notoserifLight";
-  src: url("https://jwpggit.github.io/storage/font/notoserif-300.woff2")
-    format("woff2");
-  font-style: normal;
-  font-weight: 400;
-}
-@font-face {
-  font-family: "notoserifLight";
-  src: url("https://jwpggit.github.io/storage/font/notoserif-500.woff2")
-    format("woff2");
-  font-style: bold;
-  font-weight: 700;
-}
+
+
+
+
+
+
+
+
+
 
 // 마루부리
 @font-face {
@@ -274,7 +277,6 @@ u {
   font-weight: 700;
 }
 
-
 // BC카드
 @font-face {
   font-family: "bccard";
@@ -383,5 +385,3 @@ u {
   font-style: normal;
   font-weight: 900;
 }
-
-

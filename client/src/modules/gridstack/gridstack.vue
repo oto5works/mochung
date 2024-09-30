@@ -12,9 +12,9 @@
             class="dialog-save"
             variant="tonal"
             height="32"
-            @click="saveImage"
+            @click="closeDialog"
           >
-            <span>Confirm</span>
+            <span>Confi22rm</span>
           </buttonDefault>
           <buttonDefault
             class="dialog-close"
@@ -75,12 +75,21 @@ import gridstackItem from "@/modules/gridstack/gridstackItem";
 export default {
   components: {
     gridstackItem,
-    home1: defineAsyncComponent(() => import("@/preview/home/home/home1")),
-    home2: defineAsyncComponent(() => import("@/preview/home/home/home2")),
-    home3: defineAsyncComponent(() => import("@/preview/home/home/home3")),
-    home4: defineAsyncComponent(() => import("@/preview/home/home/home4")),
-    home5: defineAsyncComponent(() => import("@/preview/home/home/home5")),
-    home6: defineAsyncComponent(() => import("@/preview/home/home/home6")),
+    minimalChic: defineAsyncComponent(() =>
+      import("@/preview/home/home/minimalChic.vue")
+    ),
+    classicElegance: defineAsyncComponent(() =>
+      import("@/preview/home/home/classicElegance")
+    ),
+    modernSimplicity: defineAsyncComponent(() =>
+      import("@/preview/home/home/modernSimplicity")
+    ),
+    welcomingWarmth: defineAsyncComponent(() =>
+      import("@/preview/home/home/welcomingWarmth")
+    ),
+    elegantFlow: defineAsyncComponent(() =>
+      import("@/preview/home/home/elegantFlow")
+    ),
   },
   props: {
     dialog: { type: Boolean },

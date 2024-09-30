@@ -369,6 +369,8 @@ export default {
         hall: {
           name: state.postData.formData.locationData.name,
           info: state.postData.formData.locationData.info,
+          address: state.postData.formData.locationData.address,
+          detail: state.postData.formData.locationData.detail,
         },
       },
       fnFile: state.postData.formData.homeData.fnFile,

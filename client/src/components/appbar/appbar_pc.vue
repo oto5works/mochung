@@ -9,17 +9,17 @@
           <appbarButton
             :class="{ selected: $route.name === 'collection' }"
             @click="$router.push({ name: 'collection' })"
-            >collection</appbarButton
+            >Collection</appbarButton
           >
           <appbarButton
             :class="{ selected: $route.name === 'form' }"
             @click="$router.push({ name: 'form' })"
-            >form</appbarButton
+            >Form</appbarButton
           >
           <appbarButton
             :class="{ selected: $route.name === 'components' }"
             @click="$router.push({ name: 'components' })"
-            >components</appbarButton
+            >Components</appbarButton
           >
 
           <div class="underlay" />

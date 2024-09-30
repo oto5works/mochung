@@ -78,7 +78,7 @@
 }
 .formOptionCard .title {
   font-size: 2.2rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 130%;
 }
 .formOptionCard .list-item {
@@ -89,6 +89,7 @@
 }
 .formOptionCard .list-item span {
   font-size: 1rem;
+  font-weight: 300;
   white-space: nowrap; /* 줄바꿈 방지 */
   overflow: hidden; /* 넘치는 내용 숨김 */
   text-overflow: ellipsis; /* 말줄임 적용 */
@@ -106,16 +107,15 @@
 
 // hover + selected
 .formOptionCard .underlay {
-  background-color: rgb(var(--mio-theme-color-background));
-  border: 1px solid rgb(var(--mio-theme-color-primary-20));
+  background-color: rgb(var(--mio-theme-color-white));
 }
 .formOptionCard:hover,
 .formOptionCard.selected {
-  color: rgb(var(--mio-theme-color-on-primary));
+  color: rgb(var(--mio-theme-color-white));
 }
 .formOptionCard:hover .underlay,
 .formOptionCard.selected .underlay {
-  background-color: rgb(var(--mio-theme-color-primary));
+  background-color: rgb(var(--mio-theme-color-black));
 }
 .formOptionCard .formOptionCard-content,
 .formOptionCard .image {
@@ -133,15 +133,14 @@
 .formOptionCard-arrow {
   width: 40px;
   height: 40px;
-  opacity: 0;
-}
-.formOptionCard-arrow svg {
-  stroke-width: 12 !important;
+  transition: all 0.3s ease;
+  transform: translateX(0);
+  color: rgb(var(--mio-theme-color-white));
 }
 
 .formOptionCard:hover .formOptionCard-arrow,
 .formOptionCard.selected .formOptionCard-arrow {
-  opacity: 1;
+  transform: translateX(0.6rem)
 }
 @media all and (max-width: 479px) {
   .formOptionCard .title {

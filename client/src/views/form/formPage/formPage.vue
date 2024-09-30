@@ -1,28 +1,36 @@
 <template>
   <div class="formPage">
-    <buttonDefault variant="filled" height="40" v-if="isLastTab" @click="dialog = true">
+    <buttonDefault
+      variant="filled"
+      height="40"
+      v-if="isLastTab"
+      @click="dialog = true"
+    >
       <span>저장하기</span>
     </buttonDefault>
 
     <div
-      class="page-button"
+      class="btn-arrow next"
       variant="text"
       height="46"
       v-if="!isLastTab"
       @click="goToNextTab"
     >
-      <span>{{ nextTabTitle }}</span
-      ><span class="page-arrow">&nbsp;→</span>
+      <icon class="arrow-icon left"><arrowRight2 /></icon>
+      <span>{{ nextTabTitle }}</span>
+      <icon class="arrow-icon right"><arrowRight2 /></icon>
     </div>
 
     <div
-      class="page-button"
+      class="btn-arrow previous"
       variant="text"
       height="46"
       v-if="!isFirstTab"
       @click="goToPreviousTab"
     >
-      <span>{{ previousTabTitle }}</span><span class="page-arrow">&nbsp;←</span>
+      <icon class="arrow-icon left"><arrowLeft2 /></icon>
+      <span>{{ previousTabTitle }}</span>
+      <icon class="arrow-icon right"><arrowLeft2 /></icon>
     </div>
 
     <saveTitle
@@ -37,13 +45,13 @@
 import { defineAsyncComponent } from "vue";
 
 import { mapGetters, mapActions } from "vuex";
-import arrowLeft3 from "@/components/icon/arrowLeft3";
-import arrowRight3 from "@/components/icon/arrowRight3";
+import arrowLeft2 from "@/components/icon/arrowLeft2";
+import arrowRight2 from "@/components/icon/arrowRight2";
 
 export default {
   components: {
-    arrowLeft3,
-    arrowRight3,
+    arrowLeft2,
+    arrowRight2,
     saveTitle: defineAsyncComponent(() =>
       import("@/modules/save/saveTitle.vue")
     ),
@@ -122,39 +130,48 @@ export default {
   margin-top: 64px;
 }
 
-.page-button {
+.btn-arrow {
   position: relative;
-  display: inline-flex;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease-out;
-  white-space: nowrap;
-  height: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  overflow: hidden;
+  max-width: 100%;
+  transition: all 0.25s cubic-bezier(0.65, 0, 0.35, 1);
 }
-.page-button:before {
-  background: currentColor;
-  bottom: -1px;
-  content: "";
-  height: 1px;
-  left: 0;
-  position: absolute;
-  transition: all 0.3s ease-out;
-  width: 100%;
+.btn-arrow span {
+  font-size: 1rem;
+  font-weight: 600;
+  transition: inherit;
 }
-.page-button:hover:before {
-  width: calc(100% + 4px);
+.btn-arrow.next:hover span {
+  transform: translateX(1.2em);
+}
+.btn-arrow.previous:hover span {
+  transform: translateX(-1.2em);
+}
+.arrow-icon {
+  width: 0.75em;
+  height: 0.75em;
+  transition: inherit;
+}
+.btn-arrow.next .arrow-icon.left,
+.btn-arrow.previous:hover .arrow-icon.right {
+  transform: translateX(-1em);
+}
+.btn-arrow.previous .arrow-icon.right,
+.btn-arrow.next:hover .arrow-icon.left {
+  transform: translateX(1em);
+}
+.btn-arrow.previous:hover .arrow-icon.left {
+  transform: translateX(-2em);
+}
+.btn-arrow.next:hover .arrow-icon.right {
+  transform: translateX(2em);
 }
 
-.page-button .page-arrow {
-  display: block;
-  transition: all 0.3s ease-out;
-}
-.page-button:hover .page-arrow {
-  transform: translate(4px);
-}
+
 @media all and (max-width: 1023px) {
-
 }
 </style>

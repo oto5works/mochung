@@ -12,9 +12,22 @@
         :style="{
           backgroundImage: `url('${imageBaseUrl}${item.value}.webp')`,
         }"
-      ></div>
+      >
+        <buttonDefault
+          variant="filled"
+          height="24"
+          class="width_fit-content preview-button"
+          :class="{ selected: item.value === homeData.style }"
+          @click.stop="openPreview(index)"  
+        >
+          <span>미리보기</span>
+          <icon class="icon_14"><arrowUpRight /></icon>
+        </buttonDefault>
+      </div>
 
-      <div class="display_flex align-items_flex-start flex-direction_column gap_16">
+      <div
+        class="display_flex align-items_flex-start flex-direction_column gap_8"
+      >
         <div
           class="display_flex align-items_center gap_4"
           @click="selectOption(item)"
@@ -25,26 +38,38 @@
           >
             <check />
           </icon>
-          <div class="font-size_14 font-weight_700">{{ item.title }}</div>
+          <div class="font-size_14 font-weight_700 title">{{ item.title }}</div>
         </div>
-        <buttonDefault
-          variant="tonal"
-          height="18"
-          class="width_fit-content"
-          :class="{ selected: item.value === homeData.style }"
-        >
-          <span>Preview</span>
-          <icon class="icon_12"><arrowUpRight /></icon>
-        </buttonDefault>
+        <div class="font-size_12">{{ item.hash }}</div>
       </div>
     </div>
+    <homePreview
+      v-if="dialog"
+      :dialog="dialog"
+      @update:dialog="dialog = $event"
+      :index="previewIndex"
+      @update:index="previewIndex = $event"
+      @applyOption="selectOption"
+    />
   </div>
 </template>
 
 <script>
+import { defineAsyncComponent } from "vue";
 import { mapGetters } from "vuex";
 
 export default {
+  components: {
+    homePreview: defineAsyncComponent(() =>
+      import("@/modules/home/homePreview.vue")
+    ),
+  },
+  data() {
+    return {
+      dialog: false,
+      previewIndex: null, // 추가된 데이터 속성
+    };
+  },
   computed: {
     ...mapGetters({
       homeData: "getHomeData",
@@ -52,15 +77,17 @@ export default {
     }),
     imageBaseUrl() {
       // 환경 변수를 사용하여 이미지 기본 URL 반환
-      return import.meta.env.VITE_IMAGE_BASE_URL || 'https://default.url/';
+      return import.meta.env.VITE_IMAGE_BASE_URL || "https://default.url/";
     },
   },
   methods: {
     selectOption(option) {
       this.homeData.style = option.value;
       this.homeData.item = option.item;
-
-      //this.$emit("update:dialog", false);
+    },
+    openPreview(index) {
+      this.previewIndex = index; // 선택한 스타일 옵션 설정
+      this.dialog = true; // 다이얼로그 열기
     },
   },
 };
@@ -80,9 +107,12 @@ export default {
   height: auto;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
   cursor: pointer;
-  padding-bottom: 24px;
+  padding-bottom: 40px;
+}
+.fnOption-item .title {
+  text-transform: capitalize;
 }
 .fnOption-image {
   position: relative;
@@ -93,5 +123,10 @@ export default {
 }
 .fnOption-image.selected {
   border: 1px solid rgb(var(--mio-theme-color-primary));
+}
+.fnOption-image .preview-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
 }
 </style>

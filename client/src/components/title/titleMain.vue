@@ -29,8 +29,8 @@ export default {
 }
 .titleMain .step {
   font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.1875rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
   line-height: 1.125rem;
   text-transform: uppercase;
 }
@@ -43,12 +43,12 @@ export default {
   font-size: 3rem;
   letter-spacing: -0.01em;
   line-height: 3.25rem;
-  font-weight: 800;
+  font-weight: 700;
   font-family: var(--mio-theme-font-family-sp);
 }
 .titleMain .content {
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 168%;
   letter-spacing: 0;
   color: rgb(var(--mio-theme-color-on-background-70));
