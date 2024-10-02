@@ -6,6 +6,7 @@
         :key="index"
         :value="index"
         :title="item.title"
+        @click="handleClickEvent"
       >
       </tabThumb>
     </tabs>
@@ -52,7 +53,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import tabs from "@/components/tab/tabs.vue";
 import tabThumb from "@/components/tab/tabThumb.vue";
 import hostFamily from "@/modules/host/hostFamily.vue";
@@ -71,6 +72,10 @@ export default {
     }),
   },
   methods: {
+    ...mapActions(["handleScrollToAction"]),
+    handleClickEvent() {
+      this.handleScrollToAction("previewHost");
+    },
     getHint(title) {
       const hintMap = {
         '신부': '장녀, 차녀, 첫째딸 등..',

@@ -7,7 +7,7 @@
         <div class="--font-size_32 font-weight_700 width_100">
           {{ surveyData.title }}
         </div>
-        <div class="sp_8" />
+        <div class="sp_12" />
         <div class="preview-tiptap" v-html="surveyData.content" />
         <div class="sp_72" />
         <button

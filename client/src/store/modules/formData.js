@@ -68,6 +68,8 @@ export default {
     /*-- save FormData --*/
     async saveFormData({ state, commit }) {
       if (state.postData.id) {
+
+        console.log ('포스트 아이디 값이 있음~')
         try {
           commit("updateResponse", {
             message: "Updating data...",
@@ -95,6 +97,8 @@ export default {
           throw error;
         }
       } else {
+        console.log ('포스트 아이디 값이 없음~')
+
         try {
           commit("updateResponse", {
             message: "Saving data...",
@@ -106,24 +110,28 @@ export default {
     
           const formData = new FormData();
           const data = state.postData.formData;
-          const homeFile = state.postData.formData.homeData.files?.file;
-          const audioFile = state.postData.formData.audiosData.files?.file;
-          const locationFile = state.postData.formData.locationData.files?.file;
+          const homeFile = state.postData.formData.homeData.files;
+
+        //  const audioFile = state.postData.formData.audiosData.files?.file;
+        //  const locationFile = state.postData.formData.locationData.files?.file;
           const galleryFiles = state.postData.formData.galleryData.image.files;
-          const kakaotalkFile = state.postData.formData.kakaotalkData.files?.file;
+          const kakaotalkFile = state.postData.formData.kakaotalkData.files;
     
           formData.append("userId", auth.state.userId);
           formData.append("data", JSON.stringify({ data }));
-    
-          if (homeFile && homeFile.file) {
+          console.log ('홈파일 검사중~')
+          console.log ('홈파일:', homeFile)
+
+          if (homeFile) {
+            console.log ('홈파일 있어용~')
             formData.append("homeFile", homeFile.file);
           }
-          if (audioFile && audioFile.file) {
-            formData.append("audioFile", audioFile.file);
-          }
-          if (locationFile && locationFile.file) {
-            formData.append("locationFile", locationFile.file);
-          }
+        //  if (audioFile && audioFile.file) {
+        //    formData.append("audioFile", audioFile.file);
+        //  }
+        //  if (locationFile && locationFile.file) {
+        //    formData.append("locationFile", locationFile.file);
+        //  }
           if (galleryFiles) {
             galleryFiles.forEach((file, index) => {
               if (file && file.file) {

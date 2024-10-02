@@ -47,9 +47,9 @@ export default {
               backgroundColor: {
                 type: SchemaType.ARRAY,
                 items: { type: SchemaType.NUMBER },
-                description: "Background color in [r, g, b] format",
+                description: "Background color in [r, g, b] format. Use a variety of colors (e.g., red, green, blue, yellow) instead of just white.",
                 nullable: false,
-              },
+            },
               design: {
                 type: SchemaType.STRING,
                 description:
@@ -65,6 +65,11 @@ export default {
                 type: SchemaType.STRING,
                 description: "Text alignment",
                 nullable: false,
+                enum: [
+                  "left", // Stable and easy to read.
+                  "center", // Emphasizes balance and visibility.
+                  "right", // Elegant and unique feel.
+                ],
               },
               primaryColor: {
                 type: SchemaType.ARRAY,
@@ -86,7 +91,7 @@ export default {
               border: {
                 type: SchemaType.BOOLEAN,
                 description:
-                  "Apply a border of the color opposite to 'primaryColor' to the button or component",
+                  "Apply a border of the 'primaryColor' to the button or component, while excluding the background color of the button.",
                 nullable: false,
               },
               shadow: {

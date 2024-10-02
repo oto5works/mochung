@@ -133,17 +133,18 @@ export default {
 }
 .preview-mobile {
   position: relative;
-  height: 100%;
+  height: 75%;
   aspect-ratio: var(--mio-theme-aspect-ratio);
-  border-radius: 44px;
-  border: 4px solid black;
-  outline: 4px solid black;
-  transform: scale(0.8);
+  border-radius: 2.75em;
+  outline: 0.5em solid black;
+  
   contain: layout;
   overflow: hidden;
   -webkit-filter: drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.1));
   filter: drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.1));
   -webkit-box-shadow: 0 32px 96px rgba(0, 0, 0, 0.1);
   box-shadow: 0 32px 96px rgba(0, 0, 0, 0.1);
+  font-size: 0.75rem;
 }
+/* transform: scale(0.8); */
 </style>

@@ -38,7 +38,7 @@
               class="icon_12 color_--mio-theme-color-primary"
               ><check
             /></icon>
-            <div class="font-size_14 font-weight_700">{{ item.title }}</div>
+            <div class="title font-size_14 font-weight_700">{{ item.title }}</div>
           </div>
           <buttonDefault
             style="width: fit-content"
@@ -211,6 +211,10 @@ export default {
 }
 .fnOption-image.selected {
   border: 1px solid rgb(var(--mio-theme-color-primary));
+}
+.title {
+  font-family: var(--mio-theme-font-family-sp);
+  font-weight: 700;
 }
 </style>
 

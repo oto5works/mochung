@@ -3,7 +3,9 @@
     <div class="display_flex width_100 --justify-content">
       <div class="display_flex flex-direction_column justify-content_center">
         <div class="--font-size_13 text-align_center">{{ setDate.year }}</div>
-        <div class="--font-size_48 line-height_100 font-weight_700 text-align_center">
+        <div
+          class="--font-size_48 line-height_100 font-weight_700 text-align_center"
+        >
           {{ setDate.month }}
         </div>
       </div>
@@ -38,13 +40,13 @@ export default {
 
 <style>
 .calendar1 {
-  padding: 0 40px;
+  padding: 0 2.5em;
   width: 100%;
 }
 .calendar1 .vc-highlight {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  border-radius: var(--border-radius_24);
   background-color: rgb(var(--primary-color));
 }
 .vc-highlight-content-solid {
@@ -58,7 +60,7 @@ export default {
   position: relative;
 }
 .calendar1 .vc-day {
-  min-height: 40px;
+  min-height: 2.5em;
 }
 .calendar1 .vc-day-content {
   line-height: 100%;
@@ -68,6 +70,6 @@ export default {
   text-align: center;
   font-size: var(--font-size_13);
   opacity: 0.7;
-  margin-bottom: 24px;
+  margin-bottom: 1.5em;
 }
 </style>

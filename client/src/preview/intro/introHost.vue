@@ -1,17 +1,21 @@
 <template>
   <div class="hostInfo">
     <!-- Render hostInfo items with slashes in between -->
-    <div v-for="(option, index) in hostInfo" :key="index" class="display_flex align-items_center gap_24 ">
+    <div
+      v-for="(option, index) in hostInfo"
+      :key="index"
+      class="display_flex align-items_center gap_24"
+    >
       <!-- Render title and name for each option -->
 
-<div class="display_flex align-items_center gap_12">
-      <span class="--font-size_11 opacity_70">
-        {{ option.title }}
-      </span>
-      <span class="--font-size_14 font-weight_700 letter-spacing_8">
-        {{ option.name }}
-      </span>
-    </div>
+      <div class="display_flex align-items_center gap_12">
+        <span class="--font-size_11 opacity_70">
+          {{ option.title }}
+        </span>
+        <span class="--font-size_14 font-weight_700 letter-spacing_8">
+          {{ option.name }}
+        </span>
+      </div>
       <!-- Render a slash icon between items, but not after the last item -->
       <icon v-if="index < hostInfo.length - 1" class="icon_16">
         <slash />
@@ -26,7 +30,7 @@ import slash from "@/components/icon/slash.vue";
 
 export default {
   components: {
-    slash
+    slash,
   },
   computed: {
     ...mapGetters({
@@ -38,7 +42,7 @@ export default {
 
 <style scoped>
 .gap_host {
-  gap: 8px 24px;
+  gap: 0.5em 1.5em;
 }
 .hostInfo {
   position: relative;
@@ -46,8 +50,7 @@ export default {
   flex-wrap: wrap;
   align-items: center;
   justify-content: var(--justify-content);
-  gap: 8px 28px;
+  gap: 0.5em 1.75em;
   width: 100%;
 }
-
 </style>

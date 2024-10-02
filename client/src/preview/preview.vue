@@ -4,27 +4,19 @@
 
     <background />
 
-    <!--
     <div id="audiosView">
       <audios v-if="previewFunction.audios" />
-
-</div>
--->
+    </div>
 
     <div id="functionsView">
-      <!--<likeView v-if="previewFunction.like" />-->
+      <likeView v-if="previewFunction.like" />
 
       <buttonAlt variant="fuctions" @click="handleClickEvent">
-        <icon><caretDown /></icon>
+        <icon class="icon_20"><caretDown /></icon>
       </buttonAlt>
     </div>
-    <!--
-    
-   
 
-    
-    -->
-    <!-- <effect v-if="previewFunction.effect" /> -->
+    <effect v-if="previewFunction.effect" />
     <div class="preview-content">
       <home />
       <component

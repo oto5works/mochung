@@ -26,6 +26,7 @@ exports.getNull = async (req, res) => {
 }
 
 exports.getSingle = async (req, res) => {
+  console.log ('getSingle!!')
   try {
     const image = await Image.findById(req.params.id).exec();
     if (!image) {
@@ -41,6 +42,7 @@ exports.getSingle = async (req, res) => {
 
 
 exports.getMultiple = async (req, res) => {
+  console.log ('getMultiple!!')
   const ids = req.params.id.split(","); // Split comma-separated IDs into an array
   console.log(ids)
 

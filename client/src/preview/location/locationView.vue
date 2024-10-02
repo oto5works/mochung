@@ -7,7 +7,7 @@
         </div>
         <div
           style="height: fit-content"
-          class="display_flex justify-content_space-between text-align_left"
+          class="display_flex justify-content_space-between text-align_left width_100"
         >
           <div
             style="width: 36%"
@@ -16,7 +16,7 @@
             <span class="--font-size_16 font-weight_700 line-height_130">{{
               locationData.name
             }}</span>
-            <span class="--font-size_11 line-height_130"
+            <span v-if="locationData.info" class="--font-size_11 line-height_130"
               >({{ locationData.info }})</span
             >
           </div>
@@ -27,7 +27,7 @@
             <span class="line-height_130">
               {{ locationData.address }}<br />{{ locationData.detail }}
             </span>
-            <div class="tell">
+            <div v-if="locationData.tell" class="tell">
               <div class="font-weight_700">TELL</div>
               <span
                 class="line-height_130 text-decoration_underline cursor_pointer"

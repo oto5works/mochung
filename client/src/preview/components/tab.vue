@@ -11,7 +11,7 @@
     <span>{{ title }}</span>
     <slot></slot>
     <div class="underlay" />
-    <div v-if="shadow"  class="shadow" />
+    <div v-if="shadow" class="shadow" />
   </button>
 </template>
 
@@ -66,9 +66,9 @@ export default {
 <style scoped>
 .tab {
   color: rgb(var(--font-color));
-  height: 28px;
-  padding: 0 10px;
-  font-size: 12px;
+  height: 1.75em;
+  padding: 0 0.625em;
+  font-size: var(--font-size_12);
   border-radius: var(--border-radius_12);
 }
 .tab.design3 {
@@ -78,25 +78,25 @@ export default {
 }
 .tab.selected {
   color: rgb(var(--primary-on));
-  font-weight: 700;
+  font-weight: var(--font-weight_700);
 }
 .tab.selected .underlay {
   background-color: rgb(var(--primary-color));
 }
 .tab.selected .shadow {
-  box-shadow: 0 10px 20px -10px rgba(var(--primary-color), 0.5);
+  box-shadow: 0 0.625em 1.25em -0.625em rgba(var(--primary-color), 0.5);
 }
 .tab.selected.border {
   color: rgb(var(--primary-color));
 }
 .tab.selected.border .underlay {
   background-color: transparent;
-  border: 1px solid rgb(var(--primary-color));
+  border: 0.0625em solid rgb(var(--primary-color));
 }
 .tab.selected.design3 {
   color: rgb(var(--primary-color));
   opacity: 1;
-  border-bottom: 1px solid currentColor;
+  border-bottom: 0.0625em solid currentColor;
 }
 .tab.design3 .shadow,
 .tab.design3 .underlay {

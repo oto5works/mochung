@@ -11,7 +11,7 @@
       :particlesInit="initializeParticles"
       :options="particleOptions"
     />
-    <icon :class="{ 'heart-beat': particles }"><heart /></icon>
+    <icon  class="icon_20" :class="{ 'heart-beat': particles }"><heart /></icon>
   </buttonAlt>
 </template>
 

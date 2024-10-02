@@ -2,29 +2,28 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  width: 100%;  
+  gap: 0.5em;
+  width: 100%;
 }
 .deposits .deposits-item {
   width: 100%;
-  border-radius: 24px;
+  border-radius: var(--border-radius_24);
   transition: all 0.3s ease;
 }
 
 .deposits .deposits-button {
   justify-content: space-between;
-  height: 72px;
-  padding: 0 24px;
+  height: 4.5em;
+  padding: 0 1.5em;
   width: 100%;
   transition: all 0.2s ease;
 }
 .deposits .deposits-button.selected {
-  height: 40px;
+  height: 2.5em;
 }
 .deposits .deposits-panels {
-  padding: 0 24px;
+  padding: 0 1.5em;
 }
-
 
 /*-- design --*/
 // design 1
@@ -46,38 +45,36 @@
   color: rgb(var(--font-color));
   background-color: rgb(var(--background-color));
 }
-// deposits-line 
+// deposits-line
 .deposits.design3 .deposits-line {
   position: absolute;
   display: block;
   content: "";
   left: 50%;
-  bottom: -1px;
+  bottom: -0.0625em;
   transform: translateX(-50%);
-  width: calc(100% + 16px);
-  height: 1px;
+  width: calc(100% + 1em);
+  height: 0.0625em;
   background-color: rgba(var(--primary-color), 0.4);
 }
-
-
-
 
 /*-- deposit --*/
 .deposit {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.75em;
   width: 100%;
-  padding: 40px 0;
-  border-top: 1px solid rgba(var(--primary-color), .24);
+  padding: 2.5em 0;
+  border-top: 0.0625em solid rgba(var(--primary-color), 0.24);
 }
 .deposit .deposit-list {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 28px;
+  height: 1.75em;
+
   text-align: left;
 }
 .deposit .deposit-list .title {
@@ -86,7 +83,7 @@
 .deposit .deposit-list .content {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.375em;
   font-size: var(--font-size_13);
-  font-weight: 700;
+  font-weight: var(--font-weight_700);
 }

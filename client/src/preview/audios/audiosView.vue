@@ -1,5 +1,5 @@
 <template>
-  <buttonAlt variant="audios" @click="togglePlay">
+  <buttonAlt class="audios" variant="audios" @click="togglePlay">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
@@ -143,6 +143,10 @@ export default {
 }
 .play-animation {
   animation: slide-in-out 3s ease-in-out;
+}
+.audios svg {
+  width: 1em;
+  height: 1em;
 }
 @keyframes short-eq {
   0% {

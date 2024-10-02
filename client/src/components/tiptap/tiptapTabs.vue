@@ -5,6 +5,7 @@
       v-model="tab"
       :enableDelete="true"
       @deleteTab="handleDeleteTab"
+      @click="handleClickEvent"
     />
     <div class="editor-tiptap" v-if="tab !== ''">
       <div
@@ -45,6 +46,7 @@
 import plus from "@/components/icon/plus";
 import tiptap from "@/components/tiptap/tiptap.vue";
 import tabsFlicking from "@/components/tab/tabsFlicking.vue";
+import { mapActions } from "vuex";
 
 export default {
   components: {
@@ -64,6 +66,11 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["handleScrollToAction"]),
+
+    handleClickEvent() {
+      this.handleScrollToAction("previewTransport");
+    },
     addTab() {
       const newOption = { title: "", content: "" };
       this.options.push(newOption);
@@ -80,6 +87,7 @@ export default {
     },
     openDialog() {
       this.dialogVisible = true;
+      this.handleScrollToAction("previewTransport");
     },
     closeDialog() {
       this.dialogVisible = false;

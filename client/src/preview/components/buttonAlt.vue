@@ -36,36 +36,35 @@ export default {
 <style scoped>
 .buttonAlt {
   color: rgb(var(--primary-on));
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(0.25em);
+  -webkit-backdrop-filter: blur(0.25em);
 }
 .buttonAlt.fuctions {
-  width: 52px;
-  height: 52px;
+  width: 3.25em;
+  height: 3.25em;
   border-radius: var(--border-radius_20);
 }
 .buttonAlt.audios {
-  width: 32px;
-  height: 32px;
+  width: 2em;
+  height: 2em;
   border-radius: var(--border-radius_14);
 }
 .buttonAlt .underlay {
   background-color: rgb(var(--primary-color));
 }
 .buttonAlt .shadow {
-  box-shadow: 0 10px 20px -10px rgba(var(--primary-color), 0.5);
+  box-shadow: 0 0.625em 1.25em -0.625em rgba(var(--primary-color), 0.5);
 }
 .buttonAlt.border {
   color: rgb(var(--primary-color));
 }
 .buttonAlt.border .underlay {
   background-color: transparent;
-  border: 1px solid rgb(var(--primary-color));
+  border: 0.0625em solid rgb(var(--primary-color));
 }
 .buttonAlt.design3 {
   color: rgb(var(--primary-color));
   background-color: rgba(var(--primary-color), 0.08);
-
 }
 .buttonAlt.design3 .shadow,
 .buttonAlt.design3 .underlay {

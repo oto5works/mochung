@@ -29,6 +29,8 @@
           :key="index"
           :value="index"
           :title="item.host.title"
+          @click="handleClickEvent"
+
         >
         </tabThumb>
       </tabs>
@@ -60,7 +62,7 @@
   </dialogModal>
 </template>
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import { defineAsyncComponent } from "vue";
 import selectorTitle from "@/components/selector/selectorTitle.vue";
 import enableView from "@/components/enable/enableView.vue";
@@ -100,6 +102,10 @@ export default {
     }),
   },
   methods: {
+    ...mapActions(["handleScrollToAction"]),
+    handleClickEvent() {
+      this.handleScrollToAction("previewDeposit");
+    },
     handleDelete(index) {
       this.hostData.info[this.tab].bank.account.splice(index, 1);
     },

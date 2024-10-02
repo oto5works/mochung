@@ -40,7 +40,7 @@ export default {
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background-color: transparent;
+  background-color: rgb(var(--background-on));
 }
 .formView__content {
   position: relative;

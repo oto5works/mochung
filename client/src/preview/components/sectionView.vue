@@ -20,10 +20,10 @@ export default {
 .sectionView {
   position: relative;
   display: block;
-  padding: 4px 8px;
+  padding: 0.25em 0.5em;
 }
 .sectionView.design3 {
-  border-top: 1px solid rgba(var(--primary-color), 0.4);
+  border-top: 0.0625em solid rgba(var(--primary-color), 0.4);
 }
 .section-content {
   position: relative;

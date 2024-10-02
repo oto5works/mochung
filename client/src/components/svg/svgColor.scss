@@ -22,7 +22,7 @@ button:hover .thumb-svg svg {
 }
 
 .selected .svgColor,
-button:hover .svgColor {
+.card:hover .svgColor {
   --svg-color-background: 224, 255, 255; /* Light cyan */
   --svg-color-skin: 255, 255, 255; /* Peach puff */
   --svg-color-clothes: 255, 182, 194; /* Sky blue */

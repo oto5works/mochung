@@ -1,8 +1,8 @@
 <!-- App.vue -->
 <template>
   <div class="app">
-    <appbar_pc />
-    <appbar_mobile />
+    <appbar_pc v-if="shouldShowAppbar" />
+    <appbar_mobile v-if="shouldShowAppbar" />
 
     <!--<appbar />-->
     <RouterView />
@@ -35,7 +35,10 @@ export default {
   },
   computed: {
     shouldShowFooter() {
-      return !['login', 'preview'].includes(this.$route.name);
+      return !['login', 'preview', 'formView'].includes(this.$route.name);
+    },
+    shouldShowAppbar() {
+      return !['preview', 'formView'].includes(this.$route.name);
     }
   },
   mounted() {

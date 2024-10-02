@@ -2,7 +2,6 @@
   <div id="previewFooter">
     <div class="previewFooter">
       <div class="previewFooter-button">
-        
         <button v-if="functionData.fnShare" @click="sharePage">
           <icon class="icon_16"><share /></icon><span>Share</span>
         </button>
@@ -113,21 +112,21 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: var(--font-size_14);
   line-height: 168%;
   text-align: center;
-  gap: 96px;
-  padding-top: 196px;
-  padding-bottom: 4px;
+  gap: 6em;
+  padding-top: 12.25em;
+  padding-bottom: 0.25em;
 }
 .previewFooter-button {
   display: flex;
   align-items: center;
-  gap: 48px;
+  gap: 3em;
 }
 .previewFooter-button button {
-  gap: 8px;
-  font-size: 13px;
+  gap: 0.5em;
+  font-size: var(--font-size_13);
 }
 .previewFooter-button button:hover {
   text-decoration: underline;
@@ -136,12 +135,15 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 1.5em;
   width: 60%;
+}
+.agree {
+  font-size: var(--font-size_14);
 }
 .copyright {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 0.25em;
 }
 </style>

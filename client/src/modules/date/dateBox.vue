@@ -4,7 +4,7 @@
     icon="date"
     title="Wedding Date"
     :content="`${dateData.date} ${dateData.time}`"
-    @click="dialog = true"
+    @click="handleClickEvent"
   >
     <dateDialog
       v-if="dialog"
@@ -15,7 +15,7 @@
 </template>
 <script>
 import { defineAsyncComponent } from "vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   components: {
@@ -32,6 +32,13 @@ export default {
     ...mapGetters({
       dateData: "getDateData",
     }),
+  },
+  methods: {
+    ...mapActions(["handleScrollToAction"]),
+    handleClickEvent() {
+      this.dialog = true;
+      this.handleScrollToAction("previewCalendar");
+    },
   },
 };
 </script>

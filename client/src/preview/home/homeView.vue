@@ -55,7 +55,7 @@ export default {
   width: 100%;
   aspect-ratio: var(--mio-theme-aspect-ratio);
 }
-.home__wrap {
+.home {
   position: relative;
   width: 100%;
   height: 100%;

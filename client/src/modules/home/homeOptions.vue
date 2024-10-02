@@ -113,6 +113,8 @@ export default {
 }
 .fnOption-item .title {
   text-transform: capitalize;
+  font-family: var(--mio-theme-font-family-sp);
+  font-weight: 700;
 }
 .fnOption-image {
   position: relative;

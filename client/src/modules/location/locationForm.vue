@@ -5,7 +5,7 @@
       label="Address"
       v-model="locationData.address"
     >
-      <buttonDefault variant="tonal" height="24" @click="postcode = true"
+      <buttonDefault variant="tonal" height="24" @click="handleClickEvent"
         ><icon class="icon_14"><search /></icon
         ><span>Address Search</span></buttonDefault
       >
@@ -31,7 +31,7 @@
 
 <script>
 import { defineAsyncComponent } from "vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   components: {
@@ -56,6 +56,8 @@ export default {
     },
   },
   methods: {
+    ...mapActions(["handleScrollToAction"]),
+
     searchCoordinate() {
       const url = `https://dapi.kakao.com/v2/local/search/address.json?query=${encodeURIComponent(
         this.locationData.address
@@ -86,6 +88,12 @@ export default {
           });
         });
     },
+
+    handleClickEvent() {
+      this.postcode = true;
+      this.handleScrollToAction("previewLocation");
+    },
+
   },
 };
 </script>

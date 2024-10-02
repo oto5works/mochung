@@ -19,7 +19,7 @@
         <introFamily v-if="familyExist" />
         <introHost />
         <buttonCustom v-if="hostFunctions.fnContact" @click="dialog = true">
-          <span>contact us</span>
+          <span>Contact us</span>
         </buttonCustom>
         <div v-if="shadow" class="shadow" />
         <div class="overlay" />

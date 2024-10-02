@@ -95,7 +95,7 @@ export default {
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 11%;
+  top: 13%;
   width: 100%;
   overflow: hidden; /* 공백 숨기기 */
   transform-origin: top center;
