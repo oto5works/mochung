@@ -1,11 +1,14 @@
 <template>
   <dialogModal :dialog="dialog" @update:dialog="updateDialog">
+    포스트::: {{ $route.params.id }}<br>
+    대댓글 ::: {{ id }}
     <titleArticle class="pa_24" title="Wedding Date" />
-
+   
     <form class="pa_24" @submit.prevent="saveValue">
-      <div v-if="!isWriter" class="display_flex gap_24">
+      <div  class="display_flex gap_24">
         <formField label="writer" v-model="writer" :spacing="true" />
         <formField
+        v-if="!isWriter"
           :rules="[required, characterRules]"
           label="password"
           type="password"
@@ -34,6 +37,7 @@ export default {
   components: { formArea },
   props: {
     dialog: { type: Boolean },
+    id: { type: String },
   },
   data() {
     return {
@@ -84,6 +88,7 @@ export default {
           writer: this.writer,
           password: this.password,
           isWriter: this.isWriter,
+          parent: this.id,
         };
 
         // 새로운 액션을 사용하여 저장 로직 처리

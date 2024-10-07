@@ -1,6 +1,7 @@
 <!-- commentVerify.vue -->
 <template>
   <dialogModal :dialog="dialog" @update:dialog="updateDialog">
+    {{ comment }}
     <formField
       :rules="[required, characterRules]"
       label="비밀번호"
@@ -8,6 +9,10 @@
       hint="비밀번호는 숫자 4자리여야 합니다."
     >
     </formField>
+
+    <span>댓글을 수정하거나 삭제하려면 청첩장 작성자로 로그인해주세요.</span>
+
+
     <div class="dialog-actions">
       <buttonDefault
         class="width_100"

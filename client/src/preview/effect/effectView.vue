@@ -1,6 +1,7 @@
+<!-- effectView.vue -->
 <template>
   <div class="effectView">
-    <tsParticlesView :effect="effectData" />
+    <tsParticlesView ref="tsParticlesRef" :effect="effectData" />
   </div>
 </template>
 
@@ -18,6 +19,17 @@ export default {
     ...mapGetters({
       effectData: "getEffectData",
     }),
+  },
+
+  beforeUnmount: async function () {
+    console.log("Parent component is being unmounted");
+    if (this.$refs.tsParticlesRef) {
+      try {
+        await this.$refs.tsParticlesRef.destroyParticles();
+      } catch (error) {
+        console.error("Error during destroyParticles:", error);
+      }
+    }
   },
 };
 </script>

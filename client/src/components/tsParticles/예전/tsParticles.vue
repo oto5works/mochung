@@ -11,6 +11,7 @@
 <script>
 import { loadFull } from "tsparticles";
 import { loadHeartShape } from "tsparticles-shape-heart";
+import { onBeforeUnmount } from "vue";
 
 export default {
   props: {
@@ -30,9 +31,7 @@ export default {
           move: this.move,
           number: this.number,
           opacity: this.opacity,
-          // 공통
           color: this.color,
-          //life: { duration: { sync: true, value: 5 }, count: 1 },
           rotate: {
             value: { min: 0, max: 360 },
             direction: "random",
@@ -63,6 +62,13 @@ export default {
       await loadFull(engine);
       loadHeartShape(engine);
     },
+  },
+  onBeforeUnmount() {
+    // 인스턴스 정리 로직
+    console.log("Particles instance is being destroyed."); // 추가된 로그
+    if (this.particlesInstance) {
+      this.particlesInstance.destroy();
+    }
   },
 };
 </script>

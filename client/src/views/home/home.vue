@@ -1,8 +1,15 @@
 <template>
   <div class="container">
+    <div class="particles">
+    <!--  <tsParticles /> -->
+    </div>
+
     <div class="layer-1">
       <div class="mobile" />
+
+      ㅇㅇㅇ
     </div>
+
     <tooltipMenu>
       <listItem />
       <listItem icon="upload" label="삭제" />
@@ -11,7 +18,6 @@
       <listItem icon="upload" label="삭제" />
 
       <listItem icon="upload" label="삭제" />
-
     </tooltipMenu>
     <div class="layer-2">
       <h1>style: tonal</h1>
@@ -60,9 +66,16 @@ import app from "@/components/icon/app.vue";
 import likeView from "@/preview/like/likeView.vue";
 import tooltipMenu from "@/components/tooltip/tooltipMenu.vue";
 import listItem from "@/components/listItem/listItem.vue";
+//import tsParticles from "@/components/tsParticles/tsParticles.vue";
 
 export default {
-  components: { app, likeView, tooltipMenu, listItem },
+  components: {
+    app,
+    likeView,
+    tooltipMenu,
+    listItem,
+    // tsParticles
+  },
   data() {
     return {
       data1: false,
@@ -73,4 +86,13 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.particles {
+  position: absolute;
+  top: 300px;
+  left: 300px;
+  width: 300px;
+  height: 300px;
+  background: aqua;
+}
+</style>

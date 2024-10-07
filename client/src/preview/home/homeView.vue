@@ -1,20 +1,21 @@
 <template>
-  <div id="previewHome">
+  <div id="homeView">
     <component
       :is="previewHome.style"
       :options="previewHome.options"
       :color="homeColor"
       :fontFamily="null"
     />
-    
+
     <!--<frameView v-if="previewHome.frame" :frame="previewHome.frame" />-->
-    <heroView v-if="previewHome.fnFile"  />
+    <heroView v-if="previewHome.fnFile" />
   </div>
 </template>
 
 <script>
 import { defineAsyncComponent } from "vue";
 import { mapGetters } from "vuex";
+import compHome from "@/services/compHome.js";
 
 export default {
   components: {
@@ -24,21 +25,13 @@ export default {
     heroView: defineAsyncComponent(() =>
       import("@/preview/home/hero/heroView.vue")
     ),
-    minimalChic: defineAsyncComponent(() =>
-      import("@/preview/home/home/minimalChic.vue")
-    ),
-    classicElegance: defineAsyncComponent(() =>
-      import("@/preview/home/home/classicElegance")
-    ),
-    modernSimplicity: defineAsyncComponent(() =>
-      import("@/preview/home/home/modernSimplicity")
-    ),
-    welcomingWarmth: defineAsyncComponent(() =>
-      import("@/preview/home/home/welcomingWarmth")
-    ),
-    elegantFlow: defineAsyncComponent(() =>
-      import("@/preview/home/home/elegantFlow")
-    ),
+    ...compHome,
+  },
+  props: {
+    isVisible: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     ...mapGetters({
@@ -51,9 +44,6 @@ export default {
 
 <style scoped>
 #previewHome {
-  position: relative;
-  width: 100%;
-  aspect-ratio: var(--mio-theme-aspect-ratio);
 }
 .home {
   position: relative;

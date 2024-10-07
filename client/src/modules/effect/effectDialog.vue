@@ -20,13 +20,13 @@
         <effectShape :effect="effect" />
       </div>
     </div>
-    <tsParticlesView v-if="effectData.fnEffect" style="z-index: 1" :effect="effect" />
   </dialogModal>
 </template>
 <script>
+
 import { mapGetters } from "vuex";
 import { defineAsyncComponent } from "vue";
-import tsParticlesView from "@/components/tsParticles/tsParticlesView.vue";
+import tsParticles from "@/components/tsParticles/tsParticles.vue";
 import effectConfig from "@/modules/effect/effectConfig.vue";
 import effectShape from "@/modules/effect/effectShape.vue";
 import effectColor from "@/modules/effect/effectColor.vue";
@@ -37,7 +37,7 @@ import enableView from "@/components/enable/enableView.vue";
 import effectSwitch from "@/modules/effect/effectSwitch.vue";
 export default {
   components: {
-    tsParticlesView,
+    tsParticles,
     effectConfig,
     effectShape,
     effectColor,

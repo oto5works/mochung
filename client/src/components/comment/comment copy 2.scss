@@ -1,0 +1,137 @@
+.comments {
+  position: relative;
+  width: 100%;
+}
+.comment {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0.5em 0;
+}
+.comment.isWriter {
+  justify-content: flex-end;
+}
+.comment .comment-wrap {
+  max-width: 70%;
+}
+.comment .comment-content {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5em;
+
+  width: 100%;
+}
+.comment.isWriter .comment-content {
+  justify-content: flex-end;
+}
+
+.comment .comment-profile {
+  width: 1.875em;
+  height: 1.875em;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background-color: rgb(var(--mio-theme-color-primary));
+  color: rgb(var(--mio-theme-color-on-primary));
+}
+.comment.isWriter .comment-profile {
+  display: none;
+}
+.comment .comment-bubble {
+  width: fit-content;
+  height: fit-content;
+  text-align: left;
+  padding: 0.75em 1em;
+}
+.comment .comment-bubble span {
+  font-size: 0.875em;
+}
+
+// comment-writer
+.comment .comment-writer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 1.5em;
+  overflow: visible;
+}
+.comment .comment-writer {
+  justify-content: flex-start;
+  padding-left: 2.375em;
+}
+.comment.isWriter .comment-writer {
+  justify-content: flex-end;
+  padding-left: 0;
+}
+
+.comment .writer-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75em;
+  width: 100%;
+}
+.comment .writer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+  font-size: 0.75em;
+  opacity: 0.7;
+}
+.comment .writer span {
+  white-space: nowrap;
+}
+/*-- 기본값 --*/
+.comment .comment-bubble {
+  border-radius: 1.5em 1.5em 1.5em 0;
+  color: rgb(var(--mio-theme-color-primary));
+  background-color: rgb(var(--mio-theme-color-primary-10));
+}
+.comment.isWriter .comment-bubble {
+  border-radius: 1.5em 1.5em 0 1.5em;
+  color: rgb(var(--mio-theme-color-on-primary));
+  background-color: rgb(var(--mio-theme-color-primary));
+}
+
+/*-- custom --*/
+#preview .comment .comment-bubble {
+  border-radius: var(--border-radius_24) var(--border-radius_24)
+    var(--border-radius_24) 0;
+}
+#preview .comment.isWriter .comment-bubble {
+  border-radius: var(--border-radius_24) var(--border-radius_24) 0
+    var(--border-radius_24);
+}
+#preview .comment .comment-profile {
+  background-color: rgb(var(--primary-color));
+  color: rgb(var(--primary-on));
+}
+#preview .comment .comment-bubble {
+  color: rgb(var(--font-color));
+  background-color: rgba(var(--primary-color), 0.12);
+}
+#preview .comment.isWriter .comment-bubble {
+  color: rgb(var(--primary-on));
+  background-color: rgb(var(--primary-color));
+}
+// design3
+#preview .comment.design3 .comment-bubble {
+  color: rgb(var(--font-color));
+  background-color: transparent;
+  padding: 0.5em 0.5em;
+}
+#preview .comment.isWriter.design3 .comment-bubble {
+  color: var(--primary-color);
+  background-color: transparent;
+}
+#preview .comment.design3 {
+  border-bottom: 0.0625em solid rgba(var(--primary-color), 0.12);
+}
+#preview .comment.design3 .writer-content {
+  padding: 0 0.5em;
+}

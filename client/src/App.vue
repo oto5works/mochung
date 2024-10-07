@@ -4,6 +4,7 @@
     <appbar_pc v-if="shouldShowAppbar" />
     <appbar_mobile v-if="shouldShowAppbar" />
 
+
     <!--<appbar />-->
     <RouterView />
     <!--
@@ -35,7 +36,7 @@ export default {
   },
   computed: {
     shouldShowFooter() {
-      return !['login', 'preview', 'formView'].includes(this.$route.name);
+      return !['login', 'preview', 'formView', 'form', 'save'].includes(this.$route.name);
     },
     shouldShowAppbar() {
       return !['preview', 'formView'].includes(this.$route.name);

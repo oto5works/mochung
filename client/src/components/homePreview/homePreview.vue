@@ -27,9 +27,7 @@
           </buttonDefault>
         </div>
 
-        <div class="overlay__page">
-         
-        </div>
+        <div class="overlay__page"></div>
 
         <buttonDefault
           variant="filled"
@@ -71,8 +69,8 @@
                     >
                       <img
                         class="object-fit_cover"
-                        src="https://i.pinimg.com/564x/d9/0c/6a/d90c6a292f76a3d592ee5c7d0bffbc3b.jpg"
-                      />
+                        :src="`${imageBaseUrl}homePreview.webp`"
+                        />
                     </div>
                     <!-- backgroundImage: `url('${imageBaseUrl}previewImage.webp')`, -->
                     <component
@@ -93,27 +91,13 @@
 </template>
 
 <script>
-import { defineAsyncComponent } from "vue";
 import { mapGetters } from "vuex";
-import "@/modules/home/homePreview.scss";
+import "@/components/homePreview/homePreview.scss";
+import compHome from "@/services/compHome.js";
 
 export default {
   components: {
-    minimalChic: defineAsyncComponent(() =>
-      import("@/preview/home/home/minimalChic.vue")
-    ),
-    classicElegance: defineAsyncComponent(() =>
-      import("@/preview/home/home/classicElegance")
-    ),
-    modernSimplicity: defineAsyncComponent(() =>
-      import("@/preview/home/home/modernSimplicity")
-    ),
-    welcomingWarmth: defineAsyncComponent(() =>
-      import("@/preview/home/home/welcomingWarmth")
-    ),
-    elegantFlow: defineAsyncComponent(() =>
-      import("@/preview/home/home/elegantFlow")
-    ),
+    ...compHome,
   },
   props: {
     dialog: { type: Boolean },

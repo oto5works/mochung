@@ -14,27 +14,27 @@ const resetValue = {
           // comment: "",
           // files: { file: null, url: null },
           host: {
-            title: "Groom",
+            title: "신랑",
             name: "Benjamin",
             tell: "010-1234-1234",
             relation: "Eldest Son",
           },
           family: [
             {
-              title: "Father",
+              title: "아버님",
               name: "James",
               tell: "010-1234-1234",
               info: false,
             },
             {
-              title: "Mother",
+              title: "어머님",
               name: "Emma",
               tell: "010-1234-1234",
               info: false,
             },
           ],
           bank: {
-            fnFold: false,
+            fnFold: true,
             account: [
               {
                 bank: {
@@ -57,27 +57,27 @@ const resetValue = {
           // comment: "",
           // files: { file: null, url: null },
           host: {
-            title: "Bride",
+            title: "신부",
             name: "Isabella",
             tell: "010-1234-1234",
             relation: "Eldest Daughter",
           },
           family: [
             {
-              title: "Father",
+              title: "아버님",
               name: "Alexander",
               tell: "010-1234-1234",
               info: false,
             },
             {
-              title: "Mother",
+              title: "어머님",
               name: "Olivia",
               tell: "010-1234-1234",
               info: false,
             },
           ],
           bank: {
-            fnFold: false,
+            fnFold: true,
             account: [
               {
                 bank: {
@@ -142,17 +142,17 @@ const resetValue = {
     customData: {
       temp: "temp_basic_1", // 디자인 템플릿 사용유무
       styleBackground: "defaulted", // defaulted, gradient
-      backgroundColor: [39, 57, 64],
+      backgroundColor: [255, 255, 255],
       design: "design1", // 디자인 스타일 design1: default, design2: card style, design3: line style
       align: "center",
-      primaryColor: [221, 217, 209], // rgb값
+      primaryColor: [0, 0, 0], // rgb값
       radius: "0", // level: 0, 1, 2, 3
       border: false, // 객체의 border
       shadow: false, // 객체의 shadow
       fontSize: "2", // level: 1, 2, 3,
-      fontColor: [221, 217, 209], // rgb값
+      fontColor: [0, 0, 0], // rgb값
       fontFamily: "pretendard",
-      fontWeight: "light", // light, medium, bold
+      fontWeight: "bold", // light, medium, bold
       stamp: "lily",
       /*-- add --*/
 
@@ -304,8 +304,8 @@ const resetValue = {
     /*-- 방명록 --*/
     commentData: {
       fnComment: true,
+      commentType: "default", // "default" 또는 "bubble" 중 하나를 선택
       title: "Post Congrats",
-      password: "1234",
     },
     /*-- 설문조사 --*/
     surveyData: {
@@ -334,6 +334,8 @@ const resetValue = {
       fnCopy: true,
       fnKakaotalk: true,
       fnTitle: "",
+      fnAnimation: true,
+
     },
     /*-- 카카오 메세지 --*/
     kakaotalkData: {
@@ -350,6 +352,7 @@ const resetValue = {
     /*-- 순서 --*/
     orderData: {
       order: [
+        "home",
         "intro",
         "calendar",
         "location",
@@ -360,6 +363,7 @@ const resetValue = {
         //  "notice",
 
         //  ,
+        "footer"
       ],
     },
   },

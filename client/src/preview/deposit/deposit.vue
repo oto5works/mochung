@@ -6,7 +6,7 @@
         <icon class="icon_18"><component :is="item.bank.value" /></icon>
         <div>
           {{
-            item.bank.value === "bankSelf" ? item.bank.self : item.bank.title
+            item.bank.value === "bankSelf" ? item.bank.title : item.bank.title
           }}
         </div>
       </div>
@@ -47,6 +47,7 @@
 <script>
 import { defineAsyncComponent } from "vue";
 import "@/preview/deposit/deposit.scss";
+import compBank from "@/services/compBank.js";
 
 export default {
   components: {
@@ -54,38 +55,7 @@ export default {
       import("@/components/file/fileViewer.vue")
     ),
     kakaopay: defineAsyncComponent(() => import("@/components/icon/kakaopay")),
-    bankKb: defineAsyncComponent(() => import("@/components/icon/bankKb")),
-    bankIbk: defineAsyncComponent(() => import("@/components/icon/bankIbk")),
-    bankNh: defineAsyncComponent(() => import("@/components/icon/bankNh")),
-    bankShinhan: defineAsyncComponent(() =>
-      import("@/components/icon/bankShinhan")
-    ),
-    bankKdb: defineAsyncComponent(() => import("@/components/icon/bankKdb")),
-    bankWoori: defineAsyncComponent(() =>
-      import("@/components/icon/bankWoori")
-    ),
-    bankCiti: defineAsyncComponent(() => import("@/components/icon/bankCiti")),
-    bankKeb: defineAsyncComponent(() => import("@/components/icon/bankKeb")),
-    bankSc: defineAsyncComponent(() => import("@/components/icon/bankSc")),
-    bankBnk: defineAsyncComponent(() => import("@/components/icon/bankBnk")),
-    bankJb: defineAsyncComponent(() => import("@/components/icon/bankJb")),
-    bankDgb: defineAsyncComponent(() => import("@/components/icon/bankDgb")),
-    bankDb: defineAsyncComponent(() => import("@/components/icon/bankDb")),
-    bankBac: defineAsyncComponent(() => import("@/components/icon/bankBac")),
-    bankSj: defineAsyncComponent(() => import("@/components/icon/bankSj")),
-    bankSb: defineAsyncComponent(() => import("@/components/icon/bankSb")),
-    bankMg: defineAsyncComponent(() => import("@/components/icon/bankMg")),
-    bankSh: defineAsyncComponent(() => import("@/components/icon/bankSh")),
-    bankCu: defineAsyncComponent(() => import("@/components/icon/bankCu")),
-    bankPost: defineAsyncComponent(() => import("@/components/icon/bankPost")),
-    bankKakao: defineAsyncComponent(() =>
-      import("@/components/icon/bankKakao")
-    ),
-    bankKbank: defineAsyncComponent(() =>
-      import("@/components/icon/bankKbank")
-    ),
-    bankToss: defineAsyncComponent(() => import("@/components/icon/bankToss")),
-    bankSelf: defineAsyncComponent(() => import("@/components/icon/bankSelf")),
+    ...compBank
   },
   props: {
     item: { type: Object },

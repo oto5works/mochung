@@ -10,12 +10,7 @@
   width: 100%;
   padding: 0.5em 0;
 }
-.comment.isWriter {
-  justify-content: flex-end;
-}
-.comment .comment-wrap {
-  max-width: 70%;
-}
+
 .comment .comment-content {
   position: relative;
   display: flex;
@@ -24,9 +19,7 @@
 
   width: 100%;
 }
-.comment.isWriter .comment-content {
-  justify-content: flex-end;
-}
+
 
 .comment .comment-profile {
   width: 1.875em;
@@ -36,9 +29,12 @@
   background-color: rgb(var(--mio-theme-color-primary));
   color: rgb(var(--mio-theme-color-on-primary));
 }
-.comment.isWriter .comment-profile {
-  display: none;
+.comment .comment-profile span {
+  font-size: 0.75em;
+  line-height: 100%;
 }
+
+
 .comment .comment-bubble {
   width: fit-content;
   height: fit-content;
@@ -58,10 +54,7 @@
   height: 1.5em;
   overflow: visible;
 }
-.comment .comment-writer {
-  justify-content: flex-start;
-  padding-left: 2.375em;
-}
+
 .comment.isWriter .comment-writer {
   justify-content: flex-end;
   padding-left: 0;
@@ -86,52 +79,106 @@
 .comment .writer span {
   white-space: nowrap;
 }
-/*-- 기본값 --*/
-.comment .comment-bubble {
-  border-radius: 1.5em 1.5em 1.5em 0;
-  color: rgb(var(--mio-theme-color-primary));
-  background-color: rgb(var(--mio-theme-color-primary-10));
+
+.reply {
+  padding-left: 2.875em;
 }
-.comment.isWriter .comment-bubble {
-  border-radius: 1.5em 1.5em 0 1.5em;
-  color: rgb(var(--mio-theme-color-on-primary));
-  background-color: rgb(var(--mio-theme-color-primary));
+.replyMore {
+  width: 100%;
+  font-size: 0.75em;
+  height: 2em;
+}
+.comment .comment-bubble .reply-writer {
+  background-color: rgba(var(--mio-theme-color-primary), 0.12);
+  padding: 0.4em;
+  font-size: 0.75em;
+  border-radius: 1.5em;
+  margin-right: 0.5em;
 }
 
-/*-- custom --*/
-#preview .comment .comment-bubble {
-  border-radius: var(--border-radius_24) var(--border-radius_24)
-    var(--border-radius_24) 0;
-}
-#preview .comment.isWriter .comment-bubble {
-  border-radius: var(--border-radius_24) var(--border-radius_24) 0
-    var(--border-radius_24);
-}
-#preview .comment .comment-profile {
-  background-color: rgb(var(--primary-color));
-  color: rgb(var(--primary-on));
-}
-#preview .comment .comment-bubble {
-  color: rgb(var(--font-color));
-  background-color: rgba(var(--primary-color), 0.12);
-}
-#preview .comment.isWriter .comment-bubble {
-  color: rgb(var(--primary-on));
-  background-color: rgb(var(--primary-color));
-}
-// design3
-#preview .comment.design3 .comment-bubble {
+
+/*-- default --*/
+.comment.default .comment-bubble {
   color: rgb(var(--font-color));
   background-color: transparent;
   padding: 0.5em 0.5em;
 }
-#preview .comment.isWriter.design3 .comment-bubble {
+.comment.isWriter.default .comment-bubble {
   color: var(--primary-color);
   background-color: transparent;
 }
-#preview .comment.design3 {
-  border-bottom: 0.0625em solid rgba(var(--primary-color), 0.12);
+.comment.default {
+  border-bottom: 0.0625em solid rgba(var(--mio-theme-color-primary), 0.12);
 }
-#preview .comment.design3 .writer-content {
-  padding: 0 0.5em;
+.comment .comment-writer {
+  justify-content: flex-start;
+}
+.comment.default .writer-content {
+  padding-left: 2.875em;
+}
+
+
+/*-- bubble --*/
+
+.comment.bubble.isWriter {
+  justify-content: flex-end;
+}
+.comment.bubble.isWriter .comment-content {
+  justify-content: flex-end;
+}
+.comment.bubble.isWriter .comment-profile {
+  display: none;
+}
+.comment.bubble .comment-wrap {
+  max-width: 70%;
+}
+.comment.bubble .comment-writer {
+  padding-left: 2.5em;
+}
+.comment.bubble.isWriter .comment-writer {
+  padding-left: 1em;
+}
+
+
+
+/*-- 기본값 --*/
+.comment .comment-bubble.bubble {
+  border-radius: 1.5em 1.5em 1.5em 0;
+  color: rgb(var(--mio-theme-color-primary));
+  background-color: rgb(var(--mio-theme-color-primary-10));
+}
+.comment.isWriter.bubble .comment-bubble {
+  border-radius: 1.5em 1.5em 0 1.5em;
+  color: rgb(var(--mio-theme-color-on-primary));
+  background-color: rgb(var(--mio-theme-color-primary));
+}
+/*-- custom --*/
+// bubble
+#preview .comment.bubble .comment-bubble {
+  border-radius: var(--border-radius_24) var(--border-radius_24)
+    var(--border-radius_24) 0;
+}
+#preview .comment.isWriter.bubble .comment-bubble {
+  border-radius: var(--border-radius_24) var(--border-radius_24) 0
+    var(--border-radius_24);
+}
+#preview .comment.bubble .comment-profile {
+  background-color: rgb(var(--primary-color));
+  color: rgb(var(--primary-on));
+}
+#preview .comment.bubble .comment-bubble {
+  color: rgb(var(--font-color));
+  background-color: rgba(var(--primary-color), 0.12);
+}
+#preview .comment.isWriter.bubble .comment-bubble {
+  color: rgb(var(--primary-on));
+  background-color: rgb(var(--primary-color));
+}
+
+#preview .comment .comment-bubble .reply-writer {
+  background-color: rgba(var(--primary-color), 0.12);
+  border-radius: var(--border-radius_24);
+}
+#preview .comment.default {
+  border-bottom: 0.0625em solid rgba(var(--primary-color), 0.12);
 }

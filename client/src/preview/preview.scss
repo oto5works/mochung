@@ -206,6 +206,7 @@
 // 공통
 #preview {
   text-align: var(--text-align);
+  font-family: var(--font-family);
 }
 #preview .container {
   position: relative;
@@ -217,6 +218,11 @@
   background-color: rgb(var(--background-color));
 }
 // 인트로
+#homeView {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--mio-theme-aspect-ratio);
+}
 #introView {
   z-index: 4;
 }

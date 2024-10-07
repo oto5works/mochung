@@ -25,6 +25,7 @@
     "@twallpaper/vue": "^2.1.0",
     "@uppy/core": "^3.4.0",
     "axios": "^0.27.2",
+    "canvas-confetti": "^1.9.3",
     "chalk": "^4.1.2",
     "core-js": "^3.27.1",
     "gridstack": "^9.0.2",

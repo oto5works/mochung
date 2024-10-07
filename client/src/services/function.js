@@ -11,6 +11,7 @@ export function scrollToValue(id) {
   }
 }
 
+
 // 반대 색상 지정
 export function setOnColor(value) {
   console.log('setOnColor value is: ', value);

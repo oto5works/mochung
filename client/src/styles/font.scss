@@ -38,14 +38,7 @@ u {
 .font-weight_700 {
   font-weight: 700;
 }
-@font-face {
-  font-family: "EBGaramond";
-  src: url("#{$base-url}/font/EBGaramond-VariableFont_wght.ttf")
-    format("truetype");
-  font-style: normal;
-  font-weight: 100 900; /* 가변 폰트의 가중치 범위 */
-  font-display: swap;
-}
+
 
 /* Cormorant Garamond Italic */
 @font-face {
@@ -102,13 +95,20 @@ u {
 // 본명조
 @font-face {
   font-family: "notoserif";
-  src: url("#{$base-url}/font/notoserif-variable.ttf")
-    format("truetype");
+  src: url("#{$base-url}/font/notoserif-variable.woff2")
+    format("woff2-variations");
   font-style: normal;
   font-weight: 200 900; /* 가변 폰트의 가중치 범위 */
   font-display: swap;
 }
-
+@font-face {
+  font-family: "ebgaramond";
+  src: url("#{$base-url}/font/ebgaramond-variable.woff2")
+    format("woff2-variations");
+  font-style: normal;
+  font-weight: 100 900; /* 가변 폰트의 가중치 범위 */
+  font-display: swap;
+}
 
 
 

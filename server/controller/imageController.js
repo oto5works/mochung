@@ -208,22 +208,19 @@ image.save()
 
 // ...
 exports.uploadMultiple = async (req, res) => {
-  console.log('Upload multiple function called');
+  console.log('여러 파일 업로드 함수 호출됨');
 
   if (!req.files || req.files.length === 0) {
-    console.log('No files uploaded');
+    console.log('업로드된 파일이 없습니다');
     return res.status(400).send({
-      message: "At least one image file is required."
+      message: "적어도 하나의 이미지 파일이 필요합니다."
     });
   }
 
-  console.log('Number of uploaded files:', req.files.length);
+  console.log('업로드된 파일 수:', req.files.length);
 
   const uploadedImages = req.files;
-
   const uploadedUrls = [];
-  const imagePromises = [];
-
   try {
     const storage = new Storage({
       projectId: 'eco-emissary-392608',
@@ -233,12 +230,12 @@ exports.uploadMultiple = async (req, res) => {
     const bucketName = 'jwpg_bucket';
 
     for (const uploadedImage of uploadedImages) {
-      console.log('Processing image:', uploadedImage.filename);
+      console.log('이미지 처리 중:', uploadedImage.filename);
 
       const filename = uploadedImage.filename;
       const file = storage.bucket(bucketName).file(filename);
 
-      const tempLocalPath = `./download/${filename}`;
+      const tempLocalPath = `./download/${filename}_${Date.now()}`; // 고유성을 위해 타임스탬프 추가
       await file.download({ destination: tempLocalPath });
 
       const convertedImageBuffer = await sharp(tempLocalPath).toFormat('webp').toBuffer();
@@ -253,49 +250,48 @@ exports.uploadMultiple = async (req, res) => {
         },
       });
 
+      // 원본 파일 Google Cloud에서 삭제
       try {
-        const originalFile = storage.bucket(bucketName).file(filename);
-        await originalFile.delete();
+        await file.delete();
       } catch (err) {
-        console.error('Error occurred while deleting the original file:', err);
+        console.error('원본 파일 삭제 중 오류 발생:', err);
       }
 
+      // 임시 로컬 파일 삭제
       try {
         fs.unlink(tempLocalPath, (err) => {
           if (err) {
-            console.error('Error occurred while deleting the temporary file:', err);
+            console.error('임시 파일 삭제 중 오류 발생:', err);
           } else {
-            console.log('Temporary file has been deleted.');
+            console.log('임시 파일이 삭제되었습니다.');
           }
         });
       } catch (err) {
-        console.error('Error occurred while deleting the original file:', err);
+        console.error('임시 파일 삭제 중 오류 발생:', err);
       }
 
       const imageUrl = `https://storage.googleapis.com/${bucketName}/${convertedFilename}`;
+      console.log('생성된 이미지 URL:', imageUrl);
+
       uploadedUrls.push(imageUrl);
 
       const image = new Image({
         url: imageUrl,
         filename: filename,
       });
-      imagePromises.push(image.save());
+
+      await image.save();
       
-      console.log('Image processed:', uploadedImage.filename);
+      console.log('이미지 처리 완료:', uploadedImage.filename);
     }
 
-    console.log('All images processed');
-
-    const savedImages = await Promise.all(imagePromises);
-
-    console.log('Uploaded image URLs:', uploadedUrls);
-    console.log('Saved images:', savedImages);
-
-    res.status(200).json(savedImages);
+    console.log('모든 이미지 처리 완료');
+    res.status(200).json(uploadedUrls);
   } catch (err) {
-    console.error('Error occurred:', err);
+    console.error('오류 발생:', err);
     res.status(500).send({
-      message: err.message || "Some error occurred while processing the images."
+      message: err.message || "이미지 처리 중 오류가 발생했습니다."
     });
   }
 };
+

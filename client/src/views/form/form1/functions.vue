@@ -9,6 +9,7 @@
       <audiosBox />
       <effectBox />
       <surveyBox />
+      <commentBox />
     </div>
   </div>
 </template>
@@ -16,12 +17,14 @@
 import audiosBox from "@/modules/audios/audiosBox.vue";
 import effectBox from "@/modules/effect/effectBox.vue";
 import surveyBox from "@/modules/survey/surveyBox.vue";
+import commentBox from "@/modules/comment/commentBox.vue";
 
 export default {
   components: {
     audiosBox,
     effectBox,
     surveyBox,
+    commentBox,
   },
 };
 </script>

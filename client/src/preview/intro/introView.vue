@@ -1,12 +1,19 @@
 <template>
-  <article id="introView">
+  <article id="introView" :class="{ fnAnimation: fnAnimation }">
     <sectionView id="previewIntro">
       <div class="container previewIntro">
         <div class="tiptap-wrap">
-          <div class="--font-size_22 font-weight_700 line-height_130 width_100">
+          <div
+            class="--font-size_22 font-weight_700 line-height_130 width_100"
+            :class="['fade-in', { isVisible: isVisible }]"
+          >
             {{ introData.title }}
           </div>
-          <div class="preview-tiptap" v-html="introData.content" />
+          <div
+            class="preview-tiptap"
+            :class="['fade-in slide-up', { isVisible: isVisible }]"
+            v-html="introData.content"
+          />
         </div>
 
         <div class="sp_96" />
@@ -32,9 +39,12 @@
     />
   </article>
 </template>
+
 <script>
 import { defineAsyncComponent } from "vue";
 import { mapGetters } from "vuex";
+import "@/preview/animation.scss";
+
 export default {
   components: {
     introFamily: defineAsyncComponent(() =>
@@ -50,6 +60,12 @@ export default {
       import("@/preview/stamp/stampView.vue")
     ),
   },
+  props: {
+    isVisible: {
+      type: Boolean,
+      default: false,
+    },
+  },
   computed: {
     ...mapGetters({
       introData: "getIntroData",
@@ -57,6 +73,7 @@ export default {
       familyExist: "getFamilyExist",
       design: "getDesign",
       shadow: "getShadow",
+      fnAnimation: "getFnAnimation", // 추가된 getter
     }),
   },
   data() {
@@ -68,6 +85,6 @@ export default {
     closeDialog() {
       this.$emit("update:dialog", false);
     },
-  }
+  },
 };
 </script>

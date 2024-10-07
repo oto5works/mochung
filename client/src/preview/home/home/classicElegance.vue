@@ -89,7 +89,7 @@ export default {
   align-items: center;
   justify-content: center;
   top: 15%;
-  height: 24%;
+  height: 23%;
   width: 100%;
 }
 
@@ -102,8 +102,8 @@ export default {
 
 .title {
   text-align: left;
-  font-size: 1.875em;
-  font-weight: 700;
+  font-size: 2.2em;
+  font-weight: 600;
   text-transform: uppercase;
 }
 .content-wrap {
@@ -124,7 +124,7 @@ export default {
 .content1 {
   display: flex;
   flex-direction: column;
-  gap: 0.4em;
+  gap: 0.8em;
 }
 .content2 {
   display: flex;

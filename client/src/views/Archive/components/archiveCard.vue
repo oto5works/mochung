@@ -1,114 +1,115 @@
 <template>
   <div class="archiveCard">
-    <div class="header-wrap">
-      <div class="display_flex align-items_center gap_8" @click="handlePreview">
-        <buttonDefault variant="filled" height="24" :icon="true"
-          ><icon class="icon_14"><links /></icon
-        ></buttonDefault>
-        <span class="link">{{
-          archive.formData.data.urlData.url || archive.id
-        }}</span>
-      </div>
-      <buttonDefault
-        variant="tonal"
-        height="32"
-        :icon="true"
-        @click="handleDialogMore"
-        :class="{
-          selected: dialog.more,
-        }"
-      >
-        <icon class="icon_14" v-if="dialog.more"><x /></icon>
-
-        <icon class="icon_16" v-else><dots /></icon>
-
-        <tooltipMenu
-          v-if="dialog.more"
-          :dialog="dialog.more"
-          @update:dialog="dialog.more = $event"
-        >
-          <listItem icon="trash" label="삭제" @click="handleDelete" />
-          <listItem icon="pencil" label="수정" @click="handleEdit" />
-          <listItem icon="eye" label="미리보기" @click="handlePreview" />
-          <listItem
-            icon="share"
-            label="공유하기"
-            @click="dialog.share = true"
-          />
-        </tooltipMenu>
-      </buttonDefault>
-    </div>
-    <div class="title-wrap">
-      <div class="title">{{ archive.formData.data.functionData.fnTitle }}</div>
-      <span class="font-size_13">
-        Creative at
-        {{ archive.formData.data.dateData.date }}
-        {{ archive.formData.data.dateData.time }}<br />
-      </span>
-    </div>
     <div
       class="image-wrap"
       :style="{ backgroundImage: `url('${getRandomOrHeroImage()}')` }"
       @click="handlePreview"
     />
-    <div class="functions-wrap">
-      <buttonDefault
-        variant="tonal"
-        height="32"
-        v-if="archive.formData.data.functionData.fnLike"
-      >
-        <icon class="icon_16"><heart /></icon>
-        <span> Like {{ archive.like >= 1000 ? "999+" : archive.like }} </span>
-      </buttonDefault>
 
-      <buttonDefault
-        variant="tonal"
-        height="32"
-        v-if="archive.formData.data.commentData.fnComment"
-        @click="dialog.comment = true"
-      >
-        <icon class="icon_16"><chat /></icon>
-        <span> Comments {{ archive.comments.length }} </span>
-      </buttonDefault>
+    <div class="archiveCard-content">
+      <div class="title-wrap">
+        <div class="title">
+          <span>{{ archive.formData.data.functionData.fnTitle || "Untitled" }}</span>
 
-      <buttonDefault
-        variant="tonal"
-        height="32"
-        v-if="archive.formData.data.surveyData.fnSurvey"
-        @click="dialog.survey = true"
-      >
-        <icon class="icon_16"><rsvp /></icon>
-        <span> RSVP {{ archive.surveys.length }} </span>
-      </buttonDefault>
-    </div>
-    <div class="footer-wrap">
-      <div class="pay-wrap" @click="handlePayment">
-        <div
-          class="thumb"
-          :class="{
-            active: archive.pay,
-          }"
+          <buttonDefault
+            variant="text"
+            height="32"
+            :icon="true"
+            @click="handleDialogMore"
+            :class="{
+              selected: dialog.more,
+            }"
+          >
+            <icon class="icon_14" v-if="dialog.more"><x /></icon>
+
+            <icon class="icon_16" v-else><dots /></icon>
+
+            <tooltipMenu
+              v-if="dialog.more"
+              :dialog="dialog.more"
+              @update:dialog="dialog.more = $event"
+            >
+              <listItem icon="trash" label="삭제" @click="handleDelete" />
+              <listItem icon="pencil" label="수정" @click="handleEdit" />
+              <listItem icon="eye" label="미리보기" @click="handlePreview" />
+              <listItem
+                icon="share"
+                label="공유하기"
+                @click="dialog.share = true"
+              />
+            </tooltipMenu>
+          </buttonDefault>
+        </div>
+
+        <span class="creativeAt">
+          Creative at
+          {{ archive.formData.data.dateData.date }}
+          {{ archive.formData.data.dateData.time }}<br />
+        </span>
+      </div>
+      <div class="functions-wrap">
+        <buttonDefault
+          variant="text"
+          height="32"
+          v-if="archive.formData.data.functionData.fnLike"
         >
-          <!-- archive.pay가 true일 때 sparkle 아이콘 표시 -->
-          <icon class="icon_18" v-if="archive.pay"><sparkle /></icon>
+          <icon class="icon_16"><heart /></icon>
+          <span>{{ archive.like >= 1000 ? "999+" : archive.like }} </span>
+        </buttonDefault>
 
-          <!-- archive.pay가 false일 때 lock 아이콘 표시 -->
-          <icon class="icon_18" v-else><lock /></icon>
-        </div>
-        <div class="content">
-          <div class="payment">
-            {{ archive.pay ? "Payment" : "No Payment" }}
+        <buttonDefault
+          variant="text"
+          height="32"
+          v-if="archive.formData.data.commentData.fnComment"
+          @click="dialog.comment = true"
+        >
+          <icon class="icon_16"><chat /></icon>
+          <span>{{ archive.comments.length }}</span>
+        </buttonDefault>
+
+        <buttonDefault
+          variant="text"
+          height="32"
+          v-if="archive.formData.data.surveyData.fnSurvey"
+          @click="dialog.survey = true"
+        >
+          <icon class="icon_16"><rsvp /></icon>
+          <span>{{ archive.surveys.length }}</span>
+        </buttonDefault>
+        <buttonDefault variant="text" height="32" @click="handlePreview">
+          <icon class="icon_16"><links /></icon>
+          <span>LINK</span>
+        </buttonDefault>
+      </div>
+      <div class="footer-wrap">
+        <div class="pay-wrap" @click="handlePayment">
+          <div
+            class="thumb"
+            :class="{
+              active: archive.pay,
+            }"
+          >
+            <!-- archive.pay가 true일 때 sparkle 아이콘 표시 -->
+            <icon class="icon_18" v-if="archive.pay"><sparkle /></icon>
+
+            <!-- archive.pay가 false일 때 lock 아이콘 표시 -->
+            <icon class="icon_18" v-else><lock /></icon>
           </div>
-          <div class="dateExp">Date Exp: {{ dateExp }}</div>
+          <div class="content">
+            <div class="payment">
+              {{ archive.pay ? "Payment" : "No Payment" }}
+            </div>
+            <div class="dateExp">Date Exp: {{ dateExp }}</div>
+          </div>
         </div>
+
+        <buttonDefault variant="filled" height="40"
+          ><icon class="icon_18"><naver /></icon
+          ><span>Naver</span></buttonDefault
+        >
       </div>
 
-      <buttonDefault variant="filled" height="46"
-        ><icon class="icon_18"><naver /></icon><span>Naver</span></buttonDefault
-      >
-    </div>
-
-    <!-- 정보 영역 
+      <!-- 정보 영역 
 
     <div class="flex align-items_flex-end justify-content_space-between pa_8">
       <div style="line-height: 128%" class="font-size_12 width_100">
@@ -130,29 +131,30 @@
     </div>
   -->
 
-    <!-- Dialog -->
+      <!-- Dialog -->
 
-    <survey
-      v-if="dialog.survey"
-      :dialog="dialog.survey"
-      @update:dialog="dialog.survey = $event"
-      :root="true"
-      :id="archive.id"
-    />
-    <comment
-      v-if="dialog.comment"
-      :dialog="dialog.comment"
-      @update:dialog="dialog.comment = $event"
-      :root="true"
-      :id="archive.id"
-    />
-    <archiveActive
-      v-if="dialog.active"
-      :dialog="dialog.active"
-      @update:dialog="dialog.active = $event"
-      :id="archive.id"
-    />
-    <!-- Dialog -->
+      <survey
+        v-if="dialog.survey"
+        :dialog="dialog.survey"
+        @update:dialog="dialog.survey = $event"
+        :root="true"
+        :id="archive.id"
+      />
+      <comment
+        v-if="dialog.comment"
+        :dialog="dialog.comment"
+        @update:dialog="dialog.comment = $event"
+        :root="true"
+        :id="archive.id"
+      />
+      <archiveActive
+        v-if="dialog.active"
+        :dialog="dialog.active"
+        @update:dialog="dialog.active = $event"
+        :id="archive.id"
+      />
+      <!-- Dialog -->
+    </div>
   </div>
 </template>
 

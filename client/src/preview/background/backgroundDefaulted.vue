@@ -1,15 +1,8 @@
 <template>
-  <div class="backgroundDefaulted" :style="{ backgroundColor: rgbArrayToString(circleColor) }">
-    <transition name="circle">
-      <div
-        class="circle"
-        :style="{ backgroundColor: rgbArrayToString(backgroundColor) }"
-        v-if="showCircle"
-        @click="circleClicked"
-      ></div>
-    </transition>
+  <div class="backgroundDefaulted">
   </div>
 </template>
+
 
 <script>
 export default {
@@ -36,16 +29,6 @@ export default {
       return `rgb(${rgbArray.join(', ')})`;
     },
   },
-  watch: {
-    backgroundColor(newColor) {
-      // backgroundColor가 변경될 때 애니메이션을 위한 setTimeout 실행
-      this.showCircle = true;
-      setTimeout(() => {
-        this.circleColor = newColor;
-        this.showCircle = false;
-      }, 1000);
-    },
-  },
 };
 </script>
 
@@ -58,6 +41,8 @@ export default {
   top: 0;
   left: 0;
   overflow: hidden;
+  background-color: rgb(var(--background-color));
+  transition: background-color 1s ease-in-out; /* 배경 색상 변경 애니메이션 추가 */
 }
 .circle {
   position: fixed;

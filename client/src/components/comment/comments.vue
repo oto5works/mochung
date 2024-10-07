@@ -1,17 +1,22 @@
 <template>
   <div class="comments">
-    <comment
-      v-for="item in displayedComments"
-      :key="item.id"
-      :comment="item"
-      :config="config"
-    />
-    <pagination
-      :currentPage="currentPage"
-      :totalPages="totalPages"
-      @prev-page="prevPage"
-      @next-page="nextPage"
-    />
+    <button v-if="totalComments === 0" class="no-comments">
+    <span>아직 댓글이 없습니다.</span>  
+    </button>
+    <div v-else>
+      <comment
+        v-for="item in displayedComments"
+        :key="item.id"
+        :comment="item"
+      />
+      <pagination
+        v-if="totalPages > 1"
+        :currentPage="currentPage"
+        :totalPages="totalPages"
+        @prev-page="prevPage"
+        @next-page="nextPage"
+      />
+    </div>
   </div>
 </template>
 
@@ -22,12 +27,6 @@ import pagination from "@/components/pagination/pagination.vue";
 
 export default {
   components: { comment, pagination },
-  props: {
-    config: {
-      type: Boolean,
-      default: false,
-    },
-  },
   data() {
     return {
       currentPage: 1,
@@ -79,3 +78,12 @@ export default {
   },
 };
 </script>
+<style scoped>
+.no-comments {
+  height: 4em;
+  width: 100%;
+
+}
+</style>
+
+

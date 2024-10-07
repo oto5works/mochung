@@ -61,7 +61,7 @@ import { mapGetters } from "vuex";
 export default {
   components: {
     homePreview: defineAsyncComponent(() =>
-      import("@/modules/home/homePreview.vue")
+      import("@/components/homePreview/homePreview.vue")
     ),
   },
   data() {

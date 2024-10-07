@@ -6,7 +6,7 @@ export default {
       test: [
         {
           id: 0,
-          writer: null,
+          writer: "Host",
           password: "1234",
           content: "로그인한 사용자가 방명록에 댓글을 작성하면, 다음과 같은 형식으로 댓글이 표시됩니다.",
           dateCreate: "2024-08-30",

@@ -1,3 +1,5 @@
+<!-- bankComponent.vue -->
+
 <template>
   <div
     class="position_relative display_flex flex-direction_column gap_24 width_100"
@@ -57,14 +59,13 @@
         @update:files="updateFiles($event, index)"
       >
       </fileUploader>
-
       <selectorBank
         v-if="dialog.hostBank[index]"
-        :options="hostBankOptions"
         :selected="item.bank"
         @update:selected="updateBank($event, index)"
         :dialog="dialog.hostBank[index]"
         @update:dialog="dialog.hostBank[index] = $event"
+        @update:newBank="updateBankSelf($event, index)"
       />
     </div>
     <bankKakaopayGuide
@@ -76,56 +77,26 @@
 </template>
 <script>
 import { defineAsyncComponent } from "vue";
-import { mapGetters } from "vuex";
 import dropdown from "@/components/icon/dropdown";
 import question from "@/components/icon/question";
+import compBank from "@/services/compBank.js";
 
 export default {
   components: {
-    dropdown, question,
+    dropdown,
+    question,
     selectorBank: defineAsyncComponent(() =>
       import("@/components/selector/selectorBank.vue")
     ),
     fileUploader: defineAsyncComponent(() =>
       import("@/components/file/fileUploader.vue")
     ),
-    
+
     bankKakaopayGuide: defineAsyncComponent(() =>
       import("@/modules/bank/bankKakaopayGuide.vue")
     ),
-    bankKb: defineAsyncComponent(() => import("@/components/icon/bankKb")),
-    bankIbk: defineAsyncComponent(() => import("@/components/icon/bankIbk")),
-    bankNh: defineAsyncComponent(() => import("@/components/icon/bankNh")),
-    bankShinhan: defineAsyncComponent(() =>
-      import("@/components/icon/bankShinhan")
-    ),
-    bankKdb: defineAsyncComponent(() => import("@/components/icon/bankKdb")),
-    bankWoori: defineAsyncComponent(() =>
-      import("@/components/icon/bankWoori")
-    ),
-    bankCiti: defineAsyncComponent(() => import("@/components/icon/bankCiti")),
-    bankKeb: defineAsyncComponent(() => import("@/components/icon/bankKeb")),
-    bankSc: defineAsyncComponent(() => import("@/components/icon/bankSc")),
-    bankBnk: defineAsyncComponent(() => import("@/components/icon/bankBnk")),
-    bankJb: defineAsyncComponent(() => import("@/components/icon/bankJb")),
-    bankDgb: defineAsyncComponent(() => import("@/components/icon/bankDgb")),
-    bankDb: defineAsyncComponent(() => import("@/components/icon/bankDb")),
-    bankBac: defineAsyncComponent(() => import("@/components/icon/bankBac")),
-    bankSj: defineAsyncComponent(() => import("@/components/icon/bankSj")),
-    bankSb: defineAsyncComponent(() => import("@/components/icon/bankSb")),
-    bankMg: defineAsyncComponent(() => import("@/components/icon/bankMg")),
-    bankSh: defineAsyncComponent(() => import("@/components/icon/bankSh")),
-    bankCu: defineAsyncComponent(() => import("@/components/icon/bankCu")),
-    bankPost: defineAsyncComponent(() => import("@/components/icon/bankPost")),
-    bankKakao: defineAsyncComponent(() =>
-      import("@/components/icon/bankKakao")
-    ),
-    bankKbank: defineAsyncComponent(() =>
-      import("@/components/icon/bankKbank")
-    ),
-    bankToss: defineAsyncComponent(() => import("@/components/icon/bankToss")),
-    bankSelf: defineAsyncComponent(() => import("@/components/icon/bank")),
     kakaopay: defineAsyncComponent(() => import("@/components/icon/kakaopay")),
+    ...compBank,
   },
   props: {
     hostTitle: { type: String },
@@ -144,11 +115,6 @@ export default {
       },
     };
   },
-  computed: {
-    ...mapGetters({
-      hostBankOptions: "getHostBankOptions",
-    }),
-  },
   methods: {
     handleDelete(index) {
       // Emit an event with the index to be deleted
@@ -165,6 +131,13 @@ export default {
     },
     updateFiles(value, index) {
       this.bank.account[index].files = value;
+    },
+    updateBankSelf(newBankTitle, index) {
+      console.log ('moraemasita:', newBankTitle)
+      this.bank.account[index].bank = {
+        value: "bankSelf",
+        title: newBankTitle,
+      };
     },
   },
 };

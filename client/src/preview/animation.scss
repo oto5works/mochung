@@ -1,0 +1,25 @@
+/* Fade-in 효과 */
+.fnAnimation .fade-in.isVisible {
+  opacity: 1;
+}
+.fnAnimation .fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+/* Slide-up 효과 */
+.fnAnimation .slide-up.isVisible {
+  transform: translateY(1em);
+}
+.fnAnimation .slide-up {
+  transform: translateY(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Slide-down 효과 */
+.fnAnimation .slide-down.isVisible {
+  transform: translateY(-1em);
+}
+.fnAnimation .slide-down {
+  transform: translateY(0);
+  transition: transform 0.5s ease-in-out;
+}

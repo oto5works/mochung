@@ -9,27 +9,39 @@
     </div>
 
     <div id="functionsView">
-      <likeView v-if="previewFunction.like" />
-
+       <likeView v-if="previewFunction.like" /> 
       <buttonAlt variant="fuctions" @click="handleClickEvent">
         <icon class="icon_20"><caretDown /></icon>
       </buttonAlt>
     </div>
-
-    <effect v-if="previewFunction.effect" />
+    <!--
+    <effect
+      v-if="
+        previewFunction.effect &&
+        (sectionsVisibility.homeView || sectionsVisibility.introView)
+      "
+      :isVisible="
+        previewFunction.effect &&
+        (sectionsVisibility.homeView || sectionsVisibility.introView)
+      "
+    />
+-->
     <div class="preview-content">
-      <home />
-      <component
+      <div
         v-for="(option, index) of previewFunction.order"
         :key="index"
-        :is="option"
-      />
-
-      <footersView />
+        :id="`${option}View`"
+        class="section"
+        ref="sections"
+      >
+        <component
+          :is="option"
+          :isVisible="sectionsVisibility[`${option}View`] || false"
+        />
+      </div>
     </div>
   </div>
 </template>
-
 <script>
 import { defineAsyncComponent } from "vue";
 import { mapGetters, mapActions } from "vuex";
@@ -64,31 +76,62 @@ export default {
     deposit: defineAsyncComponent(() =>
       import("@/preview/deposit/depositView")
     ),
-
     audios: defineAsyncComponent(() =>
       import("@/preview/audios/audiosView.vue")
     ),
-
+    
+    /* 
     effect: defineAsyncComponent(() =>
       import("@/preview/effect/effectView.vue")
     ),
-    likeView: defineAsyncComponent(() => import("@/preview/like/likeView.vue")),
-
+    likeView: defineAsyncComponent(() => import("@/preview/like/likeView.vue")), */
     notice: defineAsyncComponent(() => import("@/views/preview/notice/notice")),
-
-    footersView: defineAsyncComponent(() =>
+    footer: defineAsyncComponent(() =>
       import("@/preview/footers/footersView.vue")
     ),
   },
-  created() {
-    if (this.$route.name === "view") {
-      this.handleFetchFormData(this.$route.params.id);
-    }
+  data() {
+    return {
+      sectionsVisibility: {
+        homeView: true,
+        introView: false,
+        calendarView: false,
+        locationView: false,
+        galleryView: false,
+        surveyView: false,
+        commentView: false,
+        depositView: false,
+        footerView: false,
+      },
+    };
   },
+
   computed: {
     ...mapGetters({
       previewFunction: "getPreviewFunction",
     }),
+  },
+  mounted() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const sectionId = entry.target.id;
+          this.sectionsVisibility[sectionId] = entry.isIntersecting;
+
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          } else {
+            entry.target.classList.remove("visible");
+          }
+        });
+      },
+      { root: null, threshold: 0.1 }
+    );
+
+    // 모든 섹션에 대해 Observer를 설정합니다.
+    this.$refs.sections.forEach((section) => {
+      observer.observe(section);
+    });
   },
   methods: {
     ...mapActions(["fetchFormData", "handleScrollToAction"]),

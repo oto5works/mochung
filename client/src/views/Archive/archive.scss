@@ -10,17 +10,29 @@
   background-size: cover;
 }
 
-
 .archiveCard {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 32px;
-  background-color: rgb(var(--mio-theme-color-primary-05));
-  border-radius: 32px;
+  background-color: rgb(var(--mio-theme-color-white));
+  border-radius: 28px;
   grid-column: auto / span 4;
+  overflow: hidden;
 }
+.archiveCard .archiveCard-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 24px;
+}
+.archiveCard .creativeAt {
+  font-size: 1em;
+  font-family: var(--mio-theme-font-family-sp);
+opacity: 0.7;
+}
+
 .archiveCard .header-wrap {
   position: relative;
   display: flex;
@@ -41,20 +53,22 @@
   gap: 8px;
   width: 100%;
   padding: 24px 0;
+  z-index: 2;
 }
 .archiveCard .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 500;
 }
 .archiveCard .image-wrap {
   width: 100%;
-  height: 12rem;
   background-position: center;
   background-size: 100%;
-  border-radius: 24px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-
+  aspect-ratio: 4 / 3;
 }
 .archiveCard:hover .image-wrap {
   background-size: 108%;
@@ -64,7 +78,7 @@
   position: relative;
   display: flex;
   gap: 8px;
-  padding: 24px 0;
+  padding: 16px 0;
 }
 .archiveCard .footer-wrap {
   position: relative;
@@ -73,7 +87,7 @@
   justify-content: space-between;
   gap: 18px;
   width: 100%;
-  padding-top: 24px;
+  padding: 24px 0;
   border-top: 1px solid rgb(var(--mio-theme-color-primary-10));
 }
 /*-- payment --*/
@@ -117,19 +131,4 @@
   position: absolute;
   top: 40px;
   right: 0;
-}
-
-
-
-@media all and (max-width: 479px) {
-  .archiveCard {
-    padding: 24px;
-    border-radius: 28px;
-  }
-  .archiveCard .functions-wrap {
-    padding: 16px 0;
-  }
-  .archiveCard .image-wrap {
-    height: 10rem;
-  }
 }

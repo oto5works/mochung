@@ -99,16 +99,16 @@ html[data-radius-theme="3"] {
 /*--- font-size ---*/
 /*--- font-size ---*/
 html[data-font-size-theme="1"] {
-  --font-size_11: 0.625em; /* 10px */
-  --font-size_12: 0.6875em; /* 11px */
-  --font-size_13: 0.75em; /* 12px */
-  --font-size_14: 0.875em; /* 14px */
-  --font-size_16: 0.9375em; /* 15px */
-  --font-size_18: 1.125em; /* 18px */
+  --font-size_11: 0.5625em; /* 9px */
+  --font-size_12: 0.625em; /* 10px */
+  --font-size_13: 0.6875em; /* 11px */
+  --font-size_14: 0.75em; /* 12px */
+  --font-size_16: 0.875em; /* 14px */
+  --font-size_18: 1em; /* 16px */
   --font-size_22: 1.25em; /* 20px */
-  --font-size_24: 1.375em; /* 22px */
-  --font-size_32: 1.875em; /* 30px */
-  --font-size_48: 2.8125em; /* 45px */
+  --font-size_24: 1.3125em; /* 21px */
+  --font-size_32: 1.75em; /* 28px */
+  --font-size_48: 2.625em; /* 42px */
 }
 
 html[data-font-size-theme="2"] {
@@ -123,15 +123,14 @@ html[data-font-size-theme="2"] {
   --font-size_32: 2em; /* 32px */
   --font-size_48: 3em; /* 48px */
 }
-
 html[data-font-size-theme="3"] {
   --font-size_11: 0.75em; /* 12px */
   --font-size_12: 0.8125em; /* 13px */
   --font-size_13: 0.875em; /* 14px */
-  --font-size_14: 0.875em; /* 14px */
+  --font-size_14: 0.9375em; /* 15px */
   --font-size_16: 1.0625em; /* 17px */
-  --font-size_18: 1.125em; /* 18px */
-  --font-size_22: 1.4375em; /* 23px */
+  --font-size_18: 1.1875em; /* 19px */
+  --font-size_22: 1.5em; /* 24px */
   --font-size_24: 1.625em; /* 26px */
   --font-size_32: 2.125em; /* 34px */
   --font-size_48: 3.125em; /* 50px */
@@ -141,28 +140,28 @@ html[data-font-size-theme="4"] {
   --font-size_11: 0.8125em; /* 13px */
   --font-size_12: 0.875em; /* 14px */
   --font-size_13: 0.9375em; /* 15px */
-  --font-size_14: 0.875em; /* 14px */
+  --font-size_14: 1em; /* 16px */
   --font-size_16: 1.125em; /* 18px */
-  --font-size_18: 1.125em; /* 18px */
-  --font-size_22: 1.5em; /* 24px */
-  --font-size_24: 1.6875em; /* 27px */
-  --font-size_32: 2.25em; /* 36px */
-  --font-size_48: 3.25em; /* 52px */
+  --font-size_18: 1.25em; /* 20px */
+  --font-size_22: 1.625em; /* 26px */
+  --font-size_24: 1.75em; /* 28px */
+  --font-size_32: 2.375em; /* 38px */
+  --font-size_48: 3.375em; /* 54px */
 }
 
 /*--- font-weight ---*/
 html[data-font-weight-theme="light"] {
-  --font-weight_400: 100;
-  --font-weight_500: 100;
-  --font-weight_700: 100;
+  --font-weight_400: 300;
+  --font-weight_500: 400;
+  --font-weight_700: 400;
 }
 html[data-font-weight-theme="medium"] {
-  --font-weight_400: 400;
-  --font-weight_500: 500;
+  --font-weight_400: 300;
+  --font-weight_500: 400;
   --font-weight_700: 600;
 }
 html[data-font-weight-theme="bold"] {
-  --font-weight_400: 500;
-  --font-weight_500: 600;
+  --font-weight_400: 400;
+  --font-weight_500: 500;
   --font-weight_700: 700;
 }

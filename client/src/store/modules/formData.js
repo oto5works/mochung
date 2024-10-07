@@ -326,6 +326,9 @@ export default {
     getFunctionData: (state) => {
       return state.postData.formData.functionData;
     },
+    getFnAnimation: (state) => {
+      return state.postData.formData.functionData.fnAnimation;
+    },
     /*-- 순서 변경 --*/
     getOrderData: (state) => {
       return state.postData.formData.orderData;
