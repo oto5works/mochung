@@ -7,7 +7,8 @@
       viewBox="0 0 24 24"
     >
 
-    
+
+
       <rect
         class="eq-bar eq-bar--1"
         :class="{ 'eq-bar--paused': !isPlaying }"
