@@ -6,6 +6,7 @@
       height="16"
       viewBox="0 0 24 24"
     >
+
     
       <rect
         class="eq-bar eq-bar--1"
