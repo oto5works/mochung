@@ -1,7 +1,7 @@
 {
   "hosting": {
     "public": "dist",
-    "site": "hello-wordy",
+    "site": "mo-chung",
     "ignore": [
       "firebase.json",
       "**/.*",
