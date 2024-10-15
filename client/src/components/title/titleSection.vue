@@ -18,11 +18,11 @@ export default {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
   height: 42px;
 }
 .titleSection .title {
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 500;
 }
 </style>

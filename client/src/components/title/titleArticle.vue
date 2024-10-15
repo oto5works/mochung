@@ -49,7 +49,7 @@ export default {
 }
 .titleArticle .title {
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 500;
 }
 .titleArticle .content {
   font-size: 13px;

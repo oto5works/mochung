@@ -1,15 +1,15 @@
 <template>
   <cardViewTitle :title="title" v-model="optionTitle" @click="openDialog">
     <dialogModal :dialog="dialog" @update:dialog="updateDialog" :title="title">
-      <titleArticle class="pa_24" title="FIELDS OF EXPRESSION" />
+      <titleArticle class="pa_modal" title="FIELDS OF EXPRESSION" />
       <formField
-        class="pa_24"
+        class="pa_modal"
         label="제목"
         v-model="optionTitle"
         :spacing="true"
       />
-      <titleSection class="pa_24" title="추천 문구" />
-      <chips class="pa_24" v-model="optionTitle">
+      <titleSection class="pa_modal" title="추천 문구" />
+      <chips class="pa_modal" v-model="optionTitle">
         <chip
           v-for="(recommendation, index) in recommendTitleOptions[option]"
           :key="index"

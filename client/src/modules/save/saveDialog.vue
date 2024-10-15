@@ -1,12 +1,12 @@
 <template>
   <dialogModal :dialog="dialog" @update:dialog="updateDialog">
-    <div class="pa_24">
+    <div class="pa_modal">
       <titleArticle
         title="FIELDS 22OF EXPRESSION"
         content="Get an official Creative Cloud subscription. When you make a payment"
       />
     </div>
-    <div class="pa_24">
+    <div class="pa_modal">
       <saveRating v-model="rating" :maxStars="5" />
       <formArea
         label="고객님의 의견을 함께 남겨주세요. (선택사항)"

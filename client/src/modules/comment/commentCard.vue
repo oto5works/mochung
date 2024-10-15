@@ -1,16 +1,37 @@
 <template>
-  <div class="comment-card">
-    <h3>{{ title }}</h3>
-    <p>{{ info }}</p>
+  <button class="commentCard" :class="{ selected: selected }">
+    <icon v-if="selected" class="icon_16"><boxChecked /></icon>
+    <icon v-if="!selected" class="icon_16"><boxCleared /></icon>
+
+<div class="title-wrap">
+    <span class="title">{{ title }}</span>
+    <span class="info">{{ info }}</span>
   </div>
+    <slot></slot>
+    <div class="underlay" />
+  </button>
 </template>
 
 <script>
+import { defineAsyncComponent } from "vue";
+
 export default {
+  components: {
+    boxCleared: defineAsyncComponent(() =>
+      import("@/components/icon/boxCleared.vue")
+    ),
+    boxChecked: defineAsyncComponent(() =>
+      import("@/components/icon/boxChecked.vue")
+    ),
+  },
   props: {
     title: {
       type: String,
-      required: true,
+      default: "",
+    },
+    selected: {
+      type: Boolean,
+      default: false,
     },
     info: {
       type: String,
@@ -19,23 +40,48 @@ export default {
   },
 };
 </script>
-
 <style scoped>
-.comment-card {
-  padding: 16px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+.commentCard {
+  justify-content: flex-start;
+  width: 100%;
+  padding: 24px;
+  border-radius: 16px;
+  gap: 18px;
+}
+.commentCard > .underlay {
+  border: 1px solid rgb(var(--mio-theme-color-primary-05));
+}
+.commentCard.hover > .underlay,
+.commentCard:hover > .underlay {
+  background-color: rgb(var(--mio-theme-color-primary-07));
+}
+.commentCard.selected > .underlay {
+  background-color: rgb(var(--mio-theme-color-primary-07));
 }
 
-.comment-card:hover {
-  background-color: #f0f0f0; /* Highlight on hover */
-}
 
-.selected {
-  background-color: #e0f7fa; /* Change background color when selected */
-  border-color: #00bcd4; /* Change border color when selected */
+
+.commentCard .title-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 70%;
+}
+.commentCard .title {
+  display: flex;
+  align-items: center;
+  min-height: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+}
+.info {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 140%;
+}
+.commentCard .title span {
+  white-space: nowrap;
 }
 </style>

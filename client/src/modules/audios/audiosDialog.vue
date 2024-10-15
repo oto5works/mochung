@@ -1,65 +1,66 @@
 <template>
   <dialogModal :dialog="dialog" @update:dialog="updateDialog">
-
-    <div class="pa_24">
+    <div class="pa_modal">
       <titleArticle
         title="FIELDS 22OF EXPRESSION"
         content="Get an official Creative Cloud subscription. When you make a payment"
       />
     </div>
-    <div class="pa_24">
+    <div class="pa_modal">
       <audiosSwitch />
-      <enableView class="selected"  v-if="!audiosData.fnAudios" title="기능 이용 대기 중" content="현재 이 기능은 비활성화되어 있습니다.<br>활성화하여 사용해 보세요." />
+      <enableView
+        class="selected"
+        v-if="!audiosData.fnAudios"
+        title="기능 이용 대기 중"
+        content="현재 이 기능은 비활성화되어 있습니다.<br>활성화하여 사용해 보세요."
+      />
     </div>
 
-
-
-    <div class="pa_24" v-if="audiosData.fnAudios">
+    <div class="pa_modal" v-if="audiosData.fnAudios">
+      <div class="sp_8"/>
+      <cardView
+        icon="audioAuto"
+        title="자동 재생 설정"
+        content="Use this to set the title for the section where guests can send"
+        @click="toggleSwitch()"
+      >
+        <toggleSwitch
+          :clickEvent="false"
+          v-model="audiosData.fnAutoPlay"
+        ></toggleSwitch>
+      </cardView>
       <div class="form-spacing" />
 
-    <tabs v-model="tab">
-      <tab
-        v-for="(item, index) in tabOptions"
-        :key="index"
-        :value="index"
-        :title="item"
-      />
-    </tabs>
+      <tabs v-model="tab">
+        <tab
+          v-for="(item, index) in tabOptions"
+          :key="index"
+          :value="index"
+          :title="item"
+        />
+      </tabs>
 
-    <audiosOptions v-if="tab === 0" />
+      <audiosOptions v-if="tab === 0" />
 
-    <div v-if="tab === 1">
-      <titleArticle
-        title="FIELDS OF EXPRESSION"
-        content="Get an official Creative Cloud subscription. When you make a payment"
-      >
-        <button
-          class="gap_8"
-          @click="window.open('https://www.youtube.com', '_blank')"
+      <div v-if="tab === 1">
+        <titleArticle
+          title="FIELDS OF EXPRESSION"
+          content="Get an official Creative Cloud subscription. When you make a payment"
         >
-          <span
-            style="color: rgb(55, 97, 251)"
-            class="font-size_14 text-decoration_underline"
-            >Shortcut to YouTube</span
-          ><icon><logoYoutube /></icon>
-        </button>
-      </titleArticle>
-      <youtubeForm v-model="audiosData.url" />
-    </div>
-    <div class="form-spacing" />
+          <button class="gap_8" @click="openYouTube">
+            <span
+              style="color: rgb(55, 97, 251)"
+              class="font-size_14 text-decoration_underline"
+              >Shortcut to YouTube</span
+            ><icon><logoYoutube /></icon>
+          </button>
+        </titleArticle>
+        <youtubeForm v-model="audiosData.url" />
+      </div>
+      <div class="form-spacing" />
 
-    <cardView
-      icon="audioAuto"
-      title="자동 재생 설정"
-      content="Use this to set the title for the section where guests can send"
-      @click="toggleSwitch()"
-    >
-      <toggleSwitch
-        :clickEvent="false"
-        v-model="audiosData.fnAutoPlay"
-      ></toggleSwitch>
-    </cardView>
-  </div>
+      
+    </div>
   </dialogModal>
 </template>
 <script>
@@ -69,7 +70,6 @@ import tabs from "@/components/tab/tabs.vue";
 import tab from "@/components/tab/tab.vue";
 import logoYoutube from "@/components/icon/logoYoutube";
 import enableView from "@/components/enable/enableView.vue";
-
 
 import audiosSwitch from "@/modules/audios/audiosSwitch.vue";
 export default {
@@ -113,6 +113,9 @@ export default {
     },
     selectOption(value) {
       this.tab = value;
+    },
+    openYouTube() {
+      window.open("https://www.youtube.com", "_blank");
     },
   },
 };

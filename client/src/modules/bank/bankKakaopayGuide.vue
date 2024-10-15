@@ -9,7 +9,7 @@
 
     <div class="dialog-actions">
       <button
-        class="button-select height_36 pa_24"
+        class="button-select height_36 pa_modal"
         @click="updateDialog(false)"
       >
         <span>닫기</span>

@@ -1,11 +1,11 @@
 <template>
   <dialogModal :dialog="dialog" @update:dialog="updateDialog">
     <titleArticle
-      class="pa_24"
+      class="pa_modal"
       title="Archive"
       content="Are you sure you want to archive Jeff's conversation?"
     />
-    <formField class="pa_24" label="title" :spacing="true" v-model="functionData.fnTitle" />
+    <formField class="pa_modal" label="title" :spacing="true" v-model="functionData.fnTitle" />
     <div class="dialog-actions">
       <buttonDefault
         class="width_100"

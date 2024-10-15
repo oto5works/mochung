@@ -1,12 +1,12 @@
 <template>
   <dialogModal :dialog="dialog" @update:dialog="updateDialog">
-    <div class="pa_24">
+    <div class="pa_modal">
       <titleArticle
         title="FIELDS 22OF EXPRESSION"
         content="Get an official Creative Cloud subscription. When you make a payment"
       />
     </div>
-    <div class="pa_24">
+    <div class="pa_modal">
       <homeFileSwitch />
       <enableView
         class="selected"
@@ -15,7 +15,7 @@
         content="현재 이 기능은 비활성화되어 있습니다.<br>활성화하여 사용해 보세요."
       />
     </div>
-    <div v-if="homeData.fnFile" class="pa_24">
+    <div v-if="homeData.fnFile" class="pa_modal">
       <div class="form-spacing" />
       <div class="display_flex flex-direction_column gap_8">
         <homeFile />

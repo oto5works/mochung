@@ -4,10 +4,10 @@
     @update:dialog="updateDialog"
   >
   <titleArticle
-      class="pa_24"
+      class="pa_modal"
       title="Address Search"
     />
-    <div class="position_relative width_100 pa_24">
+    <div class="position_relative width_100 pa_modal">
       <VueDaumPostcode @complete="oncomplete" />
     </div>
   </dialogModal>

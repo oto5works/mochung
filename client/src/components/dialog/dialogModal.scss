@@ -19,9 +19,8 @@
   scrollbar-width: none; /* 파이어폭스 */
 }
 
-
 .dialogModal > .overlay__content {
-  max-width: 480px;
+  max-width: 560px;
 }
 .dialogModal > .overlay__content {
   max-height: calc(100% - 32px);
@@ -40,19 +39,19 @@
   flex-direction: column;
   --v-scrollbar-offset: 0px;
   overflow-y: auto;
-  border-radius: 26px;
+  border-radius: 2em;
   background-color: rgb(var(--mio-theme-color-background));
 }
 .dialogModal > .overlay__content > .dialog .dialog-close {
   position: fixed;
-  top: 8px;
-  right: 8px;
+  top: 1em;
+  right: 1em;
   z-index: 10;
 }
 .dialogModal > .overlay__content > .dialog .dialog-content {
   display: flex;
   flex-direction: column;
-  padding: 24px 0;
+  padding: 2em 0;
 }
 .dialogModal > .overlay__content > .dialog .dialog-actions {
   position: relative;
@@ -63,7 +62,13 @@
   padding: 0 24px;
   margin-top: 24px;
 }
-
+.dialogModal > .overlay__content > .dialog .dialog-content .pa_modal {
+  padding-left: 3em;
+  padding-right: 3em;
+}
+.dialogModal > .overlay__content > .dialog .dialog-content .sp_modal {
+  height: 8.5vh;
+}
 @media all and (max-width: 479px) {
   .dialogModal > .overlay__content > .dialog {
     border-radius: 0;
@@ -76,5 +81,9 @@
   }
   .dialogModal > .overlay__content > .dialog {
     height: 100%;
+  }
+  .dialogModal > .overlay__content > .dialog .dialog-content .pa_modal {
+    padding-left: 1em;
+    padding-right: 1em;
   }
 }

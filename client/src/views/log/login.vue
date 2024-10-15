@@ -146,7 +146,7 @@ export default {
   .login .content-right .logo {
     display: flex;
     justify-content: center;
-    padding-top: 1.2rem;
+    margin-top: 1.2rem;
   }
   .login .content-right .illust {
     display: block;

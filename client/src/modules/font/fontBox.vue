@@ -1,12 +1,12 @@
 <template>
-  <formBox icon="textAa" title="폰트 설정" @click="dialog = true">
-    <p>{{ selectedFontFamily }}</p>
+  <cardView icon="textAa" title="폰트 설정" @click="dialog = true">
+    <span>{{ selectedFontFamily }}</span>
     <fontDialog
       v-if="dialog"
       :dialog="dialog"
       @update:dialog="dialog = $event"
     />
-  </formBox>
+  </cardView>
 </template>
 <script>
 import { defineAsyncComponent } from "vue";

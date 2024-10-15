@@ -27,8 +27,8 @@
       :dialog="dialogVisible"
       @update:dialog="updateDialog"
     >
-      <titleArticle class="pa_24" title="Address Search" />
-      <formField class="pa_24" label="제목" v-model="newTabTitle" />
+      <titleArticle class="pa_modal" title="Address Search" />
+      <formField class="pa_modal" label="제목" v-model="newTabTitle" />
       <div class="dialog-actions">
         <buttonDefault
           class="width_100"

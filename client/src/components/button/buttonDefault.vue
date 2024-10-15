@@ -63,7 +63,7 @@ export default {
             break;
           case '24':
             styles = {
-              fontSize: '13px',
+              fontSize: '12px',
               padding: '8px',
               gap: '4px',
               borderRadius: '8px',

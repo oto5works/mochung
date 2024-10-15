@@ -4,14 +4,25 @@
       title="FIELDS OF EXPRESSION"
       content="Get an official Creative Cloud subscription. When you make a payment"
     >
-    <template #slot>
-      <toggleSwitch v-model="imageGallery.fnImage" />
-    </template>
-      <buttonDefault variant="tonal" height="32" @click="toggleSwitch">
+      <template #slot>
+        <toggleSwitch v-model="imageGallery.fnImage" />
+      </template>
+      <buttonDefault
+        v-if="imageGallery.files.length > 0"
+        variant="tonal"
+        height="32"
+        @click="toggleSwitch"
+      >
         <checkbox v-model="handle" :clickEvent="false" />
         <span>순서 변경</span>
       </buttonDefault>
     </titleArticle>
+    <enableImage v-if="imageGallery.files.length === 0">
+      <buttonDefault variant="filled" height="40" @click="triggerFileInput">
+        <span>이미지 업로드</span>
+      </buttonDefault>
+    </enableImage>
+
     <input
       ref="fileInput"
       type="file"
@@ -23,6 +34,7 @@
     <!-- Display file URL -->
 
     <SlickList
+      v-if="imageGallery.files.length > 0"
       class="slicklist__wrap"
       axis="xy"
       :list="imageGallery.files"
@@ -83,6 +95,7 @@ import plus from "@/components/icon/plus.vue";
 import dots from "@/components/icon/dots.vue";
 import trash from "@/components/icon/trash.vue";
 import magicWand from "@/components/icon/magicWand.vue";
+import enableImage from "@/components/enable/enableImage.vue";
 
 import { SlickList, SlickItem, DragHandle } from "vue-slicksort";
 import { create } from "@/modules/doka/doka.esm.min.js"; // Update with the correct path
@@ -97,6 +110,7 @@ export default {
     dots,
     trash,
     magicWand,
+    enableImage,
   },
   computed: {
     ...mapGetters({
@@ -238,10 +252,10 @@ export default {
   height: 100%;
   font-size: 32px;
   font-weight: 700;
-  -webkit-user-select:none;
-  -moz-user-select:none;
-  -ms-user-select:none;
-  user-select:none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   background-color: rgba(var(--mio-theme-color-primary), 0.4);
   color: rgb(var(--mio-theme-color-on-primary));
 }

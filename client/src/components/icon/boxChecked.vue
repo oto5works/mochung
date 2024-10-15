@@ -3,5 +3,11 @@
 	C32,51.1,51.1,32,74.7,32z"
   fill="currentColor" stroke="none"
   />
-<path d="M85.3,132l28,28l64-64"/>
+<path class="checked" d="M85.3,132l28,28l64-64"/>
 </template>
+
+<style scoped>
+.checked {
+  stroke: rgb(var(--mio-theme-color-on-primary));
+}
+</style>

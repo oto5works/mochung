@@ -18,29 +18,11 @@
       </div>
 
       <div class="layer-3" v-if="formOption">
-        <form1NavDesktop v-if="formOption === 'form1'" />
-        <form2NavDesktop v-if="formOption === 'form2'" />
-        <!--
-      <sidebar
-        title="Components"
-        :selected="currentComponent"
-        :options="components"
-        @update:selected="handleUpdateSelected"
-      />
-
-   -->
-      </div>
-    </div>
-    <!--
-      <div
-        v-if="formOption"
-        class="form-preview"
-        ref="previewComponent"
-        :class="{ active: showPreview }"
-      >
+        <formNav_pc/>
         
       </div>
-      -->
+    </div>
+    <formButton />
   </div>
 </template>
 
@@ -53,6 +35,8 @@ import "@/views/form/form.scss";
 
 export default {
   components: {
+    formButton: defineAsyncComponent(() => import("@/views/form/formButton/formButton.vue")),
+
     preview: defineAsyncComponent(() => import("@/preview/preview.vue")),
     formOption: defineAsyncComponent(() =>
       import("@/views/form/formOption/formOption.vue")
@@ -60,11 +44,8 @@ export default {
 
     // form1
     form1: defineAsyncComponent(() => import("@/views/form/form1/form1.vue")),
-    form1NavDesktop: defineAsyncComponent(() =>
-      import("@/views/form/form1/form1NavDesktop.vue")
-    ),
-    form1NavMobile: defineAsyncComponent(() =>
-      import("@/views/form/form1/form1NavMobile.vue")
+    formNav_pc: defineAsyncComponent(() =>
+      import("@/views/form/formNav/formNav_pc.vue")
     ),
 
     // form2

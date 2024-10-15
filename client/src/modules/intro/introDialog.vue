@@ -1,87 +1,40 @@
 <template>
-  <modalDialog
-    :dialog="dialog"
-    @update:dialog="updateDialog"
-    title="인사말"
-    :config="true"
-  >
-    <article>
-      <introTiptap 
-      v-if="shouldRenderTiptap"
+  <dialogModal :dialog="dialog" @update:dialog="updateDialog">
+    <div class="pa_modal">
+      <titleArticle
+        title="FIELDS 22OF EXPRESSION"
+        content="Get an official Creative Cloud subscription. When you make a payment"
       />
-    </article>
-
-    <article>
-      <buttonDefault
-        class="width_100 height_64 gap_18 --border-radius_24"
-        @click="this.appDialog = true"
-      >
-        <icon><envelope /></icon><span>인사말 예시</span>
-
-        <modalDialog
-          v-if="appDialog"
-          :dialog="appDialog"
-          @update:dialog="appDialog = $event"
-          title="인사말 예시"
-          :config="true"
-        >
-          <article>
-            <introOptions @update:dialog="updateAppDialog" />
-          </article>
-        </modalDialog>
-      </buttonDefault>
-    </article>
-
-  
-
-    <div class="dialog-actions">
-      <buttonText @click="updateDialog(false)">
-        <span>취소</span>
-      </buttonText>
-      <buttonDefault @click="updateDialog(false)">
-        <span>확인</span>
-      </buttonDefault>
+      <selectorTitle option="introData" />
+      <div class="sp_8" />
+      <tiptap v-model="introData.content" />
+      <div class="form-spacing" />
     </div>
-
-    <article v-if="tap === 'example'"></article>
-  </modalDialog>
+  </dialogModal>
 </template>
 <script>
-import { defineAsyncComponent } from "vue";
-import envelope from "@/components/icon/envelope";
-
+import { mapGetters } from "vuex";
+import tiptap from "@/components/tiptap/tiptap.vue";
+import selectorTitle from "@/components/selector/selectorTitle.vue";
 export default {
   components: {
-    envelope,
-    introTiptap: defineAsyncComponent(() =>
-      import("@/modules/intro/introTiptap.vue")
-    ),
-    introOptions: defineAsyncComponent(() =>
-      import("@/modules/intro/introOptions.vue")
-    ),
+    tiptap,
+    selectorTitle,
   },
   props: {
     dialog: { type: Boolean },
   },
-  data: function () {
-    return {
-      appDialog: false,
-      shouldRenderTiptap: true,
-    };
+  data() {
+    return {};
+  },
+  computed: {
+    ...mapGetters({
+      introData: "getIntroData",
+    }),
   },
   methods: {
     updateDialog(value) {
       this.$emit("update:dialog", value);
-    },
-    updateAppDialog(value) {
-      this.appDialog = value;
-      this.reloadTiptap()
-    },
-    reloadTiptap() {
-      this.shouldRenderTiptap = false;
-      this.$nextTick(() => {
-        this.shouldRenderTiptap = true;
-      });
     },
   },
 };

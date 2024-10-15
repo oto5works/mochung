@@ -310,6 +310,7 @@ const resetValue = {
     /*-- 설문조사 --*/
     surveyData: {
       fnSurvey: true,
+      fnColor: true,
       title: "Guest Survey",
       content: `
           <p>Hello everyone, I hope this message finds you well. I kindly ask that you confirm your attendance by July 29, 2023 (Saturday). Your timely response is important to help us finalize the arrangements.</p>
@@ -319,8 +320,11 @@ const resetValue = {
           <p>Thank you in advance for your cooperation. Best regards,</p>
         `,
       functions: {
+        fnInfo: false,
         fnRsvp: true,
-        fnInfo: true,
+
+        fnHost: true,
+        
         fnPal: true,
         fnFood: true,
         fnReceive: true,

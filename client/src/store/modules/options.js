@@ -30,11 +30,11 @@ export default {
       },
     ],
     form1TabOptions: [
-      { title: "디자인", value: "design", completed: false },
-      { title: "예식 정보", value: "wedding", completed: false },
-      { title: "주최자 정보", value: "host", completed: false },
-      { title: "갤러리", value: "gallery", completed: false },
-      { title: "추가 기능", value: "functions", completed: false },
+      { title: "디자인", value: "design" },
+      { title: "예식 정보", value: "wedding" },
+      { title: "주최자 정보", value: "host" },
+      { title: "갤러리", value: "gallery" },
+      { title: "추가 기능", value: "functions" },
     ],
     form2TabOptions: [
       { title: "메인화면", value: "home" },
@@ -510,10 +510,6 @@ export default {
         title: "프리텐다드",
       },
       {
-        value: "pretendardLight",
-        title: "프리텐다드 Light",
-      },
-      {
         value: "notoserif",
         title: "본고딕",
       },
@@ -688,16 +684,17 @@ export default {
       {
         value: "bubble",
         title: "말풍선 스타일",
-        info: "댓글 기능은 없지만, 로그인 후 작성할 경우 특별한 방식으로 강조됩니다."
+        info: "댓글 기능은 없지만, 로그인 후 작성할 경우 특별한 방식으로 강조됩니다.",
       },
     ],
     surveyFunctionOptions: {
-      fnRsvp: "참석 여부",
-      fnInfo: "게스트 정보",
-      fnPal: "동행인 유무",
-      fnFood: "식사 유무",
-      fnReceive: "청첩장 수령 여부",
-      fnMessage: "요청사항",
+      fnInfo: "성함과 연락처를 입력해주세요.",
+      fnHost: "어느 쪽 하객으로 참석하시겠습니까?",
+      fnRsvp: "참석 여부를 선택해주세요.",
+      fnPal: "동행인이 있을 경우 기재해주세요.",
+      fnFood: "식사 여부를 선택해주세요.",
+      fnReceive: "청첩장을 수령하시겠습니까?",
+      fnMessage: "하고 싶은 말을 남겨주세요.",
     },
     promptOptions: [
       { value: "soft", label: "부드러운" },

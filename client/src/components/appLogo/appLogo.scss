@@ -1,19 +1,25 @@
-.appLogo svg {
-  display: none;
+.logo svg {
+  height: 100%;
+  width: auto;
 }
-.appbar_pc .appName {
+.appbar_pc .logo,
+.login .logo {
+  height: 2.2rem;
   font-size: 1.6rem;
 }
-.login .content-right .appName {
-  font-size: 1.4rem;
-}
-.appbar_mobile .appName,
-.login .content-left .appName,
-.appFooter .appName {
+.appbar_mobile .logo,
+
+.appFooter .logo {
+  height: 1.6rem;
   font-size: 1.25rem;
 }
-.appName {
+.login .content-left .logo,
+.login .content-right .logo {
+  height: 1.8rem;
+  font-size: 1.25rem;
+}
+.logo {
   letter-spacing: -0.01em;
-  font-weight: 800;
+  font-weight: 700;
   font-family: var(--mio-theme-font-family-sp);
 }

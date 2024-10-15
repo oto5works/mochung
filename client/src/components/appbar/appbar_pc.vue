@@ -4,31 +4,44 @@
       <div class="logo-container" @click="$router.push({ name: 'form' })">
         <appLogo />
       </div>
+
       <div class="menu-container">
-        <div class="menu-wrap">
-          <appbarButton
+        <div class="appbar-items">
+          <div
+            class="appbar-item"
             :class="{ selected: $route.name === 'collection' }"
-            @click="$router.push({ name: 'collection' })"
-            >Collection</appbarButton
+            @click="$router.push({ name: 'components' })"
           >
-          <appbarButton
+            <span>콜렉션</span>
+          </div>
+          <div
+            class="appbar-item"
             :class="{ selected: $route.name === 'form' }"
             @click="$router.push({ name: 'form' })"
-            >Form</appbarButton
           >
-          <appbarButton
+            <span>위시리스트</span>
+          </div>
+          <div
+            class="appbar-item"
             :class="{ selected: $route.name === 'components' }"
-            @click="$router.push({ name: 'components' })"
-            >Components</appbarButton
+            @click="$router.push({ name: 'collection' })"
           >
-
-          <div class="underlay" />
+            <span>계정</span>
+          </div>
         </div>
+
+       
       </div>
+
       <div class="login-container">
-        <buttonDefault variant="filled" height="32" @click="goToLogin()"
-          ><span>Login</span></buttonDefault
+        <div
+          class="appbarAuth"
+          :class="{ selected: userData.isAuthenticated }"
+          @click="handleLogin"
         >
+          <span v-if="userData.isAuthenticated">마이페이지</span>
+          <span v-else>로그인</span>
+        </div>
       </div>
     </div>
   </header>
@@ -37,13 +50,11 @@
 <script>
 import { mapGetters } from "vuex";
 import appLogo from "@/components/appLogo/appLogo.vue";
-import appbarButton from "@/components/appbar/appbarButton.vue";
 import "@/components/appbar/appbar.scss";
 
 export default {
   components: {
     appLogo,
-    appbarButton,
   },
   data() {
     return {
@@ -51,7 +62,9 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({}),
+    ...mapGetters({
+      userData: "getUserData",
+    }),
     currentRouteName() {
       return this.$route.name;
     },
@@ -60,23 +73,17 @@ export default {
     isSelected(routeName) {
       return this.currentRouteName === routeName;
     },
-    goToHome() {
-      this.$router.push({ name: "home" });
+    handleLogin() {
+      if (this.userData.isAuthenticated) {
+        this.$router.push({ name: "collection" });
+      } else {
+        this.$router.push({ name: "login" });
+      }
+      this.toggleFold();
     },
-    goToAbout() {
-      this.$router.push({ name: "about" });
-    },
-    goToCollection() {
-      this.$router.push({ name: "collection" });
-    },
-    goToForm() {
-      this.$router.push({ name: "form" });
-    },
-    goToComponents() {
-      this.$router.push({ name: "components" });
-    },
-    goToLogin() {
-      this.$router.push({ name: "login" });
+    handleLogout() {
+      this.$router.push({ name: "logout" });
+      this.toggleFold();
     },
   },
 };

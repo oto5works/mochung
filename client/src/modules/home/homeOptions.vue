@@ -98,7 +98,7 @@ export default {
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  gap: 24px 16px ;
   width: 100%;
 }
 .fnOption-item {

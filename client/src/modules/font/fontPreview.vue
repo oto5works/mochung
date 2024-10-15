@@ -1,33 +1,41 @@
 <template>
-  <div class="--text-align --font-color">
-    <div class="--font-size_28 --font-weight">{{ selectedFontFamily }}</div>
-    <div class="--font-size_14">
+  <div class="fontPreview">
+    <div class="title">{{ selectedFontFamily }}</div>
+    <div class="sp_12" />
+    <div class="content">
       다람쥐 헌 쳇바퀴에 타고파<br />The quick brown fox jumps over the lazy dog
     </div>
     <div class="sp_24" />
-    <div class="flex justify-content_center">
+    <div class="display_flex justify-content_center">
       <div class="fontAlign">
-        <buttonSelect
-        class="left"
+        <buttonDefault
+          variant="text"
+          height="32"
+          :icon="true"
           :class="{ selected: customData.align === 'left' }"
           @click="customData.align = 'left'"
-        >
-          <icon><left /></icon>
-        </buttonSelect>
-        <buttonSelect
-        class="center"
+          ><icon class="icon_16"><left /></icon
+        ></buttonDefault>
+       
+        <buttonDefault
+          variant="text"
+          height="32"
+          :icon="true"
           :class="{ selected: customData.align === 'center' }"
           @click="customData.align = 'center'"
-        >
-          <icon><center /></icon>
-        </buttonSelect>
-        <buttonSelect
-        class="right"
+          ><icon class="icon_16"><center /></icon
+        ></buttonDefault>
+
+        <buttonDefault
+          variant="text"
+          height="32"
+          :icon="true"
           :class="{ selected: customData.align === 'right' }"
           @click="customData.align = 'right'"
-        >
-          <icon><right /></icon>
-        </buttonSelect>
+          ><icon class="icon_16"><right /></icon
+        ></buttonDefault>
+
+      
       </div>
     </div>
   </div>
@@ -64,7 +72,7 @@ export default {
 <style scoped>
 .fontAlign {
   display: flex;
-  width: 120px;
+  gap: 8px;
 }
 .fontAlign button {
   padding: 0;
@@ -75,13 +83,20 @@ export default {
   justify-content: center;
   gap: unset;
 }
-.fontAlign .left {
-  border-radius: var(--border-radius-24) 0 0 var(--border-radius-24);
+.fontPreview {
+  background-color: rgb(var(--background-color));
+  padding: 24px;
 }
-.fontAlign .center {
-  border-radius: 0;
+.title {
+  font-family: var(--font-family);
+  font-size: var(--font-size_24);
+  font-weight: var(--font-weight_700);
+  text-align: var(--text-align);
 }
-.fontAlign .right {
-  border-radius: 0 var(--border-radius-24) var(--border-radius-24) 0;
+.content {
+  font-family: var(--font-family);
+  font-size: var(--font-size_13);
+  font-weight: var(--font-weight_400);
+  text-align: var(--text-align);
 }
 </style>

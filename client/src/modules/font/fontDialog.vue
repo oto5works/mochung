@@ -1,22 +1,23 @@
 <template>
-  <modalDialog
-    :dialog="dialog"
-    @update:dialog="updateDialog"
-    title="구성요소 설정"
-    :config="true"
-  >
-    <article>
+  <dialogModal :dialog="dialog" @update:dialog="updateDialog">
+    <div class="pa_modal">
+      <titleArticle
+        title="폰트 설정"
+      />
+    </div>
+
+    <div class="pa_modal">
       <fontPreview />
-    </article>
-    <article>
+    </div>
+    
+
+   
+
       <fontFamilyBox />
       <fontColor />
       <fontSize />
       <fontWeight />
-    </article>
-
    
-
 
     <div class="dialog-actions">
       <buttonText @click="updateDialog(false)">
@@ -26,9 +27,7 @@
         <span>확인</span>
       </buttonDefault>
     </div>
-
-
-  </modalDialog>
+  </dialogModal>
 </template>
 <script>
 import fontPreview from "@/modules/font/fontPreview.vue";

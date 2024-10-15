@@ -1,13 +1,13 @@
 <template>
   <dialogModal :dialog="dialog" @update:dialog="updateDialog">
-    <div class="pa_24">
+    <div class="pa_modal">
       <titleArticle
         title="FIELDS 22OF EXPRESSION"
         content="Get an official Creative Cloud subscription. When you make a payment"
       />
     </div>
 
-    <div class="pa_24">
+    <div class="pa_modal">
       <commentSwitch />
       <enableView
         class="selected"
@@ -17,7 +17,7 @@
       />
     </div>
 
-    <div v-if="commentData.fnComment" class="pa_24">
+    <div v-if="commentData.fnComment" class="pa_modal">
       <div class="form-spacing" />
       <titleSection title="추천 문구" />
       <selectorTitle option="commentData" />

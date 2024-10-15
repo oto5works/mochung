@@ -1,7 +1,7 @@
 <template>
   <div class="ui-page formOption">
     <titlePage
-      title="Create at"
+      title="Select an Invitation Design for You"
       content="Our premium space puts brands in front of the world’s most influential audiences, generating more attention than any other digital platform."
     />
     <div class="ui-grid">

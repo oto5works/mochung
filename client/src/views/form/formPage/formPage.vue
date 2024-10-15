@@ -95,7 +95,6 @@ export default {
         (tab) => tab.value === this.section
       );
       const previousTab = this.form1TabOptions[currentIndex - 1].value;
-      this.updateTabCompletionStatus(this.section, false); // Set current tab completion status to false
       this.updateSection(previousTab);
       window.scrollTo(0, 0); // Scroll to the top of the window
     },
@@ -104,15 +103,8 @@ export default {
         (tab) => tab.value === this.section
       );
       const nextTab = this.form1TabOptions[currentIndex + 1].value;
-      this.updateTabCompletionStatus(this.section, true); // Set current tab completion status to false
       this.updateSection(nextTab);
       window.scrollTo(0, 0); // Scroll to the top of the window
-    },
-    updateTabCompletionStatus(tabValue, status) {
-      const tabIndex = this.form1TabOptions.findIndex(
-        (tab) => tab.value === tabValue
-      );
-      this.form1TabOptions[tabIndex].completed = status;
     },
   },
 };

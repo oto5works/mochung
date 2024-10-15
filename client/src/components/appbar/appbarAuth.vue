@@ -1,20 +1,33 @@
 <template>
   <div class="appbarAuth">
     <div class="content">
+      <!--
       <button class="thumb" :class="{ selected: userData.isAuthenticated }" @click="handleAuth">
         <component :is="randomComponent" />
       </button>
+-->
+<!--
       <span v-if="userData.isAuthenticated" @click="handleArchive">
         <span class="font-size_16 font-weight_700">{{ userInfo.provider }}</span
         ><br />
         <span class="font-size_12">{{ userInfo.email }}</span>
       </span>
+
       <span v-else>
         I'll
         <span class="text-decoration_underline" @click="handleLogin"
           >Sign Up / Sign in</span
         ><br />Check out more benefits
       </span>
+-->
+<div v-if="userData.isAuthenticated" @click="handleArchive">
+        
+        <span>{{ userInfo.email }}</span>
+      </div>
+
+      <div v-else>
+      <span>로그인</span> 
+      </div>
     </div>
 
     <buttonDefault

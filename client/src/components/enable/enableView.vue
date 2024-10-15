@@ -48,11 +48,12 @@ export default {
   text-align: center;
 }
 .enableView .title {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
 }
 .enableView .content {
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 300;
   color: rgb(var(--mio-theme-color-on-background-70));
 }
 </style>

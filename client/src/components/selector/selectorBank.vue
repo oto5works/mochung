@@ -1,8 +1,8 @@
 <!-- selectorBank.vue -->
 <template>
   <dialogModal :dialog="dialog" @update:dialog="updateDialog">
-    <titleArticle class="pa_24" title="은행 선택" />
-    <formField class="pa_24" label="은행 검색" v-model="searchQuery">
+    <titleArticle class="pa_modal" title="은행 선택" />
+    <formField class="pa_modal" label="은행 검색" v-model="searchQuery">
       <buttonDefault variant="tonal" height="24" :icon="true"
         ><icon class="icon_14"><search /></icon
       ></buttonDefault>
@@ -10,7 +10,7 @@
 
     <div
       style="grid-template-columns: 1fr 1fr"
-      class="display_grid width_100 pa_24 gap_8"
+      class="display_grid width_100 pa_modal gap_8"
     >
       <buttonDefault
         variant="text"
@@ -41,9 +41,9 @@
       :dialog="dialogVisible"
       @update:dialog="closeDialog"
     >
-      <titleArticle class="pa_24" title="직접 입력" />
+      <titleArticle class="pa_modal" title="직접 입력" />
 
-      <formField class="pa_24" label="은행 이름" v-model="newBankTitle" />
+      <formField class="pa_modal" label="은행 이름" v-model="newBankTitle" />
       <div class="dialog-actions">
         <buttonDefault
           class="width_100"

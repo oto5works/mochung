@@ -1,7 +1,14 @@
+.appbar_mobile .appbar-content,
+.appbar_pc .appbar-items {
+  background-color: rgba(var(--mio-theme-color-primary), 0.06);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
 .appbar_pc .logo-container .logo,
 .appbar_mobile .container .logo {
   letter-spacing: -0.01em;
-  font-weight: 800;
+  font-weight: 700;
   font-family: var(--mio-theme-font-family-sp);
 }
 .appbar_pc {
@@ -42,27 +49,6 @@
   display: flex;
   align-items: center;
 }
-.appbar_pc .menu-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  width: fit-content;
-  height: 48px;
-}
-.appbar_pc .menu-wrap > .underlay {
-  position: absolute;
-  content: "";
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: calc(100% + 48px);
-  height: 100%;
-  border-radius: 16px;
-  background-color: rgba(244, 244, 238, 0.72);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-}
 .appbar_pc .login-container {
   grid-column: 12 / 13; /* 12번 컬럼 */
   display: flex;
@@ -73,38 +59,54 @@
   width: 100%;
   height: 40px;
 }
-
-/*-- appbar Button --*/
-.appbarButton {
-  position: relative;
-  height: 32px;
+.appbar-items {
   display: flex;
   align-items: center;
-  border-radius: 12px;
-  transition: all 0.4s ease-in-out;
-  font-size: 14px;
+  gap: 48px;
+  height: 52px;
+  padding: 0 42px;
+  border-radius: 16px;
 }
-.appbarButton.selected {
+.appbar-items .appbar-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.appbar-items .appbar-item:hover {
   font-weight: 500;
 }
-.appbarButton .underlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: calc(100% + 36px);
-  height: 100%;
-}
-.appbarButton:hover .underlay {
-  background-color: rgb(var(--mio-theme-color-primary-10));
-}
-.appbarButton.selected .underlay {
-  background-color: rgb(var(--mio-theme-color-primary-20));
+.appbar-items .appbar-item.selected {
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .appbar_mobile {
   display: none;
 }
+.appbarAuth {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgb(var(--mio-theme-color-primary));
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+.appbarAuth.selected {
+  background-color: rgb(var(--mio-theme-color-primary));
+  color: rgb(var(--mio-theme-color-on-primary));
+}
+
 @media all and (max-width: 479px) {
   .appbar_pc {
     display: none;
@@ -123,19 +125,12 @@
   }
   .appbar_mobile .appbar-content {
     position: relative;
-    border-radius: 12px;
+    border-radius: 16px;
     width: 100%;
     height: 100%;
-    background-color: rgba(244, 244, 238, 0.72);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-
   }
   .appbar_mobile .appbar-content.isOpen {
-
-
   }
-
 
   .appbar_mobile .scrim {
     position: fixed;
@@ -154,7 +149,6 @@
     width: 100%;
     height: 56px;
     padding: 0 8px 0 24px;
-    
   }
   .appbar_mobile .container .logo {
     font-size: 1.3rem;
@@ -167,46 +161,41 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 16px;
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
     opacity: 0;
     width: 100%;
-    padding-left: 8px; 
-    padding-right: 8px;
-      }
+  }
   .appbar_mobile .appbar-panel.isOpen {
-    padding-bottom: 16px;
+    padding: 24px 8px;
     max-height: 1000px; /* 콘텐츠를 모두 담을 수 있을 만큼 큰 값 */
     opacity: 1;
   }
 
+  .appbar-items {
+    flex-direction: column;
+    gap: 8px;
+    height: unset;
+    padding: 0;
+    background-color: unset;
+    backdrop-filter: unset;
+    -webkit-backdrop-filter: unset;
+  }
+  .appbar-items .appbar-item {
+    height: 56px;
+  }
+
   .appbarAuth {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 24px 16px;
-    border-radius: 18px;
-    background-color: rgb(var(--mio-theme-color-primary-20));
+    height: 56px;
   }
-  .appbarAuth .content {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    font-size: 14px;
+  .logout {
+    font-size: 12px;
+    text-decoration: underline;
+    width: 100%;
+    text-align: center;
+    margin-top: 16px;
     cursor: pointer;
-  }
-  .appbarAuth .svgColor {
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-  .appbarAuth .svgColor svg {
-    width: 40px !important;
-    height: 40px !important;
   }
 }

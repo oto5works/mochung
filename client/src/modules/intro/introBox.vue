@@ -1,17 +1,16 @@
 <template>
-  <formBox
+  <cardView
     icon="envelope"
-    title="인사말"
-    :arrow="false"
+    title="인사말 설정"
+    content="Use this to set the title for the section where guests can send"
     @click="handleClickEvent"
   >
-    <p>{{ title.introData }}</p>
     <introDialog
       v-if="dialog"
       :dialog="dialog"
       @update:dialog="dialog = $event"
     />
-  </formBox>
+  </cardView>
 </template>
 <script>
 import { defineAsyncComponent } from "vue";
@@ -23,15 +22,15 @@ export default {
       import("@/modules/intro/introDialog.vue")
     ),
   },
-  computed: {
-    ...mapGetters({
-      title: "getTitle",
-    }),
-  },
   data() {
     return {
       dialog: false,
     };
+  },
+  computed: {
+    ...mapGetters({
+      introData: "getIntroData",
+    }),
   },
   methods: {
     ...mapActions(["handleScrollToAction"]),

@@ -1,19 +1,19 @@
 <template>
   <div>
-   <titleArticle
+    <titleArticle
       title="FIELDS OF EXPRESSION"
       content="Get an official Creative Cloud subscription. When you make a payment"
     >
-    <template #slot>
-      <toggleSwitch v-model="videoGallery.fnVideo" />
-    </template>
-    <button
-        class="gap_8"
-        @click="window.open('https://www.youtube.com', '_blank')"
-      >
-        <span style="color: rgb(55, 97, 251);" class="font-size_14 text-decoration_underline"
+      <template #slot>
+        <toggleSwitch v-model="videoGallery.fnVideo" />
+      </template>
+      <button class="gap_8" @click="openYouTube">
+        <span
+          style="color: rgb(55, 97, 251)"
+          class="font-size_14 text-decoration_underline"
           >Shortcut to YouTube</span
-        ><icon><logoYoutube /></icon>
+        >
+        <icon><logoYoutube /></icon>
       </button>
     </titleArticle>
 
@@ -32,6 +32,11 @@ export default {
     ...mapGetters({
       videoGallery: "getVideoGalleryData",
     }),
+  },
+  methods: {
+    openYouTube() {
+      window.open("https://www.youtube.com", "_blank");
+    },
   },
 };
 </script>

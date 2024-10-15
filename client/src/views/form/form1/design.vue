@@ -9,9 +9,13 @@
     <temp />
     <div class="form-spacing" />
     <div class="editor-content">
-
-    <geminiBox />
+      <geminiBox />
     </div>
+    <titleArticle title="Design Title" />
+    <div class="editor-content">
+      <fontBox />
+    </div>
+
     <titleArticle title="Article Title" />
     <div class="editor-content">
       <homeBox />
@@ -35,6 +39,7 @@ import homeBox from "@/modules/home/homeBox";
 import homeColor from "@/modules/home/homeColor";
 import homeFileBox from "@/modules/homeFile/homeFileBox.vue";
 import geminiBox from "@/modules/gemini/geminiBox.vue";
+import fontBox from "@/modules/font/fontBox.vue";
 
 export default {
   components: {
@@ -43,6 +48,7 @@ export default {
     homeColor,
     homeFileBox,
     geminiBox,
+    fontBox,
   },
 };
 </script>

@@ -178,7 +178,7 @@ export default {
 }
 .illustCoffee .steam {
   stroke: #000000;
-  stroke-width: 1.2;
+  stroke-width: 1;
 }
 .illustCoffee .steam {
   position: absolute;
@@ -191,7 +191,7 @@ export default {
 }
 .illustCoffee .people .line {
   stroke: #000000;
-  stroke-width: 1.2;
+  stroke-width: 1;
 }
 .illustCoffee .people .white {
   stroke: #ffffff;

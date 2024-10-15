@@ -78,6 +78,7 @@ u {
   font-style: normal;
   font-weight: 800;
 }
+
 // 프리텐다드
 @font-face {
 	font-family: 'pretendard';
@@ -91,6 +92,23 @@ u {
 	font-family: 'suit';
 	font-weight: 100 900;
   src: url('#{$base-url}/font/suit-variable.woff2') format('woff2-variations');
+}
+// sourceserif
+@font-face {
+  font-family: "sourceserif";
+  src: url("#{$base-url}/font/sourceserif-variable.woff2")
+    format("woff2-variations");
+  font-style: normal;
+  font-weight: 200 900; /* 가변 폰트의 가중치 범위 */
+  font-display: swap;
+}
+@font-face {
+  font-family: "sourceserifitalic";
+  src: url("#{$base-url}/font/sourceserifitalic-variable.woff2")
+    format("woff2-variations");
+  font-style: normal;
+  font-weight: 200 900; /* 가변 폰트의 가중치 범위 */
+  font-display: swap;
 }
 // 본명조
 @font-face {

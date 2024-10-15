@@ -59,21 +59,21 @@ export default {
   position: relative;
   width: fit-content;
   gap: 8px;
-  margin-right: 24px;
+  margin-right: 32px;
   padding: 12px 0;
 }
 .tabThumb .thumb {
   position: relative;
-  width: 32px;
-  border-radius: 12px;
+  width: 28px;
+  border-radius: 10px;
   overflow: hidden;
 }
 .tabThumb span {
   color: rgb(var(--mio-theme-color-on-background-40));
-  font-size: 18px;
+  font-size: 15px;
 }
 .tabThumb.selected span {
   color: rgb(var(--mio-theme-color-primary));
-  font-weight: 700;
+  font-weight: 600;
 }
 </style>

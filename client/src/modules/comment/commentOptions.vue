@@ -8,7 +8,7 @@
       <commentCard
         :title="option.title"
         :info="option.info"
-        :class="{ selected: commentData.commentType === option.value }"
+        :selected="commentData.commentType === option.value"
         @click="updateCommentType(option.value)"
       />
     </div>

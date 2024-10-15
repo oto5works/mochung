@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "mo-chung",
+    "dev": "mo-chung"
+  },
+  "targets": {},
+  "etags": {}
+}
