@@ -487,101 +487,42 @@ export default {
       },
     ],
     fontColorOptions: [
-      { value: "#a6a998", title: "Sage" },
-      { value: "#c09a85", title: "Terracotta" },
-      { value: "#eee3d0", title: "Beach" },
-      { value: "#b99269", title: "Honey" },
-      { value: "#d27c60", title: "Adobe" },
-      { value: "#b47250", title: "Sienna" },
-      { value: "#ede7e7", title: "Salt" },
-      { value: "#e7dfd4", title: "Sand" },
-      { value: "#184b44", title: "Mauve" },
-      { value: "#ca8f73", title: "Khaki" },
-      { value: "#5f5e66", title: "Moon" },
-      { value: "#9e7653", title: "Carmel" },
-      { value: "#efebe0", title: "Stone" },
-      { value: "#c4bfb9", title: "Rain" },
-      { value: "#f0aa8a", title: "Salmon" },
-      { value: "#ea8760", title: "Peach" },
+      [166, 169, 152],
+      [192, 154, 133],
+      [238, 227, 208],
+      [185, 146, 105],
+      [210, 124, 96],
+      [180, 114, 80],
+      [237, 231, 231],
+      [231, 223, 212],
+      [24, 75, 68],
+      [202, 143, 115],
+      [95, 94, 102],
+      [158, 118, 83],
+      [239, 235, 224],
+      [196, 191, 185],
+      [240, 170, 138],
+      [234, 135, 96],
     ],
     fontFamilyOptions: [
-      {
-        value: "pretendard",
-        title: "프리텐다드",
-      },
-      {
-        value: "notoserif",
-        title: "본고딕",
-      },
-      {
-        value: "notoserifLight",
-        title: "본고딕 Light",
-      },
-      {
-        value: "maruburi",
-        title: "마루부리",
-      },
-      {
-        value: "maruburiLight",
-        title: "마루부리 Light",
-      },
-      {
-        value: "tmon",
-        title: "티몬체",
-      },
-      {
-        value: "jalnan",
-        title: "여기어때 잘난체 2",
-      },
-      {
-        value: "iropkebatang",
-        title: "이롭게 바탕체",
-      },
-      {
-        value: "pyeongchangpeace",
-        title: "평창 평화체",
-      },
-      {
-        value: "mapo",
-        title: "Mapo꽃섬 + Mapo금빛나루",
-      },
-      {
-        value: "hanamdaum",
-        title: "하남다움체",
-      },
-      {
-        value: "gmarketsans",
-        title: "지마켓 산스",
-      },
-      {
-        value: "gmarketsansLight",
-        title: "지마켓 산스 Light",
-      },
-      {
-        value: "bccard",
-        title: "BC카드",
-      },
-      {
-        value: "scoredream",
-        title: "에스코어 드림",
-      },
-      {
-        value: "scoredreamLight",
-        title: "에스코어 드림 Light",
-      },
-      {
-        value: "kimjungchulscript",
-        title: "김정철 손글씨",
-      },
-      {
-        value: "nanumsquare",
-        title: "나눔 스퀘어 네오",
-      },
+      { value: "pretendard", title: "프리텐다드" },
+      { value: "notoserif", title: "본고딕" },
+      { value: "gmarketsans", title: "지마켓 산스" },
+    ],
+    fontWeightOptions: [
+      { value: "light", title: "얇게" },
+      { value: "medium", title: "보통" },
+      { value: "bold", title: "굵게" },
+    ],
+    fontSizeOptions: [
+      { value: "1", title: "작게" },
+      { value: "2", title: "중간" },
+      { value: "3", title: "크게" },
     ],
     fontAlignOptions: [
-      { title: "좌측 정렬", value: "left" },
-      { title: "가운데 정렬", value: "center" },
-      { title: "우측 정렬", value: "right" },
+      { value: "left", title: "좌측 정렬" },
+      { value: "center", title: "가운데 정렬" },
+      { value: "right", title: "우측 정렬" },
     ],
     primaryColorOptions: [
       { value: "#E99460", title: "Apricot Crush" },
@@ -757,6 +698,12 @@ export default {
     },
     getFontFamilyOptions(state) {
       return state.fontFamilyOptions;
+    },
+    getFontWeightOptions(state) {
+      return state.fontWeightOptions;
+    },
+    getFontSizeOptions(state) {
+      return state.fontSizeOptions;
     },
     getFontAlignOptions(state) {
       return state.fontAlignOptions;

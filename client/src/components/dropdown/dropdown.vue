@@ -1,140 +1,44 @@
 <template>
-    <buttonDefault
-      class="dropdown"
-      variant="tonal"
-      height="32"
-      @click="toggleDialog"
-      :class="{ selected: dialog }"
-    >
-      <span v-if="editor.isActive('heading', { level: 6 })">Smaller</span>
-      <span v-else-if="editor.isActive('heading', { level: 5 })">Small</span>
-      <span v-else-if="editor.isActive('heading', { level: 4 })">Large</span>
-      <span v-else-if="editor.isActive('heading', { level: 3 })"
-        >Extra Large</span
-      >
-      <span v-else>Medium</span>
+  <div class="dropdown" @click="toggleDialog" :class="{ selected: dialog }">
+    <!-- 1번 선택된 항목을 표시하는 슬롯 -->
+    <slot name="selected"></slot>
 
-      <icon class="icon_16"><dropdown /></icon>
-
-
-<!-- list -->
-<div class="tooltipColor" v-click-outside="handleClickOutside">
-      <!-- Color picker button -->
-      <button class="color-wrap">
-        <div class="color-item umbrella">
-          <input
-            class="opacity_0"
-            @input="updateSelected($event)"
-            @click.stop
-            type="color"
-          />
-        </div>
-      </button>
-
-      <!-- Color options -->
-      <button
-        class="color-wrap"
-        v-for="(item, index) in options"
-        :key="index"
-        @click="selectColor(item)"
-        :class="{ selected: item.value === modelValue }"
-      >
-        <div class="color-item">
-          <span
-            v-for="(color, index) in getColorArray(item.value)"
-            :key="index"
-            :style="{ backgroundColor: color }"
-          ></span>
-        </div>
-      </button>
-    </Flicking>
+    <!-- 2번 드롭다운 리스트를 표시하는 부분 -->
+    <div class="items" v-if="dialog" v-click-outside="handleClickOutside">
+      <slot name="items"></slot>
+    </div>
   </div>
-<!-- list -->
-
-
-    </buttonDefault>
 </template>
 
 <script>
-import "@/components/tiptap/tiptap.scss";
-
-import dropdown from "@/components/icon/dropdown.vue";
-
-
-
+import vClickOutside from "v-click-outside";
+const { bind, unbind } = vClickOutside.directive;
+import "@/components/dropdown/dropdown.scss";
 
 export default {
-  components: {
-    EditorContent,
-    dropdown,
-    textB,
-    textItalic,
-    textUnderline,
-    highlighter,
-    textSizeUp,
-    textSizeDown,
+  components: {},
+  directives: {
+    clickOutside: {
+      mounted(el, binding) {
+        bind(el, { value: binding.value });
+      },
+      beforeUnmount(el) {
+        unbind(el);
+      },
+    },
   },
-  props: {
-    modelValue: { type: String },
-  },
-  emits: ["update:modelValue"],
   data() {
     return {
-      editor: "",
-      dialog: false,
+      dialog: false, // 드롭다운 열림/닫힘 상태
     };
   },
-
   methods: {
-    handleEnterKey(event) {
-      event.preventDefault();
-      this.editor.chain().focus().createParagraphNear().run();
+    toggleDialog() {
+      this.dialog = !this.dialog; // 드롭다운 열고 닫기
     },
-    toggleDialog(event) {
-      event.stopPropagation();
-      this.dialog = !this.dialog;
+    handleClickOutside() {
+      this.dialog = false; // 외부 클릭 시 드롭다운 닫기
     },
-    hideDialog() {
-      if (this.dialog) {
-        this.dialog = false;
-      }
-    },
-    setHeading(level) {
-      this.editor.commands.setHeading({ level });
-      this.hideDialog;
-    },
-    unsetHeading() {
-      this.editor.commands.setParagraph();
-      this.hideDialog;
-    },
-  },
-  mounted() {
-    window.document.addEventListener("click", this.hideDialog);
-
-    this.editor = new Editor({
-      extensions: [
-        document,
-        paragraph,
-        underline,
-        italic,
-        text,
-        bold,
-        highlight.configure({ multicolor: true }),
-        heading.configure({
-          levels: [1, 2, 3, 4, 5, 6],
-        }),
-      ],
-      content: this.modelValue,
-      onUpdate: () => {
-        this.$emit("update:modelValue", this.editor.getHTML());
-      },
-    });
-  },
-  beforeUnmount() {
-    window.document.removeEventListener("click", this.hideDialog);
-    if (this.editor) {
-      this.editor.destroy();
-    }
   },
 };
 </script>

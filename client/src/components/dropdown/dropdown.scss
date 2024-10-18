@@ -1,0 +1,56 @@
+
+/* dropdownButton */
+.dropdownButton {
+  width: fit-content;
+  justify-content: space-between;
+}
+.dropdownButton .arrow {
+  width: 16px;
+  height: 16px;
+  transition: all 0.2s ease-in-out;
+}
+.selected .dropdownButton .arrow {
+  transform: rotate(180deg);
+}
+
+/* dropdown */
+.dropdown {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+}
+.dropdown .items {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  min-width: 100%;
+  width: fit-content;
+  max-width: 240px;
+  color: rgb(var(--mio-theme-color-primary));
+  background-color: rgb(var(--mio-theme-color-on-primary));
+  padding: 4px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px -10px rgba(var(--mio-theme-color-primary),.3);
+  font-size: 13px;
+  z-index: 1000;
+  max-height: 240px;
+  overflow: scroll;
+}
+.dropdown .items li {
+  display: flex;
+  align-items: center;
+  color: rgb(var(--mio-theme-color-primary));
+  height: 32px;
+  border-radius: 8px;
+  padding: 0 6px;
+  white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
+
+}
+.dropdown .items li:hover {
+  background-color: rgb(var(--mio-theme-color-primary-20));
+}
+.dropdown .items li.selected {
+  background-color: rgb(var(--mio-theme-color-primary-40));
+}
+
+

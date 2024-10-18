@@ -144,7 +144,6 @@ const resetValue = {
       styleBackground: "defaulted", // defaulted, gradient
       backgroundColor: [255, 255, 255],
       design: "design1", // 디자인 스타일 design1: default, design2: card style, design3: line style
-      align: "center",
       primaryColor: [0, 0, 0], // rgb값
       radius: "0", // level: 0, 1, 2, 3
       border: false, // 객체의 border
@@ -153,6 +152,8 @@ const resetValue = {
       fontColor: [0, 0, 0], // rgb값
       fontFamily: "pretendard",
       fontWeight: "bold", // light, medium, bold
+      fontAlign: "center",
+
       stamp: "lily",
       /*-- add --*/
 

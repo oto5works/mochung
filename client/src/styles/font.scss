@@ -1,5 +1,22 @@
 // url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/TTTtangsbudaejjigaeB.woff2') format('woff2');
 $base-url: "https://oto5works.github.io/storage"; // 기본값
+// 폰트 리스트
+/*
+fontFamilyOptions: [
+  { value: "pretendard", title: "프리텐다드" },
+  { value: "notoserif", title: "본고딕" },
+     { value: "gmarketsans", title: "지마켓 산스" },
+  { value: "maruburi", title: "마루부리" },
+  { value: "tmon", title: "티몬체" },
+  { value: "jalnan", title: "여기어때 잘난체" },
+  { value: "iropkebatang", title: "이롭게 바탕체" },
+  { value: "hanamdaum", title: "하남다움체" },
+  { value: "bccard", title: "BC카드" },
+  { value: "scoredream", title: "에스코어 드림" },
+  { value: "kimjungchulscript", title: "김정철 손글씨" },
+  { value: "nanumsquare", title: "나눔 스퀘어 네오" },
+],
+*/
 
 h1,
 h2,
@@ -38,7 +55,6 @@ u {
 .font-weight_700 {
   font-weight: 700;
 }
-
 
 /* Cormorant Garamond Italic */
 @font-face {
@@ -81,17 +97,18 @@ u {
 
 // 프리텐다드
 @font-face {
-	font-family: 'pretendard';
-	font-weight: 45 920;
-	font-style: normal;
-	font-display: swap;
-	src: url('#{$base-url}/font/pretendard-variable.woff2') format('woff2-variations');
+  font-family: "pretendard";
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url("#{$base-url}/font/pretendard-variable.woff2")
+    format("woff2-variations");
 }
 // suit
 @font-face {
-	font-family: 'suit';
-	font-weight: 100 900;
-  src: url('#{$base-url}/font/suit-variable.woff2') format('woff2-variations');
+  font-family: "suit";
+  font-weight: 100 900;
+  src: url("#{$base-url}/font/suit-variable.woff2") format("woff2-variations");
 }
 // sourceserif
 @font-face {
@@ -127,14 +144,6 @@ u {
   font-weight: 100 900; /* 가변 폰트의 가중치 범위 */
   font-display: swap;
 }
-
-
-
-
-
-
-
-
 
 // 마루부리
 @font-face {

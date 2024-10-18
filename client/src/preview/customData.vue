@@ -21,22 +21,22 @@ export default {
 
     // primary-style
     const design = this.customData.design;
-    const align = this.customData.align;
     const radius = this.customData.radius;
     // const border = this.customData.border;
     // const shadow = this.customData.shadow;
     // const spacing = this.customData.fontFamily;
     const fontSize = this.customData.fontSize;
     const fontWeight = this.customData.fontWeight;
+    const fontAlign = this.customData.fontAlign;
 
     setDocumentAttribut("design", design);
-    setDocumentAttribut("align", align);
     setDocumentAttribut("radius", radius);
     // setDocumentAttribut('border', border);
     // setDocumentAttribut('shadow', shadow);
     // setDocumentAttribut("spacing", spacing);
     setDocumentAttribut("font-size", fontSize);
     setDocumentAttribut("font-weight", fontWeight);
+    setDocumentAttribut("font-align", fontAlign);
 
     // font-style
     const fontColor = this.customData.fontColor;
@@ -59,8 +59,7 @@ export default {
     "customData.primaryColor": (newValue) => setColorStyle("primary", newValue),
     "customData.backgroundColor": (newValue) =>
       setColorStyle("background", newValue),
-    // align
-    "customData.align": (newValue) => setDocumentAttribut("align", newValue),
+
     // radius
     "customData.radius": (newValue) => setDocumentAttribut("radius", newValue),
     // border
@@ -76,7 +75,8 @@ export default {
       setDocumentAttribut("font-size", newValue),
     "customData.fontWeight": (newValue) =>
       setDocumentAttribut("font-weight", newValue),
-
+    "customData.fontAlign": (newValue) =>
+      setDocumentAttribut("font-align", newValue),
     "customData.fontColor": (newValue) =>
       setDocumentProperty("font-color", newValue),
     homeColor: (newValue) => setDocumentProperty("home-color", newValue),

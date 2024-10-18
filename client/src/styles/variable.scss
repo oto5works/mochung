@@ -41,27 +41,7 @@ html[data-design-theme="design2"] {
 html[data-design-theme="design3"] {
 }
 
-/*--- align ---*/
-html[data-align-theme="left"] {
-  --text-align: left;
-  --justify-content: flex-start;
-  --align-items: flex-start;
-  // onInv Preview title max-width
-}
-html[data-align-theme="center"] {
-  --text-align: center;
-  --justify-content: center;
-  --align-items: center;
 
-  // onInv Preview title max-width
-}
-html[data-align-theme="right"] {
-  --text-align: right;
-  --justify-content: flex-end;
-  --align-items: flex-end;
-
-  // onInv Preview
-}
 
 /*--- border-radius ---*/
 html[data-radius-theme="0"] {
@@ -164,4 +144,25 @@ html[data-font-weight-theme="bold"] {
   --font-weight_400: 400;
   --font-weight_500: 500;
   --font-weight_700: 700;
+}
+/*--- align ---*/
+html[data-font-align-theme="left"] {
+  --text-align: left;
+  --justify-content: flex-start;
+  --align-items: flex-start;
+  // onInv Preview title max-width
+}
+html[data-font-align-theme="center"] {
+  --text-align: center;
+  --justify-content: center;
+  --align-items: center;
+
+  // onInv Preview title max-width
+}
+html[data-font-align-theme="right"] {
+  --text-align: right;
+  --justify-content: flex-end;
+  --align-items: flex-end;
+
+  // onInv Preview
 }

@@ -1,112 +1,57 @@
 <template>
-  <cardView icon="color" :title="title" @click="toggleDialog">
-    <div class="cardView-content">
-      <div class="color-item">
-        <span
-          v-for="(c, index) in colorArray"
-          :key="index"
-          :style="{ backgroundColor: c }"
-        ></span>
+  <Flicking
+    ref="flicking"
+    class="flicking-color"
+    :options="{ moveType: 'freeScroll', bound: true, align: 'prev' }"
+  >
+    <!-- Color picker button -->
+    <button class="color-wrap">
+      <div class="color-item umbrella">
+        <input
+          class="opacity_0"
+          @input="updateSelected($event)"
+          @click.stop
+          type="color"
+        />
       </div>
-      <span class="selectedColor">{{ selectedColor }}</span>
-    </div>
-    <tooltipColor
-      v-if="dialog"
-      :options="options"
-      v-model="color"
-      :dialog="dialog"
-      @update:dialog="handleDialogUpdate"
-    />
-  </cardView>
+    </button>
+
+    <!-- Color options -->
+    <button
+      class="color-wrap"
+      v-for="(item, index) in options"
+      :key="index"
+      @click="selectColor(item)"
+      :class="{ selected: item === modelValue }"
+    >
+      <div class="color-item">
+        <span :style="{ backgroundColor: `rgb(${item.join(',')})` }"></span>
+      </div>
+    </button>
+  </Flicking>
 </template>
 
 <script>
-import { defineAsyncComponent } from "vue";
-import color from "@/components/icon/color.vue";
+import Flicking from "@egjs/vue3-flicking";
+import "@/components/tooltip/tooltip.scss";
 
 export default {
-  components: {
-    color,
-    tooltipColor: defineAsyncComponent(() =>
-      import("@/components/tooltip/tooltipColor.vue")
-    ),
-  },
+  components: { Flicking },
   props: {
-    modelValue: {
-      type: [String, Array],
-      default: "#000000",
-    },
-    options: { type: Array },
-    title: { type: String, default: "Color Picker" },
+    modelValue: { type: [String, Array], default: "#A8D8EA" },
+    options: { type: Array, required: true },
   },
-  data() {
-    return {
-      dialog: false,
-      color: this.modelValue,
-    };
-  },
-  watch: {
-    modelValue(newVal) {
-      this.color = newVal;
-    },
-    color(newVal) {
-      this.$emit("update:modelValue", newVal);
-    },
-  },
-  computed: {
-    selectedColor() {
-      if (Array.isArray(this.color)) {
-        const selectedColor = this.options.find((option) =>
-          option.value.every((color) => this.color.includes(color))
-        );
-        return selectedColor ? selectedColor.title : this.color.join(", ");
-      } else {
-        const selectedColor = this.options.find(
-          (option) => option.value === this.color
-        );
-        return selectedColor ? selectedColor.title : this.color;
-      }
-    },
-    colorArray() {
-      return Array.isArray(this.color) ? this.color : [this.color];
-    },
-  },
+  emits: ["update:modelValue", "update:dialog"],
   methods: {
-    toggleDialog() {
-      this.dialog = !this.dialog;
+    selectColor(option) {
+      this.$emit("update:modelValue", option);
     },
-    handleDialogUpdate(value) {
-      this.dialog = value;
+    updateSelected(event) {
+      event.stopPropagation();
+      this.$emit("update:modelValue", event.target.value);
     },
   },
 };
 </script>
 
-<style scoped>
-.cardView-content {
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.color-item {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 1px solid rgba(var(--mio-theme-color-on-background), 0.1);
-  overflow: hidden;
-}
-.color-item span {
-  flex: 1 1 50%;
-}
-.selectedColor {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  word-break: break-all;
-}
-</style>
+<style scoped></style>
